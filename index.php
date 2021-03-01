@@ -6,58 +6,66 @@ use app\controller\controller_front;
 use app\controller\controller_back;
 
 try {
+	if (isset($_GET['action'])) {
+
 // PAGE INSCRIPTION
-	// on affiche le formulaire
-    if ($_GET['action'] == 'afficheSignup') { 
-        afficheSignup();        
-    }
-	// on traite le formulaire
-    elseif ($_GET['action'] == 'validSignup') {  
-        if ((isset($_POST['pseudo']) AND (strlen($_POST['pseudo']) != 0))) {
+		// on affiche le formulaire
+	    if ($_GET['action'] == 'afficheSignup') { 
+	        afficheSignup();        
+	    }
+		// on traite le formulaire
+	    elseif ($_GET['action'] == 'validSignup') {  
+	        if ((isset($_POST['pseudo']) AND (strlen($_POST['pseudo']) != 0))) {
 
-            if ((isset($_POST['pass']) == isset($_POST['pass_confirm']))) {
+	            if ((isset($_POST['pass']) == isset($_POST['pass_confirm']))) {
 
-                if ((isset($_POST['email']))) {
-                    $_POST['email'] = htmlspecialchars($_POST['email']);
-                
-                    if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email'])) {
-                        insert();
-                    }
-                    else {
-                        throw new Exception("L'adresse email n'est pas valide, recommencez. ", 1);
-                    }   
-                }
-                else {
-                    throw new Exception("Veuillez entrer une adresse email. ", 1);
-                }
-            }
-            else {
-                throw new Exception("Mots de passe différents. ", 1);
-            }
-        }
-        else {
-            throw new Exception("Veuillez saisir un pseudo. "); 
-        }
-    }
+	                if ((isset($_POST['email']))) {
+	                    $_POST['email'] = htmlspecialchars($_POST['email']);
+	                
+	                    if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email'])) {
+	                        insert();
+	                    }
+	                    else {
+	                        throw new Exception("L'adresse email n'est pas valide, recommencez. ", 1);
+	                    }   
+	                }
+	                else {
+	                    throw new Exception("Veuillez entrer une adresse email. ", 1);
+	                }
+	            }
+	            else {
+	                throw new Exception("Mots de passe différents. ", 1);
+	            }
+	        }
+	        else {
+	            throw new Exception("Veuillez saisir un pseudo. "); 
+	        }
+	    }
+
 // PAGE CONNEXION
-    // formulaire de connexion
-    if ($_GET['action'] == 'validSignin') {
-        // mdp ok avec mdp de la bdd donc on appelle fonction connect()
-        if (isset($_POST['pseudo']) AND isset($_POST['pass'])) {
-            connect(); 
-        }
-        else {
-            throw new Exception("Veuillez entrer votre pseudo.", 1);
-        }   
-    }
-    // page qui affiche le formulaire 
-    elseif ($_GET['action'] == 'afficheSignin') {
-        afficheSignin();
-    }
+	    // formulaire de connexion
+	    if ($_GET['action'] == 'validSignin') {
+	        // mdp ok avec mdp de la bdd donc on appelle fonction connect()
+	        if (isset($_POST['pseudo']) AND isset($_POST['pass'])) {
+	            connect(); 
+	        }
+	        else {
+	            throw new Exception("Veuillez entrer votre pseudo.", 1);
+	        }   
+	    }
+	    // page qui affiche le formulaire 
+	    elseif ($_GET['action'] == 'afficheSignin') {
+	        afficheSignin();
+	    }
+
 // PAGE DECONNEXION 
-    if ($_GET['action'] == 'validSignout') {
-        signout();    
-    }    	
+	    if ($_GET['action'] == 'validSignout') {
+	        signout();    
+	    } 
+	}
+	else {
+		echo "Ca ne fonctionne pas encore.";
+	}   	
 }
 catch(Exception $e) {
     require('view/errorView.php');

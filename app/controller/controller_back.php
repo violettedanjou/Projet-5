@@ -1,7 +1,8 @@
 <?php 
 namespace app\controller\controller_back;
 
-class controller {
+class controller 
+{
 	function insert() {
 		$memberManager = new MemberManager();
 		$pseudoExist = $memberManager->verifyPseudo($_POST['pseudo']);
