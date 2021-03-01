@@ -1,16 +1,17 @@
 <?php
 require "vendor/autoload.php";
+session_start();
 
-use app\controller\controller;
+use app\controller\controller_front;
+use app\controller\controller_back;
 
 try {
 // PAGE INSCRIPTION
-
-// on affiche le formulaire
+	// on affiche le formulaire
     if ($_GET['action'] == 'afficheSignup') { 
         afficheSignup();        
     }
-// on traite le formulaire
+	// on traite le formulaire
     elseif ($_GET['action'] == 'validSignup') {  
         if ((isset($_POST['pseudo']) AND (strlen($_POST['pseudo']) != 0))) {
 

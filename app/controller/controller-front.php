@@ -1,6 +1,6 @@
 <?php 
 
-namespace app\controller;
+namespace app\controller_front;
 
 class controller {
 	function test() {
