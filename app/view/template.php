@@ -44,6 +44,11 @@
 					</ul>
 				</nav>
 		</header>
+
+		<section>
+			<img id="banner" src="app/public/pictures/banner.jpg">
+		</section>
+
 			
 	   	<?= $content ?>
     </div>
