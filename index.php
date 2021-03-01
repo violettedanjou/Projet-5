@@ -64,11 +64,11 @@ try {
 	    } 
 	}
 	else {
-		echo "Ca ne fonctionne pas encore.";
+		require('app/view/template.php');
 	}   	
 }
 catch(Exception $e) {
-    require('view/errorView.php');
+    require('app/view/errorView.php');
 }
 
 
