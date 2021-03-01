@@ -4,13 +4,11 @@ namespace app\controller\controller_front;
 class controller {
 
 	function afficheSignup() {
-		require('view/SignupView.php');
+		require('app/view/SignupView.php');
 	}
 
 	function afficheSignin() {
-		require('view/signinView.php');
+		require('app/view/signinView.php');
 	}
 }
-
-
 ?>
