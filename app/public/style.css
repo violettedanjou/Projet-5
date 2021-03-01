@@ -1,4 +1,80 @@
-@font-face
+body
 {
-	font-family: 'Quicksand', sans-serif;
+	margin: 0px;
+	font-family: 'Quicksand', cursive;
+	font-weight: bold;
 }
+
+/* BARRE DE NAVIGATION */
+header
+{
+	position: fixed;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	top: 0;
+	background: #83B877;
+	border-radius: 0px 0px 5px 5px;
+	box-shadow: 0px 0px 7px #000000;
+}
+#div-logo a
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#logo
+{
+	height: 80px;
+	margin: 10px;
+}
+#p-logo
+{
+	color: #000000;
+	text-align: center;
+}
+#span-logo
+{
+	color: grey;
+}
+
+nav 
+{
+	display: flex;
+	align-items: center;
+}
+ul
+{
+	display: flex;
+	justify-content: space-around;
+}
+li, a
+{
+	margin: 5px;
+	list-style-type: none;
+	color: #ffffff;
+}
+li:hover 
+{
+	text-decoration: underline;
+}
+#a-session, a
+{
+	text-decoration: none;
+}
+
+
+/* BANNIERE */
+
+
+
+
+
+
+
+
+
+
+
+
+

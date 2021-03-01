@@ -11,7 +11,7 @@ try {
 // PAGE INSCRIPTION
 		// on affiche le formulaire
 	    if ($_GET['action'] == 'afficheSignup') { 
-	        afficheSignup();        
+	        afficheSignup(); 
 	    }
 		// on traite le formulaire
 	    elseif ($_GET['action'] == 'validSignup') {  

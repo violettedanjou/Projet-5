@@ -13,24 +13,24 @@
 <body>
     <div class="wrap">
         <header>
-		    	<div id="caledonia">
+		    	<div id="div-logo">
 		    		<a href="index.php">
-		    			<img src="app/public/pictures/logo.png" alt="Logo de l'emblème de la Nlle-Calédonie">
-						La Calédonienne <br/>
-						<span>Office de tourisme <br/> (Fictif) </span>
+		    			<img id="logo" src="app/public/pictures/logo.png" alt="Logo de l'emblème de la Nlle-Calédonie">
+						<p id="p-logo">La Calédonienne <br/>
+						<span id="span-logo">Office de tourisme <br/> (Fictif) </span></p>
 					</a>
 				</div>
 					
 				<nav>
 					<ul>
 						<?php if(isset($_SESSION['pseudo'])) { ?>	
-							<li class="li" id="button_deconnexion"><a href="index.php?action=validSignout">DÉCONNEXION</a></li>
-							<li class="li" id="button_profile"><a href="index.php?action=validProfile">COMPTE</a></li>
+							<li id="button_deconnexion"><a class="a-session" href="index.php?action=validSignout">DÉCONNEXION</a></li>
+							<li id="button_profile"><a class="a-session" href="index.php?action=validProfile">COMPTE</a></li>
 
 							<?php if($_SESSION['admin'] != 0) { ?>
-								<li class="li" id="button_activities"><a href="index.php?action=adminActivites">ACTIVITÉS</a></li>
-								<li class="li" id="button_hotels"><a href="index.php?action=adminHotels">HÔTELS</a></li>
-								<li class="li" id="button_opinions"><a href="index.php?action=adminOpinions">AVIS</a></li>
+								<li id="button_activities"><a class="a-session" href="index.php?action=adminActivites">ACTIVITÉS</a></li>
+								<li id="button_hotels"><a class="a-session" href="index.php?action=adminHotels">HÔTELS</a></li>
+								<li id="button_opinions"><a class="a-session" href="index.php?action=adminOpinions">AVIS</a></li>
 
 								<!-- <li class="li" id="button_admin"><a href="index.php?action=afficheAdmin">AVIS</a></li>-->
 							<?php }
@@ -38,8 +38,8 @@
 						
 						else { 
 						?> 
-							<li class="li" id="button_signup"><a href="index.php?action=afficheSignup">CRÉER UN COMPTE</a></li>
-							<li class="li" id="button_signin"><a href="index.php?action=afficheSignin">CONNEXION</a></li>
+							<li id="button_signup"><a class="a-session" href="index.php?action=afficheSignup">S'INSCRIRE</a></li>
+							<li id="button_signin"><a class="a-session" href="index.php?action=afficheSignin">SE CONNECTER</a></li>
 						<?php }?>
 					</ul>
 				</nav>
