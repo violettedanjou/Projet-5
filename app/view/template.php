@@ -24,7 +24,7 @@
 				<nav>
 					<ul>
 						<?php if(isset($_SESSION['pseudo'])) { ?>	
-							<li class="li" id="button_deconnexion"><a href="index.php?action=validDeconnexion">DÉCONNEXION</a></li>
+							<li class="li" id="button_deconnexion"><a href="index.php?action=validSignout">DÉCONNEXION</a></li>
 							<li class="li" id="button_profile"><a href="index.php?action=validProfile">COMPTE</a></li>
 
 							<?php if($_SESSION['admin'] != 0) { ?>
