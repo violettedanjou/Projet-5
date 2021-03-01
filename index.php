@@ -7,11 +7,11 @@ try {
 // PAGE INSCRIPTION
 
 // on affiche le formulaire
-    if ($_GET['action'] == 'afficheInscription') { 
-        afficheInscription();        
+    if ($_GET['action'] == 'afficheSignup') { 
+        afficheSignup();        
     }
 // on traite le formulaire
-    elseif ($_GET['action'] == 'validInscription') {  
+    elseif ($_GET['action'] == 'validSignup') {  
         if ((isset($_POST['pseudo']) AND (strlen($_POST['pseudo']) != 0))) {
 
             if ((isset($_POST['pass']) == isset($_POST['pass_confirm']))) {
