@@ -49,7 +49,8 @@ try {
 	    if ($_GET['action'] == 'validSignin') {
 	        // mdp ok avec mdp de la bdd donc on appelle fonction connect()
 	        if (isset($_POST['pseudo']) AND isset($_POST['pass'])) {
-	            connect(); 
+	            $insertMember = new controller_back();
+				$insertMember->connect(); 
 	        }
 	        else {
 	            throw new Exception("Veuillez entrer votre pseudo.", 1);
@@ -57,7 +58,8 @@ try {
 	    }
 	    // page qui affiche le formulaire 
 	    elseif ($_GET['action'] == 'afficheSignin') {
-	        afficheSignin();
+	        $insertMember = new controller_back();
+			$insertMember->afficheSignin();
 	    }
 
 // PAGE DECONNEXION 
