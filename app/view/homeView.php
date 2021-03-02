@@ -11,8 +11,5 @@
     <input type="submit" name="signup" value="S'INSCRIRE" id="button_signup">
 </form>
 
-<?php 
-
-$content = ob_get_clean();
-
+<?php $content = ob_get_clean();
 require('app/view/template.php'); ?>
