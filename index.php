@@ -11,7 +11,8 @@ try {
 // PAGE INSCRIPTION
 		// on affiche le formulaire
 	    if ($_GET['action'] == 'afficheSignup') { 
-	        afficheSignup(); 
+	        $testController = new controller_front();
+			$testController->afficheSignup();
 	    }
 		// on traite le formulaire
 	    elseif ($_GET['action'] == 'validSignup') {  

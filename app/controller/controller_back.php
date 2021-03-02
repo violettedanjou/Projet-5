@@ -1,5 +1,7 @@
 <?php 
 namespace app\controller\controller_back;
+require "vendor/autoload.php";
+use app\controller\controller_back;
 
 class controller_back
 {

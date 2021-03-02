@@ -1,6 +1,9 @@
 <?php 
 namespace app\controller\controller_front;
 
+require "vendor/autoload.php";
+use app\controller\controller_front;
+
 class controller_front
 {
 	function afficheSignup() {
