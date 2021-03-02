@@ -24,7 +24,8 @@ try {
 	                    $_POST['email'] = htmlspecialchars($_POST['email']);
 	                
 	                    if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email'])) {
-	                        insert();
+	                        $insertMember = new controller_back();
+							$insertMember->insert();
 	                    }
 	                    else {
 	                        throw new Exception("L'adresse email n'est pas valide, recommencez. ", 1);
