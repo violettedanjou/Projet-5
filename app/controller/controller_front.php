@@ -1,7 +1,7 @@
 <?php 
 namespace app\controller\controller_front;
 
-class controller 
+class controller_front
 {
 	function afficheSignup() {
 		require('app/view/signupView.php');

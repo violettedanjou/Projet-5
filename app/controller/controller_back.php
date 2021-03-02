@@ -1,7 +1,7 @@
 <?php 
 namespace app\controller\controller_back;
 
-class controller 
+class controller_back
 {
 	function insert() {
 		$memberManager = new MemberManager();
