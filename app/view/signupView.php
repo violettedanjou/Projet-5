@@ -12,5 +12,6 @@ ob_start(); ?>
 		<input type="submit" name="signup" value="S'INSCRIRE" id="button_signup">
 	</form>
 </div>
+
 <?php $content = ob_get_clean(); 
-require('template.php');
+require('app/view/template.php'); ?>

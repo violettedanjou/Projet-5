@@ -1,5 +1,6 @@
 <?php 
-namespace app\controller\controller_back;
+namespace app\controller;
+
 require "vendor/autoload.php";
 use app\controller\controller_back;
 

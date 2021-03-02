@@ -1,5 +1,5 @@
 <?php 
-namespace app\controller\controller_front;
+namespace app\controller;
 
 require "vendor/autoload.php";
 use app\controller\controller_front;
