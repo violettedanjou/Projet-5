@@ -64,7 +64,7 @@ try {
 	    } 
 	}
 	else {
-		require('app/view/template.php');
+		require('app/view/homeView.php');
 	}   	
 }
 catch(Exception $e) {
