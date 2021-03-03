@@ -12,6 +12,7 @@
 	<link href="app/public/style.css" rel="stylesheet" /> 
 	<title><?= $title ?></title>
 </head>
+
 <body>
     <div class="wrap">
         <header>
@@ -47,10 +48,7 @@
 				</nav>
 		</header>
 		
-		<section id="banner">
-			
-		</section>
-
+		
 			
 	   	<?= $content ?>
     </div>
