@@ -6,7 +6,8 @@ use app\controller\controller_back;
 
 class controller_back
 {
-	function insert() {
+	function insert() 
+	{
 		$memberManager = new MemberManager();
 		$pseudoExist = $memberManager->verifyPseudo($_POST['pseudo']);
     
@@ -18,7 +19,6 @@ class controller_back
 		}
 		else {
 			throw new Exception("Le pseudo est déjà utilisé. Essayez autre chose.", 1);
-	        ;
 		}
 	}
 	function connect() {
