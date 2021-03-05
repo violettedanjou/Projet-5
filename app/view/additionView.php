@@ -5,7 +5,7 @@ ob_start(); ?>
 <h1>Nouvelle activité</h1>
 
 <p class="btn_return_admin_page">
-	<a href="index.php?action=afficheAdmin">
+	<a href="index.php?action=openAdmin">
 		<i class="fas fa-arrow-left"></i>Retour
 	</a>
 </p>

@@ -10,9 +10,9 @@ try {
 
 // PAGE INSCRIPTION
 		// on affiche le formulaire
-	    if ($_GET['action'] == 'afficheSignup') { 
+	    if ($_GET['action'] == 'openSignup') { 
 	        $testController = new controller_front();
-			$testController->afficheSignup();
+			$testController->openSignup();
 	    }
 		// on traite le formulaire
 	    elseif ($_GET['action'] == 'validSignup') {  
@@ -57,9 +57,9 @@ try {
 	        }   
 	    }
 	    // page qui affiche le formulaire 
-	    elseif ($_GET['action'] == 'afficheSignin') {
+	    elseif ($_GET['action'] == 'openSignin') {
 	        $insertMember = new controller_front();
-			$insertMember->afficheSignin();
+			$insertMember->openSignin();
 	    }
 
 // PAGE DECONNEXION 
@@ -84,9 +84,9 @@ try {
 
 // PAGE ADMINISTRATION
 		// Afficher la page administration
-        if ($_GET['action'] == 'afficheAdmin') {
+        if ($_GET['action'] == 'openAdmin') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-                afficheAdmin();
+                openAdmin();
             }
             else {
                 throw new Exception("Cette partie est réservée à l'administrateur", 1);
@@ -95,7 +95,7 @@ try {
         // Afficher le formulaire pour ajouter nouvelle activité
         elseif ($_GET['action'] == 'openNewActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-               openFormActivity(); 
+               openNewActivity(); 
             }
             else {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);

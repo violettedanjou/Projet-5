@@ -30,18 +30,18 @@
 				<nav>
 					<ul>
 						<?php if(isset($_SESSION['pseudo'])) { ?>
-								<li id="button_profile"><a class="a-session" href="index.php?action=validProfile">COMPTE</a></li>	
+								<li id="button_profile"><a class="a-session" href="index.php?action=openProfile">COMPTE</a></li>	
 								<li id="button_signout"><a class="a-session" href="index.php?action=validSignout">DÉCONNEXION</a></li>	
-								
+
 						<?php if($_SESSION['admin'] != 0) { ?>
-								<li id="button_admin"><a href="index.php?action=afficheAdmin">ADMINISTRATION</a></li>
+								<li id="button_admin"><a href="index.php?action=openAdmin">ADMINISTRATION</a></li>
 						<?php }
 							}
 						
 						else { 
 						?> 
-							<li id="button_signup"><a class="a-session" href="index.php?action=afficheSignup">S'INSCRIRE</a></li>
-							<li id="button_signin"><a class="a-session" href="index.php?action=afficheSignin">SE CONNECTER</a></li>
+							<li id="button_signup"><a class="a-session" href="index.php?action=openSignup">S'INSCRIRE</a></li>
+							<li id="button_signin"><a class="a-session" href="index.php?action=openSignin">SE CONNECTER</a></li>
 						<?php }?>
 					</ul>
 				</nav>

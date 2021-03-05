@@ -6,14 +6,14 @@ use app\controller\controller_front;
 
 class controller_front
 {
-	function afficheSignup() {
+	function openSignup() {
 		require('app/view/signupView.php');
 	}
 
-	function afficheSignin() {
+	function openSignin() {
 		require('app/view/signinView.php');
 	}
-	function afficheAdmin() // Afficher la page d'administrateur
+	function openAdmin() // Afficher la page d'administrateur
 	{
 		$activityManager = new ActivitiesManager(); 
 	    $activities = $activityManager->getActivities();
