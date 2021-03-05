@@ -80,6 +80,40 @@ try {
             else {
                 throw new Exception("Aucun identifiant de l'activité envoyé", 1);   
             }
+        }
+
+// PAGE ADMINISTRATION
+		// Afficher la page administration
+        if ($_GET['action'] == 'afficheAdmin') {
+            if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+                afficheAdmin();
+            }
+            else {
+                throw new Exception("Cette partie est réservée à l'administrateur", 1);
+            } 
+        }
+        // Afficher le formulaire pour ajouter nouvelle activité
+        elseif ($_GET['action'] == 'openNewActivity') {
+            if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+               openFormActivity(); 
+            }
+            else {
+                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+            }
+        }
+        // Valider le formulaire pour ajouter nouvelle activité
+        if ($_GET['action'] == 'validNewPost') {
+            if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+                if (isset($_POST['title']) AND isset($_POST['content']) AND isset($_POST['picture']) {
+                addActivity();
+                }
+                else {
+                    throw new Exception("Veuillez ajouter un nouveau billet.", 1);
+                }
+            } 
+            else {
+                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);    
+            }      
         }	    
 	}
 	else {
