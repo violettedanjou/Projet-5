@@ -69,7 +69,29 @@ class controller_back
 
 	    require('app/view/activityView.php');
 	}
+	function addActivity() // Ajouter une nouvelle activité
+	{
+		$newActivityManager = new ActivitiesManager();
+		$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $_POST['picture']);
+
+		header('Location: index.php?action=openAdmin');
+	}
 }
 
 
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

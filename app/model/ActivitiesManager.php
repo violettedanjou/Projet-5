@@ -32,7 +32,7 @@ class ActivitiesManager extends Manager
             $_FILES["pictures"]["name"],
             $_FILES["pictures"]["type"],
         	$_FILES["pictures"]["size"],
-        	file_get_contents($_FILES["pictures"]["tmp_name"]);
+        	file_get_contents($_FILES["pictures"]["tmp_name"]); // file_get_contents() pour convertir en chaine de caractères
 
        return $addNewActivity;
     }

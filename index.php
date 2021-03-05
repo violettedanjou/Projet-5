@@ -92,7 +92,7 @@ try {
                 throw new Exception("Cette partie est réservée à l'administrateur", 1);
             } 
         }
-        // Afficher le formulaire pour ajouter nouvelle activité
+        // Afficher le formulaire d'ajout d'une nouvelle activité
         elseif ($_GET['action'] == 'openNewActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                openNewActivity(); 
@@ -101,7 +101,7 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         }
-        // Valider le formulaire pour ajouter nouvelle activité
+        // Valider le formulaire d'ajout d'une nouvelle activité
         if ($_GET['action'] == 'validNewPost') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['title']) AND isset($_POST['content']) AND isset($_POST['picture'])) {
