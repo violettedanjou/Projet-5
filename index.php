@@ -78,7 +78,7 @@ try {
                     activity();             
             }
             else {
-                throw new Exception("Aucun identifiant de billet envoyé", 1);   
+                throw new Exception("Aucun identifiant de l'activité envoyé", 1);   
             }
         }	    
 	}
