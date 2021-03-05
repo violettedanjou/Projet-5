@@ -6,11 +6,13 @@ use app\controller\controller_front;
 
 class controller_front
 {
-	function openSignup() {
+	function openSignup() // Afficher le formulaire d'inscription
+	{
 		require('app/view/signupView.php');
 	}
 
-	function openSignin() {
+	function openSignin() // Afficher le formulaire de connexion
+	{
 		require('app/view/signinView.php');
 	}
 	function openAdmin() // Afficher la page d'administrateur
@@ -22,6 +24,10 @@ class controller_front
 		$admin = $adminManager->reportAdmin();
 
 	    require('app/view/adminView.php');
+	}
+	function openNewActivity() // Afficher formulaire pour ajout de nouvelle activité
+	{
+		require('app/view/additionView.php');
 	}
 }
 ?>
