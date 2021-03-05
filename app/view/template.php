@@ -29,18 +29,14 @@
 					
 				<nav>
 					<ul>
-						<?php if(isset($_SESSION['pseudo'])) { ?>	
-							<li id="button_signout"><a class="a-session" href="index.php?action=validSignout">DÉCONNEXION</a></li>
-							<li id="button_profile"><a class="a-session" href="index.php?action=validProfile">COMPTE</a></li>
+						<?php if($_SESSION['admin'] != 0) { ?>
+								<li id="button_admin"><a href="index.php?action=afficheAdmin">ADMINISTRATION</a></li>
 
-							<?php if($_SESSION['admin'] != 0) { ?>
-								<li id="button_activities"><a class="a-session" href="index.php?action=adminActivites">ACTIVITÉS</a></li>
-								<li id="button_hotels"><a class="a-session" href="index.php?action=adminHotels">HÔTELS</a></li>
-								<li id="button_opinions"><a class="a-session" href="index.php?action=adminOpinions">AVIS</a></li>
-
-								<!-- <li class="li" id="button_admin"><a href="index.php?action=afficheAdmin">AVIS</a></li>-->
-							<?php }
-						}
+						<?php if(isset($_SESSION['pseudo'])) { ?>
+								<li id="button_profile"><a class="a-session" href="index.php?action=validProfile">COMPTE</a></li>	
+								<li id="button_signout"><a class="a-session" href="index.php?action=validSignout">DÉCONNEXION</a></li>	
+						<?php }
+							}
 						
 						else { 
 						?> 
