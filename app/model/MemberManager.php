@@ -2,7 +2,7 @@
 namespace app\model\MemberManager;
 
 require "vendor/autoload.php";
-use app\model\MemberManager;
+use app\model\Manager;
 
 class MemberManager extends Manager 
 {

@@ -1,8 +1,6 @@
 <?php
 namespace app\model\Manager;
 
-require "vendor/autoload.php";
-
 class Manager
 {
     protected function dbConnect()
