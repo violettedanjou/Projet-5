@@ -57,7 +57,7 @@ class controller_back
 	    $activityManager = new ActivitiesManager();
 	    $activities = $activityManager->getActivities();
 
-	    require('view/homeView.php');
+	    require('app/view/homeView.php');
 	}
 	function activity() // Afficher une activité en particulier
 	{
@@ -67,7 +67,7 @@ class controller_back
 	    $activity = $activityManager->getActivity($_GET['id']);
 	    $opinions = $opinionManager->pseudoAuthor($_GET['id']);
 
-	    require('view/activityView.php');
+	    require('app/view/activityView.php');
 	}
 }
 
