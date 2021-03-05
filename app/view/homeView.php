@@ -20,7 +20,7 @@
     <div class="container" id="block-activities">
         <div class="row">
             <div class="col">
-                <h1>VIVRE LA NOUVELLE CALEDONIE</h1>
+                <h1>VIVRE LA NOUVELLE CALEDONIE</h1> 
             </div>
         </div>
     </div>

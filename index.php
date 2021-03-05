@@ -108,13 +108,39 @@ try {
                 addActivity();
                 }
                 else {
-                    throw new Exception("Veuillez ajouter un nouveau billet.", 1);
+                    throw new Exception("Veuillez ajouter une nouvelle activité.", 1);
                 }
             } 
             else {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);    
             }      
-        }	    
+        }
+        // Afficher formulaire de modification d'une activité
+        elseif($_GET['action'] == 'openEdition') {
+            if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+               if (isset($_GET['id']) && $_GET['id'] > 0) {
+                editActivities();
+                }
+                else {
+                    throw new Exception("Aucun identifiant de billet envoyé.", 1);
+                } 
+            }
+            else {
+                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+            }
+        }
+        // Valider le formulaire de modification d'une activité
+        elseif ($_GET['action'] == 'validEdition') {
+            if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+               if (isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content']))) {
+                saveActivities();
+                } 
+            }
+            else {
+                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+            }
+        }        
+	    
 	}
 	else {
 		require('app/view/homeView.php');
