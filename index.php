@@ -66,6 +66,21 @@ try {
 	    if ($_GET['action'] == 'validSignout') {
 	        signout();    
 	    } 
+
+// LISTE DES ACTIVITES PAGE D'ACCUEIL
+        //affiche la listes des activités
+        elseif ($_GET['action'] == 'listActivities') {
+            listActivities(); 
+        }
+        // afficher une activité et ses avis
+        elseif ($_GET['action'] == 'activity') { 
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    activity();             
+            }
+            else {
+                throw new Exception("Aucun identifiant de billet envoyé", 1);   
+            }
+        }	    
 	}
 	else {
 		require('app/view/homeView.php');
