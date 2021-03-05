@@ -29,12 +29,12 @@
 					
 				<nav>
 					<ul>
-						<?php if($_SESSION['admin'] != 0) { ?>
-								<li id="button_admin"><a href="index.php?action=afficheAdmin">ADMINISTRATION</a></li>
-
 						<?php if(isset($_SESSION['pseudo'])) { ?>
 								<li id="button_profile"><a class="a-session" href="index.php?action=validProfile">COMPTE</a></li>	
 								<li id="button_signout"><a class="a-session" href="index.php?action=validSignout">DÉCONNEXION</a></li>	
+								
+						<?php if($_SESSION['admin'] != 0) { ?>
+								<li id="button_admin"><a href="index.php?action=afficheAdmin">ADMINISTRATION</a></li>
 						<?php }
 							}
 						
