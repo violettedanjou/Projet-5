@@ -32,8 +32,17 @@ class ActivitiesManager extends Manager
             $_FILES["pictures"]["name"],
             $_FILES["pictures"]["type"],
         	$_FILES["pictures"]["size"],
-        	file_get_contents($_FILES["pictures"]["tmp_name"]); // file_get_contents() pour convertir en chaine de caractères
+        	file_get_contents($_FILES["pictures"]["tmp_name"]))); // file_get_contents() pour convertir en chaine de caractères
 
        return $addNewActivity;
+    }
+    public function editActivity($activityId) // Récupération d'une activité pour la modifier
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT id, title, content, picture FROM activities WHERE id = ?');
+        $req->execute(array($activityId));
+        $editActivity = $req->fetch();
+
+        return $editActivity;
     }
 }

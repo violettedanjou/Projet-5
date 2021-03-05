@@ -119,7 +119,7 @@ try {
         elseif($_GET['action'] == 'openEdition') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                if (isset($_GET['id']) && $_GET['id'] > 0) {
-                editActivities();
+                openEdition();
                 }
                 else {
                     throw new Exception("Aucun identifiant de billet envoyé.", 1);

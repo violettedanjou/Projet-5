@@ -76,6 +76,14 @@ class controller_back
 
 		header('Location: index.php?action=openAdmin');
 	}
+	function editPosts() // Récupération d'une activité pour la modifier
+	{
+		
+		$editManager = new ActivitiesManager();
+	    $edit = $editManager->editActivity($_GET['id']);
+
+	    require('app/view/editionView.php');
+	}
 }
 
 
