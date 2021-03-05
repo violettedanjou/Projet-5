@@ -135,6 +135,9 @@ try {
                if (isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content'])) && (isset($_POST['picture']))) {
                 saveActivity();
                 } 
+                else {
+                	throw new Exception("Veuillez remplir des champs.", 1);
+                }
             }
             else {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);

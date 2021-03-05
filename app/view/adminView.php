@@ -17,7 +17,6 @@ while ($data = $activities->fetch())
 	        <h3>
 	        	<a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
 	            	<?= htmlspecialchars($data['title']) ?>
-	            	<em>le <?= $data['creation_date_fr'] ?></em>
 	            </a>
 	        </h3>
 	        <?= nl2br($data['content']) ?> <br/>
