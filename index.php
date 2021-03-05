@@ -104,7 +104,7 @@ try {
         // Valider le formulaire pour ajouter nouvelle activité
         if ($_GET['action'] == 'validNewPost') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-                if (isset($_POST['title']) AND isset($_POST['content']) AND isset($_POST['picture']) {
+                if (isset($_POST['title']) AND isset($_POST['content']) AND isset($_POST['picture'])) {
                 addActivity();
                 }
                 else {

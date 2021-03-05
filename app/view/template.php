@@ -30,7 +30,7 @@
 				<nav>
 					<ul>
 						<?php if(isset($_SESSION['pseudo'])) { ?>	
-							<li id="button_deconnexion"><a class="a-session" href="index.php?action=validSignout">DÉCONNEXION</a></li>
+							<li id="button_signout"><a class="a-session" href="index.php?action=validSignout">DÉCONNEXION</a></li>
 							<li id="button_profile"><a class="a-session" href="index.php?action=validProfile">COMPTE</a></li>
 
 							<?php if($_SESSION['admin'] != 0) { ?>

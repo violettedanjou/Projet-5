@@ -2,7 +2,7 @@
 namespace app\model\OpinionsManager;
 
 require "vendor/autoload.php";
-use app\model\OpinionsManager;
+use app\model\Manager;
 
 class OpinionsManager extends Manager 
 {

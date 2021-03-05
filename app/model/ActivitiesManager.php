@@ -2,7 +2,7 @@
 namespace app\model\ActivitiesManager;
 
 require "vendor/autoload.php";
-use app\model\ActivitiesManager;
+use app\model\Manager;
 
 class ActivitiesManager extends Manager 
 {

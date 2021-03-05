@@ -67,7 +67,7 @@ ul
 	display: flex;
 	justify-content: space-around;
 }
-#button_signup, #button_signin, a
+#button_signup, #button_signin, #button_signout, #button_profile, #button_activities, #button_hotels, #button_opinions, a
 {
 	margin: 5px;
 	list-style-type: none;
