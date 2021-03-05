@@ -2,7 +2,7 @@
 
 ob_start(); ?>
 
-<h1>Nouveau activité</h1>
+<h1>Nouvelle activité</h1>
 
 <p class="btn_return_admin_page">
 	<a href="index.php?action=afficheAdmin">
@@ -20,7 +20,6 @@ ob_start(); ?>
 </div>
 
 
-
 <?php $content = ob_get_clean(); 
-require('template.php');
+require('app/view/template.php');
 ?>
