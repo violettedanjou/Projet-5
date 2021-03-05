@@ -10,7 +10,7 @@ class MemberManager extends Manager
     public function insertMember($pseudo, $pass, $email) // inscription
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('INSERT INTO membres(pseudo, pass, email, registration_date) VALUES(:pseudo, :pass, :email, CURDATE())');
+        $req = $db->prepare('INSERT INTO members(pseudo, pass, email, registration_date) VALUES(:pseudo, :pass, :email, CURDATE())');
         $req->execute(array(
             'pseudo' => $pseudo,
             'pass' => password_hash($pass, PASSWORD_DEFAULT),
@@ -19,7 +19,7 @@ class MemberManager extends Manager
     public function verifyPseudo($pseudo) // Vérification du pseudo existant
     {
         $db = $this->dbConnect();
-        $req = $db->query("SELECT pseudo FROM membres WHERE pseudo = '" . $pseudo . "'"); 
+        $req = $db->query("SELECT pseudo FROM members WHERE pseudo = '" . $pseudo . "'"); 
         $req->execute();
 
         return $req;
@@ -28,7 +28,7 @@ class MemberManager extends Manager
     public function connectMember($pseudo) //  Récupération de l'utilisateur déjà inscrit 
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT pseudo, pass, id, admin FROM membres WHERE pseudo = :pseudo');
+        $req = $db->prepare('SELECT pseudo, pass, id, admin FROM members WHERE pseudo = :pseudo');
         $req->execute(array(
             'pseudo' => $pseudo));
 
