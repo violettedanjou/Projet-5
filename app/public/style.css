@@ -103,8 +103,13 @@ a.a-session:hover
 {
 	font-family: 'Single Day', cursive;
 	top: 200px;
+	margin-bottom: 40px;
 }
-
+.p-legend
+{
+	text-align: justify;
+	color: #5E5E5E;
+}
 
 /* SE CONNECTER */
 #section-signin, #section-signup
