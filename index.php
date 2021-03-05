@@ -116,10 +116,10 @@ try {
             }      
         }
         // Afficher formulaire de modification d'une activité
-        elseif($_GET['action'] == 'openEdition') {
+        elseif($_GET['action'] == 'openChange') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                if (isset($_GET['id']) && $_GET['id'] > 0) {
-                openEdition();
+                openChange();
                 }
                 else {
                     throw new Exception("Aucun identifiant de billet envoyé.", 1);
@@ -130,10 +130,10 @@ try {
             }
         }
         // Valider le formulaire de modification d'une activité
-        elseif ($_GET['action'] == 'validEdition') {
+        elseif ($_GET['action'] == 'validChange') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-               if (isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content']))) {
-                saveActivities();
+               if (isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content'])) && (isset($_POST['picture']))) {
+                saveActivity();
                 } 
             }
             else {

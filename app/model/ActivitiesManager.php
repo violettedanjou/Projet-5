@@ -36,13 +36,35 @@ class ActivitiesManager extends Manager
 
        return $addNewActivity;
     }
-    public function editActivity($activityId) // Récupération d'une activité pour la modifier
+    public function changeActivity($activityId) // Récupération d'une activité pour la modifier
     {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT id, title, content, picture FROM activities WHERE id = ?');
         $req->execute(array($activityId));
-        $editActivity = $req->fetch();
+        $changeActivity = $req->fetch();
 
-        return $editActivity;
+        return $changeActivity;
+    }
+    public function modifActivity($id, $title, $content, $picture) // Modification d'une activité
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE activities SET title = ?, content = ?, picture = ? WHERE id = ?');
+        $req->execute(array($title, $content, $picture, $id));
+
+        return $req;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

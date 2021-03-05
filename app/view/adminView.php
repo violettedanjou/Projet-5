@@ -12,7 +12,7 @@ while ($data = $activities->fetch())
     	<em><a href="index.php?action=openNewActivity?>">Ajouter</a></em>
 
     	<div>
-    		<em><a class="link-edit" href="index.php?action=openEdition&amp;id=<?= $data['id'] ?>">Modifier</a></em>
+    		<em><a class="link-edit" href="index.php?action=openChange&amp;id=<?= $data['id'] ?>">Modifier</a></em>
 
 	        <h3>
 	        	<a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
