@@ -180,8 +180,16 @@ a.a-session:hover
 
 
 
-
-
+/* FOOTER */
+footer
+{
+	padding: 20px;
+	background-color: #ffffff;
+}
+footer p
+{
+	margin-bottom: 0px;
+}
 
 
 
