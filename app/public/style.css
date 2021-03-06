@@ -90,7 +90,7 @@ a.a-session:hover
 
 
 /* SE CONNECTER */
-#section-signin, #section-signup
+#body-signin, #body-signup
 {
 	background-image: url('http://localhost:8888/projet-5/app/public/pictures/background_session.jpg');
 	background-size: cover;

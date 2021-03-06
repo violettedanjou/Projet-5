@@ -2,7 +2,7 @@
 
 ob_start(); ?>
 
-<body id="section-signup"> 
+<body id="body-signup"> 
 	<div class="container">
 		<div class="row form-connexion">
 			<div class="col">
