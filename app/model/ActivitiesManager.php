@@ -29,10 +29,11 @@ class ActivitiesManager extends Manager
        $addNewActivity = $newActivity->execute(array(
             'title' => $title,
             'content' => $content,
-            $_FILES["pictures"]["name"],
-            $_FILES["pictures"]["type"],
-        	$_FILES["pictures"]["size"],
-        	file_get_contents($_FILES["pictures"]["tmp_name"]))); // file_get_contents() pour convertir en chaine de caractères
+            'picture' => $picture));
+            /*$_FILES["picture"]["name"],
+            $_FILES["picture"]["type"],
+        	$_FILES["picture"]["size"],
+        	file_get_contents($_FILES["picture"]["tmp_name"])));*/ // file_get_contents() pour convertir en chaine de caractères
 
        return $addNewActivity;
     }

@@ -105,7 +105,28 @@ try {
         if ($_GET['action'] == 'validNewPost') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['title']) AND isset($_POST['content']) AND isset($_POST['picture'])) {
-                addActivity();
+			        // Ajouter une image 
+			        if ($_GET['action'] == 'validPicture') {
+			        	if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+			        		if (isset($_FILES['picture']) AND $_FILES['picture']['error'] == 0) {
+					        	// Testons si le fichier n'est pas trop gros
+						        if ($_FILES['picture']['size'] <= 1000000) {
+						            // Testons si l'extension est autorisée
+						            $infosfichier = pathinfo($_FILES['picture']['name']);
+						            $extension_upload = $infosfichier['extension'];
+						            $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
+
+					                if (in_array($extension_upload, $extensions_autorisees)) {
+			                        	// On peut valider le fichier et le stocker définitivement
+						                move_uploaded_file($_FILES['picture']['tmp_name'], 'pictures/activities' . basename($_FILES['picture']['name']));
+						                echo "L'envoi a bien été effectué !";
+						                
+						                addActivity();
+						            }
+						        }
+							}
+			        	}
+			        }                	
                 }
                 else {
                     throw new Exception("Veuillez ajouter une nouvelle activité.", 1);
@@ -115,6 +136,13 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);    
             }      
         }
+
+
+
+
+
+
+
         // Afficher formulaire de modification d'une activité
         elseif($_GET['action'] == 'openChange') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {

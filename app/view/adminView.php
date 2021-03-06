@@ -5,7 +5,7 @@ ob_start(); ?>
 <h1>GESTION DES ACTIVITES</h1>
 
 <?php
-while ($data = $activity->fetch())
+while ($data = $activities->fetch()) 
 {
 ?>
     <div class="news">
@@ -27,7 +27,7 @@ while ($data = $activity->fetch())
     </div>
 <?php 
 } 
-$activity->closeCursor(); ?>
+$activities->closeCursor(); ?>
 
 <h1>GESTION DES HOTELS</h1>
 
