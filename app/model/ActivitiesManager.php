@@ -9,18 +9,18 @@ class ActivitiesManager extends Manager
     public function getActivities() // Récupération des activtiés
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, title, content, picture FROM activities LIMIT 0, 5');
+        $activities = $db->query('SELECT id, title, content, picture FROM activities LIMIT 0, 5');
 
-        return $req;
+        return $activities;
     }
     public function getActivity($activityId) // Récupération d'une activité grace à son id
     {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT id, title, content, picture FROM activities WHERE id = ?');
         $req->execute(array($activityId));
-        $post = $req->fetch();
+        $activity = $req->fetch();
 
-        return $post;
+        return $activity;
     }
     public function addNewActivity($title, $content, $picture) // Ajout d'un nouveau billet
     {
