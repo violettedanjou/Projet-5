@@ -12,8 +12,8 @@ ob_start(); ?>
 					    <label for="pass">Mot de passe </label><input type="password" name="pass" required class="input-signin"/><br/>
 					    <input type="submit" name="signin" value="SE CONNECTER" id="button_confirm_signin">
 					</form>
-				</div>
 			</div>
+		</div>
 	</div>
 </body>
 <?php $content = ob_get_clean(); 

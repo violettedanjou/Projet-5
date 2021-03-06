@@ -14,8 +14,8 @@ ob_start(); ?>
 						<label for="email">Adresse email </label><input type="email" name="email"  class="input-signup" style="width: 250px"/><br/>
 						<input type="submit" name="signup" value="S'INSCRIRE" id="button_confirm_signup">
 					</form>
-				</div>
 			</div>
+		</div>
 	</div>
 </body>
 

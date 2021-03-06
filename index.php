@@ -84,6 +84,7 @@ try {
                 throw new Exception("Aucun identifiant de l'activité envoyé", 1);   
             }
         }
+// PAGE PROFILE        
         // Afficher la page profile 
         if ($_GET['action'] == 'openProfile') {
         	if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
