@@ -112,13 +112,13 @@ try {
 					        	// Testons si le fichier n'est pas trop gros
 						        if ($_FILES['picture']['size'] <= 1000000) {
 						            // Testons si l'extension est autorisée
-						            $infosfichier = pathinfo($_FILES['picture']['name']);
+						            $infosfichier = pathinfo($_FILES['picture'][$_SESSION['id']]); // On veut l'id de l'activité
 						            $extension_upload = $infosfichier['extension'];
 						            $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 
 					                if (in_array($extension_upload, $extensions_autorisees)) {
 			                        	// On peut valider le fichier et le stocker définitivement
-						                move_uploaded_file($_FILES['picture']['tmp_name'], 'pictures/activities' . basename($_FILES['picture']['name']));
+						                move_uploaded_file($_FILES['picture']['tmp_name'], 'pictures/activities' . basename($_FILES['picture'][$_SESSION['id']]));
 						                echo "L'envoi a bien été effectué !";
 						                
 						                addActivity();
