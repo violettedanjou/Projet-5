@@ -1,6 +1,7 @@
-<?php $title = htmlspecialchars($post['title']); ?>
+<?php $title = htmlspecialchars($post['title']); 
 
-<?php ob_start(); ?>
+ob_start(); ?>
+
 <h1><?= htmlspecialchars($post['title']) ?></h1>
 
 <div class="news">    
@@ -63,60 +64,6 @@
 <?=	} ?>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<?php 	if (isset($_SESSION['id'])) { ?>
-				<form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
-				    <div>
-				        <label for="comment"></label><br /><textarea id="comment" name="comment"></textarea>
-				    </div>
-				    <div>
-				        <input type="submit" id="button_add_comment" />
-				    </div>
-				</form>	
-	<?php 	}
-	
-			else { ?>
-				<p class="p-not-connected">Veuillez vous connecter pour ajouter un commentaire.</p>
-	<?php	} 
-
-/* Commentaires affichés une fois connecté */
-	while ($comment = $comments->fetch()) 
-	{
-	?>
-		<div id="news">
-		    <h4>
-		    	<p><strong><?= htmlspecialchars($comment['pseudo']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-		    </h4>
-
-		    <p>
-		    	<?= nl2br(($comment['comment'])) ?>
-		    </p>
-		
-
-		<?php 	if (isset($_SESSION['id'])) { ?>
-					<div class="button-report">
-			    		<a  href="index.php?action=validReport&amp;id=<?= $comment['id'] ?>&amp;post_id=<?= $post['id']?>">Signaler</a>
-			    	</div>
-		<?php 	} ?>
-					
-		</div>
-	<?php
-	}
-	?>
-</div>
-
 <?php $content = ob_get_clean();
 
-require('view/template.php'); ?>
+require('app/view/template.php'); ?>
