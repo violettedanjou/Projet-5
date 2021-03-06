@@ -19,7 +19,7 @@ ob_start(); ?>
 </div>
 
 <div id="form-add-new-picture">
-	<form action="index.php?action=validPicture" method="POST">
+	<form action="index.php?action=validPicture" method="POST" enctype="multipart/form-data"> <!-- Grace à enctype, le navigateur sait qu'il va envoyer un fichier -->
       <input type="file" name="picture" /><br/>
       <input type="submit" value="Enregistrer l'image" id="button-send-picture" />
     </form>
