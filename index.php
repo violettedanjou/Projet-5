@@ -176,25 +176,14 @@ try {
 	}
 	else {
 		require('app/view/homeView.php');
+
+		/*$listActivity = new controller_back();
+		$listActivity->listActivities();*/
 	}   	
 }
 catch(Exception $e) {
     require('app/view/errorView.php');
 }
 
-
-
-
-
-
-/*if (isset($_GET['action'])) {
-	echo 'Il y a une action';
-	$testController = new controller();
-	$testController->test();
-}
-else {
-	echo 'Il ny a pas daction';
-	/* renvoyer sur une autre page */
-//}
 
 ?>

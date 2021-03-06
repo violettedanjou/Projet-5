@@ -57,7 +57,8 @@ class controller_back
 	    $activityManager = new ActivitiesManager();
 	    $activities = $activityManager->getActivities();
 
-	    require('app/view/homeView.php');
+	    /*require('app/view/homeView.php');*/
+	    header('Location: index.php?action=listActivities');
 	}
 	function activity() // Afficher une activité en particulier
 	{

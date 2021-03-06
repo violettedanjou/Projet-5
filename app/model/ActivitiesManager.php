@@ -30,10 +30,6 @@ class ActivitiesManager extends Manager
             'title' => $title,
             'content' => $content,
             'picture' => $picture));
-            /*$_FILES["picture"]["name"],
-            $_FILES["picture"]["type"],
-        	$_FILES["picture"]["size"],
-        	file_get_contents($_FILES["picture"]["tmp_name"])));*/ // file_get_contents() pour convertir en chaine de caractères
 
        return $addNewActivity;
     }
