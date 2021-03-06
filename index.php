@@ -11,8 +11,8 @@ try {
 // PAGE INSCRIPTION
 		// on affiche le formulaire
 	    if ($_GET['action'] == 'openSignup') { 
-	        $testController = new controller_front();
-			$testController->openSignup();
+	        $formSignupMember = new controller_front();
+			$formSignupMember->openSignup();
 	    }
 		// on traite le formulaire
 	    elseif ($_GET['action'] == 'validSignup') {  
@@ -45,37 +45,40 @@ try {
 	    }
 
 // PAGE CONNEXION
-	    // formulaire de connexion
+	    // Valider le formulaire de connexion
 	    if ($_GET['action'] == 'validSignin') {
 	        // mdp ok avec mdp de la bdd donc on appelle fonction connect()
 	        if (isset($_POST['pseudo']) AND isset($_POST['pass'])) {
-	            $insertMember = new controller_back();
-				$insertMember->connect(); 
+	            $signinMember = new controller_back();
+				$signinMember->connect(); 
 	        }
 	        else {
 	            throw new Exception("Veuillez entrer votre pseudo.", 1);
 	        }   
 	    }
-	    // page qui affiche le formulaire 
+	    // Page qui affiche le formulaire de connexion
 	    elseif ($_GET['action'] == 'openSignin') {
-	        $insertMember = new controller_front();
-			$insertMember->openSignin();
+	        $formSigninMember = new controller_front();
+			$formSigninMember->openSignin();
 	    }
 
 // PAGE DECONNEXION 
 	    if ($_GET['action'] == 'validSignout') {
-	        signout();    
+	        $signoutMember = new controller_back();
+			$signoutMember->signout();    
 	    } 
 
 // LISTE DES ACTIVITES PAGE D'ACCUEIL
-        //affiche la listes des activités
+        // Affiche la listes des activités
         elseif ($_GET['action'] == 'listActivities') {
-            listActivities(); 
+            $listActivity = new controller_back();
+			$listActivity->listActivities(); 
         }
-        // afficher une activité et ses avis
+        // Afficher une activité et ses avis
         elseif ($_GET['action'] == 'activity') { 
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                    activity();             
+                $oneActivity = new controller_back();
+				$oneActivity->activity();             
             }
             else {
                 throw new Exception("Aucun identifiant de l'activité envoyé", 1);   
@@ -86,7 +89,8 @@ try {
 		// Afficher la page administration
         if ($_GET['action'] == 'openAdmin') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-                openAdmin();
+                $adminMember = new controller_front();
+				$adminMember->openAdmin();
             }
             else {
                 throw new Exception("Cette partie est réservée à l'administrateur", 1);
@@ -95,7 +99,8 @@ try {
         // Afficher le formulaire d'ajout d'une nouvelle activité
         elseif ($_GET['action'] == 'openNewActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-               openNewActivity(); 
+                $formNewActivity = new controller_front();
+				$formNewActivity->openNewActivity(); 
             }
             else {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
@@ -121,7 +126,8 @@ try {
 						                move_uploaded_file($_FILES['picture']['tmp_name'], 'pictures/activities' . basename($_FILES['picture'][$_SESSION['id']]));
 						                echo "L'envoi a bien été effectué !";
 						                
-						                addActivity();
+						                $validNewActivity = new controller_back();
+										$validNewActivity->addActivity();
 						            }
 						        }
 							}
@@ -136,18 +142,12 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);    
             }      
         }
-
-
-
-
-
-
-
         // Afficher formulaire de modification d'une activité
         elseif($_GET['action'] == 'openChange') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-               if (isset($_GET['id']) && $_GET['id'] > 0) {
-                openChange();
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+	                $formChangeActivity = new controller_back();
+					$formChangeActivity->openChange();
                 }
                 else {
                     throw new Exception("Aucun identifiant de billet envoyé.", 1);
@@ -160,8 +160,9 @@ try {
         // Valider le formulaire de modification d'une activité
         elseif ($_GET['action'] == 'validChange') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-               if (isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content'])) && (isset($_POST['picture']))) {
-                saveActivity();
+                if (isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content'])) && (isset($_POST['picture']))) {
+                	$validChangeActivity = new controller_back();
+					$validChangeActivity->saveActivity();
                 } 
                 else {
                 	throw new Exception("Veuillez remplir des champs.", 1);
