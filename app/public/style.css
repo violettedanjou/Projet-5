@@ -180,6 +180,16 @@ a.a-session:hover
 
 
 
+/* PAGE PROFILE */
+#body-profile
+{
+	background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+		url('http://localhost:8888/projet-5/app/public/pictures/baie_dupi.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;	
+}
+
+
 /* FOOTER */
 footer
 {
