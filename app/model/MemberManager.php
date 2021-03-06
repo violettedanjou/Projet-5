@@ -33,6 +33,14 @@ class MemberManager extends Manager
             'pseudo' => $pseudo));
 
         return $req;
+    }
+    public function addPicture($picture) // Ajout d'une image de profile 
+    {
+       $db = $this->dbConnect();
+       $profile = $db->prepare('INSERT INTO members(picture) VALUES (:picture)');
+       $pictureProfile = $profile->execute(array(
+            'picture' => $picture));
 
+       return $pictureProfile;
     }
 }

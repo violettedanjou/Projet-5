@@ -70,7 +70,7 @@ try {
 
 // LISTE DES ACTIVITES PAGE D'ACCUEIL
         // Affiche la listes des activités
-        elseif ($_GET['action'] == 'listActivities') {
+        if ($_GET['action'] == 'listActivities') {
             $listActivity = new controller_back();
 			$listActivity->listActivities(); 
         }
@@ -84,6 +84,39 @@ try {
                 throw new Exception("Aucun identifiant de l'activité envoyé", 1);   
             }
         }
+        // Afficher la page profile 
+        if ($_GET['action'] == 'openProfile') {
+        	if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
+        		$openProfileMember = new controller_front();
+				$openProfileMember->openProfile();
+        	}
+        }
+        elseif ($_GET['action'] == 'validProfile') {
+        	if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
+			    if (isset($_FILES['pictureProfile']) AND $_FILES['pictureProfile']['error'] == 0) {
+					// Testons si le fichier n'est pas trop gros
+					if ($_FILES['pictureProfile']['size'] <= 1000000) {
+						// Testons si l'extension est autorisée
+						$infosfichier = pathinfo($_FILES['pictureProfile'][$_SESSION['pseudo']]); // On veut le pseudo de la personne qui ajoute l'image
+						$extension_upload = $infosfichier['extension'];
+						$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
+
+					    if (in_array($extension_upload, $extensions_autorisees)) {
+			                // On peut valider le fichier et le stocker définitivement
+						    move_uploaded_file($_FILES['pictureProfile']['tmp_name'], 'pictures/profile' . basename($_FILES['pictureProfile'][$_SESSION['pseudo']]));
+					        echo "L'envoi a bien été effectué !";
+						                
+						    $validProfile = new controller_back();
+							$validProfile->validProfile();
+						}
+				    }
+				}
+        	}
+        }
+
+
+
+
 
 // PAGE ADMINISTRATION
 		// Afficher la page administration
@@ -97,7 +130,7 @@ try {
             } 
         }
         // Afficher le formulaire d'ajout d'une nouvelle activité
-        elseif ($_GET['action'] == 'openNewActivity') {
+        if ($_GET['action'] == 'openNewActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 $formNewActivity = new controller_front();
 				$formNewActivity->openNewActivity(); 
@@ -107,7 +140,7 @@ try {
             }
         }
         // Valider le formulaire d'ajout d'une nouvelle activité
-        if ($_GET['action'] == 'validNewPost') {
+        elseif ($_GET['action'] == 'validNewPost') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['title']) AND isset($_POST['content']) AND isset($_POST['picture'])) {
 			        // Ajouter une image 
@@ -143,7 +176,7 @@ try {
             }      
         }
         // Afficher formulaire de modification d'une activité
-        elseif($_GET['action'] == 'openChange') {
+        if($_GET['action'] == 'openChange') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
 	                $formChangeActivity = new controller_back();
@@ -171,8 +204,7 @@ try {
             else {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
-        }        
-	    
+        }	    
 	}
 	else {
 		require('app/view/homeView.php');

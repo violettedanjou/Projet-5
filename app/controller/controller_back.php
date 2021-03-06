@@ -70,6 +70,13 @@ class controller_back
 
 	    require('app/view/activityView.php');
 	}
+	function validProfile() // Ajouter une image à son profile
+	{
+		$profileManager = new MemberManager();
+		$profile = $profileManager->addPicture($_POST['picture']);
+	}
+
+	// ADMINISTRATION 
 	function addActivity() // Ajouter une nouvelle activité
 	{
 		$newActivityManager = new ActivitiesManager();
