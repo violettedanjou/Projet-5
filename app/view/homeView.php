@@ -26,17 +26,20 @@
                 {
                 ?>
                     <div class="news">
-                        <h3>
-                            <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
-                                <?= htmlspecialchars($data['title']) ?>
-                                <br/>
-                                <img src="<?= $data['picture'] ?>">
-                            </a>
-                        </h3>
-                        
-                        <?= nl2br(($data['content'])) ?>
-                           
-                        <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">Avis</a></em>
+                        <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
+                             <img src="<?= $data['picture'] ?>">
+                        </a>
+                        <div class="news-text">
+                            <h3>
+                                <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
+                                    <?= htmlspecialchars($data['title']) ?>
+                                    <br/>
+                                </a>
+                            </h3>
+                            <p><?= nl2br(($data['content'])) ?></p>
+                               
+                            <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">Avis</a></em>
+                        </div>
                     </div>
                 <?php
                 }

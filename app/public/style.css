@@ -14,11 +14,20 @@ body
 h1
 {
 	font-family: 'Single Day', cursive;
-	margin-bottom: 0px;
+	margin: 10px;
 }
 h2
 {
 	margin-bottom: 20px;
+}
+p
+{
+	text-align: justify;
+}
+a
+{
+	font-family: 'Single Day', cursive;
+	font-size: 1.5em;
 }
 
 
@@ -42,8 +51,9 @@ header
 	align-items: center;
 	text-decoration: none;
 }
-#logo
+img#logo
 {
+	width: auto;
 	height: 80px;
 	margin: 10px;
 }
@@ -67,15 +77,15 @@ ul
 	display: flex;
 	justify-content: space-around;
 }
-#button_signup, #button_signin, #button_signout, #button_admin, #button_profile, #button_opinions, a
+li
 {
-	margin: 5px;
 	list-style-type: none;
-	color: #ffffff;
 }
 a.a-session
 {
+	margin: 5px;
 	text-decoration: none;
+	color: #ffffff;
 }
 a.a-session:hover
 {
@@ -173,8 +183,23 @@ a.a-session:hover
 	background-color: #ffffff;
 	margin-bottom: 50px;
 }
+.news
+{
+	display: flex;
+	align-items: center;
+}
 
-
+img
+{
+	width: 300px;
+	height: 200px;
+	margin: 0px 30px 10px 0px;
+}
+.news-text
+{
+	display: flex;
+	flex-direction: column;
+}
 
 
 
