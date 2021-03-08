@@ -22,7 +22,7 @@
 		    	<div id="div-logo">
 		    		<a href="index.php">
 		    			<img id="logo" src="app/public/pictures/logo.png" alt="Logo de l'emblème de la Nlle-Calédonie">
-						<p id="p-logo">La Calédonienne <br/>
+						<p id="p-logo">La Caledonienne <br/>
 						<span id="span-logo">Office de tourisme <br/> (Fictif) </span></p>
 					</a>
 				</div>
