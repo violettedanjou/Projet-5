@@ -155,6 +155,8 @@ try {
 						            $extension_upload = $infosfichier['extension'];
 						            $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 
+						            /* die(var_dump($_FILES['picture']));*/
+
 					                if (in_array($extension_upload, $extensions_autorisees)) {
 			                        	// On peut valider le fichier et le stocker définitivement
 						                move_uploaded_file($_FILES['picture']['tmp_name'], 'pictures/activities' . basename($_FILES['picture'][$_SESSION['id']]));
@@ -208,10 +210,8 @@ try {
         }	    
 	}
 	else {
-		require('app/view/homeView.php');
-
-		/*$listActivity = new controller_back();
-		$listActivity->listActivities();*/
+		$listActivity = new controller_front();
+		$listActivity->listActivities();
 	}   	
 }
 catch(Exception $e) {

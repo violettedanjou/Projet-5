@@ -2,7 +2,9 @@
 namespace app\controller;
 
 require "vendor/autoload.php";
-use app\controller\controller_front;
+use app\model\MemberManager;
+use app\model\ActivitiesManager;
+use app\model\OpinionsManager;
 
 class controller_front
 {
@@ -10,7 +12,7 @@ class controller_front
 	{
 		require('app/view/signupView.php');
 	}
-
+	
 	function openSignin() // Afficher le formulaire de connexion
 	{
 		require('app/view/signinView.php');
@@ -28,6 +30,16 @@ class controller_front
 	function openNewActivity() // Afficher formulaire pour ajout de nouvelle activité
 	{
 		require('app/view/additionView.php');
+	}
+
+
+
+	function listActivities() // Afficher la liste des activités
+	{
+	    $activityManager = new ActivitiesManager();
+	    $activitiess = $activityManager->getActivities();
+
+	    require('app/view/homeView.php');
 	}
 }
 ?>

@@ -2,7 +2,9 @@
 namespace app\controller;
 
 require "vendor/autoload.php";
-use app\controller\controller_back;
+use app\model\MemberManager;
+use app\model\ActivitiesManager;
+use app\model\OpinionsManager;
 
 class controller_back
 {
@@ -52,14 +54,7 @@ class controller_back
 		header('Location: index.php');
 	}
 
-	function listActivities() // Afficher la liste des activités
-	{
-	    $activityManager = new ActivitiesManager();
-	    $activities = $activityManager->getActivities();
 
-	    /*require('app/view/homeView.php');*/
-	    header('Location: index.php?action=listActivities');
-	}
 	function activity() // Afficher une activité en particulier
 	{
 	    $activityManager = new ActivitiesManager();

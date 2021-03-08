@@ -1,5 +1,5 @@
 <?php
-namespace app\model\ActivitiesManager;
+namespace app\model;
 
 require "vendor/autoload.php";
 use app\model\Manager;
@@ -9,9 +9,9 @@ class ActivitiesManager extends Manager
     public function getActivities() // Récupération des activtiés
     {
         $db = $this->dbConnect();
-        $activities = $db->query('SELECT id, title, content, picture FROM activities LIMIT 0, 5');
+        $activitie = $db->query('SELECT id, title, content, picture FROM activities LIMIT 0, 5');
 
-        return $activities;
+        return $activitie;
     }
     public function getActivity($activityId) // Récupération d'une activité grace à son id
     {

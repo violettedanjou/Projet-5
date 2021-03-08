@@ -21,7 +21,26 @@
         <div class="row">
             <div class="col">
                 <h1>VIVRE LA NOUVELLE CALEDONIE</h1>
-
+                <?php
+                while ($data = $activitiess->fetch())
+                {
+                ?>
+                    <div class="news">
+                        <h3>
+                            <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
+                                <?= htmlspecialchars($data['title']) ?>
+                                <br/>
+                                <img src="<?= $data['picture'] ?>">
+                            </a>
+                        </h3>
+                        
+                        <?= nl2br(($data['content'])) ?>
+                           
+                        <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">Avis</a></em>
+                    </div>
+                <?php
+                }
+                $activitiess->closeCursor(); ?> 
             </div>
         </div>
     </div>
