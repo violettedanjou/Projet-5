@@ -84,6 +84,7 @@ li
 a.a-session
 {
 	margin: 5px;
+	margin-right: 10px;
 	text-decoration: none;
 	color: #ffffff;
 }
@@ -108,9 +109,6 @@ a.a-session:hover
 }
 .row.signup-form, .row.form-connexion
 {
-	/*display: flex;
-	justify-content: center;
-	align-items: flex-end;*/
     margin-top: 250px;
     padding: 20px;
     border-radius: 60px;
@@ -172,7 +170,8 @@ a.a-session:hover
 /* PARTIE ACTIVITES */
 #section-activities-hotels
 {
-	background-image: url('http://localhost:8888/projet-5/app/public/pictures/kikibeach.jpg');
+	background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+		url('http://localhost:8888/projet-5/app/public/pictures/kikibeach.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	margin-top: 50px;
