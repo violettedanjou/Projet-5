@@ -18,6 +18,7 @@ h1
 }
 h2
 {
+	font-family: 'Single Day', cursive;
 	margin-bottom: 20px;
 }
 p
@@ -100,7 +101,7 @@ a.a-session:hover
 }
 
 
-/* SE CONNECTER */
+/* S'INSCRIRE & SE CONNECTER */
 #body-signin, #body-signup
 {
 	background-image: url('http://localhost:8888/projet-5/app/public/pictures/background_session.jpg');
@@ -208,11 +209,47 @@ img
 #body-profile
 {
 	background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-		url('http://localhost:8888/projet-5/app/public/pictures/baie_dupi.jpg');
+		url('http://localhost:8888/projet-5/app/public/pictures/baie-dupi.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;	
 }
-
+.row.profile-form
+{
+    margin-top: 250px;
+    padding: 20px;
+    border-radius: 60px;
+	border: 1px solid transparent;
+	background-color: #ffffff;
+	box-shadow: 0px 0px 10px #000000;
+}
+#block-profile
+{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+form#form-profile
+{
+	display: flex;
+	flex-direction: column;
+}
+input[type='image'] /* PROVISOIRE */
+{
+    width: 300px;
+    height: 350px;
+    border: 1px solid #000000;
+	border-radius: 50%;
+}
+#div-profile
+{
+	border: 1px solid #000000;
+	height: 300px;
+}
+#span-profile
+{
+	font-family: 'Single Day', cursive;
+	font-size: 1.7em;
+}
 
 /* FOOTER */
 footer

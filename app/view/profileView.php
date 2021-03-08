@@ -1,16 +1,22 @@
-<?php $title = "Profile";
+<?php $title = "Profile"; ?>
 
-ob_start(); ?>
+<?php ob_start(); ?>
 
 <body id="body-profile">
 	<div class="container">
 		<div class="row profile-form">
 			<div class="col">
 				<h2>PROFILE</h2>
-					<form action="index.php?action=validProfile" method="post" enctype="multipart/form-data">
-						<input type="file" name="pictureProfile">
-						<input type="submit" name="profile" value="Modifier" id="button_profile_picture">
-					</form>
+					<div id="block-profile">
+						<form id="form-profile" action="index.php?action=validProfile" method="post" enctype="multipart/form-data">
+							<input type="image" name="picture" src="pictures/activities/catamaran.jpg">
+							<input type="file" name="pictureProfile">
+							<!--<input type="submit" name="profile" value="Modifier" id="button_profile_picture">-->
+						</form>
+
+						
+						<p><span id="span-profile">NOM : </span>viovio8</p>
+					</div>
 				</div>
 			</div>
 	</div>
