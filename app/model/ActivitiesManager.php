@@ -42,7 +42,7 @@ class ActivitiesManager extends Manager
 
         return $changeActivity;
     }
-    public function modifActivity($id, $title, $content, $picture) // Modification d'une activité
+    public function saveActivity($id, $title, $content, $picture) // Modification d'une activité
     {
         $db = $this->dbConnect();
         $req = $db->prepare('UPDATE activities SET title = ?, content = ?, picture = ? WHERE id = ?');

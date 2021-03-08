@@ -199,7 +199,7 @@ try {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content'])) && (isset($_POST['picture']))) {
                 	$validChangeActivity = new controller_back();
-					$validChangeActivity->saveActivity();
+					$validChangeActivity->changeActivity();
                 } 
                 else {
                 	throw new Exception("Veuillez remplir des champs.", 1);

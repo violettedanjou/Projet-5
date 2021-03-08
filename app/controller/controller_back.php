@@ -68,10 +68,10 @@ class controller_back
 		header('Location: index.php?action=openAdmin');
 	}
 
-	function saveActivity() // Modification d'une activité
+	function changeActivity() // Modification d'une activité
 	{
 		$saveManager = new ActivitiesManager();
-		$save = $saveManager->modifActivity($_POST['id'], $_POST['title'], $_POST['content'], $_POST['picture']);
+		$save = $saveManager->saveActivity($_POST['id'], $_POST['title'], $_POST['content'], $_POST['picture']);
 
 		header('Location: index.php?action=openAdmin');
 	}
