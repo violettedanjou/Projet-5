@@ -1,47 +1,49 @@
-<?php $title = htmlspecialchars($post['title']); 
+<?php $title = htmlspecialchars($activity['title']); 
 
 ob_start(); ?>
 
-<h1><?= htmlspecialchars($post['title']) ?></h1>
+<h1><?= htmlspecialchars($activity['title']) ?></h1>
 
 <div class="news">    
-	<?= $post['picture'] ?>
-    <?=	nl2br(($post['content'])) ?>
+	<?= $activity['picture'] ?>
+    <?=	nl2br(($activity['content'])) ?>
 </div>
 
 <div id="div-opinions">
 	<h2>AVIS</h2>
 	<!-- Commentaires affichés même non connecté -->
-	<?=	while ($opinion = $opinions->fetch()) { ?>
-			<div id="news">
-			    <h4>
-			    	<p><strong><?= htmlspecialchars($opinion['pseudo']) ?></strong> le <?= $opinion['opinion_date_fr'] ?></p> <!-- On récupère le pseudo et la date de l'avis -->
-			    </h4>
+	<?php	while ($opinion = $opinions->fetch()) { ?>
+				<div id="news">
+				    <h4>
+				    	<p><strong><?= htmlspecialchars($opinion['pseudo']) ?></strong> le <?= $opinion['opinion_date_fr'] ?></p> <!-- On récupère le pseudo et la date de l'avis -->
+				    </h4>
 
-			    <p>
-			    	<?= nl2br(($opinion['content'])) ?> <!-- On récupère le contenu de l'avis -->
-			    </p>
-			
+				    <p>
+				    	<?= nl2br(($opinion['content'])) ?> <!-- On récupère le contenu de l'avis -->
+				    </p>
+				
 
-		<?php 	if (isset($_SESSION['id'])) { ?> <!-- Si on est connecté, on affiche le lien signaler -->
-					<div class="button-report">
-				    	<a  href="index.php?action=validReport&amp;id=<?= $comment['id'] ?>&amp;post_id=<?= $post['id']?>">Signaler</a>
-				    </div>
-		<?php 	} ?>			
-			</div>
-	<?= } 
+			 <?php 	if (isset($_SESSION['id'])) { ?> <!-- Si on est connecté, on affiche le lien signaler -->
+						<div class="button-report">
+					    	<a  href="index.php?action=validReport&amp;id=<?= $opinion['id'] ?>&amp;opinion_id=<?= $opinion['id']?>">Signaler</a>
+					    </div>
+			 <?php 	} ?>	
+
+				</div>
+	<?php   } 
+		$opinions->closeCursor();
 
 	/* Si on est connecté, on affiche le formulaire d'ajout d'avis */
 	if (isset($_SESSION['id'])) { ?> 
-		<form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+		<form action="index.php?action=addOpinion&amp;id=<?= $activity['id'] ?>" method="post">
 		    <div>
-		        <label for="comment"></label><br /><textarea id="comment" name="comment"></textarea>
+		        <label for="opinion"></label><br /><textarea id="opinion" name="opinion"></textarea>
 		    </div>
 			<div>
-				<input type="submit" id="button_add_comment" />
+				<input type="submit" id="button_add_opinion" />
 			</div>
 		</form>	
-<?= }
+<?php }
 	/* Sinon on n'est pas connecté, alors on affiche les formulaires d'inscription et de connexion */
 	else { ?>
 			<div id="form-session-opinions"> <!-- Les mettre l'un à côté de l'autre grace au CSS qd j'aurais la page sous les yeux -->
@@ -61,7 +63,7 @@ ob_start(); ?>
 					    <input type="submit" name="signin" value="SE CONNECTER" id="button_confirm_signin">
 					</form>
 			</div>		
-<?=	} ?>
+<?php	} ?>
 </div>
 
 <?php $content = ob_get_clean();

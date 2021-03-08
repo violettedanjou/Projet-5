@@ -20,7 +20,7 @@ class controller_front
 	function listActivities() // Afficher la liste des activités
 	{
 	    $activityManager = new ActivitiesManager();
-	    $activitiess = $activityManager->getActivities();
+	    $activities = $activityManager->getActivities();
 
 	    require('app/view/homeView.php');
 	}

@@ -22,7 +22,7 @@
             <div class="col">
                 <h1>VIVRE LA NOUVELLE CALEDONIE</h1>
                 <?php
-                while ($data = $activitiess->fetch())
+                while ($data = $activities->fetch())
                 {
                 ?>
                     <div class="news">
@@ -43,7 +43,7 @@
                     </div>
                 <?php
                 }
-                $activitiess->closeCursor(); ?> 
+                $activities->closeCursor(); ?> 
             </div>
         </div>
     </div>
