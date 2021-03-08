@@ -71,13 +71,13 @@ try {
 // LISTE DES ACTIVITES PAGE D'ACCUEIL
         // Affiche la listes des activités
         if ($_GET['action'] == 'listActivities') {
-            $listActivity = new controller_back();
+            $listActivity = new controller_front();
 			$listActivity->listActivities(); 
         }
         // Afficher une activité et ses avis
         elseif ($_GET['action'] == 'activity') { 
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $oneActivity = new controller_back();
+                $oneActivity = new controller_front();
 				$oneActivity->activity();             
             }
             else {
@@ -151,11 +151,12 @@ try {
 					        	// Testons si le fichier n'est pas trop gros
 						        if ($_FILES['picture']['size'] <= 1000000) {
 						            // Testons si l'extension est autorisée
-						            $infosfichier = pathinfo($_FILES['picture'][$_SESSION['id']]); // On veut l'id de l'activité
+						            $infosfichier = pathinfo($_FILES['picture'][$_SESSION['id']]); // On veut l'id de l'administrateur
+						            /* die(var_dump($_FILES['picture'])); */
 						            $extension_upload = $infosfichier['extension'];
 						            $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 
-						            /* die(var_dump($_FILES['picture']));*/
+						            die(var_dump($_FILES['picture']));
 
 					                if (in_array($extension_upload, $extensions_autorisees)) {
 			                        	// On peut valider le fichier et le stocker définitivement
@@ -182,7 +183,7 @@ try {
         if($_GET['action'] == 'openChange') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
-	                $formChangeActivity = new controller_back();
+	                $formChangeActivity = new controller_front();
 					$formChangeActivity->openChange();
                 }
                 else {

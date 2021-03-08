@@ -12,11 +12,34 @@ class controller_front
 	{
 		require('app/view/signupView.php');
 	}
-	
+
 	function openSignin() // Afficher le formulaire de connexion
 	{
 		require('app/view/signinView.php');
 	}
+	function listActivities() // Afficher la liste des activités
+	{
+	    $activityManager = new ActivitiesManager();
+	    $activitiess = $activityManager->getActivities();
+
+	    require('app/view/homeView.php');
+	}
+	function activity() // Afficher une activité en particulier
+	{
+	    $activityManager = new ActivitiesManager();
+	    $opinionManager = new OpinionsManager();
+
+	    $activity = $activityManager->getActivity($_GET['id']);
+	    $opinions = $opinionManager->pseudoAuthor($_GET['id']);
+
+	    require('app/view/activityView.php');
+	}
+
+
+
+
+
+// PAGE ADMINISTRATION
 	function openAdmin() // Afficher la page d'administrateur
 	{
 		$activityManager = new ActivitiesManager(); 
@@ -31,15 +54,16 @@ class controller_front
 	{
 		require('app/view/additionView.php');
 	}
-
-
-
-	function listActivities() // Afficher la liste des activités
+	function openChange() // Récupération d'une activité pour la modifier
 	{
-	    $activityManager = new ActivitiesManager();
-	    $activitiess = $activityManager->getActivities();
+		$changeManager = new ActivitiesManager();
+	    $change = $changeManager->changeActivity($_GET['id']);
 
-	    require('app/view/homeView.php');
+	    require('app/view/changeView.php');
 	}
+
+
+
+
 }
 ?>

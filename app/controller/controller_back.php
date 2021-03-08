@@ -53,25 +53,13 @@ class controller_back
 		session_destroy();
 		header('Location: index.php');
 	}
-
-
-	function activity() // Afficher une activité en particulier
-	{
-	    $activityManager = new ActivitiesManager();
-	    $opinionManager = new OpinionsManager();
-
-	    $activity = $activityManager->getActivity($_GET['id']);
-	    $opinions = $opinionManager->pseudoAuthor($_GET['id']);
-
-	    require('app/view/activityView.php');
-	}
 	function validProfile() // Ajouter une image à son profile
 	{
 		$profileManager = new MemberManager();
 		$profile = $profileManager->addPicture($_POST['picture']);
 	}
 
-	// ADMINISTRATION 
+// PAGE ADMINISTRATION 
 	function addActivity() // Ajouter une nouvelle activité
 	{
 		$newActivityManager = new ActivitiesManager();
@@ -79,13 +67,7 @@ class controller_back
 
 		header('Location: index.php?action=openAdmin');
 	}
-	function openChange() // Récupération d'une activité pour la modifier
-	{
-		$changeManager = new ActivitiesManager();
-	    $change = $changeManager->changeActivity($_GET['id']);
 
-	    require('app/view/changeView.php');
-	}
 	function saveActivity() // Modification d'une activité
 	{
 		$saveManager = new ActivitiesManager();
