@@ -45,8 +45,13 @@ try {
 	    }
 
 // PAGE CONNEXION
+	    // Page qui affiche le formulaire de connexion
+	    if ($_GET['action'] == 'openSignin') {
+	        $formSigninMember = new controller_front();
+			$formSigninMember->openSignin();
+	    }
 	    // Valider le formulaire de connexion
-	    if ($_GET['action'] == 'validSignin') {
+	    elseif ($_GET['action'] == 'validSignin') {
 	        // mdp ok avec mdp de la bdd donc on appelle fonction connect()
 	        if (isset($_POST['pseudo']) AND isset($_POST['pass'])) {
 	            $signinMember = new controller_back();
@@ -55,12 +60,7 @@ try {
 	        else {
 	            throw new Exception("Veuillez entrer votre pseudo.", 1);
 	        }   
-	    }
-	    // Page qui affiche le formulaire de connexion
-	    elseif ($_GET['action'] == 'openSignin') {
-	        $formSigninMember = new controller_front();
-			$formSigninMember->openSignin();
-	    }
+	    }	    
 
 // PAGE DECONNEXION 
 	    if ($_GET['action'] == 'validSignout') {
