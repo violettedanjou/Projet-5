@@ -57,6 +57,8 @@ class controller_back
 	{
 		$profileManager = new MemberManager();
 		$profile = $profileManager->addPicture($_POST['picture']);
+
+		header('Location: index.php?action=openProfile');
 	}
 
 // PAGE ADMINISTRATION 
