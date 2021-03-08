@@ -34,6 +34,10 @@ class controller_front
 
 	    require('app/view/activityView.php');
 	}
+	function openProfile()
+	{
+		require('app/view/profileView.php');
+	}
 
 
 
