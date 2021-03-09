@@ -34,7 +34,7 @@
 								<li id="button_signout"><a class="a-session" href="index.php?action=validSignout">DECONNEXION</a></li>	
 
 						<?php if($_SESSION['admin'] != 0) { ?>
-								<li id="button_admin"><a href="index.php?action=openAdmin">ADMINISTRATION</a></li>
+								<li id="button_admin"><a class="a-session" href="index.php?action=openAdmin">ADMINISTRATION</a></li>
 						<?php }
 							}
 						
