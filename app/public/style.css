@@ -20,7 +20,8 @@ h1
 h2
 {
 	font-family: 'Single Day', cursive;
-	margin-bottom: 20px;
+	margin: 20px;
+	color: #007bff;
 }
 p
 {
@@ -30,6 +31,10 @@ a
 {
 	font-family: 'Single Day', cursive;
 	font-size: 1.5em;
+}
+.fa-arrow-left
+{
+	margin: 10px;
 }
 
 
@@ -201,7 +206,43 @@ a.a-session:hover
 	flex-direction: column;
 }
 
-
+/* ACTIVITE EN PARTICULIER */
+#div-session-opinions
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.form-session-opinions
+{
+	margin: 30px;
+	padding: 20px;
+	border: 1px solid transparent;
+	border-radius: 40px;
+	box-shadow: 0 1px 40px rgba(0, 0, 0, 0.3); 
+}
+.list-opinions
+{
+	border: 1px solid #bababa;
+	border-radius: 30px;
+	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2); 
+}
+#button_add_opinion /* Lien d'ajout d'avis */
+{
+	width: 200px;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 50px;
+	border: 1px solid #ffffff;
+	background: linear-gradient(#85c9ed, #ffffff);
+	color: #286BBD;
+	font-weight: bold;
+}
+#button_add_opinion:hover
+{
+	text-decoration: underline;
+}
 
 
 
@@ -221,7 +262,7 @@ a.a-session:hover
     border-radius: 60px;
 	border: 1px solid transparent;
 	background-color: #ffffff;
-	box-shadow: 0px 0px 10px #000000;
+	box-shadow: 0 1px 40px rgba(0, 0, 0, 0.5); 
 }
 #block-profile
 {

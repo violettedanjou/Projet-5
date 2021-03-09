@@ -8,6 +8,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet"> <!-- Police -->
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"> <!-- Icones -->
+	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> <!-- Tinymce -->
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> <!-- Bootstrap -->
@@ -55,5 +56,6 @@
 	<footer>
     	<p> Copyright © Violette Danjou - 2021. Tous droits réservés</p>
     </footer>
+    <script>tinymce.init({selector:'textarea'});</script>
 </body>
 </html>

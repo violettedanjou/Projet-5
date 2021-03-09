@@ -27,7 +27,7 @@
                 ?>
                     <div class="news">
                         <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
-                             <img class="img-home" src="<?= $data['picture'] ?>" alt="activités sportives et culturelles proposées par le site">
+                            <img class="img-home" src="<?= $data['picture'] ?>" alt="activités sportives et culturelles proposées par le site">
                         </a>
                         <div class="news-text">
                             <h3>
