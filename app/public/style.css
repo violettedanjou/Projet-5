@@ -15,7 +15,7 @@ body
 h1
 {
 	font-family: 'Single Day', cursive;
-	margin: 10px;
+	margin: 20px;
 }
 h2
 {
@@ -260,6 +260,10 @@ input[type='image'] /* PROVISOIRE */
 	border: 1px solid #a7a7a7;
 	border-radius: 5px;
 	box-shadow: 0px 0px 10px #5E5E5E;
+}
+.col.admin
+{
+	padding: 20px;
 }
 .news-admin
 {

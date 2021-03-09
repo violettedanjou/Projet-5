@@ -5,7 +5,7 @@ ob_start(); ?>
 
 <div class="container">
 	<div class="row admin">
-		<div class="col">
+		<div class="col admin">
 			<?php
 			while ($data = $activities->fetch()) 
 			{
