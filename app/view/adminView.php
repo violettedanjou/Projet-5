@@ -2,32 +2,43 @@
 
 ob_start(); ?>
 
-<h1>GESTION DES ACTIVITES</h1>
+<div class="container">
+	<div class="row admin">
+		<div class="col">
+			<h1>GESTION DES ACTIVITES</h1>
+			<?php
+			while ($data = $activities->fetch()) 
+			{
+			?>
+				<a class="link-add" href="index.php?action=openNewActivity?>">Ajouter</a><br/>
+				<br/>
+			    <div class="news-admin">
+			    	<a class="link-edit" href="index.php?action=openChange&amp;id=<?= $data['id'] ?>">Modifier</a>
 
-<?php
-while ($data = $activities->fetch()) 
-{
-?>
-    <div class="news">
-    	<em><a href="index.php?action=openNewActivity?>">Ajouter</a></em>
+			    	<div class="news-img-text">
+			    		<img class="img-admin" src="<?= $data['picture'] ?>" alt="activités sportives et culturelles proposées par le site">
 
-    	<div>
-    		<em><a class="link-edit" href="index.php?action=openChange&amp;id=<?= $data['id'] ?>">Modifier</a></em>
+				    	<div class="news-text-admin">
+				    		<h3>
+					        	<a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
+					            	<?= htmlspecialchars($data['title']) ?>
+					            </a>
+				        	</h3>
 
-	        <h3>
-	        	<a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
-	            	<?= htmlspecialchars($data['title']) ?>
-	            </a>
-	        </h3>
-	        <?= nl2br($data['content']) ?> <br/>
-		    
-			<em><a class="link-delete" href="index.php?action=validDelete&amp;id=<?= $data['id'] ?>">Supprimer</a></em>
-    	</div>
-    	
-    </div>
-<?php 
-} 
-$activities->closeCursor(); ?>
+				       		<p><?= nl2br($data['content']) ?> <br/></p>
+				    	</div>
+			    	</div>
+			    	
+
+			    	<a class="link-delete" href="index.php?action=validDelete&amp;id=<?= $data['id'] ?>">Supprimer</a>
+		    	</div>
+			<?php 
+			} 
+			$activities->closeCursor(); ?>
+		</div>
+	</div>
+</div>
+
 
 <h1>GESTION DES HOTELS</h1>
 

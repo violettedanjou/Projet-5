@@ -189,7 +189,7 @@ a.a-session:hover
 	align-items: center;
 }
 
-img
+.img-home
 {
 	width: 300px;
 	height: 200px;
@@ -250,6 +250,93 @@ input[type='image'] /* PROVISOIRE */
 	font-family: 'Single Day', cursive;
 	font-size: 1.7em;
 }
+
+
+
+/* PAGE ADMINISTRATION */
+.row.admin
+{
+	margin-top: 150px;
+	border: 1px solid #a7a7a7;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px #5E5E5E;
+}
+.news-admin
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 15px;
+}
+.news-img-text
+{
+	display: flex;
+	flex-direction: row;
+	border: 1px solid #5E5E5E;
+	border-radius: 5px;
+}
+.img-admin
+{
+	width: 300px;
+	height: 200px;
+	margin: 0px;
+	border-radius: 5px 0px 0px 5px;
+}
+.news-text-admin
+{
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+}
+
+.link-add
+{
+	font-family: 'Quicksand', cursive;
+	margin-bottom: 10px;
+	padding: 10px 100px 10px 100px;
+	border: 1px solid #bababa;
+	box-shadow: 0px 0px 7px #bababa;
+	border-radius: 5px;
+	color: #5E5E5E;
+	background: linear-gradient(#b3b3b3, #ffffff);
+	font-size: 1.3em;
+}
+.link-add:hover
+{
+	color: #FF9300;
+	text-decoration: none;
+}
+.link-edit
+{
+	font-family: 'Quicksand', cursive;
+	margin-right: 20px;
+	color: #919191;
+	font-size: 1.3em;
+}
+.link-edit:hover
+{
+	color: #FF9300;
+}
+.link-delete
+{
+	font-family: 'Quicksand', cursive;
+	margin-left: 20px;
+	color: #919191;
+	font-size: 1.3em;
+}
+.link-delete:hover
+{
+	color: #FF2600;
+}
+
+
+
+
+
+
+
+
 
 /* FOOTER */
 footer
