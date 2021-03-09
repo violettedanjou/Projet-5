@@ -1,11 +1,11 @@
 <?php $title = "Administration";
 
 ob_start(); ?>
+<h1>GESTION DES ACTIVITES</h1>
 
 <div class="container">
 	<div class="row admin">
 		<div class="col">
-			<h1>GESTION DES ACTIVITES</h1>
 			<?php
 			while ($data = $activities->fetch()) 
 			{
