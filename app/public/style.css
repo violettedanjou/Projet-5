@@ -132,18 +132,19 @@ a.a-session:hover
 }
 #button_confirm_signup, #button_confirm_signin
 {
+	font-family: 'Single Day', cursive;
 	width: 200px;
 	margin: 10px;
 	padding: 10px;
 	border-radius: 50px;
 	border: 1px solid #ffffff;
-	background: linear-gradient(#85c9ed, #ffffff);
-	color: #286BBD;
-	font-weight: bold;
+	background: linear-gradient(#007bff, #ffffff);
+	color: #ffffff;
+	font-size: 1.4em;
 }
 #button_confirm_signup:hover, #button_confirm_signin:hover
 {
-	background: linear-gradient(#ffffff, #85c9ed);
+	background: linear-gradient(#ffffff, #007bff);
 }
 
 
@@ -230,18 +231,20 @@ a.a-session:hover
 }
 #button_add_opinion /* Lien d'ajout d'avis */
 {
+	font-family: 'Single Day', cursive;
 	width: 200px;
 	margin: 10px;
 	padding: 10px;
 	border-radius: 50px;
 	border: 1px solid #ffffff;
-	background: linear-gradient(#85c9ed, #ffffff);
-	color: #286BBD;
-	font-weight: bold;
+	background: linear-gradient(#007bff, #ffffff);
+	color: #ffffff;
+	font-size: 1.5em;
+	
 }
 #button_add_opinion:hover
 {
-	text-decoration: underline;
+	background: linear-gradient(#ffffff, #007bff);
 }
 
 
