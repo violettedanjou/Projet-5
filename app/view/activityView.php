@@ -9,7 +9,7 @@ ob_start(); ?>
 
 			<p> <!-- Lien de retour vers liste des activités -->
 			<?php 	if(isset($_SESSION['admin']) && ($_SESSION['admin'] != 0)) { ?>
-						<a href="index.php?action=afficheAdmin">
+						<a href="index.php?action=openAdmin">
 							<i class="fas fa-arrow-left"></i>Retour
 						</a>
 			<?php 	}
