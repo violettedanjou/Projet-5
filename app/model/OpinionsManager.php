@@ -45,6 +45,13 @@ class OpinionsManager extends Manager
 
     	return $req;
     }
+    public function usefulAdmin() // Afficher la liste des avis utiles
+    {
+    	$db = $this->dbConnect();
+    	$req = $db->query('SELECT id, content, report AS opinion_report, DATE_FORMAT(date_opinion, \'%d/%m/%Y à %Hh%imin%ss\') AS opinion_date_fr FROM opinions WHERE report = 1 ORDER BY opinion_date_fr ASC');
+
+    	return $req;
+    }
     public function removeReport($id) // Retirer le signalement d'un avis
     {
     	$db = $this->dbConnect();

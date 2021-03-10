@@ -1,8 +1,8 @@
 <?php $title = "Administration";
 
 ob_start(); ?>
-<h1>GESTION DES ACTIVITES</h1>
 
+<h1>GESTION DES ACTIVITES</h1>
 <div class="container">
 	<div class="row admin">
 		<div class="col">
@@ -42,8 +42,8 @@ ob_start(); ?>
 
 <h1>GESTION DES HOTELS</h1>
 
-<h1>GESTION DES AVIS SIGNALES</h1>
 
+<h1>GESTION DES AVIS SIGNALES</h1>
 <div class="container">
 	<div class="row reports">
 		<div class="col">
@@ -70,6 +70,30 @@ ob_start(); ?>
 	</div>
 </div>
 
+<h1>LISTE DES AVIS UTILES</h1>
+<div class="container">
+	<div class="row useful">
+		<div class="col">
+			<?php
+			while ($data = $useful->fetch())
+			{ ?>
+				<div class="news-useful">
+					<h4>
+			            <em>Le <?= $data['opinion_date_fr'] ?></em>
+						<?= $data['id'] ?> <br/>
+			        </h4>
+
+					<p id="p-useful">
+						<?= nl2br(($data['content'])) ?>
+					</p>
+
+				</div>
+			<?php
+			}
+			$useful->closeCursor(); ?>
+		</div>
+	</div>
+</div>
 
 <?php $content = ob_get_clean(); 
 require('app/view/template.php');

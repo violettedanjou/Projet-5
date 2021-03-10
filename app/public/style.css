@@ -476,8 +476,25 @@ input[type='image'] /* PROVISOIRE */
 	color: #FF2600;
 }
 
-
-
+/* LISTE DES AVIS UTILES  */
+.row.useful /* Bloc contenant l'ensemble des éléments */
+{
+	padding: 20px;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	box-shadow: 0 1px 40px rgba(0, 0, 0, 0.1);	
+}
+.news-useful /* Bloc contenant l'ensemble des éléments à l'intérieur du premier bloc .row.reports*/
+{
+	padding: 20px;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);	
+}
+#p-useful /* Paragraphe des avis utiles */
+{
+	text-align: center;
+}
 
 
 

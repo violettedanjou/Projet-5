@@ -64,6 +64,9 @@ class controller_front
 	    $adminManager = new OpinionsManager();
 		$admin = $adminManager->reportAdmin();
 
+		$adminUsefulManager = new OpinionsManager();
+		$useful = $adminUsefulManager->usefulAdmin();
+
 	    require('app/view/adminView.php');
 	}
 	function openNewActivity() // Afficher formulaire pour ajout de nouvelle activité
