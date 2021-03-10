@@ -343,17 +343,14 @@ input[type='image'] /* PROVISOIRE */
 
 
 /* PAGE ADMINISTRATION */
-.row.admin
+.row.admin /* Bloc qui contient l'ensemble des éléments */
 {
+	padding: 20px;
 	border: 1px solid transparent;
 	border-radius: 5px;
 	box-shadow: 0 1px 40px rgba(0, 0, 0, 0.1);
 }
-.col.admin
-{
-	padding: 20px;
-}
-.news-admin
+.news-admin /* Bloc qui contient lien modifier, l'image, le titre, le contenu et le lien supprimer */
 {
 	display: flex;
 	flex-direction: row;
@@ -361,7 +358,7 @@ input[type='image'] /* PROVISOIRE */
 	align-items: center;
 	margin-bottom: 15px;
 }
-.news-img-text
+.news-img-text /* Bloc qui contient l'image, le titre et le contenu */
 {
 	display: flex;
 	flex-direction: row;
@@ -370,17 +367,17 @@ input[type='image'] /* PROVISOIRE */
 	border-radius: 5px;
 	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
 }
-.news-text-admin
+.news-text-admin /* Bloc qui contient le titre et le contenu */
 {
 	display: flex;
 	flex-direction: column;
 	padding: 10px;
 }
-.link-delete
+.link-delete /* Lien supprimer */
 {
 	font-family: 'Quicksand', cursive;
 	color: #919191;
-	font-size: 1.3em;
+	font-size: 1.2em;
 }
 .link-delete:hover
 {
@@ -409,7 +406,7 @@ input[type='image'] /* PROVISOIRE */
 {
 	font-family: 'Quicksand', cursive;
 	color: #919191;
-	font-size: 1.3em;
+	font-size: 1.2em;
 }
 .link-edit:hover
 {
@@ -442,7 +439,42 @@ input[type='image'] /* PROVISOIRE */
 	font-size: 1.5em;
 }
 
-
+/* GESTION DES AVIS SIGNALES */
+.row.reports /* Bloc contenant l'ensemble des éléments */
+{
+	padding: 20px;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	box-shadow: 0 1px 40px rgba(0, 0, 0, 0.1);	
+}
+.news-report /* Bloc contenant l'ensemble des éléments à l'intérieur du premier bloc .row.reports*/
+{
+	padding: 20px;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);	
+}
+#p-reports /* Paragraphe qui contient lien pour retirer le signalement / le contenu de l'avis / le lien pour supprimer le signalement */
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.link-report-remove, .link-delete-opinion /* Lien pour retirer le signalement / Lien pour supprimer le signalement */
+{
+	font-family: 'Quicksand', cursive;
+	font-size: 1.1em;
+	font-style: normal;
+}
+.link-report-remove:hover
+{
+	color: #FF9300;
+}
+.link-delete-opinion:hover
+{
+	color: #FF2600;
+}
 
 
 

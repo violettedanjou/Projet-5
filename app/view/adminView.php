@@ -5,7 +5,7 @@ ob_start(); ?>
 
 <div class="container">
 	<div class="row admin">
-		<div class="col admin">
+		<div class="col">
 			<?php
 			while ($data = $activities->fetch()) 
 			{
@@ -44,6 +44,31 @@ ob_start(); ?>
 
 <h1>GESTION DES AVIS SIGNALES</h1>
 
+<div class="container">
+	<div class="row reports">
+		<div class="col">
+			<?php
+			while ($data = $admin->fetch())
+			{ ?>
+				<div class="news-report">
+					<h4>
+			            <em>Le <?= $data['opinion_date_fr'] ?></em>
+						<?= $data['id'] ?> <br/>
+			        </h4>
+
+					<p id="p-reports">
+						<em><a class="link-report-remove" href="index.php?action=deleteReport&amp;id=<?= $data['id'] ?>">Retirer le signalement</a></em>
+						<?= nl2br(($data['content'])) ?>
+						<em><a class="link-delete-opinion" href="index.php?action=deleteOpinion&amp;id=<?= $data['id'] ?>">Supprimer le commentaire</a></em>
+					</p>
+
+				</div>
+			<?php
+			}
+			$admin->closeCursor(); ?>
+		</div>
+	</div>
+</div>
 
 
 <?php $content = ob_get_clean(); 

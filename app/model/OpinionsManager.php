@@ -41,7 +41,7 @@ class OpinionsManager extends Manager
     public function reportAdmin() // Afficher la liste des avis signalés
     {
     	$db = $this->dbConnect();
-    	$req = $db->query('SELECT id, content, report AS opinion_report, DATE_FORMAT(date_opinion, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM opinions WHERE report = 1 ORDER BY creation_date_fr ASC');
+    	$req = $db->query('SELECT id, content, report AS opinion_report, DATE_FORMAT(date_opinion, \'%d/%m/%Y à %Hh%imin%ss\') AS opinion_date_fr FROM opinions WHERE report = 1 ORDER BY opinion_date_fr ASC');
 
     	return $req;
     }	
