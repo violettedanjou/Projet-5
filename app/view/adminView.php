@@ -16,7 +16,7 @@ ob_start(); ?>
 			    	<a class="link-edit" href="index.php?action=openChange&amp;id=<?= $data['id'] ?>">Modifier</a>
 
 			    	<div class="news-img-text">
-			    		<img class="img-admin" src="<?= $data['picture'] ?>" alt="activités sportives et culturelles proposées par le site">
+			    		<img src="<?= $data['picture'] ?>" alt="activités sportives et culturelles proposées par le site">
 
 				    	<div class="news-text-admin">
 				    		<h3>

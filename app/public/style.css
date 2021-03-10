@@ -42,6 +42,14 @@ a
 {
 	margin: 10px;
 }
+img
+{
+	width: 300px;
+	height: 200px;
+	margin: 0px;
+	border-radius: 5px 0px 0px 5px;
+}
+
 
 
 /* BARRE DE NAVIGATION */
@@ -229,13 +237,14 @@ a.a-session:hover
 	border-radius: 40px;
 	box-shadow: 0 1px 40px rgba(0, 0, 0, 0.3); 
 }
-.list-opinions
+#form-add-opinion /* Formulaire d'ajout d'avis */
 {
-	border: 1px solid #bababa;
+	padding: 10px;
+	border: 1px solid transparent;
 	border-radius: 30px;
-	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2); 
+	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
 }
-#button_add_opinion /* Lien d'ajout d'avis */
+#button_add_opinion /* Lien de validation du formulaire d'ajout d'avis */
 {
 	font-family: 'Single Day', cursive;
 	width: 200px;
@@ -252,6 +261,15 @@ a.a-session:hover
 {
 	background: linear-gradient(#ffffff, #007bff);
 }
+.list-opinions /* Bloc de la liste des avis */
+{
+	margin-top: 20px;
+	padding: 10px;
+	border: 1px solid transparent;
+	border-radius: 30px;
+	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
+}
+
 
 
 
@@ -331,13 +349,6 @@ input[type='image'] /* PROVISOIRE */
 	border: 1px solid transparent;
 	border-radius: 5px;
 	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
-}
-.img-admin
-{
-	width: 300px;
-	height: 200px;
-	margin: 0px;
-	border-radius: 5px 0px 0px 5px;
 }
 .news-text-admin
 {

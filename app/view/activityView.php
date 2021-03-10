@@ -21,15 +21,24 @@ ob_start(); ?>
 			</p>
 
 			
-			<div class="news"> <!-- Récupérer l'image et le texte de l'activité -->
-				<?= $activity['picture'] ?>
-			    <?=	nl2br(($activity['content'])) ?>
-			</div><br/>
+            <div class="news-img-text"> <!-- Récupérer l'image, le titre et le contenu de l'activité en particulier -->
+                <img src="<?= $activity['picture'] ?>" alt="Activité sportive ou culturelle proposée par le site">
+                <div class="news-text-admin">
+                    <h3>
+                        <?= htmlspecialchars($activity['title']); ?>
+                    </h3>
+                        
+                    <p>
+                        <?= nl2br($activity['content']) ?>
+                    </p>
+                </div> 
+            </div><br/>
 
 			<div id="div-opinions">
 						<!-- Si on est connecté, on affiche le formulaire d'ajout d'avis -->
 				  <?php if (isset($_SESSION['id'])) { ?> 
-							<form action="index.php?action=addOpinion&amp;id=<?= $activity['id'] ?>" method="post">
+							<form id="form-add-opinion" action="index.php?action=addOpinion&amp;id=<?= $activity['id'] ?>" method="post">
+								<h3>Ajouter un avis</h3>
 							    <div>
 							        <label for="opinion"></label><br /><textarea id="opinion" name="opinion"></textarea>
 							    </div>

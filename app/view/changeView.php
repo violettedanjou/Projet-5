@@ -14,7 +14,7 @@ ob_start(); ?>
             </p>
 
             <div class="news-img-text">
-                <img class="img-admin" src="<?= $change['picture'] ?>" alt="Activité sportive ou culturelle proposée par le site">
+                <img src="<?= $change['picture'] ?>" alt="Activité sportive ou culturelle proposée par le site">
                 <div class="news-text-admin">
                     <h3>
                         <?= htmlspecialchars($change['title']); ?>
