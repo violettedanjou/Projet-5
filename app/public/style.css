@@ -23,6 +23,12 @@ h2
 	margin: 20px;
 	color: #007bff;
 }
+h3
+{
+	font-family: 'Single Day', cursive;
+	margin-bottom: 20px;
+	color: #007bff;
+}
 p
 {
 	text-align: justify;
@@ -301,9 +307,9 @@ input[type='image'] /* PROVISOIRE */
 /* PAGE ADMINISTRATION */
 .row.admin
 {
-	border: 1px solid #a7a7a7;
+	border: 1px solid transparent;
 	border-radius: 5px;
-	box-shadow: 0px 0px 10px #5E5E5E;
+	box-shadow: 0 1px 40px rgba(0, 0, 0, 0.1);
 }
 .col.admin
 {
@@ -321,8 +327,10 @@ input[type='image'] /* PROVISOIRE */
 {
 	display: flex;
 	flex-direction: row;
-	border: 1px solid #5E5E5E;
+	margin: 20px;
+	border: 1px solid transparent;
 	border-radius: 5px;
+	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
 }
 .img-admin
 {
@@ -337,8 +345,19 @@ input[type='image'] /* PROVISOIRE */
 	flex-direction: column;
 	padding: 10px;
 }
+.link-delete
+{
+	font-family: 'Quicksand', cursive;
+	color: #919191;
+	font-size: 1.3em;
+}
+.link-delete:hover
+{
+	color: #FF2600;
+}
 
-.link-add
+/* PAGE DE MODIFICATION */
+.link-add /* Lien d'ajout */
 {
 	font-family: 'Quicksand', cursive;
 	margin-bottom: 10px;
@@ -355,10 +374,9 @@ input[type='image'] /* PROVISOIRE */
 	color: #FF9300;
 	text-decoration: none;
 }
-.link-edit
+.link-edit /* Lien pour accéder à la modification */
 {
 	font-family: 'Quicksand', cursive;
-	margin-right: 20px;
 	color: #919191;
 	font-size: 1.3em;
 }
@@ -366,17 +384,34 @@ input[type='image'] /* PROVISOIRE */
 {
 	color: #FF9300;
 }
-.link-delete
+#form-change /* Formulaire de modification */
 {
-	font-family: 'Quicksand', cursive;
-	margin-left: 20px;
-	color: #919191;
-	font-size: 1.3em;
+	padding: 10px;
+	border: 1px solid transparent;
+	border-radius: 30px;
+	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
 }
-.link-delete:hover
+#title-change /* Titre du formulaire */
 {
-	color: #FF2600;
+	display: flex;
+	justify-content: flex-start;
+	width: 400px;
+    height: auto;
 }
+#button-change-activity /* Lien de validation pour modifier l'activité */
+{
+	font-family: 'Single Day', cursive;
+	width: 200px;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 50px;
+	border: 1px solid #ffffff;
+	background: linear-gradient(#007bff, #ffffff);
+	color: #ffffff;
+	font-size: 1.5em;
+}
+
+
 
 
 

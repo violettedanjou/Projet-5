@@ -13,19 +13,22 @@ ob_start(); ?>
                 </a>
             </p>
 
-            <div class="news">
-                <img class="img-admin" src="<?= $data['picture'] ?>" alt="Activité sportive ou culturelle proposée par le site">
-                <h3>
-                    <?= htmlspecialchars($change['title']); ?>
-                </h3>
-                    
-                <p>
-                    <?= nl2br($change['content']) ?>
-                </p>
+            <div class="news-img-text">
+                <img class="img-admin" src="<?= $change['picture'] ?>" alt="Activité sportive ou culturelle proposée par le site">
+                <div class="news-text-admin">
+                    <h3>
+                        <?= htmlspecialchars($change['title']); ?>
+                    </h3>
+                        
+                    <p>
+                        <?= nl2br($change['content']) ?>
+                    </p>
+                </div> 
             </div>
 
             <div id="form-change">
                 <form action="index.php?action=validChange" method="POST">
+                    <h2>Modifier l'activite</h2>
                     <input type="hidden" name="id" value="<?= $change['id']?>">
                     <input id="title-change" type="text" name="title" value="<?= $change['title']?>"/><br/>
                     <textarea id="content-change" name="content"><?= $change['content']?></textarea><br/>
