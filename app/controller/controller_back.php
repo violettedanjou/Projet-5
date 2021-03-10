@@ -94,6 +94,21 @@ class controller_back
 
 		header('Location: index.php?action=openAdmin');
 	}
+	function deleteReport() // Retirer le signalement
+	{
+		$removeManager = new OpinionsManager();
+	    $remove = $removeManager->removeReport($_GET['id']);
+
+		header('Location: index.php?action=openAdmin');
+	}
+
+	function deleteOpinion() // Supprimer un avis signalé
+	{
+		$deleteManager = new OpinionsManager();
+	    $delete = $deleteManager->eliminateOpinion($_GET['id']);
+
+		header('Location: index.php?action=openAdmin');
+	}
 }
 
 

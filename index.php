@@ -239,7 +239,31 @@ try {
             else {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
-        }	    
+        }
+        // Retirer le signalement d'un avis
+        elseif ($_GET['action'] == 'deleteReport') {
+            if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+                if (isset($_GET['id']) && $_GET['id'] > 0) { 
+               		$deleteReportOpinion = new controller_back();
+					$deleteReportOpinion->deleteReport();
+                } 
+            }
+            else {
+                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+            }
+        }
+        // Supprimer un avis signalé
+        elseif ($_GET['action'] == 'deleteOpinion') {
+            if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+                if (isset($_GET['id']) && $_GET['id'] > 0) { 
+	                $deleteOpinion = new controller_back();
+					$deleteOpinion->deleteOpinion();
+	            } 
+            }
+            else {
+                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+            } 
+        }    
 	}
 	else {
 		$listActivity = new controller_front();

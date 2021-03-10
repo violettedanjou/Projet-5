@@ -44,7 +44,23 @@ class OpinionsManager extends Manager
     	$req = $db->query('SELECT id, content, report AS opinion_report, DATE_FORMAT(date_opinion, \'%d/%m/%Y à %Hh%imin%ss\') AS opinion_date_fr FROM opinions WHERE report = 1 ORDER BY opinion_date_fr ASC');
 
     	return $req;
-    }	
+    }
+    public function removeReport($id) // Retirer le signalement d'un avis
+    {
+    	$db = $this->dbConnect();
+    	$req = $db->prepare('UPDATE opinions SET report = 0 WHERE id = ?');
+        $req->execute(array($id));
+
+    	return $req;
+    }
+    public function eliminateOpinion($activityId) // Supprimer un commentaire signalé
+    {
+    	$db = $this->dbConnect();
+        $deleteOpinion = $db->prepare('DELETE FROM opinions WHERE id = ?');
+        $deleteOpinion->execute(array($activityId));
+
+        return $deleteOpinion;
+    }
 }
 
 

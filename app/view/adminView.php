@@ -59,7 +59,7 @@ ob_start(); ?>
 					<p id="p-reports">
 						<em><a class="link-report-remove" href="index.php?action=deleteReport&amp;id=<?= $data['id'] ?>">Retirer le signalement</a></em>
 						<?= nl2br(($data['content'])) ?>
-						<em><a class="link-delete-opinion" href="index.php?action=deleteOpinion&amp;id=<?= $data['id'] ?>">Supprimer le commentaire</a></em>
+						<em><a class="link-delete-opinion" href="index.php?action=deleteOpinion&amp;id=<?= $data['id'] ?>">Supprimer l'avis</a></em>
 					</p>
 
 				</div>
