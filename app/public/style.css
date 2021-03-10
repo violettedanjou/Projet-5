@@ -281,9 +281,14 @@ a.a-session:hover
 	border-radius: 30px;
 	background: linear-gradient(#ffffff, #eaeaea);
 }
-#button-report
+#button-report, #button-useful
 {
 	color: #814f30;
+	margin: 10px;
+}
+.fa-thumbs-up
+{
+	margin: 5px;
 }
 
 

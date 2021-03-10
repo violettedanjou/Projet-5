@@ -86,6 +86,7 @@ ob_start(); ?>
 						 <?php 	if (isset($_SESSION['id'])) { ?> <!-- Si on est connecté, on affiche le lien signaler -->
 									<div>
 								    	<a id="button-report" href="index.php?action=validReport&amp;id=<?= $opinion['id'] ?>&amp;opinion_id=<?= $opinion['id']?>">Signaler</a>
+								    	<a id="button-useful" href="index.php?action=validUseful&amp;id=<?= $opinion['id'] ?>&amp;opinion_id=<?= $opinion['id']?>">Utile<i class="far fa-thumbs-up"></i></a>
 								    </div>
 						 <?php 	} ?>	
 

@@ -30,6 +30,14 @@ class OpinionsManager extends Manager
 
         return $report;
     }
+    public function usefulOpinion($id) // signaler un commentaire
+    {
+        $db = $this->dbConnect();
+        $useful = $db->prepare('UPDATE opinions SET useful = 1 WHERE id = ?');
+        $useful->execute(array($id));
+
+        return $useful;
+    }    
     public function reportAdmin() // Afficher la liste des avis signalés
     {
     	$db = $this->dbConnect();

@@ -105,11 +105,15 @@ try {
             }
         } 
         // Signaler un avis
-        elseif ($_GET['action'] == 'validReport') { 
-                    $reportOpinion = new controller_back();
-					$reportOpinion->report();
-                    echo "Commentaire signalé";
-        }               
+        if ($_GET['action'] == 'validReport') { 
+            $reportOpinion = new controller_back();
+			$reportOpinion->report();
+        } 
+        elseif ($_GET['action'] == 'validUseful') {
+        	$usefulOpinion = new controller_back();
+			$usefulOpinion->useful();
+        }
+
 
 // PAGE PROFILE        
         // Afficher la page profile 

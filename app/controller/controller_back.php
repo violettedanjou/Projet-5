@@ -67,6 +67,16 @@ class controller_back
 
 		header('Location: index.php?action=activity&id='. $_GET['opinion_id']);
 	}
+	function useful() // Signaler un avis
+	{
+		$usefulManager = new OpinionsManager();
+		$useful = $usefulManager->usefulOpinion($_GET['id']);
+
+		header('Location: index.php?action=activity&id='. $_GET['opinion_id']);
+	}
+
+
+
 
 // PAGE ADMINISTRATION 
 	function addActivity() // Ajouter une nouvelle activité
