@@ -84,6 +84,27 @@ try {
                 throw new Exception("Aucun identifiant de l'activité envoyé", 1);   
             }
         }
+        // Ajouter un avis 
+        elseif ($_GET['action'] == 'addOpinion') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
+                    if (!empty($_POST['content'])) {
+                        $addNewOpinion = new controller_front();
+						$newOpinion->addOpinion($_GET['id'], $_POST['content']);
+                    }
+                    else {
+                        throw new Exception("Tous les champs ne sont pas remplis");
+                    }
+                }
+                else {
+                    throw new Exception("Veuillez vous connecter pour ajouter un commentaire.", 1);
+                }
+            }
+            else {
+                throw new Exception("Aucun identifiant de billet envoyé");
+            }
+        }        
+
 // PAGE PROFILE        
         // Afficher la page profile 
         if ($_GET['action'] == 'openProfile') {
