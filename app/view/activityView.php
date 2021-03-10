@@ -73,7 +73,7 @@ ob_start(); ?>
 						<h2>AVIS</h2>
 							<!-- Commentaires affichés même non connecté -->
 					<?php	while ($opinion = $opinions->fetch()) { ?>
-							<div id="news">
+							<div id="one-opinion">
 							    <h4>
 							    	<p><strong><?= htmlspecialchars($opinion['pseudo']) ?></strong> le <?= $opinion['opinion_date_fr'] ?></p> <!-- On récupère le pseudo et la date de l'avis -->
 							    </h4>
@@ -84,8 +84,8 @@ ob_start(); ?>
 							
 
 						 <?php 	if (isset($_SESSION['id'])) { ?> <!-- Si on est connecté, on affiche le lien signaler -->
-									<div class="button-report">
-								    	<a href="index.php?action=validReport&amp;id=<?= $opinion['id'] ?>&amp;opinion_id=<?= $opinion['id']?>">Signaler</a>
+									<div>
+								    	<a id="button-report" href="index.php?action=validReport&amp;id=<?= $opinion['id'] ?>&amp;opinion_id=<?= $opinion['id']?>">Signaler</a>
 								    </div>
 						 <?php 	} ?>	
 
