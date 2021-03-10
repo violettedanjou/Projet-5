@@ -14,13 +14,21 @@ class OpinionsManager extends Manager
 
     	return $pseudoOpinion;
     }
-    public function activityOpinion($activityId, $content)
+    public function activityOpinion($activityId, $content) // Insérer un nouvel avis
     {
         $db = $this->dbConnect();
         $opinions = $db->prepare('INSERT INTO opinions(opinion_id, author, content, date_opinion) VALUES(?, ?, ?, NOW())');
         $affectedLines = $opinions->execute(array($activityId, $_SESSION['id'], $content));
 
         return $affectedLines;
+    }
+    public function reportOpinion($id) // signaler un commentaire
+    {
+        $db = $this->dbConnect();
+        $report = $db->prepare('UPDATE opinions SET report = 1 WHERE id = ?');
+        $report->execute(array($id));
+
+        return $report;
     }
     public function reportAdmin() // Afficher la liste des avis signalés
     {

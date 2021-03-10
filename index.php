@@ -103,7 +103,13 @@ try {
             else {
                 throw new Exception("Aucun identifiant de billet envoyé");
             }
-        }        
+        } 
+        // Signaler un avis
+        elseif ($_GET['action'] == 'validReport') { 
+                    $reportOpinion = new controller_back();
+					$reportOpinion->report();
+                    echo "Commentaire signalé";
+        }               
 
 // PAGE PROFILE        
         // Afficher la page profile 

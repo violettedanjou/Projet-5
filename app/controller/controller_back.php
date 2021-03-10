@@ -60,6 +60,13 @@ class controller_back
 
 		header('Location: index.php?action=openProfile');
 	}
+	function report() // Signaler un avis
+	{
+		$reportManager = new OpinionsManager();
+		$report = $reportManager->reportOpinion($_GET['id']);
+
+		header('Location: index.php?action=activity&id='. $_GET['opinion_id']);
+	}
 
 // PAGE ADMINISTRATION 
 	function addActivity() // Ajouter une nouvelle activité
