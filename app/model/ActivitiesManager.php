@@ -9,9 +9,9 @@ class ActivitiesManager extends Manager
     public function getActivities() // Récupération des activtiés
     {
         $db = $this->dbConnect();
-        $activitie = $db->query('SELECT id, title, content, picture FROM activities LIMIT 0, 5');
+        $listactivities = $db->query('SELECT id, title, content, picture FROM activities LIMIT 0, 5');
 
-        return $activitie;
+        return $listactivities;
     }
     public function getActivity($activityId) // Récupération d'une activité grace à son id
     {

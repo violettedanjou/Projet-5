@@ -218,9 +218,24 @@ try {
         // Valider le formulaire de modification d'une activité
         elseif ($_GET['action'] == 'validChange') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-                if (isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content'])) && (isset($_POST['picture']))) {
-                	$validChangeActivity = new controller_back();
-					$validChangeActivity->changeActivity();
+                if (isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content']))) {
+                	
+                	if (isset($_FILES['picture']) AND $_FILES['picture']['error'] == 0) {
+						if ($_FILES['picture']['size'] <= 1000000) {
+
+							$infosfichier = pathinfo($_FILES['picture']['name']);
+							$extension_upload = $infosfichier['extension'];
+							$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
+
+					    	if (in_array($extension_upload, $extensions_autorisees)) {
+						        move_uploaded_file($_FILES['picture']['tmp_name'], 'pictures/activities/' . basename($_FILES['picture']['name']));
+						        echo "L'envoi a bien été effectué !";
+
+                				$validChangeActivity = new controller_back();
+								$validChangeActivity->changeActivity();
+							}
+						}
+					}		
                 } 
                 else {
                 	throw new Exception("Veuillez remplir des champs.", 1);
