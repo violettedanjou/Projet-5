@@ -51,7 +51,7 @@ a
 img
 {
 	width: 300px;
-	height: 200px;
+	/*height: 200px;*/
 	margin: 0px;
 	border-radius: 5px 0px 0px 5px;
 }
@@ -220,6 +220,7 @@ a.a-session:hover
 	width: 300px;
 	height: 200px;
 	margin: 0px 30px 10px 0px;
+	border-radius: 0px;
 }
 .news-text
 {

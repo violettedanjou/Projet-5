@@ -30,6 +30,7 @@ class ActivitiesManager extends Manager
             'title' => $title,
             'content' => $content,
             'picture' => $picture));
+       		die(var_dump($picture));
 
        return $addNewActivity;
     }
