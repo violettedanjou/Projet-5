@@ -6,12 +6,12 @@ ob_start(); ?>
 <div class="container">
 	<div class="row admin">
 		<div class="col">
+			<a class="link-add" href="index.php?action=openNewActivity">Ajouter</a><br/>
+				<br/>
 			<?php
 			while ($data = $activities->fetch()) 
 			{
 			?>
-				<a class="link-add" href="index.php?action=openNewActivity">Ajouter</a><br/>
-				<br/>
 			    <div class="news-admin">
 			    	<a class="link-edit" href="index.php?action=openChange&amp;id=<?= $data['id'] ?>">Modifier</a>
 
