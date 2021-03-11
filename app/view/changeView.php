@@ -32,7 +32,7 @@ ob_start(); ?>
                     <input type="hidden" name="id" value="<?= $change['id']?>">
                     <input id="title-change" type="text" name="title" value="<?= $change['title']?>"/><br/>
                     <textarea id="content-change" name="content"><?= $change['content']?></textarea><br/>
-                    <input type="file" name="pictures" id="button-change-img" /><br/>
+                    <input type="file" name="pictures" /><br/>
                     <input type="submit" value="Enregistrer" id="button-change-activity" />
               </form>
             </div>

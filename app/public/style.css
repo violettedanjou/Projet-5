@@ -384,60 +384,6 @@ input[type='image'] /* PROVISOIRE */
 	color: #FF2600;
 }
 
-/* PAGE DE MODIFICATION */
-.link-add /* Lien d'ajout */
-{
-	font-family: 'Quicksand', cursive;
-	margin-bottom: 10px;
-	padding: 10px 100px 10px 100px;
-	border: 1px solid #bababa;
-	box-shadow: 0px 0px 7px #bababa;
-	border-radius: 5px;
-	color: #5E5E5E;
-	background: linear-gradient(#b3b3b3, #ffffff);
-	font-size: 1.3em;
-}
-.link-add:hover
-{
-	color: #FF9300;
-	text-decoration: none;
-}
-.link-edit /* Lien pour accéder à la modification */
-{
-	font-family: 'Quicksand', cursive;
-	color: #919191;
-	font-size: 1.2em;
-}
-.link-edit:hover
-{
-	color: #FF9300;
-}
-#form-change /* Formulaire de modification */
-{
-	padding: 10px;
-	border: 1px solid transparent;
-	border-radius: 30px;
-	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
-}
-#title-change /* Titre du formulaire */
-{
-	display: flex;
-	justify-content: flex-start;
-	width: 400px;
-    height: auto;
-}
-#button-change-activity /* Lien de validation pour modifier l'activité */
-{
-	font-family: 'Single Day', cursive;
-	width: 200px;
-	margin: 10px;
-	padding: 10px;
-	border-radius: 50px;
-	border: 1px solid #ffffff;
-	background: linear-gradient(#007bff, #ffffff);
-	color: #ffffff;
-	font-size: 1.5em;
-}
 
 /* GESTION DES AVIS SIGNALES */
 .row.reports /* Bloc contenant l'ensemble des éléments */
@@ -476,6 +422,7 @@ input[type='image'] /* PROVISOIRE */
 	color: #FF2600;
 }
 
+
 /* LISTE DES AVIS UTILES  */
 .row.useful /* Bloc contenant l'ensemble des éléments */
 {
@@ -497,6 +444,90 @@ input[type='image'] /* PROVISOIRE */
 }
 
 
+/* PAGE D'AJOUT */
+.link-add /* Lien d'ajout */
+{
+	font-family: 'Quicksand', cursive;
+	margin-bottom: 10px;
+	padding: 10px 100px 10px 100px;
+	border: 1px solid #bababa;
+	box-shadow: 0px 0px 7px #bababa;
+	border-radius: 5px;
+	color: #5E5E5E;
+	background: linear-gradient(#b3b3b3, #ffffff);
+	font-size: 1.3em;
+}
+.link-add:hover
+{
+	color: #FF9300;
+	text-decoration: none;
+}
+#form-add-activity, #form-add-picture /* Formulaire d'ajout d'activité / Formulaire d'ajout d'image */
+{
+	margin-bottom: 30px; 
+	padding: 20px;
+	border: 1px solid transparent;
+	border-radius: 30px;
+	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
+}
+#title-add-new-activity /* Titre du formulaire */
+{
+	display: flex;
+	justify-content: flex-start;
+	width: 400px;
+    height: auto;
+}
+#button-add-activity, #button-add-picture /* Lien de validation pour ajouter l'activité / Lien de validation pour ajouter l'image */
+{
+	font-family: 'Single Day', cursive;
+	width: auto;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 50px;
+	border: 1px solid #ffffff;
+	background: linear-gradient(#007bff, #ffffff);
+	color: #ffffff;
+	font-size: 1.5em;	
+}
+
+
+/* PAGE DE MODIFICATION */
+.link-edit /* Lien pour accéder à la modification */
+{
+	font-family: 'Quicksand', cursive;
+	color: #919191;
+	font-size: 1.2em;
+}
+.link-edit:hover
+{
+	color: #FF9300;
+}
+#form-change /* Formulaire de modification */
+{
+	padding: 10px;
+	border: 1px solid transparent;
+	border-radius: 30px;
+	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
+}
+#title-change /* Titre du formulaire */
+{
+	display: flex;
+	justify-content: flex-start;
+	width: 400px;
+    height: auto;
+}
+#button-change-activity /* Lien de validation pour modifier l'activité */
+{
+	font-family: 'Single Day', cursive;
+	width: auto;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 50px;
+	border: 1px solid #ffffff;
+	background: linear-gradient(#007bff, #ffffff);
+	color: #ffffff;
+	font-size: 1.5em;
+}
 
 
 
