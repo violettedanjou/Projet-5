@@ -138,7 +138,7 @@ try {
 						    move_uploaded_file($_FILES['pictureProfile']['tmp_name'], 'pictures/profile' . basename($_FILES['pictureProfile']['name']));
 					        echo "L'envoi a bien été effectué !";
 						                
-						    $validProfile = new controller_back();
+						    $validProfile = new controller_front();
 							$validProfile->validProfile();
 						}
 				    }

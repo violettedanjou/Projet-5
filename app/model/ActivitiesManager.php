@@ -22,7 +22,7 @@ class ActivitiesManager extends Manager
 
         return $activity;
     }
-    public function addNewActivity($title, $content, $picture) // Ajout d'un nouveau billet
+    public function addNewActivity($title, $content, $picture) // Ajout d'une nouvelle activité
     {
        $db = $this->dbConnect();
        $newActivity = $db->prepare('INSERT INTO activities(title, content, picture) VALUES (:title, :content, :picture)');

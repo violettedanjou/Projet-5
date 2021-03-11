@@ -22,7 +22,7 @@ class OpinionsManager extends Manager
 
         return $affectedLines;
     }
-    public function reportOpinion($id) // signaler un commentaire
+    public function reportOpinion($id) // Signaler un avis
     {
         $db = $this->dbConnect();
         $report = $db->prepare('UPDATE opinions SET report = 1 WHERE id = ?');
@@ -30,7 +30,7 @@ class OpinionsManager extends Manager
 
         return $report;
     }
-    public function usefulOpinion($id) // signaler un commentaire
+    public function usefulOpinion($id) // Signaler un avis
     {
         $db = $this->dbConnect();
         $useful = $db->prepare('UPDATE opinions SET useful = 1 WHERE id = ?');

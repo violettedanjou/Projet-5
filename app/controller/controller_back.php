@@ -53,13 +53,6 @@ class controller_back
 		session_destroy();
 		header('Location: index.php');
 	}
-	function validProfile() // Ajouter une image à son profile
-	{
-		$profileManager = new MemberManager();
-		$profile = $profileManager->addPicture($_POST['picture']);
-
-		header('Location: index.php?action=openProfile');
-	}
 	function report() // Signaler un avis
 	{
 		$reportManager = new OpinionsManager();
@@ -72,7 +65,7 @@ class controller_back
 		$usefulManager = new OpinionsManager();
 		$useful = $usefulManager->usefulOpinion($_GET['id']);
 
-		header('Location: index.php?action=activity&id='. $_GET['opinion_id']);
+		header('Location: index.php?action=activity&id='. $_GET['id']);
 	}
 
 

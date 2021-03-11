@@ -50,6 +50,13 @@ class controller_front
 	{
 		require('app/view/profileView.php');
 	}
+	function validProfile() // Ajouter une image à son profile
+	{
+		$profileManager = new MemberManager();
+		$profile = $profileManager->addPicture($_FILES['pictureProfile']['name'], $_SESSION['id']);
+
+		header('Location: index.php?action=openProfile');
+	}
 
 
 

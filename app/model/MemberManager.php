@@ -10,7 +10,7 @@ class MemberManager extends Manager
     public function insertMember($pseudo, $pass, $email) // inscription
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('INSERT INTO members(pseudo, pass, email, registration_date) VALUES(:pseudo, :pass, :email, CURDATE())');
+        $req = $db->prepare('INSERT INTO members(pseudo, pass, email) VALUES(:pseudo, :pass, :email)');
         $req->execute(array(
             'pseudo' => $pseudo,
             'pass' => password_hash($pass, PASSWORD_DEFAULT),
@@ -34,12 +34,13 @@ class MemberManager extends Manager
 
         return $req;
     }
-    public function addPicture($picture) // Ajout d'une image de profile 
+    public function addPicture($picture, $id) // Ajout d'une image de profile 
     {
        $db = $this->dbConnect();
-       $profile = $db->prepare('INSERT INTO members(picture) VALUES (:picture)');
+       $profile = $db->prepare('UPDATE members SET picture = :picture WHERE id = :id');
        $pictureProfile = $profile->execute(array(
-            'picture' => $picture));
+            'picture' => $picture,
+        	'id' => $id));
 
        return $pictureProfile;
     }
