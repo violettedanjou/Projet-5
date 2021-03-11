@@ -219,22 +219,31 @@ try {
         elseif ($_GET['action'] == 'validChange') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content']))) {
-                	
-                	if (isset($_FILES['picture']) AND $_FILES['picture']['error'] == 0) {
-						if ($_FILES['picture']['size'] <= 1000000) {
+                	if (isset($_FILES['pictureChange']) AND $_FILES['pictureChange']['error'] == 0) {
 
+						if ($_FILES['pictureChange']['size'] <= 1000000) {
+							// die(var_dump($_FILES['pictureChange']['size']));
 							$infosfichier = pathinfo($_FILES['picture']['name']);
 							$extension_upload = $infosfichier['extension'];
 							$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 
 					    	if (in_array($extension_upload, $extensions_autorisees)) {
-						        move_uploaded_file($_FILES['picture']['tmp_name'], 'pictures/activities/' . basename($_FILES['picture']['name']));
+						        move_uploaded_file($_FILES['pictureChange']['tmp_name'], 'pictures/activities/' . basename($_FILES['pictureChange']['name']));
 						        echo "L'envoi a bien été effectué !";
 
                 				$validChangeActivity = new controller_back();
 								$validChangeActivity->changeActivity();
 							}
+							else {
+								throw new Exception("1", 1);
+							}
 						}
+						else {
+							throw new Exception("2", 1);
+						}
+					}
+					else {
+						throw new Exception("3", 1);
 					}		
                 } 
                 else {

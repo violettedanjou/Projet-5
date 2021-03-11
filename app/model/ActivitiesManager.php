@@ -47,7 +47,11 @@ class ActivitiesManager extends Manager
     {
         $db = $this->dbConnect();
         $req = $db->prepare('UPDATE activities SET title = ?, content = ?, picture = ? WHERE id = ?');
-        $req->execute(array($title, $content, $picture, $id));
+        $req->execute(array(
+        	'title' => $title, 
+        	'content' => $content, 
+        	'picture' => $picture, 
+        	'id' => $id));
 
         return $req;
     }
