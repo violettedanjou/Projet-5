@@ -75,7 +75,7 @@ class controller_back
 	function addActivity() // Ajouter une nouvelle activité
 	{
 		$newActivityManager = new ActivitiesManager();
-		$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $_POST['picture']);
+		$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $_FILES['picture']['name']);
 
 		header('Location: index.php?action=openAdmin');
 	}
