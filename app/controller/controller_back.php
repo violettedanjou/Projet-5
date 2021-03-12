@@ -4,6 +4,7 @@ namespace app\controller;
 require "vendor/autoload.php";
 use app\model\MemberManager;
 use app\model\ActivitiesManager;
+use app\model\HotelsManager;
 use app\model\OpinionsManager;
 
 class controller_back
