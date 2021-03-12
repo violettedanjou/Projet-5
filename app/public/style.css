@@ -251,6 +251,7 @@ a.a-session:hover
 	border: 1px solid transparent;
 	border-radius: 30px;
 	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
+	background-color: #ffffff;
 }
 #button_add_opinion /* Lien de validation du formulaire d'ajout d'avis */
 {
