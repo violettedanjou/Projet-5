@@ -259,7 +259,7 @@ try {
                 if (isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content']))) {
                 	//var_dump(isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content'])));
                 	if (isset($_FILES['pictureChange']) AND $_FILES['pictureChange']['error'] == 0) {
-						//die(var_dump(isset($_FILES['pictureChange']) AND $_FILES['pictureChange']['error'] == 0));
+						die(var_dump($_FILES['pictureChange'] AND $_FILES['pictureChange']['error']));
 
 						if ($_FILES['pictureChange']['size'] <= 1000000) {
 							$infosfichier = pathinfo($_FILES['pictureChange']['name']);
@@ -282,7 +282,7 @@ try {
 						}
 					}
 					else {
-						throw new Exception("3", 1);
+						throw new Exception("Insérez une image correctement.", 1);
 					}		
                 } 
                 else {
