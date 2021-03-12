@@ -21,7 +21,7 @@ ob_start(); ?>
 			</p>
 
 			
-            <div class="news-img-text"> <!-- Récupérer l'image, le titre et le contenu de l'hotel selon son id -->
+            <div class="news-img-text"> <!-- Récupérer l'image, le titre, le contenu, localisation, description et prix des chambres de l'hotel selon son id -->
                 <img src="<?= $hotel['picture'] ?>" alt="Image de l'hotel <?= $hotel['name'] ?>">
                 <div class="news-hotels">
                     <h3>

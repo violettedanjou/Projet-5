@@ -50,7 +50,7 @@ class controller_front
 	    require('app/view/hotelView.php');
 	}
 
-	function addOpinion($id, $content) // Ajouter un avis
+	function addOpinionActivity($id, $content) // Ajouter un avis
 	{
 	    $opinionManager = new OpinionsManager();
 	    $affectedLines = $opinionManager->activityOpinion($id, $content);
