@@ -222,6 +222,7 @@ try {
 					    		//die(var_dump(rename($_FILES['picture']['tmp_name'], 'pictures/activities/' . $_SESSION['id'] . '.' . $extension_upload)));
 
 						        move_uploaded_file($_FILES['picture']['tmp_name'], 'pictures/activities/' . $_SESSION['id'] . basename($_FILES['picture']['name']));
+						        //move_uploaded_file($_FILES['picture']['tmp_name'], 'pictures/activities/' . basename($_FILES['picture']['name'], $_SESSION['id'] . '.' . $extension_upload ));
 						        echo "L'envoi a bien été effectué !";
 						                
 						        $validNewActivity = new controller_back();
