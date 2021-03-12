@@ -68,11 +68,11 @@ try {
 			$signoutMember->signout();    
 	    } 
 
-// LISTE DES ACTIVITES PAGE D'ACCUEIL
+// LISTE DES ACTIVITES et DES HOTELS - PAGE D'ACCUEIL
         // Affiche la listes des activités
-        if ($_GET['action'] == 'listActivities') {
-            $listActivity = new controller_front();
-			$listActivity->listActivities(); 
+        if ($_GET['action'] == 'listActivitiesHotels') {
+            $listActivitiesHotels = new controller_front();
+			$listActivitiesHotels->listActivitiesHotels(); 
         }
         // Afficher une activité et ses avis
         elseif ($_GET['action'] == 'activity') { 
@@ -83,12 +83,6 @@ try {
             else {
                 throw new Exception("Aucun identifiant de l'activité envoyé", 1);   
             }
-        }
-// LISTE DES HOTELS PAGE D'ACCUEIL
-        // Affiche la listes des hotels
-        if ($_GET['action'] == 'listHotels') {
-            $listHotel = new controller_front();
-			$listHotel->listHotels(); 
         }
         // Afficher un hotel et ses avis
         elseif ($_GET['action'] == 'hotel') { 
@@ -302,11 +296,8 @@ try {
         }    
 	}
 	else {
-		$listActivity = new controller_front();
-		$listActivity->listActivities();
-
-		$listHotel = new controller_front();
-		$listHotel->listHotels();
+		$listActivitiesHotels = new controller_front();
+		$listActivitiesHotels->listActivitiesHotels();
 	}   	
 }
 catch(Exception $e) {
