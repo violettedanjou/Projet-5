@@ -13,7 +13,7 @@ ob_start(); ?>
 			{
 			?>
 			    <div class="news-admin">
-			    	<a class="link-edit" href="index.php?action=openChange&amp;id=<?= $data['id'] ?>">Modifier</a>
+			    	<a class="link-edit" href="index.php?action=openChangeActivity&amp;id=<?= $data['id'] ?>">Modifier</a>
 
 			    	<div class="news-img-text">
 			    		<img src="<?= $data['picture'] ?>" alt="activités sportives et culturelles proposées par le site">
@@ -51,7 +51,7 @@ ob_start(); ?>
 			{
 			?>
 			    <div class="news-admin">
-			    	<a class="link-edit" href="index.php?action=openChange&amp;id=<?= $data['id'] ?>">Modifier</a>
+			    	<a class="link-edit" href="index.php?action=openChangeHotel&amp;id=<?= $data['id'] ?>">Modifier</a>
 
 			    	<div class="news-img-text">
 			    		<img src="<?= $data['picture'] ?>" alt="Hotel <?= $hotel['name'] ?>">
@@ -59,7 +59,7 @@ ob_start(); ?>
 				    	<div class="news-text-admin">
 				    		<h3>
 					        	<a href="index.php?action=hotel&amp;id=<?= $data['id'] ?>">
-					            	<?= htmlspecialchars($data['title']) ?>
+					            	<?= htmlspecialchars($data['name']) ?>
 					            </a>
 				        	</h3>
 

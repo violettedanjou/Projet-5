@@ -238,12 +238,12 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);    
             }      
         }
-        // Afficher formulaire de modification d'une activité
-        if($_GET['action'] == 'openChange') {
+        // Afficher formulaire de modification d'une activité openChangeHotel
+        if($_GET['action'] == 'openChangeActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
 	                $formChangeActivity = new controller_front();
-					$formChangeActivity->openChange();
+					$formChangeActivity->openChangeActivity();
                 }
                 else {
                     throw new Exception("Aucun identifiant d'activité envoyé.", 1);
@@ -293,6 +293,24 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         }
+        // Afficher formulaire de modification d'un hotel 
+        if($_GET['action'] == 'openChangeHotel') {
+            if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+	                $formChangeHotel = new controller_front();
+					$formChangeHotel->openChangeHotel();
+                }
+                else {
+                    throw new Exception("Aucun identifiant d'activité envoyé.", 1);
+                } 
+            }
+            else {
+                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+            }
+        }
+
+
+
         // Retirer le signalement d'un avis
         elseif ($_GET['action'] == 'deleteReport') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {

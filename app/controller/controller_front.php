@@ -96,6 +96,9 @@ class controller_front
 		$activityManager = new ActivitiesManager(); 
 	    $activities = $activityManager->getActivities();
 
+	    $hotelManager = new HotelsManager(); 
+	    $hotels = $hotelManager->getHotels();
+
 	    $adminManager = new OpinionsManager();
 		$admin = $adminManager->reportAdmin();
 
@@ -108,12 +111,19 @@ class controller_front
 	{
 		require('app/view/additionView.php');
 	}
-	function openChange() // Récupération d'une activité pour la modifier
+	function openChangeActivity() // Récupération d'une activité pour la modifier
 	{
 		$changeManager = new ActivitiesManager();
 	    $change = $changeManager->changeActivity($_GET['id']);
 
-	    require('app/view/changeView.php');
+	    require('app/view/changeActivityView.php');
+	}
+	function openChangeHotel() // Récupération d'un hotel pour le modifier
+	{
+		$changeManager = new HotelsManager();
+	    $change = $changeManager->changeHotel($_GET['id']);
+
+	    require('app/view/changeHotelView.php');
 	}
 
 

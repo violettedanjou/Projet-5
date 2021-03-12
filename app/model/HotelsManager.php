@@ -22,4 +22,13 @@ class HotelsManager extends Manager
 
         return $hotel;
     }
+    public function changeHotel($id) // Récupération d'une activité pour la modifier
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT id, name, content, location, rooms, prices, picture FROM hotels WHERE id = ?');
+        $req->execute(array($id));
+        $changeHotel = $req->fetch();
+
+        return $changeHotel;
+    }    
 }
