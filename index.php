@@ -84,7 +84,24 @@ try {
                 throw new Exception("Aucun identifiant de l'activité envoyé", 1);   
             }
         }
-        // Ajouter un avis 
+// LISTE DES HOTELS PAGE D'ACCUEIL
+        // Affiche la listes des hotels
+        if ($_GET['action'] == 'listHotels') {
+            $listHotel = new controller_front();
+			$listHotel->listHotels(); 
+        }
+        // Afficher un hotel et ses avis
+        elseif ($_GET['action'] == 'hotel') { 
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $oneHotel = new controller_front();
+				$oneHotel->hotel();             
+            }
+            else {
+                throw new Exception("Aucun identifiant de l'activité envoyé", 1);   
+            }
+        }
+
+// Ajouter un avis 
         elseif ($_GET['action'] == 'addOpinion') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
@@ -104,11 +121,12 @@ try {
                 throw new Exception("Aucun identifiant d'activité envoyé");
             }
         } 
-        // Signaler un avis
+// Signaler un avis
         if ($_GET['action'] == 'validReport') { 
             $reportOpinion = new controller_back();
 			$reportOpinion->report();
         } 
+// Lien avis est utile 
         elseif ($_GET['action'] == 'validUseful') {
         	$usefulOpinion = new controller_back();
 			$usefulOpinion->useful();
