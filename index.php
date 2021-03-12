@@ -236,10 +236,10 @@ try {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content']))) {
                 	if (isset($_FILES['pictureChange']) AND $_FILES['pictureChange']['error'] == 0) {
+						//die(var_dump(isset($_FILES['pictureChange']) AND $_FILES['pictureChange']['error'] == 0));
 
 						if ($_FILES['pictureChange']['size'] <= 1000000) {
-							// die(var_dump($_FILES['pictureChange']['size']));
-							$infosfichier = pathinfo($_FILES['picture']['name']);
+							$infosfichier = pathinfo($_FILES['pictureChange']['name']);
 							$extension_upload = $infosfichier['extension'];
 							$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 

@@ -84,7 +84,7 @@ class controller_back
 	function changeActivity() // Modification d'une activité
 	{
 		$saveManager = new ActivitiesManager();
-		$save = $saveManager->saveActivity($_POST['id'], $_POST['title'], $_POST['content'], $_FILES['picture']['name']);
+		$save = $saveManager->saveActivity($_POST['id'], $_POST['title'], $_POST['content'], $_FILES['pictureChange']['name']);
 
 		header('Location: index.php?action=openAdmin');
 	}
