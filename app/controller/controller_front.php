@@ -34,16 +34,16 @@ class controller_front
 
 	    require('app/view/activityView.php');
 	}
-	function addOpinion($activityId, $content) // Ajouter un avis
+	function addOpinion($id, $content) // Ajouter un avis
 	{
 	    $opinionManager = new OpinionsManager();
-	    $affectedLines = $opinionManager->activityOpinion($activityId, $content);
+	    $affectedLines = $opinionManager->activityOpinion($id, $content);
 
 	    if ($affectedLines === false) {
 	        throw new Exception('Impossible d\'ajouter le commentaire !');
 	    }
 	    else {
-	        header('Location: index.php?action=activity&id=' . $activityId);
+	        header('Location: index.php?action=activity&id=' . $id);
 	    }	
 	}
 	function openProfile()

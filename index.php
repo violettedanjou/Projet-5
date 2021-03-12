@@ -90,18 +90,18 @@ try {
                 if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
                     if (!empty($_POST['content'])) {
                         $addNewOpinion = new controller_front();
-						$newOpinion->addOpinion($_GET['id'], $_POST['content']);
+						$addNewOpinion->addOpinion($_GET['id'], $_POST['content']);
                     }
                     else {
                         throw new Exception("Tous les champs ne sont pas remplis");
                     }
                 }
                 else {
-                    throw new Exception("Veuillez vous connecter pour ajouter un commentaire.", 1);
+                    throw new Exception("Veuillez vous connecter pour ajouter un avis.", 1);
                 }
             }
             else {
-                throw new Exception("Aucun identifiant de billet envoyé");
+                throw new Exception("Aucun identifiant d'activité envoyé");
             }
         } 
         // Signaler un avis
@@ -183,6 +183,7 @@ try {
 							$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 
 					    	if (in_array($extension_upload, $extensions_autorisees)) {
+					    		//rename($_FILES['picture']['tmp_name'], $_GET['id'] . '.' . $extension_upload);
 						        move_uploaded_file($_FILES['picture']['tmp_name'], 'pictures/activities/' . basename($_FILES['picture']['name']));
 						        echo "L'envoi a bien été effectué !";
 						                
@@ -208,7 +209,7 @@ try {
 					$formChangeActivity->openChange();
                 }
                 else {
-                    throw new Exception("Aucun identifiant de billet envoyé.", 1);
+                    throw new Exception("Aucun identifiant d'activité envoyé.", 1);
                 } 
             }
             else {
@@ -247,7 +248,7 @@ try {
 					}		
                 } 
                 else {
-                	throw new Exception("Veuillez remplir des champs.", 1);
+                	throw new Exception("Veuillez remplir les champs.", 1);
                 }
             }
             else {
