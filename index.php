@@ -95,13 +95,13 @@ try {
             }
         }
 
-// Ajouter un avis 
-        elseif ($_GET['action'] == 'addOpinion') {
+// Ajouter un avis à une activité addHotelOpinion
+        elseif ($_GET['action'] == 'addActivityOpinion') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
                     if (!empty($_POST['content'])) {
                         $addNewOpinion = new controller_front();
-						$addNewOpinion->addOpinion($_GET['id'], $_POST['content']);
+						$addNewOpinion->addActivityOpinion($_GET['id'], $_POST['content']);
                     }
                     else {
                         throw new Exception("Tous les champs ne sont pas remplis");
@@ -114,7 +114,28 @@ try {
             else {
                 throw new Exception("Aucun identifiant d'activité envoyé");
             }
-        } 
+        }
+// Ajouter un avis à un hotel 
+        elseif ($_GET['action'] == 'addHotelOpinion') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
+                    if (!empty($_POST['content'])) {
+                        $addNewOpinion = new controller_front();
+						$addNewOpinion->addHotelOpinion($_GET['id'], $_POST['content']);
+                    }
+                    else {
+                        throw new Exception("Tous les champs ne sont pas remplis");
+                    }
+                }
+                else {
+                    throw new Exception("Veuillez vous connecter pour ajouter un avis.", 1);
+                }
+            }
+            else {
+                throw new Exception("Aucun identifiant d'activité envoyé");
+            }
+        }     
+            
 // Signaler un avis
         if ($_GET['action'] == 'validReport') { 
             $reportOpinion = new controller_back();

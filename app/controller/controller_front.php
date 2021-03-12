@@ -50,7 +50,7 @@ class controller_front
 	    require('app/view/hotelView.php');
 	}
 
-	function addOpinionActivity($id, $content) // Ajouter un avis
+	function addActivityOpinion($id, $content) // Ajouter un avis
 	{
 	    $opinionManager = new OpinionsManager();
 	    $affectedLines = $opinionManager->activityOpinion($id, $content);
@@ -60,8 +60,20 @@ class controller_front
 	    }
 	    else {
 	        header('Location: index.php?action=activity&id=' . $id);
-	    }	
+	    }	    
 	}
+	function addHotelOpinion($id, $content) // Ajouter un avis
+	{
+	    $opinionManager = new OpinionsManager();
+	    $affectedLines = $opinionManager->hotelOpinion($id, $content);
+
+	    if ($affectedLines === false) {
+	        throw new Exception('Impossible d\'ajouter le commentaire !');
+	    }
+	    else {
+	        header('Location: index.php?action=hotel&id=' . $id);
+	    }	    
+	}	
 	function openProfile()
 	{
 		require('app/view/profileView.php');

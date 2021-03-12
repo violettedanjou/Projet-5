@@ -37,7 +37,7 @@ ob_start(); ?>
 			<div id="div-opinions">
 						<!-- Si on est connecté, on affiche le formulaire d'ajout d'avis -->
 				  <?php if (isset($_SESSION['id'])) { ?> 
-							<form id="form-add-opinion" action="index.php?action=addOpinionActivity&amp;id=<?= $activity['id'] ?>" method="post">
+							<form id="form-add-opinion" action="index.php?action=addActivityOpinion&amp;id=<?= $activity['id'] ?>" method="post">
 								<h3>Ajouter un avis</h3>
 							    <div>
 							        <label for="opinion"></label><br /><textarea id="opinion" name="opinion"></textarea>
