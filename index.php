@@ -183,7 +183,10 @@ try {
 							$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 
 					    	if (in_array($extension_upload, $extensions_autorisees)) {
-					    		//rename($_FILES['picture']['tmp_name'], $_GET['id'] . '.' . $extension_upload);
+					    		//rename($_FILES['picture']['tmp_name'], $_SESSION['id'] . '.' . $extension_upload);
+					    		//rename($_FILES['picture']['tmp_name'], 'pictures/activities/' . $_SESSION['id'] . '.' . $extension_upload);
+					    		//die(var_dump(rename($_FILES['picture']['tmp_name'], 'pictures/activities/' . $_SESSION['id'] . '.' . $extension_upload)));
+
 						        move_uploaded_file($_FILES['picture']['tmp_name'], 'pictures/activities/' . basename($_FILES['picture']['name']));
 						        echo "L'envoi a bien été effectué !";
 						                
