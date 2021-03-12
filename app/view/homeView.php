@@ -52,6 +52,29 @@
         <div class="row">
             <div class="col">
                 <h1>SE LOGER SUR L'ILE</h1>
+                <?php
+                while ($data = $hotels->fetch())
+                {
+                ?>
+                    <div class="news">
+                        <a href="index.php?action=hotel&amp;id=<?= $data['id'] ?>">
+                            <img class="img-home" src="<?= $data['picture'] ?>" alt="activités sportives et culturelles proposées par le site">
+                        </a>
+                        <div class="news-text">
+                            <h3>
+                                <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
+                                    <?= htmlspecialchars($data['name']) ?>
+                                    <br/>
+                                </a>
+                            </h3>
+                            <p><?= nl2br(($data['content'])) ?></p>
+                               
+                            <em class="link-opinions"><a href="index.php?action=hotel&amp;id=<?= $data['id'] ?>">Avis</a></em>
+                        </div>
+                    </div>
+                <?php
+                }
+                $hotels->closeCursor(); ?>                
             </div>
         </div>
     </div>

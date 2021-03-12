@@ -305,8 +305,8 @@ try {
 		$listActivity = new controller_front();
 		$listActivity->listActivities();
 
-		/*$listHotel = new controller_front();
-		$listHotel->listHotels();*/
+		$listHotel = new controller_front();
+		$listHotel->listHotels();
 	}   	
 }
 catch(Exception $e) {
