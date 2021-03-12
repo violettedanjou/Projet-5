@@ -53,23 +53,23 @@
             <div class="col">
                 <h1>SE LOGER SUR L'ILE</h1>
                 <?php
-                while ($data = $hotels->fetch())
+                while ($dataHotel = $hotels->fetch())
                 {
                 ?>
                     <div class="news">
-                        <a href="index.php?action=hotel&amp;id=<?= $data['id'] ?>">
-                            <img class="img-home" src="<?= $data['picture'] ?>" alt="activités sportives et culturelles proposées par le site">
+                        <a href="index.php?action=hotel&amp;id=<?= $dataHotel['id'] ?>">
+                            <img class="img-home" src="<?= $dataHotel['picture'] ?>" alt="activités sportives et culturelles proposées par le site">
                         </a>
                         <div class="news-text">
                             <h3>
-                                <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
-                                    <?= htmlspecialchars($data['name']) ?>
+                                <a href="index.php?action=hotel&amp;id=<?= $dataHotel['id'] ?>">
+                                    <?= htmlspecialchars($dataHotel['name']) ?>
                                     <br/>
                                 </a>
                             </h3>
-                            <p><?= nl2br(($data['content'])) ?></p>
+                            <p><?= nl2br(($dataHotel['content'])) ?></p>
                                
-                            <em class="link-opinions"><a href="index.php?action=hotel&amp;id=<?= $data['id'] ?>">Avis</a></em>
+                            <em class="link-opinions"><a href="index.php?action=hotel&amp;id=<?= $dataHotel['id'] ?>">Avis</a></em>
                         </div>
                     </div>
                 <?php
