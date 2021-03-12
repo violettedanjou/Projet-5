@@ -196,10 +196,10 @@ try {
             } 
         }
         // Afficher le formulaire d'ajout d'une nouvelle activité
-        if ($_GET['action'] == 'openNewActivityHotel') {
+        if ($_GET['action'] == 'openNewActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-                $formNewActivityHotel = new controller_front();
-				$formNewActivityHotel->openNewActivityHotel(); 
+                $formNewActivity = new controller_front();
+				$formNewActivity->openNewActivity(); 
             }
             else {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);

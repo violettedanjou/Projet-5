@@ -6,7 +6,7 @@ ob_start(); ?>
 <div class="container">
 	<div class="row admin">
 		<div class="col">
-			<a class="link-add" href="index.php?action=openNewActivityHotel">Ajouter</a><br/>
+			<a class="link-add" href="index.php?action=openNewActivity">Ajouter</a><br/>
 				<br/>
 			<?php
 			while ($data = $activities->fetch()) 
@@ -44,7 +44,7 @@ ob_start(); ?>
 <div class="container">
 	<div class="row admin">
 		<div class="col">
-			<a class="link-add" href="index.php?action=openNewActivityHotel">Ajouter</a><br/>
+			<a class="link-add" href="index.php?action=openNewHotel">Ajouter</a><br/>
 				<br/>
 			<?php
 			while ($data = $hotels->fetch()) 

@@ -104,7 +104,7 @@ class controller_front
 
 	    require('app/view/adminView.php');
 	}
-	function openNewActivityHotel() // Afficher formulaire pour ajout de nouvelle activité ou d'un hotel
+	function openNewActivity() // Afficher formulaire pour ajout de nouvelle activité
 	{
 		require('app/view/additionView.php');
 	}
