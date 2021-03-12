@@ -17,6 +17,7 @@ class controller_front
 	{
 		require('app/view/signinView.php');
 	}
+
 	function listActivities() // Afficher la liste des activités
 	{
 	    $activityManager = new ActivitiesManager();
@@ -34,6 +35,25 @@ class controller_front
 
 	    require('app/view/activityView.php');
 	}
+
+	function listHotels() // Afficher la liste des hotels
+	{
+	    $hotelManager = new HotelsManager();
+	    $hotels = $hotelManager->getHotels();
+
+	    require('app/view/homeView.php');
+	}
+	function hotel() // Afficher un hotel selon son id
+	{
+	    $hotelManager = new HotelsManager();
+	    $opinionManager = new OpinionsManager();
+
+	    $hotel = $hotelManager->getHotel($_GET['id']);
+	    $opinions = $opinionManager->pseudoAuthor($_GET['id']);
+
+	    require('app/view/hotelView.php');
+	}
+
 	function addOpinion($id, $content) // Ajouter un avis
 	{
 	    $opinionManager = new OpinionsManager();
