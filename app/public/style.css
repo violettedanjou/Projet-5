@@ -57,7 +57,6 @@ a
 img
 {
 	width: 300px;
-	/*height: 200px;*/
 	margin: 0px;
 	border-radius: 5px 0px 0px 5px;
 }
@@ -207,6 +206,8 @@ a.a-session:hover
 		url('http://localhost:8888/projet-5/app/public/pictures/kikibeach.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
+	background-attachment: fixed;
+    background-position: center;
 	margin-top: 50px;
 	padding: 50px 250px 50px 250px;	
 }
