@@ -30,7 +30,9 @@ ob_start(); ?>
                 <form action="index.php?action=validChange" method="POST">
                     <h2>Modifier l'activite</h2>
                     <input type="hidden" name="id" value="<?= $change['id']?>">
+                    <h6>Titre</h6>
                     <input id="title-change" type="text" name="title" value="<?= $change['title']?>"/><br/>
+                    <h6>Description de l'activité</h6>
                     <textarea id="content-change" name="content"><?= $change['content']?></textarea><br/>
                     <input type="file" name="pictureChange" /><br/>
                     <input type="submit" value="Enregistrer" id="button-change-activity" />
