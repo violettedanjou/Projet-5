@@ -243,6 +243,7 @@ a.a-session:hover
 	border: 1px solid transparent;
 	border-radius: 40px;
 	box-shadow: 0 1px 40px rgba(0, 0, 0, 0.3); 
+	background-color: #ffffff;
 }
 #form-add-opinion /* Formulaire d'ajout d'avis */
 {
@@ -275,9 +276,11 @@ a.a-session:hover
 	border: 1px solid transparent;
 	border-radius: 30px;
 	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
+	background-color: #ffffff;
 }
 #one-opinion
 {
+	margin: 10px;
 	padding: 10px;
 	border-radius: 30px;
 	background: linear-gradient(#ffffff, #eaeaea);
@@ -291,6 +294,66 @@ a.a-session:hover
 {
 	margin: 5px;
 }
+
+/* HOTEL SELON SON ID */
+#body-hotel
+{
+	background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+		url('http://localhost:8888/projet-5/app/public/pictures/kikibeach.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+    background-position: center;
+}
+.fa-arrow-left-hotel
+{
+	color: #ffffff;
+}
+#h1-hotel-view
+{
+	color: #ffffff;
+}
+.img-hotel-view
+{
+	margin-bottom: 10px;
+	border-radius: 0px;
+}
+.news-hotels
+{
+    padding: 20px;
+    border-radius: 60px;
+	border: 1px solid transparent;
+	background-color: #ffffff;
+	box-shadow: 0 1px 40px rgba(0, 0, 0, 0.5); 
+}
+#p-content-location
+{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	color: #5E5E5E;
+}
+#span-hotel-content
+{
+	width: 60%;
+	margin-right: 20px;
+}
+.fa-map-marker-alt
+{
+	margin: 5px;
+	color: #bf0000;
+}
+#p-rooms, #p-prices
+{
+    padding: 20px;
+    border-radius: 20px;
+	border: 1px solid transparent;
+	background-color: #ffffff;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3); 	
+}
+
+
+
 
 
 
