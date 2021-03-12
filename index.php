@@ -100,6 +100,7 @@ try {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
                     if (!empty($_POST['content'])) {
+                    	//die(var_dump($_POST['content']));
                         $addNewOpinion = new controller_front();
 						$addNewOpinion->addActivityOpinion($_GET['id'], $_POST['content']);
                     }
@@ -135,7 +136,7 @@ try {
                 throw new Exception("Aucun identifiant d'activité envoyé");
             }
         }     
-            
+
 // Signaler un avis
         if ($_GET['action'] == 'validReport') { 
             $reportOpinion = new controller_back();
@@ -256,6 +257,7 @@ try {
         elseif ($_GET['action'] == 'validChange') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content']))) {
+                	//var_dump(isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content'])));
                 	if (isset($_FILES['pictureChange']) AND $_FILES['pictureChange']['error'] == 0) {
 						//die(var_dump(isset($_FILES['pictureChange']) AND $_FILES['pictureChange']['error'] == 0));
 
