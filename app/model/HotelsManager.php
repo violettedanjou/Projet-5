@@ -16,7 +16,7 @@ class HotelsManager extends Manager
     public function getHotel($id) // Récupération d'une activité grace à son id
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT id, title, content, location, rooms, prices, picture FROM hotels WHERE id = ?');
+        $req = $db->prepare('SELECT id, name, content, location, rooms, prices, picture FROM hotels WHERE id = ?');
         $req->execute(array($id));
         $hotel = $req->fetch();
 
