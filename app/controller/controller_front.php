@@ -109,7 +109,7 @@ class controller_front
 	}
 	function openNewActivity() // Afficher formulaire pour ajout de nouvelle activité
 	{
-		require('app/view/additionView.php');
+		require('app/view/additionActivityView.php');
 	}
 	function openChangeActivity() // Récupération d'une activité pour la modifier
 	{
