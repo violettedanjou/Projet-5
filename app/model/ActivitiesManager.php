@@ -30,7 +30,6 @@ class ActivitiesManager extends Manager
             'title' => $title,
             'content' => $content,
             'picture' => $picture));
-       		//die(var_dump($picture));
 
        return $addNewActivity;
     }
@@ -43,13 +42,22 @@ class ActivitiesManager extends Manager
 
         return $changeActivity;
     }
-    public function saveActivity($id, $title, $content, $picture) // Modification d'une activité
+    public function saveActivity($id, $title, $content) // Modification d'une activité
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('UPDATE activities SET title = :title, content = :content, picture = :picture WHERE id = :id');
+        $req = $db->prepare('UPDATE activities SET title = :title, content = :content WHERE id = :id');
         $req->execute(array(
         	'title' => $title, 
         	'content' => $content, 
+        	'id' => $id));
+
+        return $req;
+    }
+    public function changeImgActivity($picture)
+    {
+    	$db = $this->dbConnect();
+        $req = $db->prepare('UPDATE activities SET picture = :picture WHERE id = :id');
+        $req->execute(array(
         	'picture' => $picture, 
         	'id' => $id));
 

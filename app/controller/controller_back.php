@@ -76,14 +76,21 @@ class controller_back
 	function addActivity($fichierDestination) // Ajouter une nouvelle activité
 	{
 		$newActivityManager = new ActivitiesManager();
-		$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $fichierDestination);
+		$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $destinationFile);
 
 		header('Location: index.php?action=openAdmin');
 	}
 	function changeActivity() // Modification d'une activité
 	{
 		$saveManager = new ActivitiesManager();
-		$save = $saveManager->saveActivity($_POST['id'], $_POST['title'], $_POST['content'], $_FILES['pictureChange']['name']);
+		$save = $saveManager->saveActivity($_POST['id'], $_POST['title'], $_POST['content']);
+
+		header('Location: index.php?action=openAdmin');
+	}
+	function changeImgActivity()
+	{
+		$imgActivityManager = new ActivitiesManager();
+		$imgManager = $imgActivityManager->changeImgActivity($destinationFile);
 
 		header('Location: index.php?action=openAdmin');
 	}

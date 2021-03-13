@@ -209,23 +209,32 @@ try {
         elseif ($_GET['action'] == 'validNewActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['title']) AND isset($_POST['content'])) {
-			        if (isset($_FILES['picture']) AND $_FILES['picture']['error'] == 0) {
-						if ($_FILES['picture']['size'] <= 1000000) {
+			        if (isset($_FILES['pictureActivity']) AND $_FILES['pictureActivity']['error'] == 0) {
+						if ($_FILES['pictureActivity']['size'] <= 1000000) {
 
-							$infosfichier = pathinfo($_FILES['picture']['name']);
+							$infosfichier = pathinfo($_FILES['pictureActivity']['name']);
 							$extension_upload = $infosfichier['extension'];
 							$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 
 					    	if (in_array($extension_upload, $extensions_autorisees)) {
-					    		$fichierDestination = 'pictures/activities/' . $_SESSION['id'] . basename($_FILES['picture']['name']);
-						        move_uploaded_file($_FILES['picture']['tmp_name'], $fichierDestination);
+					    		$destinationFile = 'pictures/activities/' . $_SESSION['id'] . basename($_FILES['pictureActivity']['name']);
+						        move_uploaded_file($_FILES['pictureActivity']['tmp_name'], $destinationFile);
 						        echo "L'envoi a bien été effectué !";
 						                
 						        $validNewActivity = new controller_back();
 								$validNewActivity->addActivity($fichierDestination);
 						    }
+						    else {
+						    	throw new Exception("L'extension de l'image est incorrect", 1);
+						    }
 						}
-					}              	
+						else {
+							throw new Exception("La taille de l'image n'est pas bonne.", 1);
+						}
+					} 
+					else {
+						throw new Exception("Veuillez entrer une image correctement.", 1);
+					}            	
                 }
                 else {
                     throw new Exception("Veuillez ajouter une nouvelle activité.", 1);
@@ -290,37 +299,11 @@ try {
             }
         }
         // Valider le formulaire de modification d'une activité
-        elseif ($_GET['action'] == 'validChange') {
+        elseif ($_GET['action'] == 'validChangeActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content']))) {
-                	//var_dump(isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content'])));
-                	//var_dump($_FILES['pictureChange']['error']);
-                	//die(var_dump($_FILES['pictureChange']));
-                	if (isset($_FILES['pictureChange']) AND ($_FILES['pictureChange']['error'] == 0)) {
-						
-						if ($_FILES['pictureChange']['size'] <= 1000000) {
-							$infosfichier = pathinfo($_FILES['pictureChange']['name']);
-							$extension_upload = $infosfichier['extension'];
-							$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
-
-					    	if (in_array($extension_upload, $extensions_autorisees)) {
-						        move_uploaded_file($_FILES['pictureChange']['tmp_name'], 'pictures/activities/' . basename($_FILES['pictureChange']['name']));
-						        echo "L'envoi a bien été effectué !";
-
-                				$validChangeActivity = new controller_back();
-								$validChangeActivity->changeActivity();
-							}
-							else {
-								throw new Exception("1", 1);
-							}
-						}
-						else {
-							throw new Exception("2", 1);
-						}
-					}
-					else {
-						throw new Exception("Insérez une image correctement.", 1);
-					}		
+                	$validChangeActivity = new controller_back();
+					$validChangeActivity->changeActivity();		
                 } 
                 else {
                 	throw new Exception("Veuillez remplir les champs.", 1);
@@ -330,6 +313,40 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         }
+        elseif ($_GET['action'] == 'validChangeActivity') {
+            if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+                if (isset($_FILES['ChangeImgActivity']) AND ($_FILES['ChangeImgActivity']['error'] == 0)) {
+                	
+					if ($_FILES['ChangeImgActivity']['size'] <= 1000000) {
+						$infosfichier = pathinfo($_FILES['ChangeImgActivity']['name']);
+						$extension_upload = $infosfichier['extension'];
+						$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
+
+				    	if (in_array($extension_upload, $extensions_autorisees)) {
+				    		$destinationFile = 'pictures/activities/' . $_SESSION['id'] . basename($_FILES['ChangeImgActivity']['name']);
+					        move_uploaded_file($_FILES['ChangeImgActivity']['tmp_name'], $destinationFile);
+					        echo "L'envoi a bien été effectué !";
+
+                			$validChangeImg = new controller_back();
+							$validChangeImg->changeImgActivity($destinationFile);
+						}
+						else {
+							throw new Exception("L'extension de l'image n'est pas correcte.", 1);
+						}
+					}
+					else {
+						throw new Exception("La taille de l'image n'est pas bonne.", 1);
+					}
+				}
+				else {
+					throw new Exception("Insérez une image correctement.", 1);
+				}
+			}
+			else {
+				throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+				
+			}
+		}		
         // Afficher formulaire de modification d'un hotel 
         if($_GET['action'] == 'openChangeHotel') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {

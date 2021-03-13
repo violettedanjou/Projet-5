@@ -17,7 +17,7 @@ ob_start(); ?>
 				<form action="index.php?action=validNewActivity" method="POST" enctype="multipart/form-data"> <!-- Grace à enctype, le navigateur sait qu'il va envoyer un fichier -->
 			      <input type="text" name="title" placeholder="Titre de l'activité" id="title-add-new-activity" /><br/>
 			      <textarea name="content" placeholder="Contenu..." id="content-add-new-activity"></textarea><br/>
-			      <input type="file" name="picture" /><br/>
+			      <input type="file" name="pictureActivity" /><br/>
 			      <input type="submit" value="Enregistrer l'activite" id="button-add-activity" />
 			    </form>
 			</div>

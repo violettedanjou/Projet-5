@@ -576,8 +576,9 @@ input[type='image'] /* PROVISOIRE */
 {
 	color: #FF9300;
 }
-#form-change /* Formulaire de modification */
+#form-change, #form-change-img /* Formulaire de modification du contenu et formulaire de modification pour l'image */
 {
+	margin-top: 20px;
 	padding: 10px;
 	border: 1px solid transparent;
 	border-radius: 30px;
