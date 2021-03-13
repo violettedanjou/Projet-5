@@ -37,10 +37,11 @@ ob_start(); ?>
                     <input type="submit" value="Enregistrer" id="button-change-activity" />
                 </form>
             </div>
+
             <div id="form-change-img">
                 <h2>Modifier l'image</h2>
                     <form action="index.php?action=ChangePictureActivity" method="POST" enctype="multipart/form-data">
-                      <input type="file" name="ChangeImgActivity" /><br/> <!-- anciennement name="pictureChange" -->
+                      <input type="file" name="ChangeImgActivity" /><br/>
                       <input type="submit" value="Enregistrer l'image" id="button-change-activity" />
                     </form>
             </div>
