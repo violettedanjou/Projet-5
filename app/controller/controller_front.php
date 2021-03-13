@@ -111,6 +111,10 @@ class controller_front
 	{
 		require('app/view/additionActivityView.php');
 	}
+	function openNewHotel() // Afficher formulaire pour ajout de nouvel hotel
+	{
+		require('app/view/additionHotelView.php');
+	}
 	function openChangeActivity() // Récupération d'une activité pour la modifier
 	{
 		$changeManager = new ActivitiesManager();

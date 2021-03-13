@@ -205,6 +205,16 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         }
+        // Afficher le formulaire d'ajout d'un nouvel hotel
+        if ($_GET['action'] == 'openNewHotel') {
+            if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+                $formNewHotel = new controller_front();
+				$formNewHotel->openNewHotel(); 
+            }
+            else {
+                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+            }
+        }        
         // Valider le formulaire d'ajout d'une nouvelle activité
         elseif ($_GET['action'] == 'validNewActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
