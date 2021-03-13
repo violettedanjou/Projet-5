@@ -73,7 +73,7 @@ class controller_back
 
 
 // PAGE ADMINISTRATION 
-	function addActivity($fichierDestination) // Ajouter une nouvelle activité
+	function addActivity($destinationFile) // Ajouter une nouvelle activité
 	{
 		$newActivityManager = new ActivitiesManager();
 		$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $destinationFile);
@@ -87,7 +87,7 @@ class controller_back
 
 		header('Location: index.php?action=openAdmin');
 	}
-	function changeImgActivity()
+	function changeImgActivity($destinationFile)
 	{
 		$imgActivityManager = new ActivitiesManager();
 		$imgManager = $imgActivityManager->changeImgActivity($destinationFile);
