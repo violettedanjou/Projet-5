@@ -17,7 +17,7 @@ ob_start(); ?>
                 <form action="index.php?action=validNewHotel" method="POST">
                     <input type="file" name="pictureHotel" /><br/>
                     <input type="hidden" name="id">
-                    <h6>Titre</h6>
+                    <h6>Nom de l'hotel</h6>
                     <input id="title-change" type="text" name="title"/><br/>
                     <h6>Description des l'hotel</h6>
                     <textarea id="content-change" name="content"></textarea><br/>

@@ -80,7 +80,6 @@ class controller_back
 
 		header('Location: index.php?action=openAdmin');
 	}
-
 	function changeActivity() // Modification d'une activité
 	{
 		$saveManager = new ActivitiesManager();
@@ -88,6 +87,15 @@ class controller_back
 
 		header('Location: index.php?action=openAdmin');
 	}
+
+	function addHotel() // Ajouter un nouvel hotel
+	{
+		$newHotelManager = new HotelsManager();
+		$newHotel = $newHotelManager->addNewHotel($_POST['name'], $_POST['content'], $_POST['location'], $_POST['rooms'], $_POST['prices'], $_FILES['pictureHotel']['name']);
+
+		header('Location: index.php?action=openAdmin');
+	}
+
 	function deleteReport() // Retirer le signalement
 	{
 		$removeManager = new OpinionsManager();

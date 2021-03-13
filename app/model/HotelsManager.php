@@ -22,6 +22,20 @@ class HotelsManager extends Manager
 
         return $hotel;
     }
+    public function addNewHotel($name, $content, $location, $rooms, $prices, $picture) // Ajout d'une nouvelle activité
+    {
+       $db = $this->dbConnect();
+       $newHotel = $db->prepare('INSERT INTO hotels(name, content, location, rooms, prices, picture) VALUES (:name, :content, :location, :rooms, :prices, :picture)');
+       $addNewHotel = $newHotel->execute(array(
+            'title' => $title,
+            'content' => $content,
+            'location' => $location,
+            'rooms' => $rooms,
+            'prices' => $prices,
+            'picture' => $picture));
+
+       return $addNewHotel;
+    }    
     public function changeHotel($id) // Récupération d'une activité pour la modifier
     {
         $db = $this->dbConnect();

@@ -39,7 +39,7 @@ ob_start(); ?>
                     <h2>Modifier l'hotel</h2>
                     <input type="file" name="pictureChange" /><br/>
                     <input type="hidden" name="id" value="<?= $change['id']?>">
-                    <h6>Titre</h6>
+                    <h6>Nom de l'hotel</h6>
                     <input id="title-change" type="text" name="title" value="<?= $change['name']?>"/><br/>
                     <h6>Description des l'hotel</h6>
                     <textarea id="content-change" name="content"><?= $change['content']?></textarea><br/>
