@@ -219,10 +219,9 @@ try {
 					    	if (in_array($extension_upload, $extensions_autorisees)) {
 					    		$destinationFile = 'pictures/activities/' . $_SESSION['id'] . basename($_FILES['pictureActivity']['name']);
 						        move_uploaded_file($_FILES['pictureActivity']['tmp_name'], $destinationFile);
-						        echo "L'envoi a bien été effectué !";
 						                
 						        $validNewActivity = new controller_back();
-								$validNewActivity->addActivity($fichierDestination);
+								$validNewActivity->addActivity($destinationFile);
 						    }
 						    else {
 						    	throw new Exception("L'extension de l'image est incorrect", 1);
@@ -313,10 +312,13 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         }
-        elseif ($_GET['action'] == 'validChangeActivity') {
+        elseif ($_GET['action'] == 'ChangePictureActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_FILES['ChangeImgActivity']) AND ($_FILES['ChangeImgActivity']['error'] == 0)) {
-                	
+                	//var_dump(isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content'])));
+                	//var_dump($_FILES['ChangeImgActivity']['error']);
+                	//die(var_dump($_FILES['ChangeImgActivity']));
+
 					if ($_FILES['ChangeImgActivity']['size'] <= 1000000) {
 						$infosfichier = pathinfo($_FILES['ChangeImgActivity']['name']);
 						$extension_upload = $infosfichier['extension'];
@@ -325,8 +327,8 @@ try {
 				    	if (in_array($extension_upload, $extensions_autorisees)) {
 				    		$destinationFile = 'pictures/activities/' . $_SESSION['id'] . basename($_FILES['ChangeImgActivity']['name']);
 					        move_uploaded_file($_FILES['ChangeImgActivity']['tmp_name'], $destinationFile);
-					        echo "L'envoi a bien été effectué !";
-
+					        //die(var_dump(move_uploaded_file($_FILES['ChangeImgActivity']['tmp_name'], $destinationFile)));
+                			
                 			$validChangeImg = new controller_back();
 							$validChangeImg->changeImgActivity($destinationFile);
 						}
