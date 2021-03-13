@@ -281,7 +281,6 @@ try {
         elseif ($_GET['action'] == 'ChangePictureActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_FILES['ChangeImgActivity']) AND ($_FILES['ChangeImgActivity']['error'] == 0)) {
-                	//var_dump(isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content'])));
                 	//var_dump($_FILES['ChangeImgActivity']['error']);
                 	//die(var_dump($_FILES['ChangeImgActivity']));
 
@@ -348,6 +347,9 @@ try {
         elseif ($_GET['action'] == 'validNewHotel') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['name']) AND isset($_POST['content']) AND isset($_POST['location']) AND isset($_POST['rooms']) AND isset($_POST['prices'])) {
+                	//var_dump($_POST['content']);
+                	//die(var_dump($_POST['name']));
+
 			        if (isset($_FILES['pictureHotel']) AND $_FILES['pictureHotel']['error'] == 0) {
 						if ($_FILES['pictureHotel']['size'] <= 1000000) {
 
@@ -356,17 +358,17 @@ try {
 							$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 
 					    	if (in_array($extension_upload, $extensions_autorisees)) {
-						        move_uploaded_file($_FILES['pictureHotel']['tmp_name'], 'pictures/activities/' . $_SESSION['id'] . basename($_FILES['pictureHotel']['name']));
-						        echo "L'envoi a bien été effectué !";
+					    		$destinationFile = 'pictures/hotels/' . $_SESSION['id'] . basename($_FILES['pictureHotel']['name']);
+						        move_uploaded_file($_FILES['pictureHotel']['tmp_name'], $destinationFile);
 						                
 						        $validNewHotel = new controller_back();
-								$validNewHotel->addHotel();
+								$validNewHotel->addHotel($destinationFile);
 						    }
 						}
 					}              	
                 }
                 else {
-                    throw new Exception("Veuillez ajouter une nouvelle activité.", 1);
+                    throw new Exception("Veuillez ajouter un nouvel hôtel.", 1);
                 }
             } 
             else {

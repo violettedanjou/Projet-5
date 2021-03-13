@@ -15,10 +15,9 @@ ob_start(); ?>
 
             <div id="form-add-hotel">
                 <form action="index.php?action=validNewHotel" method="POST">
-                    <input type="file" name="pictureHotel" /><br/>
                     <input type="hidden" name="id">
                     <h6>Nom de l'hotel</h6>
-                    <input id="title-change" type="text" name="title"/><br/>
+                    <input id="title-change" type="text" name="name"/><br/>
                     <h6>Description des l'hotel</h6>
                     <textarea id="content-change" name="content"></textarea><br/>
                     <h6>Localisation</h6>
@@ -27,6 +26,7 @@ ob_start(); ?>
                     <textarea id="rooms-change" name="rooms"></textarea><br/>
                     <h6>Prix des chambres</h6>
                     <textarea id="prices-change" name="prices"></textarea><br/>
+                    <input type="file" name="pictureHotel" /><br/>
                     <input type="submit" value="Enregistrer" id="button-change-activity" />
               </form>
             </div>
