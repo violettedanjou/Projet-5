@@ -16,7 +16,7 @@ ob_start(); ?>
 			    	<a class="link-edit" href="index.php?action=openChangeActivity&amp;id=<?= $data['id'] ?>">Modifier</a>
 
 			    	<div class="news-img-text">
-			    		<img src="<?= $data['picture'] ?>" alt="<?= $data['title'] ?>">
+			    		<img src="<?= $data['picture'] ?>" alt="Photo de l'activite <?= $data['title'] ?>">
 
 				    	<div class="news-text-admin">
 				    		<h3>
@@ -54,7 +54,7 @@ ob_start(); ?>
 			    	<a class="link-edit" href="index.php?action=openChangeHotel&amp;id=<?= $data['id'] ?>">Modifier</a>
 
 			    	<div class="news-img-text">
-			    		<img src="<?= $data['picture'] ?>" alt="Hotel <?= $hotel['name'] ?>">
+			    		<img src="<?= $data['picture'] ?>" alt="Hotel <?= $data['name'] ?>">
 
 				    	<div class="news-text-admin">
 				    		<h3>

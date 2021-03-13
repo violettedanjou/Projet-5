@@ -27,7 +27,7 @@
                 ?>
                     <div class="news">
                         <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
-                            <img class="img-home" src="<?= $data['picture'] ?>" alt="<?= $data['title'] ?>">
+                            <img class="img-home" src="<?= $data['picture'] ?>" alt="Photo de l'activite <?= $data['title'] ?>">
                         </a>
                         <div class="news-text">
                             <h3>
@@ -58,7 +58,7 @@
                 ?>
                     <div class="news">
                         <a href="index.php?action=hotel&amp;id=<?= $dataHotel['id'] ?>">
-                            <img class="img-home" src="<?= $dataHotel['picture'] ?>" alt="activités sportives et culturelles proposées par le site">
+                            <img class="img-home" src="<?= $dataHotel['picture'] ?>" alt="Photo de l'hotel <?= $dataHotel['name'] ?>">
                         </a>
                         <div class="news-text">
                             <h3>

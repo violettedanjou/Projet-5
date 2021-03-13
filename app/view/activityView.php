@@ -22,7 +22,7 @@ ob_start(); ?>
 
 			
             <div class="news-img-text"> <!-- Récupérer l'image, le titre et le contenu de l'activité en particulier -->
-                <img src="<?= $activity['picture'] ?>" alt="Activité sportive ou culturelle proposée par le site">
+                <img src="<?= $activity['picture'] ?>" alt="Photo de l'activite <?= $activity['title'] ?>">
                 <div class="news-text-admin">
                     <h3>
                         <?= htmlspecialchars($activity['title']); ?>
