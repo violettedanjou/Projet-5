@@ -95,7 +95,7 @@ class controller_back
 		header('Location: index.php?action=openAdmin');
 	}
 
-	function addHotel() // Ajouter un nouvel hotel
+	function addHotel($destinationFile) // Ajouter un nouvel hotel
 	{
 		$newHotelManager = new HotelsManager();
 		$newHotel = $newHotelManager->addNewHotel($_POST['name'], $_POST['content'], $_POST['location'], $_POST['rooms'], $_POST['prices'], $destinationFile);

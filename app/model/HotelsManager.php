@@ -27,7 +27,7 @@ class HotelsManager extends Manager
        $db = $this->dbConnect();
        $newHotel = $db->prepare('INSERT INTO hotels(name, content, location, rooms, prices, picture) VALUES (:name, :content, :location, :rooms, :prices, :picture)');
        $addNewHotel = $newHotel->execute(array(
-            'title' => $title,
+            'name' => $name,
             'content' => $content,
             'location' => $location,
             'rooms' => $rooms,

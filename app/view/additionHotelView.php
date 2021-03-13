@@ -14,7 +14,7 @@ ob_start(); ?>
             </p>
 
             <div id="form-add-hotel">
-                <form action="index.php?action=validNewHotel" method="POST">
+                <form action="index.php?action=validNewHotel" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id">
                     <h6>Nom de l'hotel</h6>
                     <input id="title-change" type="text" name="name"/><br/>

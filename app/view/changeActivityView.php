@@ -35,14 +35,14 @@ ob_start(); ?>
                     <h6>Description de l'activité</h6>
                     <textarea id="content-change" name="content"><?= $change['content']?></textarea><br/>
                     <input type="submit" value="Enregistrer" id="button-change-activity" />
-              </form>
+                </form>
             </div>
             <div id="form-change-img">
                 <h2>Modifier l'image</h2>
-                <form action="index.php?action=ChangePictureActivity" method="POST" enctype="multipart/form-data">
-                  <input type="file" name="ChangeImgActivity" /><br/> <!-- anciennement name="pictureChange" -->
-                  <input type="submit" value="Enregistrer l'image" id="button-change-activity" />
-                </form>
+                    <form action="index.php?action=ChangePictureActivity" method="POST" enctype="multipart/form-data">
+                      <input type="file" name="ChangeImgActivity" /><br/> <!-- anciennement name="pictureChange" -->
+                      <input type="submit" value="Enregistrer l'image" id="button-change-activity" />
+                    </form>
             </div>
         </div>
     </div>

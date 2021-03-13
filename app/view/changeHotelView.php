@@ -35,7 +35,7 @@ ob_start(); ?>
             </div>
 
             <div id="form-change">
-                <form action="index.php?action=validChange" method="POST">
+                <form action="index.php?action=validChange" method="POST" enctype="multipart/form-data">
                     <h2>Modifier l'hotel</h2>
                     <input type="file" name="pictureChange" /><br/>
                     <input type="hidden" name="id" value="<?= $change['id']?>">
