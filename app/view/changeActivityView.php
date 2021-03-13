@@ -27,7 +27,7 @@ ob_start(); ?>
             </div>
 
             <div id="form-change">
-                <form action="index.php?action=validChange" method="POST">
+                <form action="index.php?action=validChange" method="POST" enctype="multipart/form-data">
                     <h2>Modifier l'activite</h2>
                     <input type="hidden" name="id" value="<?= $change['id']?>">
                     <h6>Titre</h6>

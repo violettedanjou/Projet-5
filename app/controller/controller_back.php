@@ -59,7 +59,7 @@ class controller_back
 		$reportManager = new OpinionsManager();
 		$report = $reportManager->reportOpinion($_GET['id']);
 
-		header('Location: index.php?action=activity&id='. $_GET['opinion_id']);
+		header('Location: index.php?action=activity&id='. $_GET['id']);
 	}
 	function useful() // Signaler un avis
 	{
@@ -73,10 +73,10 @@ class controller_back
 
 
 // PAGE ADMINISTRATION 
-	function addActivity() // Ajouter une nouvelle activité
+	function addActivity($fichierDestination) // Ajouter une nouvelle activité
 	{
 		$newActivityManager = new ActivitiesManager();
-		$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $_FILES['picture']['name']);
+		$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $fichierDestination);
 
 		header('Location: index.php?action=openAdmin');
 	}

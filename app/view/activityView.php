@@ -5,7 +5,7 @@ ob_start(); ?>
 <div class="container">
 	<div class="row">
 		<div class="col">
-			<h1><?= htmlspecialchars($activity['title']) ?></h1>
+			<h1><?= $title ?></h1>
 
 			<p> <!-- Lien de retour vers liste des activités -->
 			<?php 	if(isset($_SESSION['admin']) && ($_SESSION['admin'] != 0)) { ?>
@@ -25,7 +25,7 @@ ob_start(); ?>
                 <img src="<?= $activity['picture'] ?>" alt="Photo de l'activite <?= $activity['title'] ?>">
                 <div class="news-text-admin">
                     <h3>
-                        <?= htmlspecialchars($activity['title']); ?>
+                        <?= $title ?>
                     </h3>
                         
                     <p>
@@ -85,8 +85,8 @@ ob_start(); ?>
 
 						 <?php 	if (isset($_SESSION['id'])) { ?> <!-- Si on est connecté, on affiche le lien signaler -->
 									<div>
-								    	<a id="button-report" href="index.php?action=validReport&amp;id=<?= $opinion['id'] ?>&amp;opinion_id=<?= $opinion['id']?>">Signaler</a>
-								    	<a id="button-useful" href="index.php?action=validUseful&amp;id=<?= $opinion['id'] ?>&amp;opinion_id=<?= $opinion['id']?>">Utile<i class="far fa-thumbs-up"></i></a>
+								    	<a id="button-report" href="index.php?action=validReport&amp;id=<?= $_GET['id'] ?>&amp;opinion_id=<?= $opinion['id']?>">Signaler</a>
+								    	<a id="button-useful" href="index.php?action=validUseful&amp;id=<?= $_GET['id'] ?>&amp;opinion_id=<?= $opinion['id']?>">Utile<i class="far fa-thumbs-up"></i></a>
 								    </div>
 						 <?php 	} ?>	
 
