@@ -30,7 +30,7 @@ ob_start(); ?>
 			    	</div>
 			    	
 
-			    	<a class="link-delete" href="index.php?action=validDelete&amp;id=<?= $data['id'] ?>">Supprimer</a>
+			    	<a class="link-delete" href="index.php?action=validDeleteActivity&amp;id=<?= $data['id'] ?>">Supprimer</a>
 		    	</div>
 			<?php 
 			} 
@@ -68,7 +68,7 @@ ob_start(); ?>
 			    	</div>
 			    	
 
-			    	<a class="link-delete" href="index.php?action=validDelete&amp;id=<?= $data['id'] ?>">Supprimer</a>
+			    	<a class="link-delete" href="index.php?action=validDeleteHotel&amp;id=<?= $data['id'] ?>">Supprimer</a>
 		    	</div>
 			<?php 
 			} 

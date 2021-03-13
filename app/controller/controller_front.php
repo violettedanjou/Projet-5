@@ -111,23 +111,39 @@ class controller_front
 	{
 		require('app/view/additionActivityView.php');
 	}
-	function openNewHotel() // Afficher formulaire pour ajout de nouvel hotel
-	{
-		require('app/view/additionHotelView.php');
-	}
 	function openChangeActivity() // Récupération d'une activité pour la modifier
 	{
 		$changeManager = new ActivitiesManager();
 	    $change = $changeManager->changeActivity($_GET['id']);
 
 	    require('app/view/changeActivityView.php');
+	}	
+	function openNewHotel() // Afficher formulaire pour ajout de nouvel hotel
+	{
+		require('app/view/additionHotelView.php');
 	}
+
 	function openChangeHotel() // Récupération d'un hotel pour le modifier
 	{
 		$changeManager = new HotelsManager();
 	    $change = $changeManager->changeHotel($_GET['id']);
 
 	    require('app/view/changeHotelView.php');
+	}
+
+	function deleteActivity() // Supprimer une activité 
+	{
+		$deleteActivityManager = new ActivitiesManager();
+	    $deleteActivity = $deleteActivityManager->deleteActivity($_GET['id']);
+
+		header('Location: index.php?action=openAdmin');
+	}
+	function deleteHotel() // Supprimer un hotel 
+	{
+	    $deleteHotelManager = new HotelsManager();
+	    $deleteHotel = $deleteHotelManager->deleteHotel($_GET['id']);
+
+		header('Location: index.php?action=openAdmin');
 	}
 
 

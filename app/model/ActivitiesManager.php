@@ -63,6 +63,14 @@ class ActivitiesManager extends Manager
 
         return $req;
     }
+    public function deleteActivity($id) // Supprimer une activité
+    {
+        $db = $this->dbConnect();
+        $delete = $db->prepare('DELETE FROM activities WHERE id = ?');
+        $delete->execute(array($id));
+
+        return $delete;
+    }
 }
 
 

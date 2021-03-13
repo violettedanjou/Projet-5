@@ -44,5 +44,13 @@ class HotelsManager extends Manager
         $changeHotel = $req->fetch();
 
         return $changeHotel;
-    }    
+    } 
+    public function deleteHotel($id) // Supprimer une activité
+    {
+        $db = $this->dbConnect();
+        $delete = $db->prepare('DELETE FROM hotels WHERE id = ?');
+        $delete->execute(array($id));
+
+        return $delete;
+    }  
 }
