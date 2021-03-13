@@ -40,7 +40,7 @@ ob_start(); ?>
 							<form id="form-add-opinion" action="index.php?action=addActivityOpinion&amp;id=<?= $activity['id'] ?>" method="post">
 								<h3>Ajouter un avis</h3>
 							    <div>
-							        <label for="opinion"></label><br /><textarea id="opinion" name="opinion"></textarea>
+							        <label for="content"></label><br /><textarea name="content"></textarea>
 							    </div>
 								<div>
 									<input type="submit" id="button_add_opinion" />
