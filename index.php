@@ -185,7 +185,7 @@ try {
 
 
 // PAGE ADMINISTRATION
-		// Afficher la page administration
+// Afficher la page administration
         if ($_GET['action'] == 'openAdmin') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 $adminMember = new controller_front();
@@ -195,7 +195,8 @@ try {
                 throw new Exception("Cette partie est réservée à l'administrateur", 1);
             } 
         }
-        // Afficher le formulaire d'ajout d'une nouvelle activité
+        
+// Afficher le formulaire d'ajout d'une nouvelle activité
         if ($_GET['action'] == 'openNewActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 $formNewActivity = new controller_front();
@@ -205,7 +206,7 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         }       
-        // Valider le formulaire d'ajout d'une nouvelle activité
+// Valider le formulaire d'ajout d'une nouvelle activité
         elseif ($_GET['action'] == 'validNewActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['title']) AND isset($_POST['content'])) {
@@ -243,7 +244,8 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);    
             }      
         }
-        // Afficher le formulaire d'ajout d'un nouvel hotel
+
+// Afficher le formulaire d'ajout d'un nouvel hotel
         if ($_GET['action'] == 'openNewHotel') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 $formNewHotel = new controller_front();
@@ -253,7 +255,7 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         } 
-        // Valider le formulaire d'ajout d'un nouvel hotel 
+// Valider le formulaire d'ajout d'un nouvel hotel 
         elseif ($_GET['action'] == 'validNewHotel') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['name']) AND isset($_POST['content']) AND isset($_POST['location']) AND isset($_POST['rooms']) AND isset($_POST['prices'])) {
@@ -282,7 +284,8 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);    
             }      
         }        
-        // Afficher formulaire de modification d'une activité openChangeHotel
+
+// Afficher formulaire de modification d'une activité 
         if($_GET['action'] == 'openChangeActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -297,7 +300,7 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         }
-        // Valider le formulaire de modification d'une activité
+// Valider le formulaire de modification d'une activité
         elseif ($_GET['action'] == 'validChangeActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['id']) && (isset($_POST['title'])) && (isset($_POST['content']))) {
@@ -312,6 +315,7 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         }
+// Modifier une image d'activité        
         elseif ($_GET['action'] == 'ChangePictureActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_FILES['ChangeImgActivity']) AND ($_FILES['ChangeImgActivity']['error'] == 0)) {
@@ -349,7 +353,7 @@ try {
 				
 			}
 		}		
-        // Afficher formulaire de modification d'un hotel 
+// Afficher formulaire de modification d'un hotel 
         if($_GET['action'] == 'openChangeHotel') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
