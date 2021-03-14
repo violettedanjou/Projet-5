@@ -42,7 +42,7 @@ class ActivitiesManager extends Manager
 
         return $changeActivity;
     }
-    public function saveActivity($id, $title, $content) // Modification d'une activité
+    public function saveActivity($id, $title, $content) // Modification du contenu d'une activité
     {
         $db = $this->dbConnect();
         $req = $db->prepare('UPDATE activities SET title = :title, content = :content WHERE id = :id');
@@ -53,7 +53,7 @@ class ActivitiesManager extends Manager
 
         return $req;
     }
-    public function changeImgActivity($id, $picture)
+    public function changeImgActivity($id, $picture) // Modification d'une image d'activité
     {
     	$db = $this->dbConnect();
         $req = $db->prepare('UPDATE activities SET picture = :picture WHERE id = :id');

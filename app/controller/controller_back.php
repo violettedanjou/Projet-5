@@ -108,7 +108,15 @@ class controller_back
 		$newHotel = $newHotelManager->addNewHotel($_POST['name'], $_POST['content'], $_POST['location'], $_POST['rooms'], $_POST['prices'], $destinationFile);
 
 		header('Location: index.php?action=openAdmin');
+	}	
+	function changeHotel() // Modification d'un hotel
+	{
+		$saveManager = new HotelsManager();
+		$save = $saveManager->saveHotel($_POST['id'], $_POST['name'], $_POST['content'], $_POST['location'], $_POST['rooms'], $_POST['prices']);
+
+		header('Location: index.php?action=openAdmin');
 	}
+
 
 	function deleteReport() // Retirer le signalement
 	{
@@ -126,8 +134,6 @@ class controller_back
 		header('Location: index.php?action=openAdmin');
 	}
 }
-
-
 ?>
 
 

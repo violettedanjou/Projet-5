@@ -22,7 +22,7 @@ ob_start(); ?>
                     </h3>
                                 
                     <p id="p-content-location">
-                        <span id="span-hotel-content"><?= htmlspecialchars($change['content']); ?><br/></span>
+                        <span id="span-hotel-content"><?= nl2br($change['content']); ?><br/></span>
                         <span><i class="fas fa-map-marker-alt"></i><?= nl2br($change['location']); ?></span>
                     </p>
                     <p id="p-rooms">
@@ -34,13 +34,12 @@ ob_start(); ?>
                 </div> 
             </div>
 
-            <div id="form-change">
-                <form action="index.php?action=validChange" method="POST" enctype="multipart/form-data">
+            <div class="form-change">
+                <form action="index.php?action=validChangeHotel" method="POST">
                     <h2>Modifier l'hotel</h2>
-                    <input type="file" name="pictureChange" /><br/>
                     <input type="hidden" name="id" value="<?= $change['id']?>">
                     <h6>Nom de l'hotel</h6>
-                    <input id="title-change" type="text" name="title" value="<?= $change['name']?>"/><br/>
+                    <input id="title-change" type="text" name="name" value="<?= $change['name']?>"/><br/>
                     <h6>Description des l'hotel</h6>
                     <textarea id="content-change" name="content"><?= $change['content']?></textarea><br/>
                     <h6>Localisation</h6>
@@ -51,6 +50,12 @@ ob_start(); ?>
                     <textarea id="prices-change" name="prices"><?= $change['prices']?></textarea><br/>
                     <input type="submit" value="Enregistrer" id="button-change-activity" />
               </form>
+            </div>
+            
+            <div class="form-change-img">
+                <form action="index.php?action=changeImgHotel" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="changeImgHotel" /><br/>
+                </form>
             </div>
         </div>
     </div>

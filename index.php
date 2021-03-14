@@ -283,21 +283,21 @@ try {
             }
         }
 // Modifier une image d'activité        
-        elseif ($_GET['action'] == 'ChangePictureActivity') {
+        elseif ($_GET['action'] == 'changeImgActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-                if (isset($_FILES['ChangeImgActivity']) AND ($_FILES['ChangeImgActivity']['error'] == 0)) {
+                if (isset($_FILES['changeImgActivity']) AND ($_FILES['changeImgActivity']['error'] == 0)) {
                 	//var_dump($_FILES['ChangeImgActivity']['error']);
                 	//die(var_dump($_FILES['ChangeImgActivity']));
 
-					if ($_FILES['ChangeImgActivity']['size'] <= 2000000) {
-						$infosfichier = pathinfo($_FILES['ChangeImgActivity']['name']);
+					if ($_FILES['changeImgActivity']['size'] <= 2000000) {
+						$infosfichier = pathinfo($_FILES['changeImgActivity']['name']);
 						$extension_upload = $infosfichier['extension'];
 						$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 
 				    	if (in_array($extension_upload, $extensions_autorisees)) {
-				    		$destinationFile = 'pictures/activities/' . $_SESSION['id'] . basename($_FILES['ChangeImgActivity']['name']);
-					        move_uploaded_file($_FILES['ChangeImgActivity']['tmp_name'], $destinationFile);
-					        //die(var_dump(move_uploaded_file($_FILES['ChangeImgActivity']['tmp_name'], $destinationFile)));
+				    		$destinationFile = 'pictures/activities/' . $_SESSION['id'] . basename($_FILES['changeImgActivity']['name']);
+					        move_uploaded_file($_FILES['changeImgActivity']['tmp_name'], $destinationFile);
+					        die(var_dump(move_uploaded_file($_FILES['changeImgActivity']['tmp_name'], $destinationFile)));
                 			
                 			$validChangeImg = new controller_back();
 							$validChangeImg->changeImgActivity($destinationFile);
@@ -395,8 +395,24 @@ try {
             }
         }
 // Valider le formulaire de modification d'un hotel
-
+        elseif ($_GET['action'] == 'validChangeHotel') {
+            if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+                if (isset($_POST['id']) && (isset($_POST['name'])) && (isset($_POST['content'])) && (isset($_POST['location'])) && (isset($_POST['rooms'])) && (isset($_POST['prices']))) {
+                	$validChangeHotel= new controller_back();
+					$validChangeHotel->changeHotel();		
+                } 
+                else {
+                	throw new Exception("Veuillez remplir les champs.", 1);
+                }
+            }
+            else {
+                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+            }
+        }
 // Modifier l'image d'un hotel        
+
+
+
 
 // Supprimer un hotel
         elseif ($_GET['action'] == 'validDeleteHotel') {

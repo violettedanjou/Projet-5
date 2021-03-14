@@ -103,6 +103,8 @@ class controller_front
 
 	    require('app/view/adminView.php');
 	}
+
+	
 	function openNewActivity() // Afficher formulaire pour ajout de nouvelle activité
 	{
 		require('app/view/additionActivityView.php');
@@ -113,7 +115,9 @@ class controller_front
 	    $change = $changeManager->changeActivity($_GET['id']);
 
 	    require('app/view/changeActivityView.php');
-	}	
+	}
+
+
 	function openNewHotel() // Afficher formulaire pour ajout de nouvel hotel
 	{
 		require('app/view/additionHotelView.php');
@@ -126,6 +130,7 @@ class controller_front
 
 	    require('app/view/changeHotelView.php');
 	}
+
 
 	function deleteActivity() // Supprimer une activité 
 	{
