@@ -25,7 +25,7 @@ class OpinionsManager extends Manager
     public function activityOpinion($id, $content) // Insérer un nouvel avis
     {
         $db = $this->dbConnect();
-        $opinions = $db->prepare('INSERT INTO opinions(opinion_id, author, content, date_opinion) VALUES(?, ?, ?, NOW())');
+        $opinions = $db->prepare('INSERT INTO opinions(id_activity, author, content, date_opinion) VALUES(?, ?, ?, NOW())');
         $affectedLines = $opinions->execute(array($id, $_SESSION['id'], $content));
 
         return $affectedLines;
@@ -33,7 +33,7 @@ class OpinionsManager extends Manager
     public function hotelOpinion($id, $content) // Insérer un nouvel avis
     {
         $db = $this->dbConnect();
-        $opinions = $db->prepare('INSERT INTO opinions(opinion_id, author, content, date_opinion) VALUES(?, ?, ?, NOW())');
+        $opinions = $db->prepare('INSERT INTO opinions(id_hotel, author, content, date_opinion) VALUES(?, ?, ?, NOW())');
         $affectedLines = $opinions->execute(array($id, $_SESSION['id'], $content));
 
         return $affectedLines;
