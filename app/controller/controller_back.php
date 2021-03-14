@@ -61,17 +61,17 @@ class controller_back
 
 		header('Location: index.php?action=openProfile');
 	}
-	function report() // Signaler un avis
+	function reportActivity() // Signaler un avis d'activité
 	{
 		$reportManager = new OpinionsManager();
-		$report = $reportManager->reportOpinion($_GET['id']);
+		$report = $reportManager->reportActivity($_GET['id']);
 
 		header('Location: index.php?action=activity&id='. $_GET['id']);
 	}
-	function useful() // Signaler un avis
+	function usefulActivity() // Avis utile d'activité
 	{
 		$usefulManager = new OpinionsManager();
-		$useful = $usefulManager->usefulOpinion($_GET['id']);
+		$useful = $usefulManager->usefulActivity($_GET['id']);
 
 		header('Location: index.php?action=activity&id='. $_GET['id']);
 	}

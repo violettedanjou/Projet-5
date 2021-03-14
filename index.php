@@ -133,22 +133,32 @@ try {
                 }
             }
             else {
-                throw new Exception("Aucun identifiant d'activité envoyé");
+                throw new Exception("Aucun identifiant d'hotel envoyé");
             }
         }     
 
-// Signaler un avis
-        if ($_GET['action'] == 'validReport') { 
+// Signaler un avis d'une activité
+        if ($_GET['action'] == 'validReportActivity') { 
             $reportOpinion = new controller_back();
-			$reportOpinion->report();
+			$reportOpinion->reportActivity();
         } 
-// Lien avis est utile 
-        elseif ($_GET['action'] == 'validUseful') {
+// Lien avis est utile d'une activité
+        elseif ($_GET['action'] == 'validUsefulActivity') {
         	$usefulOpinion = new controller_back();
-			$usefulOpinion->useful();
+			$usefulOpinion->usefulActivity();
         }
-
-
+/*
+// Signaler un avis d'un hotel 
+        if ($_GET['action'] == 'validReportHotel') { 
+            $reportOpinion = new controller_back();
+			$reportOpinion->reportHotel();
+        } 
+// Lien avis est utile d'un hotel
+        elseif ($_GET['action'] == 'validUsefulHotel') {
+        	$usefulOpinion = new controller_back();
+			$usefulOpinion->usefulHotel();
+        }
+*/
 // PAGE PROFILE        
         // Afficher la page profile 
         if ($_GET['action'] == 'openProfile') {

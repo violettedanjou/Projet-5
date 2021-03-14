@@ -14,11 +14,11 @@ class OpinionsManager extends Manager
 
     	return $pseudoOpinion;
     }
-    public function pseudoAuthorHotel($activityId) // Jointure : récupérer le pseudo d'un membre grace à son id
+    public function pseudoAuthorHotel($hotelId) // Jointure : récupérer le pseudo d'un membre grace à son id
     {
     	$db = $this->dbConnect();
     	$pseudoOpinion = $db->prepare('SELECT members.pseudo, opinions.id, opinions.content, DATE_FORMAT(opinions.date_opinion, \'%d/%m/%Y à %Hh%imin%ss\') AS opinion_date_fr FROM opinions INNER JOIN members ON opinions.author = members.id WHERE opinions.id_hotel = ?');
-    	$pseudoOpinion->execute(array($activityId));
+    	$pseudoOpinion->execute(array($hotelId));
 
     	return $pseudoOpinion;
     }
@@ -38,7 +38,7 @@ class OpinionsManager extends Manager
 
         return $affectedLines;
     }
-    public function reportOpinion($id) // Signaler un avis
+    public function reportActivity($id) // Signaler un avis d'activité
     {
         $db = $this->dbConnect();
         $report = $db->prepare('UPDATE opinions SET report = 1 WHERE id = ?');
@@ -46,14 +46,17 @@ class OpinionsManager extends Manager
 
         return $report;
     }
-    public function usefulOpinion($id) // Signaler un avis
+    public function usefulActivity($id) // Avis utile d'activité
     {
         $db = $this->dbConnect();
         $useful = $db->prepare('UPDATE opinions SET useful = 1 WHERE id = ?');
         $useful->execute(array($id));
 
         return $useful;
-    }    
+    } 
+
+
+
     public function reportAdmin() // Afficher la liste des avis signalés
     {
     	$db = $this->dbConnect();
