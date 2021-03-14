@@ -35,7 +35,7 @@ class controller_front
 	    $opinionManager = new OpinionsManager();
 
 	    $activity = $activityManager->getActivity($_GET['id']);
-	    $opinions = $opinionManager->pseudoAuthor($_GET['id']);
+	    $opinionsActivity = $opinionManager->pseudoAuthor($_GET['id']);
 
 	    require('app/view/activityView.php');
 	}
@@ -104,7 +104,7 @@ class controller_front
 	    require('app/view/adminView.php');
 	}
 
-	
+
 	function openNewActivity() // Afficher formulaire pour ajout de nouvelle activité
 	{
 		require('app/view/additionActivityView.php');

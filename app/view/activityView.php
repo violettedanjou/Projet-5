@@ -72,7 +72,7 @@ ob_start(); ?>
 					<div class="list-opinions">
 						<h2>AVIS</h2>
 							<!-- Commentaires affichés même non connecté -->
-					<?php	while ($opinion = $opinions->fetch()) { ?>
+					<?php	while ($opinion = $opinionsActivity->fetch()) { ?>
 							<div id="one-opinion">
 							    <h4>
 							    	<p><strong><?= htmlspecialchars($opinion['pseudo']) ?></strong> le <?= $opinion['opinion_date_fr'] ?></p> <!-- On récupère le pseudo et la date de l'avis -->
@@ -92,7 +92,7 @@ ob_start(); ?>
 
 							</div>
 				<?php   } 
-						$opinions->closeCursor(); ?>					
+						$opinionsActivity->closeCursor(); ?>					
 				</div>
 
 			</div>
