@@ -32,20 +32,20 @@ class controller_front
 	function activity() // Afficher une activité en particulier
 	{
 	    $activityManager = new ActivitiesManager();
-	    $opinionManager = new OpinionsManager();
-
 	    $activity = $activityManager->getActivity($_GET['id']);
-	    $opinionsActivity = $opinionManager->pseudoAuthor($_GET['id']);
+
+	    $opinionManager = new OpinionsManager();
+	    $opinionsActivity = $opinionManager->pseudoAuthorActivity($_GET['id']);
 
 	    require('app/view/activityView.php');
 	}
 	function hotel() // Afficher un hotel selon son id
 	{
 	    $hotelManager = new HotelsManager();
-	    $opinionManager = new OpinionsManager();
-
 	    $hotel = $hotelManager->getHotel($_GET['id']);
-	    $opinions = $opinionManager->pseudoAuthor($_GET['id']);
+
+	    $opinionManager = new OpinionsManager();
+	    $opinionsHotel = $opinionManager->pseudoAuthorHotel($_GET['id']);
 
 	    require('app/view/hotelView.php');
 	}
