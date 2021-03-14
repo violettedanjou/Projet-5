@@ -289,7 +289,7 @@ try {
                 	//var_dump($_FILES['ChangeImgActivity']['error']);
                 	//die(var_dump($_FILES['ChangeImgActivity']));
 
-					if ($_FILES['ChangeImgActivity']['size'] <= 1000000) {
+					if ($_FILES['ChangeImgActivity']['size'] <= 2000000) {
 						$infosfichier = pathinfo($_FILES['ChangeImgActivity']['name']);
 						$extension_upload = $infosfichier['extension'];
 						$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
@@ -316,13 +316,12 @@ try {
 			}
 			else {
 				throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
-				
 			}
 		}
 // Supprimer une activité 
         elseif ($_GET['action'] == 'validDeleteActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-               if (isset($_GET['id']) && $_GET['id'] > 0) { 
+                if (isset($_GET['id']) && $_GET['id'] > 0) { 
 	                $delete = new controller_front();
 					$delete->deleteActivity(); 
                 } 

@@ -53,15 +53,15 @@ class ActivitiesManager extends Manager
 
         return $req;
     }
-    public function changeImgActivity($picture)
+    public function changeImgActivity($id, $picture)
     {
     	$db = $this->dbConnect();
         $req = $db->prepare('UPDATE activities SET picture = :picture WHERE id = :id');
-        $req->execute(array(
+        $changePicture = $req->execute(array(
         	'picture' => $picture, 
         	'id' => $id));
 
-        return $req;
+        return $changePicture;
     }
     public function deleteActivity($id) // Supprimer une activité
     {
@@ -72,7 +72,6 @@ class ActivitiesManager extends Manager
         return $delete;
     }
 }
-
 
 
 

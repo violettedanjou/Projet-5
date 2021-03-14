@@ -97,7 +97,7 @@ class controller_back
 	function changeImgActivity($destinationFile)
 	{
 		$imgActivityManager = new ActivitiesManager();
-		$imgManager = $imgActivityManager->changeImgActivity($destinationFile);
+		$imgManager = $imgActivityManager->changeImgActivity($_SESSION['admin'], $destinationFile);// J'ai voulu faire comme pour l'image de profile pour le $_SESSION['admin']
 
 		header('Location: index.php?action=openAdmin');
 	}
