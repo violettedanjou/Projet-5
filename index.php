@@ -153,6 +153,8 @@ try {
         // Afficher la page profile 
         if ($_GET['action'] == 'openProfile') {
         	if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
+        		//var_dump($_SESSION['pseudo']);
+        		//die(var_dump($_SESSION['id']));
         		$openProfileMember = new controller_front();
 				$openProfileMember->openProfile();
         	}
@@ -160,20 +162,23 @@ try {
         elseif ($_GET['action'] == 'validProfile') {
         	if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
 			    if (isset($_FILES['pictureProfile']) AND $_FILES['pictureProfile']['error'] == 0) {
-					// Testons si le fichier n'est pas trop gros
-					if ($_FILES['pictureProfile']['size'] <= 1000000) {
-						// Testons si l'extension est autorisée
+
+					// Tester si le fichier n'est pas trop gros
+					if ($_FILES['pictureProfile']['size'] <= 2000000) {
+
+						// Tester si l'extension est autorisée
 						$infosfichier = pathinfo($_FILES['pictureProfile']['name']);
 						$extension_upload = $infosfichier['extension'];
 						$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 
 					    if (in_array($extension_upload, $extensions_autorisees)) {
 			                // On peut valider le fichier et le stocker définitivement
-						    move_uploaded_file($_FILES['pictureProfile']['tmp_name'], 'pictures/profile' . basename($_FILES['pictureProfile']['name']));
+			                $destinationFile = 'pictures/profile/' . $_SESSION['id'] . basename($_FILES['pictureProfile']['name']);
+						    move_uploaded_file($_FILES['pictureProfile']['tmp_name'], $destinationFile);
 					        echo "L'envoi a bien été effectué !";
 						                
-						    $validProfile = new controller_front();
-							$validProfile->validProfile();
+						    $validProfile = new controller_back();
+							$validProfile->validProfile($destinationFile);
 						}
 				    }
 				}

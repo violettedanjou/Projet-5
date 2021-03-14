@@ -54,6 +54,13 @@ class controller_back
 		session_destroy();
 		header('Location: index.php');
 	}
+	function validProfile($destinationFile) // Ajouter une image à son profile
+	{
+		$profileManager = new MemberManager();
+		$profile = $profileManager->addPicture($_SESSION['id'], $destinationFile);
+
+		header('Location: index.php?action=openProfile');
+	}
 	function report() // Signaler un avis
 	{
 		$reportManager = new OpinionsManager();

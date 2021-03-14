@@ -34,7 +34,15 @@ class MemberManager extends Manager
 
         return $req;
     }
-    public function addPicture($picture, $id) // Ajout d'une image de profile 
+    public function openImg($id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT id, picture FROM members WHERE id = ?');
+        $req->execute(array($id));
+
+        return $req;    	
+    }
+    public function addPicture($id, $picture) // Ajout d'une image de profile 
     {
        $db = $this->dbConnect();
        $profile = $db->prepare('UPDATE members SET picture = :picture WHERE id = :id');
