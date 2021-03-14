@@ -340,19 +340,19 @@ a.a-session:hover
 	background-color: #ffffff;
 	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2); 
 }
-#p-content-location
+.p-content-location
 {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	color: #5E5E5E;
 }
-#span-hotel-content
+.span-hotel-content
 {
 	width: 60%;
 	margin-right: 20px;	
 }
-#span-location-icon
+.span-location-icon
 {
 	display: flex;
 	flex-direction: row;
@@ -363,7 +363,7 @@ a.a-session:hover
 	margin: 5px;
 	color: #bf0000;
 }
-#p-rooms, #p-prices
+.p-rooms, .p-prices
 {
     margin-top: 20px;
     padding: 20px;

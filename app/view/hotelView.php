@@ -30,14 +30,14 @@ ob_start(); ?>
 		                    <?= htmlspecialchars($hotel['name']); ?>
 		                </h3>
 		                        
-		                <div id="p-content-location">
-		                    <span id="span-hotel-content"><?= nl2br($hotel['content']); ?><br/></span>
-		                    <span id="span-location-icon"><i class="fas fa-map-marker-alt"></i><?= nl2br($hotel['location']); ?></span>
+		                <div class="p-content-location">
+		                    <span class="span-hotel-content"><?= nl2br($hotel['content']); ?><br/></span>
+		                    <span class="span-location-icon"><i class="fas fa-map-marker-alt"></i><?= nl2br($hotel['location']); ?></span>
 		                </div>
-		                <div id="p-rooms">
+		                <div class="p-rooms">
 		                    <?= nl2br($hotel['rooms']); ?><br/>
 		                </div>
-		                <div id="p-prices">
+		                <div class="p-prices">
 		                    <?= nl2br($hotel['prices']); ?>
 		                </div>
 		            </div> 

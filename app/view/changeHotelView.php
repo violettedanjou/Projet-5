@@ -21,16 +21,16 @@ ob_start(); ?>
                         <?= htmlspecialchars($change['name']); ?>
                     </h3>
                                 
-                    <p id="p-content-location">
-                        <span id="span-hotel-content"><?= nl2br($change['content']); ?><br/></span>
-                        <span><i class="fas fa-map-marker-alt"></i><?= nl2br($change['location']); ?></span>
-                    </p>
-                    <p id="p-rooms">
+                    <div class="p-content-location">
+                        <span class="span-hotel-content"><?= nl2br($change['content']); ?><br/></span>
+                        <span class="span-location-icon"><i class="fas fa-map-marker-alt"></i><?= nl2br($change['location']); ?></span>
+                    </div>
+                    <div class="p-rooms">
                         <?= nl2br($change['rooms']); ?><br/>
-                    </p>
-                    <p id="p-prices">
+                    </div>
+                    <div class="p-prices">
                         <?= nl2br($change['prices']); ?>
-                    </p>
+                    </div>
                 </div> 
             </div>
 
@@ -51,7 +51,7 @@ ob_start(); ?>
                     <input type="submit" value="Enregistrer" id="button-change-activity" />
               </form>
             </div>
-            
+
             <div class="form-change-img">
                 <form action="index.php?action=changeImgHotel" method="POST" enctype="multipart/form-data">
                     <input type="file" name="changeImgHotel" /><br/>
