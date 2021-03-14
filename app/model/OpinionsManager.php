@@ -43,7 +43,7 @@ class OpinionsManager extends Manager
     public function reportActivity($idActivity) // Signaler un avis d'activité
     {
         $db = $this->dbConnect();
-        $report = $db->prepare('UPDATE opinions SET report = 1 WHERE id = ?');
+        $report = $db->prepare('UPDATE opinions SET report = 1 WHERE id_activity = ?');
         $report->execute(array($idActivity));
 
         return $report;
@@ -51,7 +51,7 @@ class OpinionsManager extends Manager
     public function usefulActivity($idActivity) // Avis utile d'activité
     {
         $db = $this->dbConnect();
-        $useful = $db->prepare('UPDATE opinions SET useful = 1 WHERE id = ?');
+        $useful = $db->prepare('UPDATE opinions SET useful = 1 WHERE id_activity = ?');
         $useful->execute(array($idActivity));
 
         return $useful;
@@ -59,7 +59,7 @@ class OpinionsManager extends Manager
     public function reportHotel($idHotel) // Signaler un avis d'activité
     {
         $db = $this->dbConnect();
-        $report = $db->prepare('UPDATE opinions SET report = 1 WHERE id = ?');
+        $report = $db->prepare('UPDATE opinions SET report = 1 WHERE id_hotel = ?');
         $report->execute(array($idHotel));
 
         return $report;
@@ -67,7 +67,7 @@ class OpinionsManager extends Manager
     public function usefulHotel($idHotel) // Avis utile d'activité
     {
         $db = $this->dbConnect();
-        $useful = $db->prepare('UPDATE opinions SET useful = 1 WHERE id = ?');
+        $useful = $db->prepare('UPDATE opinions SET useful = 1 WHERE id_hotel = ?');
         $useful->execute(array($idHotel));
 
         return $useful;
@@ -85,7 +85,7 @@ class OpinionsManager extends Manager
     public function usefulAdmin() // Afficher la liste des avis utiles
     {
     	$db = $this->dbConnect();
-    	$req = $db->query('SELECT id, content, report AS opinion_report, DATE_FORMAT(date_opinion, \'%d/%m/%Y à %Hh%imin%ss\') AS opinion_date_fr FROM opinions WHERE report = 1 ORDER BY opinion_date_fr ASC');
+    	$req = $db->query('SELECT id, content, report AS opinion_report, DATE_FORMAT(date_opinion, \'%d/%m/%Y à %Hh%imin%ss\') AS opinion_date_fr FROM opinions WHERE useful = 1 ORDER BY opinion_date_fr ASC');
 
     	return $req;
     }
