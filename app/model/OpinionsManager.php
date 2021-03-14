@@ -38,22 +38,40 @@ class OpinionsManager extends Manager
 
         return $affectedLines;
     }
-    public function reportActivity($id) // Signaler un avis d'activité
+
+
+    public function reportActivity($idActivity) // Signaler un avis d'activité
     {
         $db = $this->dbConnect();
         $report = $db->prepare('UPDATE opinions SET report = 1 WHERE id = ?');
-        $report->execute(array($id));
+        $report->execute(array($idActivity));
 
         return $report;
     }
-    public function usefulActivity($id) // Avis utile d'activité
+    public function usefulActivity($idActivity) // Avis utile d'activité
     {
         $db = $this->dbConnect();
         $useful = $db->prepare('UPDATE opinions SET useful = 1 WHERE id = ?');
-        $useful->execute(array($id));
+        $useful->execute(array($idActivity));
 
         return $useful;
     } 
+    public function reportHotel($idHotel) // Signaler un avis d'activité
+    {
+        $db = $this->dbConnect();
+        $report = $db->prepare('UPDATE opinions SET report = 1 WHERE id = ?');
+        $report->execute(array($idHotel));
+
+        return $report;
+    }
+    public function usefulHotel($idHotel) // Avis utile d'activité
+    {
+        $db = $this->dbConnect();
+        $useful = $db->prepare('UPDATE opinions SET useful = 1 WHERE id = ?');
+        $useful->execute(array($idHotel));
+
+        return $useful;
+    }     
 
 
 

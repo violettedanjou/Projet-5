@@ -91,11 +91,11 @@ ob_start(); ?>
 						<?= $data['id'] ?> <br/>
 			        </h4>
 
-					<p id="p-reports">
+					<div id="p-reports">
 						<em><a class="link-report-remove" href="index.php?action=deleteReport&amp;id=<?= $data['id'] ?>">Retirer le signalement</a></em>
 						<?= nl2br(($data['content'])) ?>
 						<em><a class="link-delete-opinion" href="index.php?action=deleteOpinion&amp;id=<?= $data['id'] ?>">Supprimer l'avis</a></em>
-					</p>
+					</div>
 
 				</div>
 			<?php
@@ -118,9 +118,9 @@ ob_start(); ?>
 						<?= $data['id'] ?> <br/>
 			        </h4>
 
-					<p id="p-useful">
+					<div id="p-useful">
 						<?= nl2br(($data['content'])) ?>
-					</p>
+					</div>
 
 				</div>
 			<?php

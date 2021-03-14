@@ -147,7 +147,7 @@ try {
         	$usefulOpinion = new controller_back();
 			$usefulOpinion->usefulActivity();
         }
-/*
+
 // Signaler un avis d'un hotel 
         if ($_GET['action'] == 'validReportHotel') { 
             $reportOpinion = new controller_back();
@@ -158,7 +158,7 @@ try {
         	$usefulOpinion = new controller_back();
 			$usefulOpinion->usefulHotel();
         }
-*/
+
 // PAGE PROFILE        
         // Afficher la page profile 
         if ($_GET['action'] == 'openProfile') {
