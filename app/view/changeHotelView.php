@@ -25,9 +25,11 @@ ob_start(); ?>
                         <span class="span-hotel-content"><?= nl2br($change['content']); ?><br/></span>
                         <span class="span-location-icon"><i class="fas fa-map-marker-alt"></i><?= nl2br($change['location']); ?></span>
                     </div>
+
                     <div class="p-rooms">
                         <?= nl2br($change['rooms']); ?><br/>
                     </div>
+                    
                     <div class="p-prices">
                         <?= nl2br($change['prices']); ?>
                     </div>
