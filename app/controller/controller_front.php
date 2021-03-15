@@ -44,8 +44,8 @@ class controller_front
 	    $hotelManager = new HotelsManager();
 	    $hotel = $hotelManager->getHotel($_GET['id']);
 
-	    $servicesManager = new HotelsManager();
-	    $services = $servicesManager->getServices($_GET['id']);
+	    /*$servicesManager = new HotelsManager();
+	    $services = $servicesManager->getServices($_GET['id']);*/
 
 	    $opinionManager = new OpinionsManager();
 	    $opinionsHotel = $opinionManager->pseudoAuthorHotel($_GET['id']);

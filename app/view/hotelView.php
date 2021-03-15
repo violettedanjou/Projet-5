@@ -34,10 +34,10 @@ ob_start(); ?>
 		                    <span class="span-hotel-content"><?= nl2br($hotel['content']); ?><br/></span>
 		                    <span class="span-location-icon"><i class="fas fa-map-marker-alt"></i><?= nl2br($hotel['location']); ?></span>
 		                </div>
-		                <div>
-		                	<?= htmlspecialchars($hotel['swimming_pool']); ?>
-		                	<?= htmlspecialchars($hotel['beach_access']); ?>
-		                </div>
+		                <!--<div>
+		                	<?= // htmlspecialchars($hotel['swimming_pool']); ?>
+		                	<?= // htmlspecialchars($hotel['beach_access']); ?>
+		                </div>-->
 		                <div class="p-rooms">
 		                    <?= nl2br($hotel['rooms']); ?><br/>
 		                </div>
