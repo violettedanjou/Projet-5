@@ -121,10 +121,12 @@ class controller_back
 	function addHotel($destinationFile) // Ajouter un nouvel hotel
 	{
 		$newHotelManager = new HotelsManager();
-		$newHotel = $newHotelManager->addNewHotel($_POST['name'], $_POST['content'], $_POST['location'], $_POST['rooms'], $_POST['prices'], $_POST['swimming_pool'], $_POST['beach_access'], $_POST['car_park'], $_POST['free_wifi'], $_POST['restaurant'], $_POST['family_rooms'], $_POST['television'], $_POST['airport_shuttle'], $_POST['air_conditioner'], $_POST['no_smokers'], $_POST['animals'], $_POST['strongbox'], $_POST['mini_bar'], $_POST['luggage'], $_POST['elevator'], $_POST['sauna'], $destinationFile);
+		$newHotel = $newHotelManager->addNewHotel($_POST['name'], $_POST['content'], $_POST['location'], $_POST['rooms'], $_POST['prices'], $destinationFile);
 
 		header('Location: index.php?action=openAdmin');
 	}	
+// $_POST['swimming_pool'], $_POST['beach_access'], $_POST['car_park'], $_POST['free_wifi'], $_POST['restaurant'], $_POST['family_rooms'], $_POST['television'], $_POST['airport_shuttle'], $_POST['air_conditioner'], $_POST['no_smokers'], $_POST['animals'], $_POST['strongbox'], $_POST['mini_bar'], $_POST['luggage'], $_POST['elevator'], $_POST['sauna'],
+
 
 /* $_GET['swimming_pool'], $_GET['beach_access'], $_GET['car_park'], $_GET['free_wifi'], $_GET['restaurant'], $_GET['family_rooms'], $_GET['television'], $_GET['airport_shuttle'], $_GET['air_conditioner'], $_GET['no_smokers'], $_GET['animals'], $_GET['strongbox'], $_GET['mini_bar'], $_GET['luggage'], $_GET['elevator'], $_GET['sauna'] */
 
