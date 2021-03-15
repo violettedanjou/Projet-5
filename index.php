@@ -360,9 +360,15 @@ try {
 // Valider le formulaire d'ajout d'un nouvel hotel 
         elseif ($_GET['action'] == 'validNewHotel') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-                if (isset($_POST['name']) AND isset($_POST['content']) AND isset($_POST['location']) AND isset($_POST['rooms']) AND isset($_POST['prices'])) {
-                	//var_dump($_POST['content']);
-                	//die(var_dump($_POST['name']));
+                if (isset($_POST['name']) AND isset($_POST['content']) AND isset($_POST['location']) AND isset($_POST['rooms']) AND isset($_POST['prices']) AND !empty($_POST['swimming_pool']) AND !empty($_POST['beach_access']) AND !empty($_POST['car_park']) AND !empty($_POST['free_wifi']) AND !empty($_POST['restaurant']) AND !empty($_POST['family_rooms']) AND !empty($_POST['television']) AND !empty($_POST['airport_shuttle']) AND !empty($_POST['air_conditioner']) AND !empty($_POST['no_smokers']) AND !empty($_POST['animals']) AND !empty($_POST['strongbox']) AND !empty($_POST['mini_bar']) AND !empty($_POST['luggage']) AND !empty($_POST['elevator']) AND !empty($_POST['sauna'])) {
+
+                	//var_dump();
+                	//die(var_dump(isset($_POST['name']) AND isset($_POST['content']) AND isset($_POST['location']) AND isset($_POST['rooms']) AND isset($_POST['prices']) AND !empty($_POST['swimming_pool']) AND !empty($_POST['beach_access']) AND !empty($_POST['car_park']) AND !empty($_POST['free_wifi']) AND !empty($_POST['restaurant']) AND !empty($_POST['family_rooms']) AND !empty($_POST['television']) AND !empty($_POST['airport_shuttle']) AND !empty($_POST['air_conditioner']) AND !empty($_POST['no_smokers']) AND !empty($_POST['animals']) AND !empty($_POST['strongbox']) AND !empty($_POST['mini_bar']) AND !empty($_POST['luggage']) AND !empty($_POST['elevator']) AND !empty($_POST['sauna'])));
+
+// AND isset($_POST['swimming_pool']) AND isset($_POST['beach_access']) AND isset($_POST['car_park']) AND isset($_POST['free_wifi']) AND isset($_POST['restaurant']) AND isset($_POST['family_rooms']) AND isset($_POST['television']) AND isset($_POST['airport_shuttle']) AND isset($_POST['air_conditioner']) AND isset($_POST['no_smokers']) AND isset($_POST['animals']) AND isset($_POST['strongbox']) AND isset($_POST['mini_bar']) AND isset($_POST['luggage']) AND isset($_POST['elevator']) AND isset($_POST['sauna'])
+
+
+// AND !empty($swimming_pool) AND !empty($beach_access) AND !empty($car_park) AND !empty($free_wifi) AND !empty($restaurant) AND !empty($family_rooms) AND !empty($television) AND !empty($airport_shuttle) AND !empty($air_conditioner) AND !empty($no_smokers) AND !empty($animals) AND !empty($strongbox) AND !empty($mini_bar) AND !empty($luggage) AND !empty($elevator) AND !empty($sauna) 
 
 			        if (isset($_FILES['pictureHotel']) AND $_FILES['pictureHotel']['error'] == 0) {
 						if ($_FILES['pictureHotel']['size'] <= 1000000) {

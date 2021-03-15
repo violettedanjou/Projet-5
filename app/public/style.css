@@ -56,6 +56,7 @@ a
 img
 {
 	width: 300px;
+	height: auto;
 	margin: 0px;
 	border-radius: 5px 0px 0px 5px;
 }
@@ -227,6 +228,7 @@ a.a-session:hover
 	display: flex;
 	flex-direction: row;
 	margin: 20px;
+	padding: 10px;
 	border: 1px solid transparent;
 	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
 }
@@ -235,7 +237,7 @@ a.a-session:hover
 {
 	width: 300px;
 	height: 200px;
-	margin-right: 30px;
+	margin: 0px 30px 0px 0px;
 	border-radius: 0px;
 }
 .news-text
