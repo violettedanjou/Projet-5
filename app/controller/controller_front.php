@@ -21,8 +21,30 @@ class controller_front
 
 	function listActivitiesHotels() // Afficher la liste des activités et des hôtels
 	{
+	    
 	    $activityManager = new ActivitiesManager();
 	    $activities = $activityManager->getActivities();
+
+
+	    $allActivitiesOfPage = new ActivitiesManager();
+	    $allActivities = $allActivitiesOfPage->allActivities();
+
+	    //$activitiesOfPage = 2;
+	    $nbrActivities = $allActivities->rowCount();
+	    if (isset($_GET['page']) AND !empty($_GET['page'])) {
+	    	$_GET['page'] = intval($_GET['page']); // sécurité : intval() pour éviter que les utilisateurs mettent autre choses qu'un nombre
+	    	$homePage = $_GET['page'];
+	    }
+	    else {
+	    	$homePage = 1; // si cette page n'est pas définie ou alors qu'elle ne contient rien alors on se retrouve sur la premier page 
+	    }
+
+	    //$depart = ($homePage-1)*$activitiesOfPage;
+
+	    
+
+
+
 
 	    $hotelManager = new HotelsManager();
 	    $hotels = $hotelManager->getHotels();

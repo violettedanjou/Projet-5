@@ -6,10 +6,17 @@ use app\model\Manager;
 
 class ActivitiesManager extends Manager 
 {
+    public function allActivities() // 
+    {
+        $db = $this->dbConnect();
+        $idActivities = $db->query('SELECT id FROM activities');
+
+        return $idActivities;
+    }
     public function getActivities() // Récupération des activtiés
     {
         $db = $this->dbConnect();
-        $listactivities = $db->query('SELECT id, title, content, picture FROM activities LIMIT 0, 10');
+        $listactivities = $db->query('SELECT id, title, content, picture FROM activities LIMIT 0, 2');
 
         return $listactivities;
     }

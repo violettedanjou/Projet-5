@@ -7,4 +7,14 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'app\\' => array($baseDir . '/app'),
+    'Pagerfanta\\Twig\\' => array($vendorDir . '/pagerfanta/pagerfanta/lib/Twig'),
+    'Pagerfanta\\Solarium\\' => array($vendorDir . '/pagerfanta/pagerfanta/lib/Adapter/Solarium'),
+    'Pagerfanta\\Elastica\\' => array($vendorDir . '/pagerfanta/pagerfanta/lib/Adapter/Elastica'),
+    'Pagerfanta\\Doctrine\\PHPCRODM\\' => array($vendorDir . '/pagerfanta/pagerfanta/lib/Adapter/Doctrine/PHPCRODM'),
+    'Pagerfanta\\Doctrine\\ORM\\' => array($vendorDir . '/pagerfanta/pagerfanta/lib/Adapter/Doctrine/ORM'),
+    'Pagerfanta\\Doctrine\\MongoDBODM\\' => array($vendorDir . '/pagerfanta/pagerfanta/lib/Adapter/Doctrine/MongoDBODM'),
+    'Pagerfanta\\Doctrine\\DBAL\\' => array($vendorDir . '/pagerfanta/pagerfanta/lib/Adapter/Doctrine/DBAL'),
+    'Pagerfanta\\Doctrine\\Collections\\' => array($vendorDir . '/pagerfanta/pagerfanta/lib/Adapter/Doctrine/Collections'),
+    'Pagerfanta\\Adapter\\' => array($vendorDir . '/pagerfanta/pagerfanta/src/Adapter'),
+    'Pagerfanta\\' => array($vendorDir . '/pagerfanta/pagerfanta/lib/Core'),
 );
