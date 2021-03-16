@@ -25,8 +25,11 @@ class controller_front
 	    $activityManager = new ActivitiesManager();
 	    $activities = $activityManager->getActivities();
 
+		$hotelManager = new HotelsManager();
+	    $hotels = $hotelManager->getHotels();
 
-	    $allActivitiesOfPage = new ActivitiesManager();
+	    require('app/view/homeView.php');
+	    /*$allActivitiesOfPage = new ActivitiesManager();
 	    $allActivities = $allActivitiesOfPage->allActivities();
 
 	    //$activitiesOfPage = 2;
@@ -37,19 +40,9 @@ class controller_front
 	    }
 	    else {
 	    	$homePage = 1; // si cette page n'est pas définie ou alors qu'elle ne contient rien alors on se retrouve sur la premier page 
-	    }
+	    }*/
 
-	    //$depart = ($homePage-1)*$activitiesOfPage;
-
-	    
-
-
-
-
-	    $hotelManager = new HotelsManager();
-	    $hotels = $hotelManager->getHotels();
-
-	    require('app/view/homeView.php');
+	    //$depart = ($homePage-1)*$activitiesOfPage;    
 	}
 	function activity() // Afficher une activité en particulier
 	{
