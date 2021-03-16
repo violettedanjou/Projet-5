@@ -22,28 +22,35 @@
             <div class="col">
                 <h1>VIVRE LA NOUVELLE CALEDONIE</h1>
                 <?php
-                while ($data = $activities->fetch())
-                {
-                ?>
-                    <div class="news">
-                        <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
-                            <img class="img-home" src="<?= $data['picture'] ?>" alt="Photo de l'activite <?= $data['title'] ?>">
-                        </a>
-                        <div class="news-text">
-                            <h3>
-                                <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
-                                    <?= htmlspecialchars($data['title']) ?>
-                                    <br/>
-                                </a>
-                            </h3>
-                            <p><?= nl2br(($data['content'])) ?></p>
-                               
-                            <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">Avis</a></em>
-                        </div>
-                    </div>
-                <?php
-                }
-                $activities->closeCursor(); ?> 
+
+                foreach ($nbrActivities as $data) { ?>
+                    <tr>
+                        <td><?= $data['picture'] ?></td>
+                        <td><?= $data['title'] ?> </td>
+                        <td><?= $data['content'] ?></td>
+                    </tr>
+        <?php   } ?>
+                    
+                    <nav> <!-- Pagination -->
+                        <ul class="pagination">
+                            <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+                                    <a href="./?page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
+                            </li>
+
+                            <?php for($page = 1; $page <= $pages; $page++): ?>
+                                <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
+                                <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
+                                    <a href="./?page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                                </li>
+                            <?php endfor ?>
+
+                            <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
+                            <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
+                                <a href="./?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
+                            </li>
+                        </ul>
+                    </nav>
+                <!--$activities->closeCursor(); */-->
             </div>
         </div>
     </div>

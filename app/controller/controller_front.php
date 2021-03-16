@@ -22,13 +22,35 @@ class controller_front
 	function listActivitiesHotels() // Afficher la liste des activités et des hôtels
 	{
 	    
+	   	$currentPage = (int) strip_tags($_GET['page']); // La fonction strip_tags() supprime les balises HTML et PHP d'une chaîne
+
+	    $activitiesManager = new ActivitiesManager();
+	    $allActivities = $activitiesManager->allActivities();
+	    $nbrActivities = $allActivities->fetch(); // On récupère le nombre d'activités (1)
+	    $nbr = (int) $nbrActivities['nbrActivities']; // On récupère le nombre d'activités (2)
+
+	   	$activitiesOfPage = 2; // On détermine le nombre d'activité par page 
+	    $pages = ceil($nbr / $activitiesOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
+	   	$firstActivity = ($currentPage * $activitiesOfPage) - $activitiesOfPage; // Calcul de la première activité de la page 
+
 	    $activityManager = new ActivitiesManager();
-	    $activities = $activityManager->getActivities();
+	    $activities = $activityManager->getActivities($firstActivity, $activitiesOfPage);
+	    $arrayActivities = $activities->fetchAll(\PDO::FETCH_ASSOC); // On récupère les valeurs dans un tableau associatif 
+
+
+
+
+
+
+
 
 		$hotelManager = new HotelsManager();
 	    $hotels = $hotelManager->getHotels();
 
-	    require('app/view/homeView.php');
+	    require('app/view/homeView.php');    
+	}
+
+
 	    /*$allActivitiesOfPage = new ActivitiesManager();
 	    $allActivities = $allActivitiesOfPage->allActivities();
 
@@ -42,8 +64,10 @@ class controller_front
 	    	$homePage = 1; // si cette page n'est pas définie ou alors qu'elle ne contient rien alors on se retrouve sur la premier page 
 	    }*/
 
-	    //$depart = ($homePage-1)*$activitiesOfPage;    
-	}
+	    //$depart = ($homePage-1)*$activitiesOfPage;
+
+
+
 	function activity() // Afficher une activité en particulier
 	{
 	    $activityManager = new ActivitiesManager();

@@ -71,9 +71,17 @@ try {
 // LISTE DES ACTIVITES et DES HOTELS - PAGE D'ACCUEIL
         // Affiche la listes des activités
         if ($_GET['action'] == 'listActivitiesHotels') {
-            $listActivitiesHotels = new controller_front();
-			$listActivitiesHotels->listActivitiesHotels(); 
+        	if(isset($_GET['page']) && !empty($_GET['page'])) {
+			    $currentPage = (int) strip_tags($_GET['page']); // sécurité : pour éviter que les utilisateurs mettent autre choses qu'un nombre xcomme intval()
+		
+	            $listActivitiesHotels = new controller_front();
+				$listActivitiesHotels->listActivitiesHotels(); 
+			}
+			else {
+		    	$currentPage = 1;
+			}
         }
+        
         // Afficher une activité et ses avis
         elseif ($_GET['action'] == 'activity') { 
             if (isset($_GET['id']) && $_GET['id'] > 0) {
