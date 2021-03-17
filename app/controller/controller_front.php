@@ -22,7 +22,7 @@ class controller_front
 	function listActivitiesHotels() // Afficher la liste des activités et des hôtels
 	{
 	    
-	   	$currentPage = (int) strip_tags($_GET['page']); // La fonction strip_tags() supprime les balises HTML et PHP d'une chaîne
+	   	$currentPage = (int) strip_tags($_GET['page']); // // sécurité : pour éviter que les utilisateurs mettent autre choses qu'un nombre comme intval()
 
 	    $activitiesManager = new ActivitiesManager();
 	    $allActivities = $activitiesManager->allActivities();
@@ -31,11 +31,13 @@ class controller_front
 
 	   	$activitiesOfPage = 2; // On détermine le nombre d'activité par page 
 	    $pages = ceil($nbr / $activitiesOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
-	   	$firstActivity = ($currentPage * $activitiesOfPage) - $activitiesOfPage; // Calcul de la première activité de la page 
+	   	//$start = ($currentPage * $activitiesOfPage) - $activitiesOfPage; // Calcul de la première activité de la page 
+	   	$start = ($currentPage-1)*$activitiesOfPage;
 
 	    $activityManager = new ActivitiesManager();
-	    $activities = $activityManager->getActivities($firstActivity, $activitiesOfPage);
-	    $arrayActivities = $activities->fetchAll(\PDO::FETCH_ASSOC); // On récupère les valeurs dans un tableau associatif 
+	    $activities = $activityManager->getActivities(/*$start, $activitiesOfPage*/);
+	   
+	    //$arrayActivities = $activities->fetchAll(\PDO::FETCH_ASSOC); // On récupère les valeurs dans un tableau associatif 
 
 
 

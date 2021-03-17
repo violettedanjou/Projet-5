@@ -22,14 +22,29 @@
             <div class="col">
                 <h1>VIVRE LA NOUVELLE CALEDONIE</h1>
                 <?php
+                    while ($data = $activities->fetch()) 
+                        { ?>
 
-                foreach ($nbrActivities as $data) { ?>
-                    <tr>
-                        <td><?= $data['picture'] ?></td>
-                        <td><?= $data['title'] ?> </td>
-                        <td><?= $data['content'] ?></td>
-                    </tr>
-        <?php   } ?>
+                            <div class="news">
+                                <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
+                                    <img class="img-home" src="<?= $data['picture'] ?>" alt="Photo de l'activite <?= $data['title'] ?>">
+                                </a>
+                                <div class="news-text">
+                                    <h3>
+                                        <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
+                                            <?= htmlspecialchars($data['title']) ; ?>
+                                            <br/>
+                                        </a>
+                                    </h3>
+                                    <p><?= nl2br($data['content']) ?></p>
+                                       
+                                    <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">Avis</a></em>
+                                </div>
+                            </div>
+                <?php   } 
+                        $activities->closeCursor();?>
+
+                        
                     
                     <nav> <!-- Pagination -->
                         <ul class="pagination">
@@ -50,7 +65,7 @@
                             </li>
                         </ul>
                     </nav>
-                <!--$activities->closeCursor(); */-->
+                 
             </div>
         </div>
     </div>

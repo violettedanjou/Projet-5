@@ -71,8 +71,8 @@ try {
 // LISTE DES ACTIVITES et DES HOTELS - PAGE D'ACCUEIL
         // Affiche la listes des activités
         if ($_GET['action'] == 'listActivitiesHotels') {
-        	if(isset($_GET['page']) && !empty($_GET['page'])) {
-			    $currentPage = (int) strip_tags($_GET['page']); // sécurité : pour éviter que les utilisateurs mettent autre choses qu'un nombre xcomme intval()
+        	if(isset($_GET['page']) && !empty($_GET['page']) AND $_GET['page'] > 0 AND $_GET['page'] <= $pages) {
+			    //$currentPage = (int) strip_tags($_SESSION['id']); 
 		
 	            $listActivitiesHotels = new controller_front();
 				$listActivitiesHotels->listActivitiesHotels(); 
