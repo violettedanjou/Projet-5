@@ -6,5 +6,8 @@ use app\model\Manager;
 
 class WeatherManager extends Manager 
 {
-
+	public function displayWeather() 
+	{
+		
+	}
 }

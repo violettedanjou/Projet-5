@@ -6,6 +6,7 @@ use app\model\MemberManager;
 use app\model\ActivitiesManager;
 use app\model\HotelsManager;
 use app\model\OpinionsManager;
+use app\model\WeatherManager;
 
 class controller_front
 {
@@ -18,6 +19,9 @@ class controller_front
 	{
 		require('app/view/signinView.php');
 	}
+
+
+
 
 	function listActivitiesHotels() // Afficher la liste des activités et des hôtels
 	{
@@ -42,6 +46,20 @@ class controller_front
 
 
 
+		$displayManager = new WeatherManager();
+		$display = $displayManager->displayWeather();
+
+		$url = "http://api.openweathermap.org/data/2.5/weather?q=noumea&lang=fr&appid=eea2c52399d4972988c3afb0252aca33";
+		$contents = file_get_contents($url); // Récupérer le contenu de l'API
+		$json = json_decode($contents); // json_decode() Décode une chaine JSON
+		//print_r($json); // Afficher des infos lisibles pour une variable
+
+
+		$icon = $json->weather[0]->icon;
+		$main = $json->weather[0]->main;
+		$desc = $json->weather[0]->description;
+		$temp_max = $json->main->temp_max;
+		$temps_min = $json->main->temp_min;
 
 
 
@@ -67,6 +85,9 @@ class controller_front
 	    }*/
 
 	    //$depart = ($homePage-1)*$activitiesOfPage;
+
+
+
 
 
 
