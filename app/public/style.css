@@ -218,6 +218,13 @@ a.a-session:hover
 	margin-top: 50px;
 	padding: 50px 200px 50px 200px;	
 }
+#div-weather /* Bloc avec la météo */
+{
+	margin: 0px;
+	padding: 10px;
+	border: 1px solid transparent;
+	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
+}
 #block-activities, #block-hotels
 {
 	background-color: #ffffff;

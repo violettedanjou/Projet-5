@@ -21,6 +21,14 @@
         <div class="row">
             <div class="col">
                 <h1>VIVRE LA NOUVELLE CALEDONIE</h1>
+                    <div id="div-weather">
+                        <h2>METEO DU JOUR : ACTIVITE RECOMMANDEE</h2>
+                            <div id="div-activity-weather">
+
+                                <script type="text/javascript"></script>
+                            </div>
+                        
+                    </div>
                 <?php
                     while ($data = $activities->fetch()) 
                         { ?>
@@ -44,7 +52,7 @@
                 <?php   } 
                         $activities->closeCursor();?>
 
-                        
+
                     
                     <nav> <!-- Pagination -->
                         <ul class="pagination">
