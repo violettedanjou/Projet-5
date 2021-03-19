@@ -6,6 +6,7 @@ use app\model\MemberManager;
 use app\model\ActivitiesManager;
 use app\model\HotelsManager;
 use app\model\OpinionsManager;
+use app\model\WeatherManager;
 
 class controller_back
 {
@@ -100,6 +101,9 @@ class controller_back
 	{
 		$newActivityManager = new ActivitiesManager();
 		$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $destinationFile);
+
+		$thunderstormManager = new ActivitiesManager();
+		$thunderstorm = $thunderstormManager->updateThunderstorm();
 
 		header('Location: index.php?action=openAdmin');
 	}

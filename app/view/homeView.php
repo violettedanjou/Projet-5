@@ -25,16 +25,26 @@
                         <h2>METEO DU JOUR : ACTIVITE RECOMMANDEE</h2>
                             <a href="">
                                 <div id="div-activity-weather">
-                                    <form action="index.php?action=openWeather?>">
-                                        <input type="text" name="btn_weather">
-                                    </form>
-                            <?php   if ($main === "Clouds") { ?>
-                                        <img src="http://openweathermap.org/img/wn/04d.png"><br/>
-                            <?php   } ?>                              
-                                    
-
-
-                                    <script type="text/javascript"></script>
+                                <?php 
+                                    while ($dataWeather = $display->fetch()) 
+                                    { ?>
+                                        <div class="news">
+                                            <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
+                                                <img class="img-home" src="<?= $dataWeather['picture'] ?>" alt="Photo de l'activite <?= $dataWeather['title'] ?>">
+                                            </a>
+                                            <div class="news-text">
+                                                <h3>
+                                                    <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
+                                                        <?= htmlspecialchars($dataWeather['title']) ; ?>
+                                                        <br/>
+                                                    </a>
+                                                </h3>
+                                                <p><?= nl2br($dataWeather['content']) ?></p>
+                                                   
+                                                <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">Avis</a></em>
+                                            </div>
+                                        </div>                                        
+                            <?php   }    ?>
                                 </div>
                             </a>
                     </div>

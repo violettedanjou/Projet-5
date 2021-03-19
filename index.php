@@ -238,31 +238,38 @@ try {
         elseif ($_GET['action'] == 'validNewActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['title']) AND isset($_POST['content'])) {
-			        if (isset($_FILES['pictureActivity']) AND $_FILES['pictureActivity']['error'] == 0) {
-						if ($_FILES['pictureActivity']['size'] <= 1000000) {
+                	if (isset($_POST['weather'])) {
+                		if (isset($_FILES['pictureActivity']) AND $_FILES['pictureActivity']['error'] == 0) {
+							if ($_FILES['pictureActivity']['size'] <= 1000000) {
 
-							$infosfichier = pathinfo($_FILES['pictureActivity']['name']);
-							$extension_upload = $infosfichier['extension'];
-							$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
+								$infosfichier = pathinfo($_FILES['pictureActivity']['name']);
+								$extension_upload = $infosfichier['extension'];
+								$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 
-					    	if (in_array($extension_upload, $extensions_autorisees)) {
-					    		$destinationFile = 'pictures/activities/' . $_SESSION['id'] . basename($_FILES['pictureActivity']['name']);
-						        move_uploaded_file($_FILES['pictureActivity']['tmp_name'], $destinationFile);
-						                
-						        $validNewActivity = new controller_back();
-								$validNewActivity->addActivity($destinationFile);
-						    }
-						    else {
-						    	throw new Exception("L'extension de l'image est incorrect", 1);
-						    }
-						}
+						    	if (in_array($extension_upload, $extensions_autorisees)) {
+						    		$destinationFile = 'pictures/activities/' . $_SESSION['id'] . basename($_FILES['pictureActivity']['name']);
+							        move_uploaded_file($_FILES['pictureActivity']['tmp_name'], $destinationFile);
+							                
+							        $validNewActivity = new controller_back();
+									$validNewActivity->addActivity($destinationFile);
+							    }
+							    else {
+							    	throw new Exception("L'extension de l'image est incorrect", 1);
+							    }
+							}
+							else {
+								throw new Exception("La taille de l'image n'est pas bonne.", 1);
+							}
+						} 
 						else {
-							throw new Exception("La taille de l'image n'est pas bonne.", 1);
+							throw new Exception("Veuillez entrer une image correctement.", 1);
 						}
-					} 
-					else {
-						throw new Exception("Veuillez entrer une image correctement.", 1);
-					}            	
+                	}
+                	else {
+                		throw new Exception("Problème avec le booléen.", 1);
+                		
+                	}
+            	
                 }
                 else {
                     throw new Exception("Veuillez ajouter une nouvelle activité.", 1);

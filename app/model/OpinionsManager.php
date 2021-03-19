@@ -22,7 +22,7 @@ class OpinionsManager extends Manager
 
     	return $pseudoOpinion;
     }
-    public function activityOpinion($id, $content) // Insérer un nouvel avis
+    public function activityOpinion($id, $content) // Insérer un nouvel avis d'activité
     {
         $db = $this->dbConnect();
         $opinions = $db->prepare('INSERT INTO opinions(id_activity, author, content, date_opinion) VALUES(?, ?, ?, NOW())');
@@ -30,7 +30,7 @@ class OpinionsManager extends Manager
 
         return $affectedLines;
     }
-    public function hotelOpinion($id, $content) // Insérer un nouvel avis
+    public function hotelOpinion($id, $content) // Insérer un nouvel avis d'hotel
     {
         $db = $this->dbConnect();
         $opinions = $db->prepare('INSERT INTO opinions(id_hotel, author, content, date_opinion) VALUES(?, ?, ?, NOW())');
@@ -56,7 +56,7 @@ class OpinionsManager extends Manager
 
         return $useful;
     } 
-    public function reportHotel($idHotel) // Signaler un avis d'activité
+    public function reportHotel($idHotel) // Signaler un avis d'hotel
     {
         $db = $this->dbConnect();
         $report = $db->prepare('UPDATE opinions SET report = 1 WHERE id_hotel = ?');
@@ -64,7 +64,7 @@ class OpinionsManager extends Manager
 
         return $report;
     }
-    public function usefulHotel($idHotel) // Avis utile d'activité
+    public function usefulHotel($idHotel) // Avis utile d'hotel
     {
         $db = $this->dbConnect();
         $useful = $db->prepare('UPDATE opinions SET useful = 1 WHERE id_hotel = ?');

@@ -6,6 +6,8 @@ use app\model\Manager;
 
 class ActivitiesManager extends Manager 
 {
+
+// PAGINATION 	
     public function allActivities() // Compter le nombre d'activités au total
     {
         $db = $this->dbConnect();
@@ -13,6 +15,7 @@ class ActivitiesManager extends Manager
 
         return $allActivities;
     } 
+// PAGINATION     
     public function getActivities(/*$start, $activitiesOfPage*/) // Récupération des activtiés
     {
         $db = $this->dbConnect();
@@ -23,6 +26,18 @@ class ActivitiesManager extends Manager
 
         return $listactivities;
     }
+
+
+// METEO 
+	public function displayWeather() // Afficher sur la page d'accueil la météo et son activité 
+	{
+    	$db = $this->dbConnect();
+    	$weather = $db->query('SELECT id, title, content, picture, weather FROM activities');
+
+    	return $weather;
+	}
+
+
 
 
     public function getActivity($activityId) // Récupération d'une activité grace à son id
@@ -45,6 +60,23 @@ class ActivitiesManager extends Manager
 
        return $addNewActivity;
     }
+
+
+/*
+    public function updateThunderstorm() // Passer thunderstorm à true (comme un signalement)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE activities SET weather = 1 WHERE id = ?');
+        $req->execute(array());
+
+        return $req;   	
+    }
+*/
+
+
+
+
+
     public function changeActivity($activityId) // Récupération d'une activité pour la modifier
     {
         $db = $this->dbConnect();
