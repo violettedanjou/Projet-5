@@ -46,6 +46,14 @@ class controller_front
 
 
 
+
+		$hotelManager = new HotelsManager();
+	    $hotels = $hotelManager->getHotels();
+
+	    require('app/view/homeView.php');    
+	}
+	function openWeather()
+	{
 		$displayManager = new WeatherManager();
 		$display = $displayManager->displayWeather();
 
@@ -60,14 +68,6 @@ class controller_front
 		$desc = $json->weather[0]->description;
 		$temp_max = $json->main->temp_max;
 		$temps_min = $json->main->temp_min;
-
-
-
-
-		$hotelManager = new HotelsManager();
-	    $hotels = $hotelManager->getHotels();
-
-	    require('app/view/homeView.php');    
 	}
 
 

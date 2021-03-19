@@ -25,6 +25,9 @@
                         <h2>METEO DU JOUR : ACTIVITE RECOMMANDEE</h2>
                             <a href="">
                                 <div id="div-activity-weather">
+                                    <form action="index.php?action=openWeather?>">
+                                        <input type="text" name="btn_weather">
+                                    </form>
                             <?php   if ($main === "Clouds") { ?>
                                         <img src="http://openweathermap.org/img/wn/04d.png"><br/>
                             <?php   } ?>                              
