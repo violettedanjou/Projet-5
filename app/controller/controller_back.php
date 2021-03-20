@@ -102,11 +102,9 @@ class controller_back
 		$newActivityManager = new ActivitiesManager();
 		$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $destinationFile);
 
-		$thunderstormManager = new ActivitiesManager();
-		$thunderstorm = $thunderstormManager->updateThunderstorm();
-
 		header('Location: index.php?action=openAdmin');
 	}
+
 	function changeActivity() // Modification d'une activité
 	{
 		$saveManager = new ActivitiesManager();
@@ -121,6 +119,14 @@ class controller_back
 
 		header('Location: index.php?action=openAdmin');
 	}
+	function updateWeather()
+	{
+		$thunderstormManager = new WeatherManager();
+		$thunderstorm = $thunderstormManager->updateThunderstorm($_GET['id']); // Passer le temps thunderstorm à true au moment de la création de l'activité
+
+		header('Location: index.php?action=openAdmin');
+	}
+
 
 	function addHotel($destinationFile) // Ajouter un nouvel hotel
 	{

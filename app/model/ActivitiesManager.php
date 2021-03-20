@@ -36,6 +36,16 @@ class ActivitiesManager extends Manager
 
     	return $weather;
 	}
+    public function weatherActivity($idActivity) // Page vue d'activité : Jointure -> récupérer la météo d'une activité grace à son id et afficher sur la vue
+    {
+    	$db = $this->dbConnect();
+    	$weather = $db->prepare('SELECT weather.thunderstorm, activities.id, activities.title, activities.content, activities.picture AS weatherActivity FROM activities INNER JOIN weather ON activities.weather = weather.id WHERE activities.id = ?');
+    	$weather->execute(array($idActivity));
+
+    	return $weather;
+    } 	
+
+
 
 
 
@@ -62,19 +72,7 @@ class ActivitiesManager extends Manager
     }
 
 
-/*
-    public function updateThunderstorm() // Passer thunderstorm à true (comme un signalement)
-    {
-        $db = $this->dbConnect();
-        $req = $db->prepare('UPDATE activities SET weather = 1 WHERE id = ?');
-        $req->execute(array());
-
-        return $req;   	
-    }
-*/
-
-
-
+    // mettre ici la fonction updateThunderstorm()
 
 
     public function changeActivity($activityId) // Récupération d'une activité pour la modifier

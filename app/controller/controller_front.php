@@ -123,8 +123,8 @@ class controller_front
 	    $opinionManager = new OpinionsManager();
 	    $opinionsActivity = $opinionManager->pseudoAuthorActivity($_GET['id']);
 
-	    /*$weatherManager = new WeatherManager();
-	    $weather = $weatherManager->weatherActivity($_GET['id']); // A quoi me sert cette jointure ??? -> jointure avec id de l'activité et le temps de la météo de la table weather*/
+	    $weatherManager = new ActivitiesManager();
+	    $weather = $weatherManager->weatherActivity($_GET['id']); // Jointure avec id de l'activité et le temps de la météo de la table weather*/
 
 	    require('app/view/activityView.php');
 	}

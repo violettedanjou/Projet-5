@@ -6,13 +6,14 @@ use app\model\Manager;
 
 class WeatherManager extends Manager 
 {
-/*    public function weatherActivity($idActivity) // Jointure : récupérer la météo d'une activité grace à son id et afficher sur la vue
-    {
-    	$db = $this->dbConnect();
-    	$weather = $db->prepare('SELECT weather.thunderstorm, activities.id, activities.title, activities.content, activities.picture AS weatherActivity FROM activities INNER JOIN weather ON activities.weather = weather.id WHERE activities.id = ?');
-    	$weather->execute(array($idActivity));
+   
 
-    	return $weather;
-    }
-*/    
+    public function updateThunderstorm($idActivity) // Passer thunderstorm à true (comme un signalement) au moment de la création d'une activité
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE weather SET thunderstorm = 1 WHERE id = ?');
+        $req->execute(array($idActivity));
+
+        return $req;   	
+    }   
 }
