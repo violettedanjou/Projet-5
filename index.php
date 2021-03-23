@@ -71,13 +71,14 @@ try {
 // LISTE DES ACTIVITES et DES HOTELS - PAGE D'ACCUEIL
         // Affiche la listes des activités
         if ($_GET['action'] == 'listActivitiesHotels') {
-        	if(isset($_GET['page']) && !empty($_GET['page']) AND $_GET['page'] > 0 AND $_GET['page'] <= $pages) {		
-	            $listActivitiesHotels = new controller_front();
-				$listActivitiesHotels->listActivitiesHotels(); 
+        	if(isset($_GET['page']) && !empty($_GET['page']) AND $_GET['page'] > 0) {		
+	             $currentPage = $_GET['page'];
 			}
 			else {
 		    	$currentPage = 1;
 			}
+			$listActivitiesHotels = new controller_front();
+			$listActivitiesHotels->listActivitiesHotels($currentPage);
         }
         // Afficher una activité en fonction de la météo
         elseif ($_GET['action'] == 'openWeather') {
@@ -501,8 +502,14 @@ try {
         }    
 	}
 	else {
+		    if(isset($_GET['page']) && !empty($_GET['page']) AND $_GET['page'] > 0) {		
+	            $currentPage = $_GET['page'];
+			}
+			else {
+		    	$currentPage = 1;
+			}
 		$listActivitiesHotels = new controller_front();
-		$listActivitiesHotels->listActivitiesHotels();
+		$listActivitiesHotels->listActivitiesHotels($currentPage);
 	}   	
 }
 catch(Exception $e) {

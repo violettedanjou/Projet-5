@@ -23,26 +23,22 @@ class controller_front
 
 
 
-	function listActivitiesHotels() // Afficher la liste des activités et des hôtels
+	function listActivitiesHotels($currentPage) // Afficher la liste des activités et des hôtels
 	{
 	    
-	   	$currentPage = (int) strip_tags($_GET['page']); // // sécurité : pour éviter que les utilisateurs mettent autre choses qu'un nombre comme intval()
-
+		// RECUPERER LES ACTIVITES + LA PAGINATION
 	    $activitiesManager = new ActivitiesManager();
 	    $allActivities = $activitiesManager->allActivities();
 	    $nbrActivities = $allActivities->fetch(); // On récupère le nombre d'activités (1)
 	    $nbr = (int) $nbrActivities['nbrActivities']; // On récupère le nombre d'activités (2)
 
-	   	$activitiesOfPage = 2; // On détermine le nombre d'activité par page 
+	   	$activitiesOfPage = 4; // On détermine le nombre d'activité par page 
 	    $pages = ceil($nbr / $activitiesOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
-	   	//$start = ($currentPage * $activitiesOfPage) - $activitiesOfPage; // Calcul de la première activité de la page 
-	   	$start = ($currentPage-1)*$activitiesOfPage;
+	   	$start = ($currentPage-1)*$activitiesOfPage; // Calcul de la première activité de la page 
 
 	    $activityManager = new ActivitiesManager();
-	    $activities = $activityManager->getActivities(/*$start, $activitiesOfPage*/);
+	    $activities = $activityManager->getActivities($start, $activitiesOfPage);
 	   
-	    //$arrayActivities = $activities->fetchAll(\PDO::FETCH_ASSOC); // On récupère les valeurs dans un tableau associatif 
-
 
 	    // METEO 
 		$displayManager = new ActivitiesManager(); // Afficher la météo et son activité

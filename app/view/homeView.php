@@ -69,10 +69,8 @@
                                 </div>
                             </div>
                 <?php   } 
-                        $activities->closeCursor();?>
+                        $activities->closeCursor(); ?>
 
-
-                    
                     <nav> <!-- Pagination -->
                         <ul class="pagination">
                             <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">

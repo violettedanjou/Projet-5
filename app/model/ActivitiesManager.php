@@ -16,13 +16,10 @@ class ActivitiesManager extends Manager
         return $allActivities;
     } 
 // PAGINATION     
-    public function getActivities(/*$start, $activitiesOfPage*/) // Récupération des activtiés
+    public function getActivities($start, $activitiesOfPage) // Récupération des activtiés
     {
         $db = $this->dbConnect();
-        $listactivities = $db->query('SELECT id, title, content, picture FROM activities ORDER BY id ASC /*LIMIT .$start.,. $activitiesOfPage*/');
-        /*$listactivities->bindValue(':start', $start, \PDO::PARAM_INT);
-		$listactivities->bindValue(':activitiesOfPage', $activitiesOfPage, \PDO::PARAM_INT);
-        $listactivities->execute(array());*/
+        $listactivities = $db->query('SELECT id, title, content, picture FROM activities ORDER BY id ASC LIMIT '. $start . ' , '. $activitiesOfPage);
 
         return $listactivities;
     }

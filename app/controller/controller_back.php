@@ -67,28 +67,28 @@ class controller_back
 	function reportActivity() // Signaler un avis d'activité
 	{
 		$reportManager = new OpinionsManager();
-		$report = $reportManager->reportActivity($_GET['id']);
+		$report = $reportManager->reportActivity($_GET['id_activity']);
 
 		header('Location: index.php?action=activity&id='. $_GET['id']);
 	}
 	function usefulActivity() // Avis utile d'activité
 	{
 		$usefulManager = new OpinionsManager();
-		$useful = $usefulManager->usefulActivity($_GET['id']);
+		$useful = $usefulManager->usefulActivity($_GET['id_activity']);
 
 		header('Location: index.php?action=activity&id='. $_GET['id']);
 	}
 	function reportHotel() // Signaler un avis d'activité
 	{
 		$reportManager = new OpinionsManager();
-		$report = $reportManager->reportHotel($_GET['id']);
+		$report = $reportManager->reportHotel($_GET['id_hotel']);
 
 		header('Location: index.php?action=hotel&id='. $_GET['id']);
 	}
 	function usefulHotel() // Avis utile d'activité
 	{
 		$usefulManager = new OpinionsManager();
-		$useful = $usefulManager->usefulHotel($_GET['id']);
+		$useful = $usefulManager->usefulHotel($_GET['id_hotel']);
 
 		header('Location: index.php?action=hotel&id='. $_GET['id']);
 	}
