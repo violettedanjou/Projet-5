@@ -1,5 +1,0 @@
-<?php $title = "Activiés";
-
-
-
-?>
