@@ -59,10 +59,24 @@ class ActivitiesManager extends Manager
 
        return $addNewActivity;
     }
+/* Ajouter la météo à une nouvelle activité    
+    public function addGoodWeather($id) // Passer la bonne météo à 1
+    {
+        $db = $this->dbConnect();
+        $good = $db->prepare('UPDATE activities SET goodWeather = 1 WHERE id = ?');
+        $good->execute(array($id));
 
+        return $good;
+    }
+    public function addBadWeather($id) // Passer la mauvaise météo à 1
+    {
+        $db = $this->dbConnect();
+        $bad = $db->prepare('UPDATE activities SET badWeather = 1 WHERE id = ?');
+        $bad->execute(array($id));
 
-    // mettre ici la fonction updateThunderstorm()
-
+        return $bad;
+    } 
+*/
 
     public function changeActivity($activityId) // Récupération d'une activité pour la modifier
     {

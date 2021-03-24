@@ -96,7 +96,10 @@ class controller_back
 
 
 
-// PAGE ADMINISTRATION 
+																			
+																			// PAGE ADMINISTRATION 
+
+// AJOUT	
 	function addActivity($destinationFile) // Ajouter une nouvelle activité
 	{
 		$newActivityManager = new ActivitiesManager();
@@ -104,37 +107,22 @@ class controller_back
 
 		header('Location: index.php?action=openAdmin');
 	}
-
-	function changeActivity() // Modification d'une activité
+/*	Ajouter la météo à une nouvelle activité
+	function addGoodWeather() // Passer la bonne météo à 1
 	{
-		$saveManager = new ActivitiesManager();
-		$save = $saveManager->saveActivity($_POST['id'], $_POST['title'], $_POST['content']);
+		$addWeatherManager = new ActivitiesManager();
+		$good = $addWeatherManager->addGoodWeather($_GET['id']);
 
-		header('Location: index.php?action=openAdmin');
+		header('Location: index.php?action=openNewActivity');
 	}
-	function changeImgActivity($destinationFile)
+	function addBadWeather() // Passer la mauvaise météo à 1
 	{
-		$imgActivityManager = new ActivitiesManager();
-		$imgManager = $imgActivityManager->changeImgActivity($_SESSION['admin'], $destinationFile);// J'ai voulu faire comme pour l'image de profile pour le $_SESSION['admin']
+		$addWeatherManager = new ActivitiesManager();
+		$bad = $addWeatherManager->addBadWeather($_GET['id']);
 
-		header('Location: index.php?action=openAdmin');
+		header('Location: index.php?action=openNewActivity');
 	}
-	function goodWeather()
-	{
-		$goodWeatherManager = new ActivitiesManager();
-		$good = $goodWeatherManager->goodWeather($_GET['id']);
-
-		header('Location: index.php?action=openAdmin');
-	}
-	function badWeather()
-	{
-		$badWeatherManager = new ActivitiesManager();
-		$bad = $badWeatherManager->badWeather($_GET['id']);
-
-		header('Location: index.php?action=openAdmin');
-	}
-
-
+*/
 	function addHotel($destinationFile) // Ajouter un nouvel hotel
 	{
 		$newHotelManager = new HotelsManager();
@@ -149,6 +137,37 @@ class controller_back
 
 /* $swimming_pool, $beach_access, $car_park, $free_wifi, $restaurant, $family_rooms, $television, $airport_shuttle, $air_conditioner, $no_smokers, $animals, $strongbox, $mini_bar, $luggage, $elevator, $sauna, */
 
+
+// MODIFICATION
+	function changeActivity() // Modification d'une activité
+	{
+		$saveManager = new ActivitiesManager();
+		$save = $saveManager->saveActivity($_POST['id'], $_POST['title'], $_POST['content']);
+
+		header('Location: index.php?action=openAdmin');
+	}
+	function changeImgActivity($destinationFile)
+	{
+		$imgActivityManager = new ActivitiesManager();
+		$imgManager = $imgActivityManager->changeImgActivity($_SESSION['admin'], $destinationFile);// J'ai voulu faire comme pour l'image de profile pour le $_SESSION['admin']
+
+		header('Location: index.php?action=openAdmin');
+	}
+	function goodWeather() // Passer la bonne météo à 1
+	{
+		$goodWeatherManager = new ActivitiesManager();
+		$good = $goodWeatherManager->goodWeather($_GET['id']);
+
+		header('Location: index.php?action=openAdmin');
+	}
+	function badWeather() // Passer la mauvaise météo à 1
+	{
+		$badWeatherManager = new ActivitiesManager();
+		$bad = $badWeatherManager->badWeather($_GET['id']);
+
+		header('Location: index.php?action=openAdmin');
+	}
+
 	function changeHotel() // Modification d'un hotel
 	{
 		$saveManager = new HotelsManager();
@@ -157,7 +176,7 @@ class controller_back
 		header('Location: index.php?action=openAdmin');
 	}
 
-
+// GESTION SIGNALEMENTS ET AVIS UTILES
 	function deleteReport() // Retirer le signalement
 	{
 		$removeManager = new OpinionsManager();

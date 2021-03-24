@@ -245,7 +245,7 @@ try {
         elseif ($_GET['action'] == 'validNewActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['title']) AND isset($_POST['content'])) {
-                	/*if (isset($_POST['weather'])) {*/
+                	/*if (isset($_POST['weather'])) {*/                		
                 		if (isset($_FILES['pictureActivity']) AND $_FILES['pictureActivity']['error'] == 0) {
 							if ($_FILES['pictureActivity']['size'] <= 1000000) {
 
@@ -285,7 +285,23 @@ try {
             else {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);    
             }      
-        }       
+        }  
+// Ajouter la météo recommandée
+		// Bonne météo
+/*		elseif ($_GET['action'] == 'addGoodWeather') {
+			if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+				$addWeather = new controller_back();
+				$addWeather->addGoodWeather();
+			}
+		}
+		// Mauvaise météo
+		elseif ($_GET['action'] == 'addBadWeather') {
+			if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+				$addWeather = new controller_back();
+				$addWeather->addBadWeather();
+			}
+		}     
+*/
 
 // Afficher formulaire de modification d'une activité 
         if($_GET['action'] == 'openChangeActivity') {
