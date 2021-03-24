@@ -19,13 +19,6 @@ class Weather {
 			urlCloudsDay = "http://openweathermap.org/img/wn/03d.png", 
 			urlCloudsNight = "http://openweathermap.org/img/wn/03n.png"
 		});		
-
-		/*
-		this.urlClear = "http://openweathermap.org/img/wn/01d.png"; this.urlClear = "http://openweathermap.org/img/wn/01n.png";
-		this.urlFewClouds = "http://openweathermap.org/img/wn/02d.png"; this.urlFewClouds = "http://openweathermap.org/img/wn/02n.png"; // quelques nuages 
-		this.urlScatteredClouds = "http://openweathermap.org/img/wn/03d.png"; this.urlScatteredClouds = "http://openweathermap.org/img/wn/03n.png"; // nuages éparpillés
-		this.urlClouds = "http://openweathermap.org/img/wn/04d.png"; this.urlClouds = "http://openweathermap.org/img/wn/04n.png"; // nuages brisés et nuageux
-		*/
 	}
 	display()
 	{
@@ -73,11 +66,7 @@ class Weather {
 				else if (data[i].weather[0].id >= 801) { // SI l'id est supérieur ou égal à 801 ALORS on affiche la description et l'icon des nuages 
 					description = this.description;
 					icon = this.urlClouds;
-				} 
-							
-
-
-				// var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+				} 				
 			}
 		}
 	}
@@ -99,7 +88,12 @@ class Weather {
 
 
 
-
+		/*
+		this.urlClear = "http://openweathermap.org/img/wn/01d.png"; this.urlClear = "http://openweathermap.org/img/wn/01n.png";
+		this.urlFewClouds = "http://openweathermap.org/img/wn/02d.png"; this.urlFewClouds = "http://openweathermap.org/img/wn/02n.png"; // quelques nuages 
+		this.urlScatteredClouds = "http://openweathermap.org/img/wn/03d.png"; this.urlScatteredClouds = "http://openweathermap.org/img/wn/03n.png"; // nuages éparpillés
+		this.urlClouds = "http://openweathermap.org/img/wn/04d.png"; this.urlClouds = "http://openweathermap.org/img/wn/04n.png"; // nuages brisés et nuageux
+		*/
 
 
 
