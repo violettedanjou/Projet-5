@@ -26,25 +26,8 @@
                             <a href="">
                                 <div id="div-activity-weather">
                                 <?php 
-                                    while ($dataWeather = $display->fetch()) 
-                                    { ?>
-                                        <div class="news">
-                                            <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
-                                                <img class="img-home" src="<?= $dataWeather['picture'] ?>" alt="Photo de l'activite <?= $dataWeather['title'] ?>">
-                                            </a>
-                                            <div class="news-text">
-                                                <h3>
-                                                    <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
-                                                        <?= htmlspecialchars($dataWeather['title']) ; ?>
-                                                        <br/>
-                                                    </a>
-                                                </h3>
-                                                <p><?= nl2br($dataWeather['content']) ?></p>
-                                                   
-                                                <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">Avis</a></em>
-                                            </div>
-                                        </div>                                        
-                            <?php   }    ?>
+
+                                ?>
                                 </div>
                             </a>
                     </div>

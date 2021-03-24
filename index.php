@@ -211,12 +211,18 @@ try {
 
 
 
-// PAGE ADMINISTRATION
+																				// PAGE ADMINISTRATION
 // Afficher la page administration
         if ($_GET['action'] == 'openAdmin') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-                $adminMember = new controller_front();
-				$adminMember->openAdmin();
+            	if(isset($_GET['page']) && !empty($_GET['page']) AND $_GET['page'] > 0) {		
+	           		$currentPage = $_GET['page'];
+				}
+				else {
+			    	$currentPage = 1;
+				}
+            	$adminMember = new controller_front();
+				$adminMember->openAdmin($currentPage);
             }
             else {
                 throw new Exception("Cette partie est réservée à l'administrateur", 1);

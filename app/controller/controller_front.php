@@ -41,8 +41,8 @@ class controller_front
 	   
 
 	    // METEO 
-		$displayManager = new ActivitiesManager(); // Afficher la météo et son activité
-		$display = $displayManager->displayWeather();
+//		$displayManager = new ActivitiesManager(); // Afficher la météo et son activité
+//		$display = $displayManager->displayWeather();
 
 		$url = "http://api.openweathermap.org/data/2.5/weather?q=noumea&lang=fr&appid=eea2c52399d4972988c3afb0252aca33";
 		$contents = file_get_contents($url); // Récupérer le contenu de l'API
@@ -119,9 +119,6 @@ class controller_front
 	    $opinionManager = new OpinionsManager();
 	    $opinionsActivity = $opinionManager->pseudoAuthorActivity($_GET['id']);
 
-	    $weatherManager = new ActivitiesManager();
-	    $weather = $weatherManager->weatherActivity($_GET['id']); // Jointure avec id de l'activité et le temps de la météo de la table weather*/
-
 	    require('app/view/activityView.php');
 	}
 	function hotel() // Afficher un hotel selon son id
@@ -175,10 +172,21 @@ class controller_front
 
 
 // PAGE ADMINISTRATION
-	function openAdmin() // Afficher la page d'administrateur
+	function openAdmin($currentPage) // Afficher la page d'administrateur
 	{
+		$activitiesManager = new ActivitiesManager();
+	    $allActivities = $activitiesManager->allActivities();
+	    $nbrActivities = $allActivities->fetch(); // On récupère le nombre d'activités (1)
+	    $nbr = (int) $nbrActivities['nbrActivities']; // On récupère le nombre d'activités (2)
+
+	   	$activitiesOfPage = 4; // On détermine le nombre d'activité par page 
+	    $pages = ceil($nbr / $activitiesOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
+	   	$start = ($currentPage-1)*$activitiesOfPage; // Calcul de la première activité de la page 
+
 		$activityManager = new ActivitiesManager(); 
-	    $activities = $activityManager->getActivities();
+	    $activities = $activityManager->getActivities($start, $activitiesOfPage);
+
+
 
 	    $hotelManager = new HotelsManager(); 
 	    $hotels = $hotelManager->getHotels();
