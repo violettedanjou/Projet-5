@@ -45,7 +45,7 @@ class OpinionsManager extends Manager
         $db = $this->dbConnect();
         $report = $db->prepare('UPDATE opinions SET report = 1 WHERE id = ?');
         $report->execute(array($idActivity));
-        //die(var_dump($report, $idActivity));
+
         return $report;
     }
     public function usefulActivity($idActivity) // Avis utile d'activité

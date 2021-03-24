@@ -94,6 +94,22 @@ class ActivitiesManager extends Manager
 
         return $changePicture;
     }
+    public function goodWeather($id) // Passer la bonne météo à 1
+    {
+        $db = $this->dbConnect();
+        $good = $db->prepare('UPDATE activities SET goodWeather = 1 WHERE id = ?');
+        $good->execute(array($id));
+
+        return $good;
+    }
+    public function badWeather($id) // Passer la mauvaise météo à 1
+    {
+        $db = $this->dbConnect();
+        $bad = $db->prepare('UPDATE activities SET badWeather = 1 WHERE id = ?');
+        $bad->execute(array($id));
+
+        return $bad;
+    }    
     public function deleteActivity($id) // Supprimer une activité
     {
         $db = $this->dbConnect();

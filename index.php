@@ -354,12 +354,20 @@ try {
 			}
 		}
 // Modifier la météo recommandée
-		elseif ($_GET['action'] == 'ChangeWeather') {
-					if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-						$updateWeather = new controller_back();
-						$updateWeather->updateWeather();
-					}
-				}		
+		// Bonne météo
+		elseif ($_GET['action'] == 'goodWeather') {
+			if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+				$updateWeather = new controller_back();
+				$updateWeather->goodWeather();
+			}
+		}
+		// Mauvaise météo
+		elseif ($_GET['action'] == 'badWeather') {
+			if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+				$updateWeather = new controller_back();
+				$updateWeather->badWeather();
+			}
+		}			
 // Supprimer une activité 
         elseif ($_GET['action'] == 'validDeleteActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {

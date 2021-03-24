@@ -119,10 +119,17 @@ class controller_back
 
 		header('Location: index.php?action=openAdmin');
 	}
-	function updateWeather()
+	function goodWeather()
 	{
-		$thunderstormManager = new WeatherManager();
-		$thunderstorm = $thunderstormManager->updateThunderstorm($_GET['id']); // Passer le temps thunderstorm à true au moment de la création de l'activité
+		$goodWeatherManager = new ActivitiesManager();
+		$good = $goodWeatherManager->goodWeather($_GET['id']);
+
+		header('Location: index.php?action=openAdmin');
+	}
+	function badWeather()
+	{
+		$badWeatherManager = new ActivitiesManager();
+		$bad = $badWeatherManager->badWeather($_GET['id']);
 
 		header('Location: index.php?action=openAdmin');
 	}
