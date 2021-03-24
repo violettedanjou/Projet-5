@@ -26,14 +26,14 @@ class ActivitiesManager extends Manager
 
 
 // METEO 
-/*	public function displayWeather() // Afficher sur la page d'accueil la météo et son activité 
+	public function displayWeather() // Afficher sur la page d'accueil la météo et son activité 
 	{
     	$db = $this->dbConnect();
-    	$weather = $db->query('SELECT id, title, content, picture, weather FROM activities');
+    	$weather = $db->query('SELECT id, title, content, picture, goodWeather, badWeather FROM activities');
 
     	return $weather;
 	}
-*/
+
 
 
 

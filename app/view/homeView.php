@@ -22,14 +22,35 @@
             <div class="col">
                 <h1>VIVRE LA NOUVELLE CALEDONIE</h1>
                     <div id="div-weather">
-                        <h2>METEO DU JOUR : ACTIVITE RECOMMANDEE</h2>
-                            <a href="">
-                                <div id="div-activity-weather">
-                                <?php 
+                        <h2>METEO DU JOUR : ACTIVITES RECOMMANDEES</h2>
+                            <div id="div-activity-weather">
+                            <?php 
+                                while ($dataWeather = $display->fetch()) {
+                                    if ($id >= 800) { ?>
 
-                                ?>
-                                </div>
-                            </a>
+                                        <div class="news">
+                                            <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
+                                                <img class="img-home" src="<?= $dataWeather['picture'] ?>" alt="Photo de l'activite <?= $dataWeather['title'] ?>">
+                                            </a>
+                                            <div class="news-text">
+                                                <h3>
+                                                    <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
+                                                        <?= htmlspecialchars($dataWeather['title']) ; ?>
+                                                        <br/>
+                                                    </a>
+                                                </h3>
+                                                <p><?= nl2br($dataWeather['content']) ?></p>
+                                                   
+                                                <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">Avis</a></em>
+                                            </div>
+                                        </div>
+                            <?php   }
+                                }
+                                
+
+                            ?>
+                            <script type="text/javascript"></script>
+                            </div>
                     </div>
                 <?php
                     while ($data = $activities->fetch()) 

@@ -41,18 +41,16 @@ class controller_front
 	   
 
 	    // METEO 
-//		$displayManager = new ActivitiesManager(); // Afficher la météo et son activité
-//		$display = $displayManager->displayWeather();
+		$displayManager = new ActivitiesManager(); // Afficher la météo et son activité
+		$display = $displayManager->displayWeather();
 
 		$url = "http://api.openweathermap.org/data/2.5/weather?q=noumea&lang=fr&appid=eea2c52399d4972988c3afb0252aca33";
 		$contents = file_get_contents($url); // Récupérer le contenu de l'API
 		$json = json_decode($contents); // json_decode() Décode une chaine JSON
 
-		$icon = $json->weather[0]->icon;
-		$main = $json->weather[0]->main;
+		$id = $json->weather[0]->id;
 		$desc = $json->weather[0]->description;
-		$temp_max = $json->main->temp_max;
-		$temps_min = $json->main->temp_min;
+		$icon = $json->weather[0]->icon;
 
 
 		// RECUPERER LES HOTELS 
@@ -62,24 +60,6 @@ class controller_front
 	    require('app/view/homeView.php');    
 	}
 
-
-
-/* TEST POUR LA PAGINATION 
-	    $allActivitiesOfPage = new ActivitiesManager();
-	    $allActivities = $allActivitiesOfPage->allActivities();
-
-	    //$activitiesOfPage = 2;
-	    $nbrActivities = $allActivities->rowCount();
-	    if (isset($_GET['page']) AND !empty($_GET['page'])) {
-	    	$_GET['page'] = intval($_GET['page']); // sécurité : intval() pour éviter que les utilisateurs mettent autre choses qu'un nombre
-	    	$homePage = $_GET['page'];
-	    }
-	    else {
-	    	$homePage = 1; // si cette page n'est pas définie ou alors qu'elle ne contient rien alors on se retrouve sur la premier page 
-	    }
-
-	    $depart = ($homePage-1)*$activitiesOfPage;
-*/
 
 
 
