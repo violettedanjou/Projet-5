@@ -26,7 +26,8 @@
                             <div id="div-activity-weather">
                             <?php 
                                 while ($dataWeather = $display->fetch()) {
-                                    if ($id >= 800) { ?>
+                                    if ($_COOKIE['id'] >= 800) { 
+                                        die(var_dump($_COOKIE['id'])); ?>
 
                                         <div class="news">
                                             <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">

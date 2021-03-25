@@ -51,6 +51,9 @@ class controller_front
 		$id = $json->weather[0]->id;
 		$desc = $json->weather[0]->description;
 		$icon = $json->weather[0]->icon;
+		$temp_max = $json->main->temp_max;
+		$temp_min = $json->main->temp_min;
+
 
 
 		// RECUPERER LES HOTELS 

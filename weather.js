@@ -1,8 +1,11 @@
+// Cookies.set('nom','valeur');
 class Weather {
 	constructor(id, description, icon) 
 	{
 		this.id = id;
 		this.description = description;
+		this.temp_max = temperature_max;
+		this.temp_min = temperature_min;
 
 		this.urlThundertsorm = "http://openweathermap.org/img/wn/11d.png";
 		this.urlDrizzle = "http://openweathermap.org/img/wn/09d.png";
@@ -26,12 +29,19 @@ class Weather {
 		.then(response => response.json())
 		.then(data => { 
 
-			for (var i = 0; i < data.length; i++) {
+			for (var i = 0; i < data.length; i++) { // .length pcq on parcours le tableau
 				let id = data[i].weather[0].id;
 				let description = data[i].weather[0].description;
 				let icon = data[i].weather[0].icon;
+				let temp_max = data[i].main.temp_max;
+				let temp_min = data[i].main.temp_min;
 
-	
+				Cookies.set('id','data[i].weather[0].id');
+				Cookies.set('description','data[i].weather[0].description');
+				Cookies.set('icon','data[i].weather[0].icon');
+				Cookies.set('temp_max','data[i].main.temp_max');
+				Cookies.set('temp_min','data[i].main.temp_min');
+
 				// Orages (thunderstorm)
 				if (data[i].weather[0].id >= 200 && <= 232) { // SI l'id est supérieur ou égal à 200 et inférieur ou égal à 232 ALORS on affiche la description et l'icon des orages 
 					description = this.description;
