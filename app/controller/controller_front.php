@@ -49,8 +49,10 @@ class controller_front
 		$json = json_decode($contents); // json_decode() Décode une chaine JSON
 
 		$id = $json->weather[0]->id;
+		//var_dump($id);
 		$desc = $json->weather[0]->description;
 		$icon = $json->weather[0]->icon;
+		//var_dump($icon);
 		$temp_max = $json->main->temp_max;
 		$temp_min = $json->main->temp_min;
 

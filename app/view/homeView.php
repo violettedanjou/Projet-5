@@ -24,34 +24,42 @@
                     <div id="div-weather">
                         <h2>METEO DU JOUR : ACTIVITES RECOMMANDEES</h2>
                             <div id="div-activity-weather">
-                            <?php 
-                                while ($dataWeather = $display->fetch()) {
-                                    if ($_COOKIE['id'] >= 800) { 
-                                        die(var_dump($_COOKIE['id'])); ?>
+                                <?php 
+                                if ($id >= 800) { 
+                                    //var_dump($id);
+                                    while ($dataWeather = $display->fetch()) { ?>
+                                        
+                                            <div class="news">
+                                                <div>
+                                                    <?= htmlspecialchars($dataWeather['goodWeather']) ; ?>
+                                                </div>
 
-                                        <div class="news">
-                                            <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
-                                                <img class="img-home" src="<?= $dataWeather['picture'] ?>" alt="Photo de l'activite <?= $dataWeather['title'] ?>">
-                                            </a>
-                                            <div class="news-text">
-                                                <h3>
-                                                    <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
-                                                        <?= htmlspecialchars($dataWeather['title']) ; ?>
-                                                        <br/>
-                                                    </a>
-                                                </h3>
-                                                <p><?= nl2br($dataWeather['content']) ?></p>
-                                                   
-                                                <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">Avis</a></em>
+                                                <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
+                                                    <img class="img-home" src="<?= $dataWeather['picture'] ?>" alt="Photo de l'activite <?= $dataWeather['title'] ?>">
+                                                </a>
+
+                                                <div class="news-text">
+                                                    <h3>
+                                                        <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
+                                                            <?= htmlspecialchars($dataWeather['title']) ; ?>
+                                                            <br/>
+                                                        </a>
+                                                    </h3>
+                                                    <p><?= nl2br($dataWeather['content']) ?></p>
+                                                       
+                                                    <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">Avis</a></em>
+                                                </div>
+
                                             </div>
-                                        </div>
                             <?php   }
-                                }
-                                
-
+                                } 
+                                else {
+                                    echo "Mauvaise météo";
+                                }                                
                             ?>
-                            <script type="text/javascript"></script>
+                                <script type="text/javascript" src="weather.js"></script>
                             </div>
+                            
                     </div>
                 <?php
                     while ($data = $activities->fetch()) 
