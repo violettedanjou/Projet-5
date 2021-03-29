@@ -419,7 +419,7 @@ try {
                 if (isset($_POST['name']) AND isset($_POST['content']) AND isset($_POST['location']) AND isset($_POST['rooms']) AND isset($_POST['prices'])) {
 
                 	//var_dump();
-                	//die(var_dump()); 
+                	die(var_dump($_POST)); 
 // 3) AND !empty($_POST['swimming_pool']) AND !empty($_POST['beach_access']) AND !empty($_POST['car_park']) AND !empty($_POST['free_wifi']) AND !empty($_POST['restaurant']) AND !empty($_POST['family_rooms']) AND !empty($_POST['television']) AND !empty($_POST['airport_shuttle']) AND !empty($_POST['air_conditioner']) AND !empty($_POST['no_smokers']) AND !empty($_POST['animals']) AND !empty($_POST['strongbox']) AND !empty($_POST['mini_bar']) AND !empty($_POST['luggage']) AND !empty($_POST['elevator']) AND !empty($_POST['sauna'])
 
 
