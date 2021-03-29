@@ -57,5 +57,6 @@
     	<p> Copyright © Violette Danjou - 2021. Tous droits réservés</p>
     </footer>
     <script>tinymce.init({selector:'textarea'});</script>
+    <script src="weather.js"></script>
 </body>
 </html>

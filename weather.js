@@ -1,52 +1,40 @@
 class Weather {
-	constructor(id, description, icon) 
+	constructor(id, description, icon, temp_max, temp_min) 
 	{
 		this.id = id;
 		this.description = description;
-		this.temp_max = temperature_max;
-		this.temp_min = temperature_min;
-
-		this.urlThundertsorm = "http://openweathermap.org/img/wn/11d.png";
-		this.urlDrizzle = "http://openweathermap.org/img/wn/09d.png";
-		this.urlRain = "http://openweathermap.org/img/wn/10d.png";
-		this.urlSnow = "http://openweathermap.org/img/wn/13d.png";
-		this.urlAtmosphere = "http://openweathermap.org/img/wn/50d.png";
-
-		this.urlClear = new Icon ({ // icon jour + icon nuit
-			urlClearDay : "http://openweathermap.org/img/wn/01d.png",
-			urlClearNight : "http://openweathermap.org/img/wn/01n.png"
-		});
-
-		this.urlClouds = new Icon({ // nuages éparpillés
-			urlCloudsDay : "http://openweathermap.org/img/wn/03d.png", 
-			urlCloudsNight : "http://openweathermap.org/img/wn/03n.png"
-		});		
+		this.icon = icon;
+		this.temperature_max = temp_max;
+		this.temperature_min = temp_min;		
 	}
+
 	display()
 	{
-		fetch('http://api.openweathermap.org/data/2.5/weather?q=noumea&lang=fr&appid=eea2c52399d4972988c3afb0252aca33')
+		let icons = new Icon({
+			icons.number = data[i].weather[0].icon
+		});
+
+		let urlIcon = "http://api.openweathermap.org/data/2.5/weather/" + this.number +  "?q=noumea&lang=fr&appid=eea2c52399d4972988c3afb0252aca33"; 
+
+		fetch("http://api.openweathermap.org/data/2.5/weather?q=noumea&lang=fr&appid=eea2c52399d4972988c3afb0252aca33")
+		console.log(fetch)
 		.then(response => response.json())
 		.then(data => { 
 
 			for (var i = 0; i < data.length; i++) { // .length pcq on parcours le tableau
 				let id = data[i].weather[0].id;
-				console.log(id);
 				let description = data[i].weather[0].description;
 				let icon = data[i].weather[0].icon;
-				let temp_max = data[i].main.temp_max;
-				let temp_min = data[i].main.temp_min;
+				let temperature_max = data[i].main.temp_max;
+				let temperature_min = data[i].main.temp_min;
 
-/*				Cookies.set('nom','valeur');
-				Cookies.set('id','data[i].weather[0].id');
-				Cookies.set('description','data[i].weather[0].description');
-				Cookies.set('icon','data[i].weather[0].icon');
-				Cookies.set('temp_max','data[i].main.temp_max');
-				Cookies.set('temp_min','data[i].main.temp_min'); */
 
 				// Orages (thunderstorm)
 				if (data[i].weather[0].id >= 200 && data[i].weather[0].id <= 232) { // SI l'id est supérieur ou égal à 200 et inférieur ou égal à 232 ALORS on affiche la description et l'icon des orages 
 					description = this.description;
-					icon = this.urlThundertsorm;
+					icon = "http://api.openweathermap.org/data/2.5/weather/" + this.number +  "?q=noumea&lang=fr&appid=eea2c52399d4972988c3afb0252aca33";
+					temperature_max = this.temperature_max;
+					temperature_min = this.temperature_min;
 				}
 				// Petite pluie (drizzle)
 				else if (data[i].weather[0].id >= 300 && data[i].weather[0].id <= 321) { // SI l'id est supérieur ou égal à 300 et inférieur ou égal à 321 ALORS on affiche la description et l'icon de la bruine 
@@ -77,14 +65,40 @@ class Weather {
 				else if (data[i].weather[0].id >= 801) { // SI l'id est supérieur ou égal à 801 ALORS on affiche la description et l'icon des nuages 
 					description = this.description;
 					icon = this.urlClouds;
-				} 				
+				}			
 			}
 		})
 	}
 }
 
+/* SERIE DE TESTS */
 
+/*		this.thundertsorm = new Icon ({
+			url: "http://openweathermap.org/img/wn/11d.png",
+		});
+		this.urlDrizzle : "http://openweathermap.org/img/wn/09d.png",
+		this.urlRain : "http://openweathermap.org/img/wn/10d.png",
+		this.urlSnow : "http://openweathermap.org/img/wn/13d.png",
+		this.urlAtmosphere : "http://openweathermap.org/img/wn/50d.png",
 
+		this.urlClear = new Icon ({ // icon jour + icon nuit
+			urlClearDay : "http://openweathermap.org/img/wn/01d.png",
+			urlClearNight : "http://openweathermap.org/img/wn/01n.png"
+		});
+		
+		this.urlClouds = new Icon({ // nuages éparpillés
+			urlCloudsDay : "http://openweathermap.org/img/wn/03d.png", 
+			urlCloudsNight : "http://openweathermap.org/img/wn/03n.png"
+		});	
+*/
+
+/*				Cookies.set('nom','valeur');
+				Cookies.set('id','data[i].weather[0].id');
+				Cookies.set('description','data[i].weather[0].description');
+				Cookies.set('icon','data[i].weather[0].icon');
+				Cookies.set('temp_max','data[i].main.temp_max');
+				Cookies.set('temp_min','data[i].main.temp_min'); 
+*/
 
 
 /* 		this.urlFewClouds = new Icon({ // quelques nuages

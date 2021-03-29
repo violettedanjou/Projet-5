@@ -57,7 +57,7 @@
                                     echo "Mauvaise météo";
                                 }                                
                             ?>
-                                <script type="text/javascript" src="weather.js"></script>
+                                <script src="weather.js"></script>
                             </div>
                             
                     </div>
