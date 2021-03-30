@@ -102,27 +102,54 @@ class controller_back
 // AJOUT	
 	function addActivity($destinationFile) // Ajouter une nouvelle activité
 	{
+ 		$weather = $_POST['weather'];
+		if (isset($_POST['weather']) && ($_POST['weather'] == "1")) {
+			$weather = 1;
+		}
+		else {
+			$weather = 0;
+		}
 		$newActivityManager = new ActivitiesManager();
-		$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $destinationFile);
+		$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $weather, $destinationFile);
+		
+
+		//$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $_POST['weather'], $destinationFile);
+
+		/*if ($_POST['weather'] && ($_POST['weather'] == "1") || ($_POST['weather'] == "0")) {
+			$newActivityManager = new ActivitiesManager();
+			$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $_POST['weather'], $destinationFile);
+		
+		}*/
+
+		/*$weather = $_POST['weather'];
+		if ($_POST['weather'] && ($_POST['weather'] == "1") || ($_POST['weather'] == "0")) {
+			
+		}*/
+
+		// $newActivityManager = new ActivitiesManager(); 
+		// $newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $_POST['weather'], $destinationFile);
+
+		/* 
+		if ($_POST['weather'] && ($_POST['weather'] == "1") || ($_POST['weather'] == "0")) {
+			die(var_dump($_POST['weather'])); 
+			$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $_POST['weather'], $destinationFile);
+		}*/
+
+
+		/* (1) Test lorsque j'avais encore dans la bdd 1 champs good Weather et 1 champs badWeather
+		$weather = $_POST['weather'];
+
+		if (isset($_POST['weather']) && ($_POST['weather'] == "goodWeather")) {
+			$weather = true;
+			//die(var_dump($weather));
+		}
+		else {
+			$weather = false;
+		}*/
 
 		header('Location: index.php?action=openAdmin');
 	}
-/*	Ajouter la météo à une nouvelle activité
-	function addGoodWeather() // Passer la bonne météo à 1
-	{
-		$addWeatherManager = new ActivitiesManager();
-		$good = $addWeatherManager->addGoodWeather($_GET['id']);
 
-		header('Location: index.php?action=openNewActivity');
-	}
-	function addBadWeather() // Passer la mauvaise météo à 1
-	{
-		$addWeatherManager = new ActivitiesManager();
-		$bad = $addWeatherManager->addBadWeather($_GET['id']);
-
-		header('Location: index.php?action=openNewActivity');
-	}
-*/
 	function addHotel($destinationFile) // Ajouter un nouvel hotel
 	{
 		$newHotelManager = new HotelsManager();

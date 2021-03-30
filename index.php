@@ -8,6 +8,65 @@ use app\controller\controller_back;
 try {
 	if (isset($_GET['action'])) {
 
+// TEST 
+		if ($_GET['action'] == 'test') { 
+	        $testMember = new controller_front();
+			$testMember->openTest();
+		}
+		elseif ($_GET['action'] == 'addTest') {
+            if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+                if (isset($_POST['title']) AND isset($_POST['content'])) {
+                	//die(var_dump($_POST));
+                	if (isset($_POST['weather'])) {  
+                	die(var_dump($_POST['weather']));              		
+                		if (isset($_FILES['pictureActivity']) AND $_FILES['pictureActivity']['error'] == 0) {
+							if ($_FILES['pictureActivity']['size'] <= 1000000) {
+
+								$infosfichier = pathinfo($_FILES['pictureActivity']['name']);
+								$extension_upload = $infosfichier['extension'];
+								$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
+
+						    	if (in_array($extension_upload, $extensions_autorisees)) {
+						    		$destinationFile = 'pictures/activities/' . $_SESSION['id'] . basename($_FILES['pictureActivity']['name']);
+							        move_uploaded_file($_FILES['pictureActivity']['tmp_name'], $destinationFile);
+							                
+							        $validNewActivity = new controller_back();
+									$validNewActivity->addActivity($destinationFile);
+							    }
+							    else {
+							    	throw new Exception("L'extension de l'image est incorrect", 1);
+							    }
+							}
+							else {
+								throw new Exception("La taille de l'image n'est pas bonne.", 1);
+							}
+						} 
+						else {
+							throw new Exception("Veuillez entrer une image correctement.", 1);
+						}
+                	}
+                	else {
+                		throw new Exception("Problème avec le booléen de la météo.", 1);
+                	}
+                }
+                else {
+                    throw new Exception("Veuillez ajouter une nouvelle activité.", 1);
+                }
+            } 
+            else {
+                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);    
+            }      
+        }	
+
+
+
+
+
+
+
+
+
+
 // PAGE INSCRIPTION
 		// on affiche le formulaire
 	    if ($_GET['action'] == 'openSignup') { 
@@ -245,7 +304,7 @@ try {
         elseif ($_GET['action'] == 'validNewActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['title']) AND isset($_POST['content'])) {
-                	/*if (isset($_POST['weather'])) {*/                		
+                	if (isset($_POST['weather'])) {   
                 		if (isset($_FILES['pictureActivity']) AND $_FILES['pictureActivity']['error'] == 0) {
 							if ($_FILES['pictureActivity']['size'] <= 1000000) {
 
@@ -271,12 +330,10 @@ try {
 						else {
 							throw new Exception("Veuillez entrer une image correctement.", 1);
 						}
-                	/*}
+                	}
                 	else {
                 		throw new Exception("Problème avec le booléen.", 1);
-                		
-                	}*/
-            	
+                	}
                 }
                 else {
                     throw new Exception("Veuillez ajouter une nouvelle activité.", 1);
@@ -286,22 +343,6 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);    
             }      
         }  
-// Ajouter la météo recommandée
-		// Bonne météo
-/*		elseif ($_GET['action'] == 'addGoodWeather') {
-			if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-				$addWeather = new controller_back();
-				$addWeather->addGoodWeather();
-			}
-		}
-		// Mauvaise météo
-		elseif ($_GET['action'] == 'addBadWeather') {
-			if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-				$addWeather = new controller_back();
-				$addWeather->addBadWeather();
-			}
-		}     
-*/
 
 // Afficher formulaire de modification d'une activité 
         if($_GET['action'] == 'openChangeActivity') {
@@ -419,7 +460,7 @@ try {
                 if (isset($_POST['name']) AND isset($_POST['content']) AND isset($_POST['location']) AND isset($_POST['rooms']) AND isset($_POST['prices'])) {
 
                 	//var_dump();
-                	die(var_dump($_POST)); 
+                	//die(var_dump($_POST)); 
 // 3) AND !empty($_POST['swimming_pool']) AND !empty($_POST['beach_access']) AND !empty($_POST['car_park']) AND !empty($_POST['free_wifi']) AND !empty($_POST['restaurant']) AND !empty($_POST['family_rooms']) AND !empty($_POST['television']) AND !empty($_POST['airport_shuttle']) AND !empty($_POST['air_conditioner']) AND !empty($_POST['no_smokers']) AND !empty($_POST['animals']) AND !empty($_POST['strongbox']) AND !empty($_POST['mini_bar']) AND !empty($_POST['luggage']) AND !empty($_POST['elevator']) AND !empty($_POST['sauna'])
 
 

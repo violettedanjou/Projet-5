@@ -16,6 +16,8 @@
     </div>
 </section>
 
+<a href="index.php?action=test">TEST</a>
+
 <section id="section-activities-hotels">
     <div class="container" id="block-activities">
         <div class="row">
@@ -28,12 +30,8 @@
                                 <?php 
                                 if ($id >= 800) { 
                                     while ($dataWeather = $display->fetch()) { 
-                                        if ($dataWeather['goodWeather'] == 1) { ?>
+                                        if ($dataWeather['weather'] == 1) { ?>
                                             <div class="news">
-                                                <div>
-                                                    <?= htmlspecialchars($dataWeather['goodWeather']) ; ?>
-                                                </div>
-
                                                 <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
                                                     <img class="img-home" src="<?= $dataWeather['picture'] ?>" alt="Photo de l'activite <?= $dataWeather['title'] ?>">
                                                 </a>
@@ -57,12 +55,8 @@
                                 } 
                                 else {
                                     while ($dataWeather = $display->fetch()) { 
-                                        if ($dataWeather['goodWeather'] == 0) { ?>
+                                        if ($dataWeather['weather'] == 0) { ?>
                                             <div class="news">
-                                                <div>
-                                                    <?= htmlspecialchars($dataWeather['goodWeather']) ; ?>
-                                                </div>
-
                                                 <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
                                                     <img class="img-home" src="<?= $dataWeather['picture'] ?>" alt="Photo de l'activite <?= $dataWeather['title'] ?>">
                                                 </a>

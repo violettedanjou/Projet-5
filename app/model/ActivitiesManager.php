@@ -29,7 +29,7 @@ class ActivitiesManager extends Manager
 	public function displayWeather() // Afficher sur la page d'accueil la météo et son activité 
 	{
     	$db = $this->dbConnect();
-    	$weather = $db->query('SELECT id, title, content, picture, goodWeather, badWeather FROM activities');
+    	$weather = $db->query('SELECT id, title, content, picture, weather FROM activities');
 
     	return $weather;
 	}
@@ -48,35 +48,19 @@ class ActivitiesManager extends Manager
 
         return $activity;
     }
-    public function addNewActivity($title, $content, $picture) // Ajout d'une nouvelle activité
+    public function addNewActivity($title, $content, $weather, $picture) // Ajout d'une nouvelle activité
     {
        $db = $this->dbConnect();
-       $newActivity = $db->prepare('INSERT INTO activities(title, content, picture) VALUES (:title, :content, :picture)');
+       $newActivity = $db->prepare('INSERT INTO activities(title, content, weather, picture) VALUES (:title, :content, :weather, :picture)');
        $addNewActivity = $newActivity->execute(array(
             'title' => $title,
             'content' => $content,
+            'weather' => $weather,
             'picture' => $picture));
 
        return $addNewActivity;
     }
-/* Ajouter la météo à une nouvelle activité    
-    public function addGoodWeather($id) // Passer la bonne météo à 1
-    {
-        $db = $this->dbConnect();
-        $good = $db->prepare('UPDATE activities SET goodWeather = 1 WHERE id = ?');
-        $good->execute(array($id));
 
-        return $good;
-    }
-    public function addBadWeather($id) // Passer la mauvaise météo à 1
-    {
-        $db = $this->dbConnect();
-        $bad = $db->prepare('UPDATE activities SET badWeather = 1 WHERE id = ?');
-        $bad->execute(array($id));
-
-        return $bad;
-    } 
-*/
 
     public function changeActivity($activityId) // Récupération d'une activité pour la modifier
     {

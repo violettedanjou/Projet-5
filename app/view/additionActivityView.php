@@ -18,6 +18,8 @@ ob_start(); ?>
 			      	<input type="text" name="title" placeholder="Titre de l'activité" id="title-add-new-activity" /><br/>
 			      	<textarea name="content" placeholder="Contenu..." id="content-add-new-activity"></textarea><br/>
 			     	<input type="file" name="pictureActivity" /><br/>
+			     	<input type="radio" name="weather" value="1" id="1"><label for="1">Bonne météo (soleil ou nuages)</label><br/>
+			     	<input type="radio" name="weather" value="0" id="0"><label for="0">Mauvaise météo (pluie ou orages)</label><br/>
 			      <input type="submit" value="Enregistrer l'activite" id="button-add-activity" />
 			    </form>
 			</div>
