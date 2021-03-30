@@ -48,12 +48,11 @@ ob_start(); ?>
 
             <div class="form-change-weather">
                 <h2>Modifier la meteo recommandee</h2>
-                    <div>
-                        Bonne météo (soleil, nuages) : <a href="index.php?action=goodWeather&amp;id=<?= $_GET['id'] ?>&amp;goodweather=<?= $change['id']?>">GOOD</a> <!-- $change controller_front dans la fonction openChangeActivity() -->
-                    </div>
-                    <div>
-                        Mauvaise météo (pluie, orages) : <a href="index.php?action=badWeather&amp;id=<?= $_GET['id'] ?>&amp;badweather=<?= $change['id']?>">BAD</a>
-                    </div>                        
+                <form action="index.php?action=updateWeather" method="POST">
+                    <input type="radio" name="weather" value="1" id="1"><label for="1">Bonne météo (soleil ou nuages)</label><br/>
+                    <input type="radio" name="weather" value="0" id="0"><label for="0">Mauvaise météo (pluie ou orages)</label><br/>
+                  <input type="submit" value="Enregistrer l'activite" id="button-add-activity" />
+                </form>                       
 
             </div>
         </div>
