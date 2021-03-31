@@ -183,18 +183,28 @@ class controller_back
 	function updateWeather() // Passer la bonne météo à 1
 	{
 		$updateWeather = $_POST['weather'];
+		
 		if (isset($_POST['weather']) && ($_POST['weather'] == "1")) {
 			$updateWeather = 1;
 			$updateManager = new ActivitiesManager();
-			$update = $updateManager->goodWeather($_GET['id']);
+			$update = $updateManager->goodWeather($_GET['id'], $updateWeather);
 		}
 		else {
 			$updateWeather = 0;
 			$updateManager = new ActivitiesManager();
-			$update = $updateManager->badWeather($_GET['id']);
+			$update = $updateManager->badWeather($_GET['id'], $updateWeather);
 		}
 
-		
+/*		$updateWeather = $_POST['weather'];
+		if (isset($_POST['weather']) && ($_POST['weather'] == "1")) {
+			$updateWeather = 1;
+		}
+		else {
+			$updateWeather = 0;	
+		}
+		$updateManager = new ActivitiesManager();
+		$update = $updateManager->goodWeather($_GET['id'], $updateWeather);
+*/
 
 		header('Location: index.php?action=openAdmin');
 	}
