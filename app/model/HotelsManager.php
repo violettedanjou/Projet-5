@@ -6,13 +6,24 @@ use app\model\Manager;
 
 class HotelsManager extends Manager 
 {
-    public function getHotels() // Récupération des hotels
+    public function getHotels($start, $hotelsOfPage) // Récupération des hotels
     {
         $db = $this->dbConnect();
-        $listhotels = $db->query('SELECT id, name, content, location, rooms, prices, picture FROM hotels LIMIT 0, 5');
+        $listhotels = $db->query('SELECT id, name, content, location, rooms, prices, picture FROM hotels ORDER BY id ASC LIMIT '. $start . ' , '. $hotelsOfPage);
 
         return $listhotels;
     }
+	// PAGINATION 	
+    public function allHotels() // Compter le nombre d'activités au total
+    {
+        $db = $this->dbConnect();
+        $allHotels = $db->query('SELECT COUNT(*) AS nbrHotels FROM hotels');
+
+        return $allHotels;
+    } 
+
+
+
     public function getHotel($id) // Récupération d'un hotel grace à son id
     {
         $db = $this->dbConnect();

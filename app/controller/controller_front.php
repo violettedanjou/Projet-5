@@ -46,7 +46,7 @@ class controller_front
 	    $activities = $activityManager->getActivities($start, $activitiesOfPage);
 	   
 
-	    // METEO 
+	    // METEO + PAGINATION
 /*	    $weatherManager = new ActivitiesManager();
 	    $allActivitiesWeather = $weatherManager->allActivitiesWeather();
 	    $nbrActivitiesWeather = $allActivitiesWeather->fetch(); // On récupère le nombre d'activités (1)
@@ -57,7 +57,7 @@ class controller_front
 	   	$startWeather = ($currentPageWeather-1)*$paginationWeather; // Calcul de la première activité de la page
 */
 		$displayManager = new ActivitiesManager(); // Afficher la météo et son activité
-		$display = $displayManager->displayWeather($startWeather, $paginationWeather);
+		$display = $displayManager->displayWeather(/*$startWeather, $paginationWeather*/);
 
 		$url = "http://api.openweathermap.org/data/2.5/weather?q=noumea&lang=fr&appid=eea2c52399d4972988c3afb0252aca33";
 		$contents = file_get_contents($url); // Récupérer le contenu de l'API
@@ -66,12 +66,18 @@ class controller_front
 		$id = $json->weather[0]->id;
 		$icon = $json->weather[0]->icon;
 
-
-
-
 		// RECUPERER LES HOTELS 
+		$hotelsManager = new HotelsManager();
+	    $allHotels = $hotelsManager->allHotels();
+	    $nbrHotels = $allHotels->fetch(); // On récupère le nombre d'activités (1)
+	    $nbr = (int) $nbrHotels['nbrHotels']; // On récupère le nombre d'activités (2)
+
+	   	$hotelsOfPage = 4; // On détermine le nombre d'activité par page 
+	    $pages = ceil($nbr / $hotelsOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
+	   	$start = ($currentPage-1)*$hotelsOfPage; // Calcul de la première activité de la page 
+
 		$hotelManager = new HotelsManager();
-	    $hotels = $hotelManager->getHotels();
+	    $hotels = $hotelManager->getHotels($start, $hotelsOfPage);
 
 	    require('app/view/homeView.php');    
 	}
