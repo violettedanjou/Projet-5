@@ -6,8 +6,22 @@ use app\model\Manager;
 
 class ActivitiesManager extends Manager 
 {
+	// METEO 
+	public function displayWeather() // Afficher sur la page d'accueil la météo et son activité 
+	{
+    	$db = $this->dbConnect();
+    	$weather = $db->query('SELECT id, title, content, picture, weather FROM activities');
 
-// PAGINATION 	
+    	return $weather;
+	}     
+    public function getActivities($start, $activitiesOfPage) // Récupération des activtiés + Pagination
+    {
+        $db = $this->dbConnect();
+        $listactivities = $db->query('SELECT id, title, content, picture FROM activities ORDER BY id ASC LIMIT '. $start . ' , '. $activitiesOfPage);
+
+        return $listactivities;
+    }
+	// PAGINATION 	
     public function allActivities() // Compter le nombre d'activités au total
     {
         $db = $this->dbConnect();
@@ -15,27 +29,6 @@ class ActivitiesManager extends Manager
 
         return $allActivities;
     } 
-// PAGINATION     
-    public function getActivities($start, $activitiesOfPage) // Récupération des activtiés
-    {
-        $db = $this->dbConnect();
-        $listactivities = $db->query('SELECT id, title, content, picture FROM activities ORDER BY id ASC LIMIT '. $start . ' , '. $activitiesOfPage);
-
-        return $listactivities;
-    }
-
-
-// METEO 
-	public function displayWeather() // Afficher sur la page d'accueil la météo et son activité 
-	{
-    	$db = $this->dbConnect();
-    	$weather = $db->query('SELECT id, title, content, picture, weather FROM activities');
-
-    	return $weather;
-	}
-
-
-
 
 
 
@@ -48,6 +41,9 @@ class ActivitiesManager extends Manager
 
         return $activity;
     }
+
+
+// ADMINISTRATION  
     public function addNewActivity($title, $content, $weather, $picture) // Ajout d'une nouvelle activité
     {
        $db = $this->dbConnect();
@@ -60,8 +56,7 @@ class ActivitiesManager extends Manager
 
        return $addNewActivity;
     }
-
-
+    
     public function changeActivity($activityId) // Récupération d'une activité pour la modifier
     {
         $db = $this->dbConnect();
@@ -107,7 +102,8 @@ class ActivitiesManager extends Manager
         $bad->execute(array($id));
 
         return $bad;
-    }  
+    } 
+
     public function deleteActivity($id) // Supprimer une activité
     {
         $db = $this->dbConnect();

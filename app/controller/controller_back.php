@@ -111,41 +111,6 @@ class controller_back
 		}
 		$newActivityManager = new ActivitiesManager();
 		$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $weather, $destinationFile);
-		
-
-		//$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $_POST['weather'], $destinationFile);
-
-		/*if ($_POST['weather'] && ($_POST['weather'] == "1") || ($_POST['weather'] == "0")) {
-			$newActivityManager = new ActivitiesManager();
-			$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $_POST['weather'], $destinationFile);
-		
-		}*/
-
-		/*$weather = $_POST['weather'];
-		if ($_POST['weather'] && ($_POST['weather'] == "1") || ($_POST['weather'] == "0")) {
-			
-		}*/
-
-		// $newActivityManager = new ActivitiesManager(); 
-		// $newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $_POST['weather'], $destinationFile);
-
-		/* 
-		if ($_POST['weather'] && ($_POST['weather'] == "1") || ($_POST['weather'] == "0")) {
-			die(var_dump($_POST['weather'])); 
-			$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $_POST['weather'], $destinationFile);
-		}*/
-
-
-		/* (1) Test lorsque j'avais encore dans la bdd 1 champs good Weather et 1 champs badWeather
-		$weather = $_POST['weather'];
-
-		if (isset($_POST['weather']) && ($_POST['weather'] == "goodWeather")) {
-			$weather = true;
-			//die(var_dump($weather));
-		}
-		else {
-			$weather = false;
-		}*/
 
 		header('Location: index.php?action=openAdmin');
 	}

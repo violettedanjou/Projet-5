@@ -332,7 +332,7 @@ try {
 						}
                 	}
                 	else {
-                		throw new Exception("Problème avec le booléen.", 1);
+                		throw new Exception("Veuillez choisir une météo.", 1);
                 	}
                 }
                 else {
@@ -411,23 +411,22 @@ try {
 			}
 		}
 // Modifier la météo recommandée
-		// Bonne météo
 		elseif ($_GET['action'] == 'updateWeather') {
 			if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
 				if (isset($_POST['weather'])) {
 					$updateWeather = new controller_back();
 					$updateWeather->updateWeather();
 				}
+				else {
+					throw new Exception("Veuillez cliquer sur une météo.", 1);
+				}
+			}
+			else {
+				throw new Exception("Page réservée à l'administrateur.", 1);
 				
 			}
 		}
-		// Mauvaise météo
-/*		elseif ($_GET['action'] == 'badWeather') {
-			if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-				$updateWeather = new controller_back();
-				$updateWeather->badWeather();
-			}
-		}*/			
+		
 // Supprimer une activité 
         elseif ($_GET['action'] == 'validDeleteActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
