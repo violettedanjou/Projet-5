@@ -180,41 +180,23 @@ class controller_back
 
 		header('Location: index.php?action=openAdmin');
 	}
-	function updateWeather() // Passer la bonne météo à 1
+	function updateWeather() // Modifir la météo
 	{
 		$updateWeather = $_POST['weather'];
 		
-		if (isset($_POST['weather']) && ($_POST['weather'] == "1")) {
+		if (isset($_POST['weather']) && ($_POST['weather'] == "1")) { // Bonne météo
 			$updateWeather = 1;
 			$updateManager = new ActivitiesManager();
 			$update = $updateManager->goodWeather($_GET['id'], $updateWeather);
 		}
-		else {
+		else { // Mauvaise météo
 			$updateWeather = 0;
 			$updateManager = new ActivitiesManager();
 			$update = $updateManager->badWeather($_GET['id'], $updateWeather);
 		}
 
-/*		$updateWeather = $_POST['weather'];
-		if (isset($_POST['weather']) && ($_POST['weather'] == "1")) {
-			$updateWeather = 1;
-		}
-		else {
-			$updateWeather = 0;	
-		}
-		$updateManager = new ActivitiesManager();
-		$update = $updateManager->goodWeather($_GET['id'], $updateWeather);
-*/
-
 		header('Location: index.php?action=openAdmin');
 	}
-	/*function badWeather() // Passer la mauvaise météo à 1
-	{
-		$badWeatherManager = new ActivitiesManager();
-		$bad = $badWeatherManager->badWeather($_GET['id']);
-
-		header('Location: index.php?action=openAdmin');
-	}*/
 
 	function changeHotel() // Modification d'un hotel
 	{

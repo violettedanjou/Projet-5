@@ -48,7 +48,7 @@ ob_start(); ?>
 
             <div class="form-change-weather">
                 <h2>Modifier la meteo recommandee</h2>
-                <form action="index.php?action=updateWeather" method="POST">
+                <form action="index.php?action=updateWeather&amp;id=<?= $_GET['id'] ?>" method="POST">
                     <input type="radio" name="weather" value="1" id="1"><label for="1">Bonne météo (soleil ou nuages)</label><br/>
                     <input type="radio" name="weather" value="0" id="0"><label for="0">Mauvaise météo (pluie ou orages)</label><br/>
                   <input type="submit" value="Enregistrer l'activite" id="button-add-activity" />
