@@ -29,7 +29,7 @@ class controller_front
 
 
 
-	function listActivitiesHotels($currentPage) // Afficher la liste des activités et des hôtels
+	function listActivitiesHotels($currentPage/*, $currentPageWeather*/) // Afficher la liste des activités et des hôtels
 	{
 	    
 		// RECUPERER LES ACTIVITES + LA PAGINATION
@@ -47,8 +47,17 @@ class controller_front
 	   
 
 	    // METEO 
+/*	    $weatherManager = new ActivitiesManager();
+	    $allActivitiesWeather = $weatherManager->allActivitiesWeather();
+	    $nbrActivitiesWeather = $allActivitiesWeather->fetch(); // On récupère le nombre d'activités (1)
+	    $nbrWeather = (int) $nbrActivitiesWeather['nbrActivitiesWeather']; // On récupère le nombre d'activités (2)
+
+	    $paginationWeather = 2; // On détermine le nombre d'activité par page 
+	    $pages = ceil($nbrWeather / $paginationWeather); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
+	   	$startWeather = ($currentPageWeather-1)*$paginationWeather; // Calcul de la première activité de la page
+*/
 		$displayManager = new ActivitiesManager(); // Afficher la météo et son activité
-		$display = $displayManager->displayWeather();
+		$display = $displayManager->displayWeather($startWeather, $paginationWeather);
 
 		$url = "http://api.openweathermap.org/data/2.5/weather?q=noumea&lang=fr&appid=eea2c52399d4972988c3afb0252aca33";
 		$contents = file_get_contents($url); // Récupérer le contenu de l'API
