@@ -5,7 +5,7 @@ ob_start(); ?>
 <div class="container">
 	<div class="row add">
 		<div class="col">
-			<h1>Nouvelle activite</h1>
+			<h1>PAGE POUR FAIRE DES TESTS</h1>
 
 			<p class="btn_return_admin_page">
 				<a href="index.php?action=openAdmin">
