@@ -115,10 +115,20 @@ class controller_back
 		header('Location: index.php?action=openAdmin');
 	}
 
-	function addHotel($destinationFile) // Ajouter un nouvel hotel
+	function addHotel($services, $destinationFile) // Ajouter un nouvel hotel
 	{
+		//$services = isset($_POST['services'])? 1: 0;
+
+		/*$services = $_POST['services'];
+		if (isset($_POST['services']) && ($_POST['services'] == true )) {
+			$services = 1;
+		}
+		else {
+			$services = 0;
+		}*/
+		//die(var_dump($services));
 		$newHotelManager = new HotelsManager();
-		$newHotel = $newHotelManager->addNewHotel($_POST['name'], $_POST['content'], $_POST['location'], $_POST['rooms'], $_POST['prices'], $destinationFile);
+		$newHotel = $newHotelManager->addNewHotel($_POST['name'], $_POST['content'], $_POST['location'], $_POST['rooms'], $_POST['prices'], $services, $destinationFile);
 
 		header('Location: index.php?action=openAdmin');
 	}	

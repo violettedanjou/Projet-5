@@ -462,6 +462,21 @@ try {
         elseif ($_GET['action'] == 'validNewHotel') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['name']) AND isset($_POST['content']) AND isset($_POST['location']) AND isset($_POST['rooms']) AND isset($_POST['prices'])) {
+                	
+                	$services = isset($_POST['services']);
+                	//die(var_dump($services));
+					if (isset($_POST['services']) && ($_POST['services'] == true )) {
+						//die(var_dump($_POST['services']));
+						$services = 1;
+					}
+					else {
+						$services = 0;
+					}
+					//die(var_dump($services));
+
+
+                	//if (!empty($_POST['services'] == true)) {
+                		//die(var_dump($_POST['services']));
 
                 	//var_dump();
                 	//die(var_dump($_POST)); 
@@ -473,22 +488,23 @@ try {
 
 // 1) AND !empty($swimming_pool) AND !empty($beach_access) AND !empty($car_park) AND !empty($free_wifi) AND !empty($restaurant) AND !empty($family_rooms) AND !empty($television) AND !empty($airport_shuttle) AND !empty($air_conditioner) AND !empty($no_smokers) AND !empty($animals) AND !empty($strongbox) AND !empty($mini_bar) AND !empty($luggage) AND !empty($elevator) AND !empty($sauna) 
 
-			        if (isset($_FILES['pictureHotel']) AND $_FILES['pictureHotel']['error'] == 0) {
-						if ($_FILES['pictureHotel']['size'] <= 1000000) {
+				        if (isset($_FILES['pictureHotel']) AND $_FILES['pictureHotel']['error'] == 0) {
+							if ($_FILES['pictureHotel']['size'] <= 1000000) {
 
-							$infosfichier = pathinfo($_FILES['pictureHotel']['name']);
-							$extension_upload = $infosfichier['extension'];
-							$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
+								$infosfichier = pathinfo($_FILES['pictureHotel']['name']);
+								$extension_upload = $infosfichier['extension'];
+								$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 
-					    	if (in_array($extension_upload, $extensions_autorisees)) {
-					    		$destinationFile = 'pictures/hotels/' . $_SESSION['id'] . basename($_FILES['pictureHotel']['name']);
-						        move_uploaded_file($_FILES['pictureHotel']['tmp_name'], $destinationFile);
-						                
-						        $validNewHotel = new controller_back();
-								$validNewHotel->addHotel($destinationFile);
-						    }
+						    	if (in_array($extension_upload, $extensions_autorisees)) {
+						    		$destinationFile = 'pictures/hotels/' . $_SESSION['id'] . basename($_FILES['pictureHotel']['name']);
+							        move_uploaded_file($_FILES['pictureHotel']['tmp_name'], $destinationFile);
+							                
+							        $validNewHotel = new controller_back();
+									$validNewHotel->addHotel($services, $destinationFile);
+							    }
+							}
 						}
-					}              	
+					//}	            	
                 }
                 else {
                     throw new Exception("Veuillez ajouter un nouvel hôtel.", 1);

@@ -80,16 +80,32 @@ class HotelsManager extends Manager
         return $req;    	
     }
 */     
-    public function addNewHotel($name, $content, $location, $rooms, $prices, $picture) // Ajout d'un nouvel hotel
+    public function addNewHotel($name, $content, $location, $rooms, $prices, $services, $picture) // Ajout d'un nouvel hotel
     {
-       $db = $this->dbConnect();
-       $newHotel = $db->prepare('INSERT INTO hotels(name, content, location, rooms, prices, picture) VALUES (:name, :content, :location, :rooms, :prices, :picture)');
-       $addNewHotel = $newHotel->execute(array(
+        $db = $this->dbConnect();
+        $newHotel = $db->prepare('INSERT INTO hotels(name, content, location, rooms, prices, swimming_pool, beach_access, car_park, free_wifi, restaurant, family_rooms, television, airport_shuttle, air_conditioner, no_smokers, animals, strongbox, mini_bar, luggage, elevator, sauna, picture) VALUES (:name, :content, :location, :rooms, :prices, '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', :picture)');
+       die(var_dump($newHotel));
+        $addNewHotel = $newHotel->execute(array(
             'name' => $name,
             'content' => $content,
             'location' => $location,
             'rooms' => $rooms,
             'prices' => $prices,
+            'swimming_pool' => $services, 
+        	'beach_access' => $services,
+        	'car_park' => $services,
+        	'free_wifi' => $services,
+        	'restaurant' => $services, 
+        	'family_rooms' => $services, 
+        	'television' => $services,
+        	'airport_shuttle' => $services,
+        	'no_smokers' => $services,
+        	'animals' => $services,
+        	'strongbox' => $services, 
+        	'mini_bar' => $services,
+        	'luggage' => $services,
+        	'elevator' => $services,
+        	'sauna' => $services,
             'picture' => $picture));
 
        return $addNewHotel;
