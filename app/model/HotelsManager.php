@@ -84,16 +84,138 @@ class HotelsManager extends Manager
     {
         $db = $this->dbConnect();
         $newHotel = $db->prepare('INSERT INTO hotels(name, content, location, rooms, prices, swimming_pool, beach_access, car_park, free_wifi, restaurant, family_rooms, television, airport_shuttle, air_conditioner, no_smokers, animals, strongbox, mini_bar, luggage, elevator, sauna, picture) VALUES (:name, :content, :location, :rooms, :prices, :swimming_pool, :beach_access, :car_park, :free_wifi, :restaurant, :family_rooms, :television, :airport_shuttle, :air_conditioner, :no_smokers, :animals, :strongbox, :mini_bar, :luggage, :elevator, :sauna, :picture)');
-       //var_dump($services);
-       //die(var_dump($newHotel));
 
-	       //$swimming_pool = 0;
-	       if ($services[0] == 1) {
-	       	  $swimming_pool = 1;
-	       }
-	       else {
-	       	$swimming_pool = 0;
-	       }
+        for ($i = 0; $i < $services ; $i++) { 
+        	// Piscine
+	       	if ($services[0] == 1) {
+	       		$swimming_pool = 1;
+	       	}
+	       	else {
+	       		$swimming_pool = 0;
+	       	}
+
+	       	// Accès plage
+	       	if ($services[0] == 2) {
+	       		$beach_access = 1;
+	       	}
+	       	else {
+	       		$beach_access = 0;
+	       	}
+
+	       	//Parking
+	       	if ($services[0] == 3) {
+	       		$car_park = 1;
+	       	}
+	       	else {
+	       		$car_park = 0;
+	       	}
+
+	       	// Wifi 
+	       	if ($services[0] == 4) {
+	       		$free_wifi = 1;
+	       	}
+	       	else {
+	       		$free_wifi = 0;
+	       	}
+
+	       	// Restaurant
+	       	if ($services[0] == 5) {
+	       		$restaurant = 1;
+	       	}
+	       	else {
+	       		$restaurant = 0;
+	       	}
+
+	       	// Chambres familiales
+	       	if ($services[0] == 6) {
+	       		$family_rooms = 1;
+	       	}
+	       	else {
+	       		$family_rooms = 0;
+	       	}
+
+	       	// Télévision
+	       	if ($services[0] == 7) {
+	       		$television = 1;
+	       	}
+	       	else {
+	       		$television = 0;
+	       	}
+
+	       	// Navette
+	       	if ($services[0] == 8) {
+	       		$airport_shuttle = 1;
+	       	}
+	       	else {
+	       		$airport_shuttle = 0;
+	       	}
+
+	       	// Air conditionné
+	       	if ($services[0] == 9) {
+	       		$air_conditioner = 1;
+	       	}
+	       	else {
+	       		$air_conditioner = 0;
+	       	}
+
+	       	// Non fumeurs
+	       	if ($services[0] == 10) {
+	       		$no_smokers = 1;
+	       	}
+	       	else {
+	       		$no_smokers = 0;
+	       	}
+
+	       	// Animaux 
+	       	if ($services[0] == 11) {
+	       		$animals = 1;
+	       	}
+	       	else {
+	       		$animals = 0;
+	       	}
+
+	       	// Coffre fort
+	       	if ($services[0] == 12) {
+	       		$strongbox = 1;
+	       	}
+	       	else {
+	       		$strongbox = 0;
+	       	}
+
+	       	// Mini bar
+	       	if ($services[0] == 13) {
+	       		$mini_bar = 1;
+	       	}
+	       	else {
+	       		$mini_bar = 0;
+	       	}
+
+	       	// Baggage
+	       	if ($services[0] == 14) {
+	       		$luggage = 1;
+	       	}
+	       	else {
+	       		$luggage = 0;
+	       	}
+
+	       	// Ascenseur
+	       	if ($services[0] == 15) {
+	       		$elevator = 1;
+	       	}
+	       	else {
+	       		$elevator = 0;
+	       	}
+
+	       	// Sauna
+	       	if ($services[0] == 16) {
+	       		$sauna = 1;
+	       	}
+	       	else {
+	       		$sauna = 0;
+	       	}
+        }
+
+       	
 
         $addNewHotel = $newHotel->execute(array(
             'name' => $name,
@@ -102,20 +224,20 @@ class HotelsManager extends Manager
             'rooms' => $rooms,
             'prices' => $prices,
             'swimming_pool' => $swimming_pool, 
-        	'beach_access' => $services,
-        	'car_park' => $services,
-        	'free_wifi' => $services,
-        	'restaurant' => $services, 
-        	'family_rooms' => $services, 
-        	'television' => $services,
-        	'airport_shuttle' => $services,
-        	'no_smokers' => $services,
-        	'animals' => $services,
-        	'strongbox' => $services, 
-        	'mini_bar' => $services,
-        	'luggage' => $services,
-        	'elevator' => $services,
-        	'sauna' => $services,
+        	'beach_access' => $beach_access,
+        	'car_park' => $car_park,
+        	'free_wifi' => $free_wifi,
+        	'restaurant' => $restaurant, 
+        	'family_rooms' => $family_rooms, 
+        	'television' => $television,
+        	'airport_shuttle' => $airport_shuttle,
+        	'no_smokers' => $no_smokers,
+        	'animals' => $animals,
+        	'strongbox' => $strongbox, 
+        	'mini_bar' => $mini_bar,
+        	'luggage' => $luggage,
+        	'elevator' => $elevator,
+        	'sauna' => $sauna,
             'picture' => $picture));
 
        return $addNewHotel;
