@@ -390,11 +390,12 @@ try {
 
 				    	if (in_array($extension_upload, $extensions_autorisees)) {
 				    		$destinationFile = 'pictures/activities/' . $_SESSION['id'] . basename($_FILES['changeImgActivity']['name']);
-					        move_uploaded_file($_FILES['changeImgActivity']['tmp_name'], $destinationFile);
-					        die(var_dump(move_uploaded_file($_FILES['changeImgActivity']['tmp_name'], $destinationFile)));
-                			
+					        $result = move_uploaded_file($_FILES['changeImgActivity']['tmp_name'], $destinationFile);
+					        //die(var_dump($destinationFile));
+                			//die(var_dump($result));
                 			$validChangeImg = new controller_back();
-							$validChangeImg->changeImgActivity($destinationFile);
+							$validChangeImg->changeImgActivity($_GET['id'], $destinationFile);
+
 						}
 						else {
 							throw new Exception("L'extension de l'image n'est pas correcte.", 1);
@@ -467,27 +468,12 @@ try {
                 	//die(var_dump($services));
 					if (isset($_POST['services']) && ($_POST['services'] == true )) {
 						//die(var_dump($_POST['services']));
-						$services = 1;
+						$services = $_POST['services'];
 					}
 					else {
 						$services = 0;
 					}
-					//die(var_dump($services));
-
-
-                	//if (!empty($_POST['services'] == true)) {
-                		//die(var_dump($_POST['services']));
-
-                	//var_dump();
-                	//die(var_dump($_POST)); 
-// 3) AND !empty($_POST['swimming_pool']) AND !empty($_POST['beach_access']) AND !empty($_POST['car_park']) AND !empty($_POST['free_wifi']) AND !empty($_POST['restaurant']) AND !empty($_POST['family_rooms']) AND !empty($_POST['television']) AND !empty($_POST['airport_shuttle']) AND !empty($_POST['air_conditioner']) AND !empty($_POST['no_smokers']) AND !empty($_POST['animals']) AND !empty($_POST['strongbox']) AND !empty($_POST['mini_bar']) AND !empty($_POST['luggage']) AND !empty($_POST['elevator']) AND !empty($_POST['sauna'])
-
-
-// 2) AND isset($_POST['swimming_pool']) AND isset($_POST['beach_access']) AND isset($_POST['car_park']) AND isset($_POST['free_wifi']) AND isset($_POST['restaurant']) AND isset($_POST['family_rooms']) AND isset($_POST['television']) AND isset($_POST['airport_shuttle']) AND isset($_POST['air_conditioner']) AND isset($_POST['no_smokers']) AND isset($_POST['animals']) AND isset($_POST['strongbox']) AND isset($_POST['mini_bar']) AND isset($_POST['luggage']) AND isset($_POST['elevator']) AND isset($_POST['sauna'])
-
-
-// 1) AND !empty($swimming_pool) AND !empty($beach_access) AND !empty($car_park) AND !empty($free_wifi) AND !empty($restaurant) AND !empty($family_rooms) AND !empty($television) AND !empty($airport_shuttle) AND !empty($air_conditioner) AND !empty($no_smokers) AND !empty($animals) AND !empty($strongbox) AND !empty($mini_bar) AND !empty($luggage) AND !empty($elevator) AND !empty($sauna) 
-
+					
 				        if (isset($_FILES['pictureHotel']) AND $_FILES['pictureHotel']['error'] == 0) {
 							if ($_FILES['pictureHotel']['size'] <= 1000000) {
 

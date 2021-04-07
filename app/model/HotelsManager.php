@@ -83,15 +83,25 @@ class HotelsManager extends Manager
     public function addNewHotel($name, $content, $location, $rooms, $prices, $services, $picture) // Ajout d'un nouvel hotel
     {
         $db = $this->dbConnect();
-        $newHotel = $db->prepare('INSERT INTO hotels(name, content, location, rooms, prices, swimming_pool, beach_access, car_park, free_wifi, restaurant, family_rooms, television, airport_shuttle, air_conditioner, no_smokers, animals, strongbox, mini_bar, luggage, elevator, sauna, picture) VALUES (:name, :content, :location, :rooms, :prices, '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', '. $services .', :picture)');
-       die(var_dump($newHotel));
+        $newHotel = $db->prepare('INSERT INTO hotels(name, content, location, rooms, prices, swimming_pool, beach_access, car_park, free_wifi, restaurant, family_rooms, television, airport_shuttle, air_conditioner, no_smokers, animals, strongbox, mini_bar, luggage, elevator, sauna, picture) VALUES (:name, :content, :location, :rooms, :prices, :swimming_pool, :beach_access, :car_park, :free_wifi, :restaurant, :family_rooms, :television, :airport_shuttle, :air_conditioner, :no_smokers, :animals, :strongbox, :mini_bar, :luggage, :elevator, :sauna, :picture)');
+       //var_dump($services);
+       //die(var_dump($newHotel));
+
+	       //$swimming_pool = 0;
+	       if ($services[0] == 1) {
+	       	  $swimming_pool = 1;
+	       }
+	       else {
+	       	$swimming_pool = 0;
+	       }
+
         $addNewHotel = $newHotel->execute(array(
             'name' => $name,
             'content' => $content,
             'location' => $location,
             'rooms' => $rooms,
             'prices' => $prices,
-            'swimming_pool' => $services, 
+            'swimming_pool' => $swimming_pool, 
         	'beach_access' => $services,
         	'car_park' => $services,
         	'free_wifi' => $services,
@@ -110,36 +120,7 @@ class HotelsManager extends Manager
 
        return $addNewHotel;
     } 
- /*   public function addNewHotel($name, $content, $location, $rooms, $prices, $swimming_pool, $beach_access, $car_park, $free_wifi, $restaurant, $family_rooms, $television, $airport_shuttle, $air_conditioner, $no_smokers, $animals, $strongbox, $mini_bar, $luggage, $elevator, $sauna, $picture) // Ajout d'un nouvel hotel
-    {
-       $db = $this->dbConnect();
-       $newHotel = $db->prepare('INSERT INTO hotels(name, content, location, rooms, prices, swimming_pool, beach_access, car_park, free_wifi, restaurant, family_rooms, television, airport_shuttle, air_conditioner, no_smokers, animals, strongbox, mini_bar, luggage, elevator, sauna, picture) VALUES (:name, :content, :location, :rooms, :prices,*:swimming_pool, :beach_access, :car_park, :free_wifi, :restaurant, :family_rooms, :television, :airport_shuttle, :air_conditioner, :no_smokers, :animals, :strongbox, :mini_bar, :luggage, :elevator, :sauna, :picture)');
-       $addNewHotel = $newHotel->execute(array(
-            'name' => $name,
-            'content' => $content,
-            'location' => $location,
-            'rooms' => $rooms,
-            'prices' => $prices,
-            'swimming_pool' => $swimming_pool, 
-        	'beach_access' => $beach_access,
-        	'car_park' => $car_park,
-        	'free_wifi' => $free_wifi,
-        	'restaurant' => $restaurant, 
-        	'family_rooms' => $family_rooms, 
-        	'television' => $television,
-        	'airport_shuttle' => $airport_shuttle,
-        	'no_smokers' => $no_smokers,
-        	'animals' => $animals,
-        	'strongbox' => $strongbox, 
-        	'mini_bar' => $mini_bar,
-        	'luggage' => $luggage,
-        	'elevator' => $elevator,
-        	'sauna' => $sauna,
-            'picture' => $picture));
-
-       return $addNewHotel;
-    }
-*/     
+    
     public function changeHotel($id) // Récupération d'un hotel pour le modifier
     {
         $db = $this->dbConnect();

@@ -40,7 +40,7 @@ ob_start(); ?>
 
             <div class="form-change-img">
                 <h2>Modifier l'image</h2>
-                    <form action="index.php?action=changeImgActivity" method="POST" enctype="multipart/form-data">
+                    <form action="index.php?action=changeImgActivity&amp;id=<?= $_GET['id'] ?>" method="POST" enctype="multipart/form-data">
                       <input type="file" name="changeImgActivity" /><br/>
                       <input type="submit" value="Enregistrer l'image" id="button-change-activity" />
                     </form>

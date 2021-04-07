@@ -117,27 +117,11 @@ class controller_back
 
 	function addHotel($services, $destinationFile) // Ajouter un nouvel hotel
 	{
-		//$services = isset($_POST['services'])? 1: 0;
-
-		/*$services = $_POST['services'];
-		if (isset($_POST['services']) && ($_POST['services'] == true )) {
-			$services = 1;
-		}
-		else {
-			$services = 0;
-		}*/
-		//die(var_dump($services));
 		$newHotelManager = new HotelsManager();
 		$newHotel = $newHotelManager->addNewHotel($_POST['name'], $_POST['content'], $_POST['location'], $_POST['rooms'], $_POST['prices'], $services, $destinationFile);
 
 		header('Location: index.php?action=openAdmin');
 	}	
-// $_POST['swimming_pool'], $_POST['beach_access'], $_POST['car_park'], $_POST['free_wifi'], $_POST['restaurant'], $_POST['family_rooms'], $_POST['television'], $_POST['airport_shuttle'], $_POST['air_conditioner'], $_POST['no_smokers'], $_POST['animals'], $_POST['strongbox'], $_POST['mini_bar'], $_POST['luggage'], $_POST['elevator'], $_POST['sauna'],
-
-
-/* $_GET['swimming_pool'], $_GET['beach_access'], $_GET['car_park'], $_GET['free_wifi'], $_GET['restaurant'], $_GET['family_rooms'], $_GET['television'], $_GET['airport_shuttle'], $_GET['air_conditioner'], $_GET['no_smokers'], $_GET['animals'], $_GET['strongbox'], $_GET['mini_bar'], $_GET['luggage'], $_GET['elevator'], $_GET['sauna'] */
-
-/* $swimming_pool, $beach_access, $car_park, $free_wifi, $restaurant, $family_rooms, $television, $airport_shuttle, $air_conditioner, $no_smokers, $animals, $strongbox, $mini_bar, $luggage, $elevator, $sauna, */
 
 
 // MODIFICATION
@@ -148,10 +132,10 @@ class controller_back
 
 		header('Location: index.php?action=openAdmin');
 	}
-	function changeImgActivity($destinationFile)
+	function changeImgActivity($id, $destinationFile)
 	{
 		$imgActivityManager = new ActivitiesManager();
-		$imgManager = $imgActivityManager->changeImgActivity($_SESSION['admin'], $destinationFile);// J'ai voulu faire comme pour l'image de profile pour le $_SESSION['admin']
+		$imgManager = $imgActivityManager->changeImgActivity($id, $destinationFile);
 
 		header('Location: index.php?action=openAdmin');
 	}
