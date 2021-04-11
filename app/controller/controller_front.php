@@ -231,11 +231,11 @@ class controller_front
 
 	function openChangeHotel() // Récupération d'un hotel pour le modifier
 	{
+		/*$hotelManager = new HotelsManager();
+	    $hotel = $hotelManager->getHotel($_GET['id']);*/
+
 		$changeManager = new HotelsManager();
 	    $change = $changeManager->changeHotel($_GET['id']);
-
-	    $hotelManager = new HotelsManager();
-	    $hotel = $hotelManager->getHotel($_GET['id']);
 
 	    require('app/view/changeHotelView.php');
 	}

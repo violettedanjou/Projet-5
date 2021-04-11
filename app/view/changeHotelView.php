@@ -64,32 +64,8 @@ ob_start(); ?>
             <div class="form-change-services">
                 <form action="index.php?action=changeServicesHotel&amp;id=<?= $_GET['id'] ?>" method="POST">
                     <h2>Modifier les services proposés par l'hotel</h2>
-                    <label>Piscine</label><input type="checkbox" name="services[]" value="1"><br/>
-                    <label>Accès plage</label><input type="checkbox" name="services[]" value="2"><br/>
-                    <label>Parking</label><input type="checkbox" name="services[]" value="3"><br/>
-                    <label>Wifi</label><input type="checkbox" name="services[]" value="4"><br/>
-                    <label>Restaurant</label><input type="checkbox" name="services[]" value="5"><br/>
-                    <label>Chambres familiales</label><input type="checkbox" name="services[]" value="6"><br/>
-                    <label>Tévélision</label><input type="checkbox" name="services[]" value="7"><br/>
-                    <label>Navette aéroport</label><input type="checkbox" name="services[]" value="8"><br/>
-                    <label>Air conditionné</label><input type="checkbox" name="services[]" value="9"><br/>
-                    <label>Hôtel non fumeurs</label><input type="checkbox" name="services[]" value="10"><br/>
-                    <label>Animaux acceptés</label><input type="checkbox" name="services[]" value="11"><br/>
-                    <label>Coffre fort</label><input type="checkbox" name="services[]" value="12"><br/>
-                    <label>Mini bar</label><input type="checkbox" name="services[]" value="13"><br/>
-                    <label>Bagagerie</label><input type="checkbox" name="services[]" value="14"><br/>
-                    <label>Ascenseur </label><input type="checkbox" name="services[]" value="15"><br/>
-                    <label>Sauna</label><input type="checkbox" name="services[]" value="16"><br/>
-
-                    <input type="submit" value="Enregistrer" id="button-change-activity" />
-                </form>
-
-
-                <form action="index.php?action=changeServicesHotel&amp;id=<?= $_GET['id'] ?>" method="POST">
-                    <h2>Modifier les services proposés par l'hotel</h2>
                     <?php 
-                    //while ($data = $hotel) {
-                        if ($hotel['swimming_pool'] === 1) { ?>
+                        if ($change['swimming_pool'] == 1) { ?>
                             <label>Piscine</label><input type="checkbox" name="services[]" value="1" checked="checked"><br/>
                         <?php 
                         }
@@ -97,7 +73,126 @@ ob_start(); ?>
                             <label>Piscine</label><input type="checkbox" name="services[]" value="1"><br/>
                         <?php 
                         }
-                    //}
+                        if ($change['beach_access'] == 1) { ?>
+                            <label>Accès plage</label><input type="checkbox" name="services[]" value="2" checked="checked"><br/>
+                        <?php 
+                        }
+                        else { ?>
+                            <label>Accès plage</label><input type="checkbox" name="services[]" value="2"><br/>
+                        <?php 
+                        }
+                        if ($change['car_park'] == 1) { ?>
+                            <label>Parking</label><input type="checkbox" name="services[]" value="3" checked="checked"><br/>
+                        <?php 
+                        }
+                        else { ?>
+                            <label>Parking</label><input type="checkbox" name="services[]" value="3"><br/>
+                        <?php 
+                        }
+                        if ($change['free_wifi'] == 1) { ?>
+                            <label>Wifi</label><input type="checkbox" name="services[]" value="4" checked="checked"><br/>
+                        <?php 
+                        }
+                        else { ?>
+                            <label>Wifi</label><input type="checkbox" name="services[]" value="4"><br/>
+                        <?php 
+                        }
+                        if ($change['restaurant'] == 1) { ?>
+                            <label>Restaurant</label><input type="checkbox" name="services[]" value="5" checked="checked"><br/>
+                        <?php 
+                        }
+                        else { ?>
+                            <label>Restaurant</label><input type="checkbox" name="services[]" value="5"><br/>
+                        <?php 
+                        }
+                        if ($change['family_rooms'] == 1) { ?>
+                            <label>Chambres familiales</label><input type="checkbox" name="services[]" value="6" checked="checked"><br/>
+                        <?php 
+                        }
+                        else { ?>
+                            <label>Chambres familiales</label><input type="checkbox" name="services[]" value="6"><br/>
+                        <?php 
+                        }
+                        if ($change['television'] == 1) { ?>
+                            <label>Tévélision</label><input type="checkbox" name="services[]" value="7" checked="checked"><br/>
+                        <?php 
+                        }
+                        else { ?>
+                            <label>Tévélision</label><input type="checkbox" name="services[]" value="7"><br/>
+                        <?php 
+                        }
+                        if ($change['airport_shuttle'] == 1) { ?>
+                            <label>Navette aéroport</label><input type="checkbox" name="services[]" value="8" checked="checked"><br/>
+                        <?php 
+                        }
+                        else { ?>
+                            <label>Navette aéroport</label><input type="checkbox" name="services[]" value="8"><br/>
+                        <?php 
+                        }
+                        if ($change['air_conditioner'] == 1) { ?>
+                            <label>Air conditionné</label><input type="checkbox" name="services[]" value="9" checked="checked"><br/>
+                        <?php 
+                        }
+                        else { ?>
+                            <label>Air conditionné</label><input type="checkbox" name="services[]" value="9"><br/>
+                        <?php 
+                        }
+                        if ($change['no_smokers'] == 1) { ?>
+                            <label>Hôtel non fumeurs</label><input type="checkbox" name="services[]" value="10" checked="checked"><br/>
+                        <?php 
+                        }
+                        else { ?>
+                            <label>Hôtel non fumeurs</label><input type="checkbox" name="services[]" value="10"><br/>
+                        <?php 
+                        }
+                        if ($change['animals'] == 1) { ?>
+                            <label>Animaux acceptés</label><input type="checkbox" name="services[]" value="11" checked="checked"><br/>
+                        <?php 
+                        }
+                        else { ?>
+                            <label>Animaux acceptés</label><input type="checkbox" name="services[]" value="11"><br/>
+                        <?php 
+                        }
+                        if ($change['strongbox'] == 1) { ?>
+                            <label>Coffre fort</label><input type="checkbox" name="services[]" value="12" checked="checked"><br/>
+                        <?php 
+                        }
+                        else { ?>
+                            <label>Coffre fort</label><input type="checkbox" name="services[]" value="12"><br/>
+                        <?php 
+                        }
+                        if ($change['mini_bar'] == 1) { ?>
+                            <label>Mini bar</label><input type="checkbox" name="services[]" value="13" checked="checked"><br/>
+                        <?php 
+                        }
+                        else { ?>
+                            <label>Mini bar</label><input type="checkbox" name="services[]" value="13"><br/>
+                        <?php 
+                        }
+                        if ($change['luggage'] == 1) { ?>
+                            <label>Bagagerie</label><input type="checkbox" name="services[]" value="14" checked="checked"><br/>
+                        <?php 
+                        }
+                        else { ?>
+                            <label>Bagagerie</label><input type="checkbox" name="services[]" value="14"><br/>
+                        <?php 
+                        }
+                        if ($change['elevator'] == 1) { ?>
+                            <label>Ascenseur </label><input type="checkbox" name="services[]" value="15" checked="checked"><br/>
+                        <?php 
+                        }
+                        else { ?>
+                            <label>Ascenseur </label><input type="checkbox" name="services[]" value="15"><br/>
+                        <?php 
+                        }
+                        if ($change['sauna'] == 1) { ?>
+                            <<label>Sauna</label><input type="checkbox" name="services[]" value="16" checked="checked"><br/>
+                        <?php 
+                        }
+                        else { ?>
+                            <label>Sauna</label><input type="checkbox" name="services[]" value="16"><br/>
+                        <?php 
+                        }
                     
                     ?>
                     
