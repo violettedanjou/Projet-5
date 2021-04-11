@@ -55,14 +55,14 @@ ob_start(); ?>
             </div>
 
             <div class="form-change-img">
-                <form action="index.php?action=changeImgHotel" method="POST" enctype="multipart/form-data">
+                <form action="index.php?action=changeImgHotel&amp;id=<?= $_GET['id'] ?>" method="POST" enctype="multipart/form-data">
                     <input type="file" name="changeImgHotel" /><br/>
                     <input type="submit" value="Enregistrer l'image" id="button-change-activity" />
                 </form>
             </div>
 
             <div class="form-change-services">
-                <form action="index.php?action=changeServicesHotel" method="POST">
+                <form action="index.php?action=changeServicesHotel&amp;id=<?= $_GET['id'] ?>" method="POST">
                     <h2>Modifier les services proposés par l'hotel</h2>
                     <label>Piscine</label><input type="checkbox" name="services[]" value="1"><br/>
                     <label>Accès plage</label><input type="checkbox" name="services[]" value="2"><br/>

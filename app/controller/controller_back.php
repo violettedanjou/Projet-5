@@ -164,6 +164,13 @@ class controller_back
 
 		header('Location: index.php?action=openAdmin');
 	}
+	function changeServices($id, $services)
+	{
+		$servicesManager = new HotelsManager();
+		$services = $servicesManager->changeServices($id, $services);
+
+		header('Location: index.php?action=openAdmin');
+	}
 
 // GESTION SIGNALEMENTS ET AVIS UTILES
 	function deleteReport() // Retirer le signalement

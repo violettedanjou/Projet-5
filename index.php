@@ -530,7 +530,18 @@ try {
         }
 // Modifier l'image d'un hotel        
 
-
+// Modifier les services d'un hotel 
+        elseif ($_GET['action'] == 'changeServicesHotel') {
+        	$services = isset($_POST['services']);
+			if (isset($_POST['services']) && ($_POST['services'] == true )) {
+				$services = $_POST['services'];
+			}
+			else {
+				$services = 0;
+			}
+			$changeServices = new controller_back();
+			$changeServices->changeServices($_GET['id'], $services);
+        }
 
 
 // Supprimer un hotel
