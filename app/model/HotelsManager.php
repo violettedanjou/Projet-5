@@ -85,7 +85,9 @@ class HotelsManager extends Manager
         $db = $this->dbConnect();
         $newHotel = $db->prepare('INSERT INTO hotels(name, content, location, rooms, prices, swimming_pool, beach_access, car_park, free_wifi, restaurant, family_rooms, television, airport_shuttle, air_conditioner, no_smokers, animals, strongbox, mini_bar, luggage, elevator, sauna, picture) VALUES (:name, :content, :location, :rooms, :prices, :swimming_pool, :beach_access, :car_park, :free_wifi, :restaurant, :family_rooms, :television, :airport_shuttle, :air_conditioner, :no_smokers, :animals, :strongbox, :mini_bar, :luggage, :elevator, :sauna, :picture)');
 
-        for ($i = 0; $i < $services ; $i++) { 
+        //$servicesHotel = array('swimming_pool', 'beach_access', 'car_park', 'free_wifi', 'restaurant', 'family_rooms', 'television', 'airport_shuttle', 'air_conditioner', 'no_smokers', 'animals', 'strongbox', 'mini_bar', 'luggage', 'elevator', 'sauna');
+
+        for ($i = 0; $i <= 16 ; $i++) { 
         	// Piscine
 	       	if ($services[0] == 1) {
 	       		$swimming_pool = 1;
@@ -231,6 +233,7 @@ class HotelsManager extends Manager
         	'family_rooms' => $family_rooms, 
         	'television' => $television,
         	'airport_shuttle' => $airport_shuttle,
+        	'air_conditioner' => $air_conditioner,
         	'no_smokers' => $no_smokers,
         	'animals' => $animals,
         	'strongbox' => $strongbox, 

@@ -465,15 +465,13 @@ try {
                 if (isset($_POST['name']) AND isset($_POST['content']) AND isset($_POST['location']) AND isset($_POST['rooms']) AND isset($_POST['prices'])) {
                 	
                 	$services = isset($_POST['services']);
-                	//die(var_dump($services));
 					if (isset($_POST['services']) && ($_POST['services'] == true )) {
-						//die(var_dump($_POST['services']));
 						$services = $_POST['services'];
 					}
 					else {
 						$services = 0;
 					}
-					
+
 				        if (isset($_FILES['pictureHotel']) AND $_FILES['pictureHotel']['error'] == 0) {
 							if ($_FILES['pictureHotel']['size'] <= 1000000) {
 
