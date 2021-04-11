@@ -8,11 +8,6 @@ use app\controller\controller_back;
 try {
 	if (isset($_GET['action'])) {
 
-// TEST 
-		if ($_GET['action'] == 'test') { 
-	        $testMember = new controller_front();
-			$testMember->openTest();
-		}
 		elseif ($_GET['action'] == 'addTest') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['title']) AND isset($_POST['content'])) {

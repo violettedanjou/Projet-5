@@ -16,8 +16,6 @@
     </div>
 </section>
 
-<a href="index.php?action=test">PAGE PROVISOIRE POUR TESTS</a>
-
 <section id="section-activities-hotels">
     <div class="container" id="block-activities">
         <div class="row">

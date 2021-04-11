@@ -10,12 +10,6 @@ use app\model\WeatherManager;
 
 class controller_front
 {
-	function openTest()
-	{
-		require('app/view/test.php');
-	}
-
-
 	function openSignup() // Afficher le formulaire d'inscription
 	{
 		require('app/view/signupView.php');
@@ -25,9 +19,6 @@ class controller_front
 	{
 		require('app/view/signinView.php');
 	}
-
-
-
 
 	function listActivitiesHotels($currentPage/*, $currentPageWeather*/) // Afficher la liste des activités et des hôtels
 	{
