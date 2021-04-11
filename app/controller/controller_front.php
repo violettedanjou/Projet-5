@@ -234,6 +234,9 @@ class controller_front
 		$changeManager = new HotelsManager();
 	    $change = $changeManager->changeHotel($_GET['id']);
 
+	    $hotelManager = new HotelsManager();
+	    $hotel = $hotelManager->getHotel($_GET['id']);
+
 	    require('app/view/changeHotelView.php');
 	}
 

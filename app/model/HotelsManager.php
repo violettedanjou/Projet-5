@@ -27,10 +27,9 @@ class HotelsManager extends Manager
     public function getHotel($id) // Récupération d'un hotel grace à son id
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT id, name, content, location, rooms, prices, /*swimming_pool,*/ picture FROM hotels WHERE id = ?');
+        $req = $db->prepare('SELECT id, name, content, location, rooms, prices, swimming_pool, beach_access, car_park, free_wifi, restaurant, family_rooms, television, airport_shuttle, air_conditioner, no_smokers, animals, strongbox, mini_bar, luggage, elevator, sauna, picture FROM hotels WHERE id = ?');
         $req->execute(array($id));
         $hotel = $req->fetch();
-        //die(var_dump($hotel));
         return $hotel;
     }
 /*    public function getServices($id) // Afficher les services

@@ -167,7 +167,7 @@ class controller_back
 	function changeServices($id, $services)
 	{
 		$servicesManager = new HotelsManager();
-		$services = $servicesManager->changeServices($id, $services);
+		$servicesHotel = $servicesManager->changeServices($id, $services);
 
 		header('Location: index.php?action=openAdmin');
 	}

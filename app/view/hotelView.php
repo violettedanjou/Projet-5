@@ -34,6 +34,73 @@ ob_start(); ?>
 		                    <span class="span-hotel-content"><?= nl2br($hotel['content']); ?><br/></span>
 		                    <span class="span-location-icon"><i class="fas fa-map-marker-alt"></i><?= nl2br($hotel['location']); ?></span>
 		                </div>
+		                <div>
+		                	<?php if ($hotel['swimming_pool'] == 1) { ?>
+		                		<i class="fas fa-swimmer"></i>
+		                	<?php 
+		                	}
+		                	if ($hotel['beach_access'] == 1) { ?>
+		                		<i class="fas fa-umbrella-beach"></i>
+		                	<?php 
+		                	}
+		                	if ($hotel['car_park'] == 1) { ?>
+		                		<i class="fas fa-parking"></i>
+		                	<?php 
+		                	}
+		                	if ($hotel['free_wifi'] == 1) { ?>
+		                		<i class="fas fa-wifi"></i>
+		                	<?php 
+		                	}
+		                	if ($hotel['restaurant'] == 1) { ?>
+		                		<i class="fas fa-utensils"></i>
+		                	<?php 
+		                	}
+		                	if ($hotel['family_rooms'] == 1) { ?>
+		                		<i class="fas fa-bed"></i>
+		                	<?php 
+		                	}
+		                	if ($hotel['television'] == 1) { ?>
+		                		<i class="fas fa-tv"></i>
+		                	<?php 
+		                	}
+		                	if ($hotel['airport_shuttle'] == 1) { ?>
+		                		<i class="fas fa-tv"></i>
+		                	<?php 
+		                	}
+		                	if ($hotel['air_conditioner'] == 1) { ?>
+		                		<i class="fas fa-wind"></i>
+		                	<?php 
+		                	}
+		                	if ($hotel['no_smokers'] == 1) { ?>
+		                		<i class="fas fa-smoking-ban"></i>
+		                	<?php 
+		                	}
+		                	if ($hotel['animals'] == 1) { ?>
+		                		<i class="fas fa-paw"></i>
+		                	<?php 
+		                	}
+		                	if ($hotel['strongbox'] == 1) { ?>
+		                		<i class="fas fa-archive"></i>
+		                	<?php 
+		                	}
+		                	if ($hotel['mini_bar'] == 1) { ?>
+		                		<i class="fas fa-glass-cheers"></i>
+		                	<?php 
+		                	}
+		                	if ($hotel['luggage'] == 1) { ?>
+		                		<i class="fas fa-luggage-cart"></i>
+		                	<?php 
+		                	}
+		                	if ($hotel['elevator'] == 1) { ?>
+		                		<i class="fas fa-sort-numeric-up-alt"></i>
+		                	<?php 
+		                	}
+		                	if ($hotel['sauna'] == 1) { ?>
+		                		<i class="fas fa-hot-tub"></i>
+		                	<?php 
+		                	}
+		                	?><br/>
+		                </div>
 		                <div class="p-rooms">
 		                    <?= nl2br($hotel['rooms']); ?><br/>
 		                </div>

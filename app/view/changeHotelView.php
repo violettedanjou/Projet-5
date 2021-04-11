@@ -83,6 +83,45 @@ ob_start(); ?>
 
                     <input type="submit" value="Enregistrer" id="button-change-activity" />
                 </form>
+
+
+                <form action="index.php?action=changeServicesHotel&amp;id=<?= $_GET['id'] ?>" method="POST">
+                    <h2>Modifier les services proposés par l'hotel</h2>
+                    <?php 
+                    //while ($data = $hotel) {
+                        if ($hotel['swimming_pool'] === 1) { ?>
+                            <label>Piscine</label><input type="checkbox" name="services[]" value="1" checked="checked"><br/>
+                        <?php 
+                        }
+                        else { ?>
+                            <label>Piscine</label><input type="checkbox" name="services[]" value="1"><br/>
+                        <?php 
+                        }
+                    //}
+                    
+                    ?>
+                    
+                    <label>Accès plage</label><input type="checkbox" name="services[]" value="2"><br/>
+                    <label>Parking</label><input type="checkbox" name="services[]" value="3"><br/>
+                    <label>Wifi</label><input type="checkbox" name="services[]" value="4"><br/>
+                    <label>Restaurant</label><input type="checkbox" name="services[]" value="5"><br/>
+                    <label>Chambres familiales</label><input type="checkbox" name="services[]" value="6"><br/>
+                    <label>Tévélision</label><input type="checkbox" name="services[]" value="7"><br/>
+                    <label>Navette aéroport</label><input type="checkbox" name="services[]" value="8"><br/>
+                    <label>Air conditionné</label><input type="checkbox" name="services[]" value="9"><br/>
+                    <label>Hôtel non fumeurs</label><input type="checkbox" name="services[]" value="10"><br/>
+                    <label>Animaux acceptés</label><input type="checkbox" name="services[]" value="11"><br/>
+                    <label>Coffre fort</label><input type="checkbox" name="services[]" value="12"><br/>
+                    <label>Mini bar</label><input type="checkbox" name="services[]" value="13"><br/>
+                    <label>Bagagerie</label><input type="checkbox" name="services[]" value="14"><br/>
+                    <label>Ascenseur </label><input type="checkbox" name="services[]" value="15"><br/>
+                    <label>Sauna</label><input type="checkbox" name="services[]" value="16"><br/>
+
+                    <input type="submit" value="Enregistrer" id="button-change-activity" />
+                </form>
+
+
+
             </div>
         </div>
     </div>
