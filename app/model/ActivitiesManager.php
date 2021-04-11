@@ -67,7 +67,7 @@ class ActivitiesManager extends Manager
     public function changeActivity($activityId) // Récupération d'une activité pour la modifier
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT id, title, content, picture FROM activities WHERE id = ?');
+        $req = $db->prepare('SELECT id, title, content, weather, picture FROM activities WHERE id = ?');
         $req->execute(array($activityId));
         $changeActivity = $req->fetch();
 

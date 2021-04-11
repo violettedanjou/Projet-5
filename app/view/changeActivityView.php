@@ -14,14 +14,14 @@ ob_start(); ?>
             </p>
 
             <div class="news-img-text">
-                <img src="<?= $change['picture'] ?>" alt="Activité sportive ou culturelle proposée par le site">
+                <img src="<?= $changeActivity['picture'] ?>" alt="Activité sportive ou culturelle proposée par le site">
                 <div class="news-text-admin">
                     <h3>
-                        <?= htmlspecialchars($change['title']); ?>
+                        <?= htmlspecialchars($changeActivity['title']); ?>
                     </h3>
                         
                     <p>
-                        <?= nl2br($change['content']) ?>
+                        <?= nl2br($changeActivity['content']) ?>
                     </p>
                 </div> 
             </div>
@@ -29,11 +29,11 @@ ob_start(); ?>
             <div class="form-change">
                 <form action="index.php?action=validChangeActivity" method="POST">
                     <h2>Modifier l'activite</h2>
-                    <input type="hidden" name="id" value="<?= $change['id']?>">
+                    <input type="hidden" name="id" value="<?= $changeActivity['id']?>">
                     <h6>Titre</h6>
-                    <input id="title-change" type="text" name="title" value="<?= $change['title']?>"/><br/>
+                    <input id="title-change" type="text" name="title" value="<?= $changeActivity['title']?>"/><br/>
                     <h6>Description de l'activité</h6>
-                    <textarea id="content-change" name="content"><?= $change['content']?></textarea><br/>
+                    <textarea id="content-change" name="content"><?= $changeActivity['content']?></textarea><br/>
                     <input type="submit" value="Enregistrer" id="button-change-activity" />
                 </form>
             </div>
@@ -49,8 +49,25 @@ ob_start(); ?>
             <div class="form-change-weather">
                 <h2>Modifier la meteo recommandee</h2>
                 <form action="index.php?action=updateWeather&amp;id=<?= $_GET['id'] ?>" method="POST">
-                    <input type="radio" name="weather" value="1" id="1"><label for="1">Bonne météo (soleil ou nuages)</label><br/>
-                    <input type="radio" name="weather" value="0" id="0"><label for="0">Mauvaise météo (pluie ou orages)</label><br/>
+                    <?php 
+                    if ($changeActivity['weather'] == 1) { ?>
+                        <input type="radio" name="weather" value="1" id="1" checked="checked"><label for="1">Bonne météo (soleil ou nuages)</label><br/>
+                    <?php 
+                    }
+                    else { ?>
+                        <input type="radio" name="weather" value="1" id="1"><label for="1">Bonne météo (soleil ou nuages)</label><br/>
+                    <?php
+                    }
+                    if ($changeActivity['weather'] == 0) { ?>
+                        <input type="radio" name="weather" value="0" id="0" checked="checked"><label for="0">Mauvaise météo (pluie ou orages)</label><br/>
+                    <?php
+                    }
+                    else { ?>
+                       <input type="radio" name="weather" value="0" id="0"><label for="0">Mauvaise météo (pluie ou orages)</label><br/> 
+                    <?php
+                    }
+                    ?>
+                    
                   <input type="submit" value="Enregistrer l'activite" id="button-add-activity" />
                 </form>                       
 

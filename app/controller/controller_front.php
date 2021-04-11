@@ -218,7 +218,7 @@ class controller_front
 	function openChangeActivity() // Récupération d'une activité pour la modifier
 	{
 		$changeManager = new ActivitiesManager();
-	    $change = $changeManager->changeActivity($_GET['id']);
+	    $changeActivity = $changeManager->changeActivity($_GET['id']);
 
 	    require('app/view/changeActivityView.php');
 	}
