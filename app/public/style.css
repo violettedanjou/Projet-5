@@ -605,7 +605,7 @@ input[type='image'] /* PROVISOIRE */
 {
 	color: #FF9300;
 }
-.form-change, .form-change-img, .form-change-weather /* Formulaire de modification du contenu / formulaire de modification pour l'image  et form pour modif la météo */
+.form-change, .form-change-img, .form-change-weather, .form-change-services /* Formulaire de modification du contenu / formulaire de modification pour l'image  et form pour modif la météo */
 {
 	margin-top: 20px;
 	padding: 10px;

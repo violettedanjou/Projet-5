@@ -217,8 +217,6 @@ class HotelsManager extends Manager
 	       	}
         }
 
-       	
-
         $addNewHotel = $newHotel->execute(array(
             'name' => $name,
             'content' => $content,
