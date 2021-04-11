@@ -195,7 +195,7 @@ class controller_front
 	    $nbrHotels = $allHotels->fetch(); // On récupère le nombre d'activités (1)
 	    $nbr = (int) $nbrHotels['nbrHotels']; // On récupère le nombre d'activités (2)
 
-	   	$hotelsOfPage = 4; // On détermine le nombre d'activité par page 
+	   	$hotelsOfPage = 10; // On détermine le nombre d'activité par page 
 	    $pages = ceil($nbr / $hotelsOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
 	   	$start = ($currentPage-1)*$hotelsOfPage; // Calcul de la première activité de la page 
 	    $hotelManager = new HotelsManager(); 

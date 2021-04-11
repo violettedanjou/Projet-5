@@ -471,7 +471,7 @@ try {
 					else {
 						$services = 0;
 					}
-
+					
 				        if (isset($_FILES['pictureHotel']) AND $_FILES['pictureHotel']['error'] == 0) {
 							if ($_FILES['pictureHotel']['size'] <= 1000000) {
 

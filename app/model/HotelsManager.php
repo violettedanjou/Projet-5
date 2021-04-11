@@ -32,59 +32,11 @@ class HotelsManager extends Manager
         $hotel = $req->fetch();
         return $hotel;
     }
-/*    public function getServices($id) // Afficher les services
-    {
-        $db = $this->dbConnect();
-        $services = $db->prepare('UPDATE hotels SET swimming_pool = 1, beach_access = 1, car_park = 1, free_wifi = 1, restaurant = 1, family_rooms = 1, television = 1, airport_shuttle = 1, air_conditioner = 1, no_smokers = 1, animals = 1, strongbox = 1, mini_bar = 1, luggage = 1, elevator = 1, sauna = 1 WHERE id = ?');
-        $services->execute(array($id));
-        //die(var_dump($services));
-
-        return $services;
-    }    */
-
-
-/*  
-    public function getServices($id) // Afficher les services
-    {
-        $db = $this->dbConnect();
-        $services = $db->prepare('UPDATE hotels SET swimming_pool = 1, beach_access = 1, car_park = 1, free_wifi = 1, restaurant = 1, family_rooms = 1, television = 1, airport_shuttle = 1, air_conditioner = 1, no_smokers = 1, animals = 1, strongbox = 1, mini_bar = 1, luggage = 1, elevator = 1, sauna = 1 WHERE id = ?');
-        $services->execute(array($id));
-        //die(var_dump($services));
-
-        return $services;
-    }
-
-	public function getservices()
-    {
-        $db = $this->dbConnect();
-        $req = $db->prepare('UPDATE hotels SET swimming_pool = :swimming_pool, beach_access = :beach_access, car_park = :car_park, free_wifi = :free_wifi, restaurant = :restaurant, family_rooms = :family_rooms, television = :television, airport_shuttle = :airport_shuttle, air_conditioner = :air_conditioner, no_smokers = :no_smokers, animals = :animals, strongbox = :strongbox, mini_bar = :mini_bar, luggage = :luggage, elevator = :elevator, sauna = :sauna WHERE id = :id');
-        $req->execute(array(
-        	'swimming_pool' => $swimming_pool, 
-        	'beach_access' => $beach_access,
-        	'car_park' => $car_park,
-        	'free_wifi' => $free_wifi,
-        	'restaurant' => $restaurant, 
-        	'family_rooms' => $family_rooms, 
-        	'television' => $television,
-        	'airport_shuttle' => $airport_shuttle,
-        	'no_smokers' => $no_smokers,
-        	'animals' => $animals,
-        	'strongbox' => $strongbox, 
-        	'mini_bar' => $mini_bar,
-        	'luggage' => $luggage,
-        	'elevator' => $elevator,
-        	'sauna' => $sauna,       	
-        	'id' => $id));
-
-        return $req;    	
-    }
-*/     
+    
     public function addNewHotel($name, $content, $location, $rooms, $prices, $services, $picture) // Ajout d'un nouvel hotel
     {
         $db = $this->dbConnect();
         $newHotel = $db->prepare('INSERT INTO hotels(name, content, location, rooms, prices, swimming_pool, beach_access, car_park, free_wifi, restaurant, family_rooms, television, airport_shuttle, air_conditioner, no_smokers, animals, strongbox, mini_bar, luggage, elevator, sauna, picture) VALUES (:name, :content, :location, :rooms, :prices, :swimming_pool, :beach_access, :car_park, :free_wifi, :restaurant, :family_rooms, :television, :airport_shuttle, :air_conditioner, :no_smokers, :animals, :strongbox, :mini_bar, :luggage, :elevator, :sauna, :picture)');
-
-        //$servicesHotel = array('swimming_pool', 'beach_access', 'car_park', 'free_wifi', 'restaurant', 'family_rooms', 'television', 'airport_shuttle', 'air_conditioner', 'no_smokers', 'animals', 'strongbox', 'mini_bar', 'luggage', 'elevator', 'sauna');
 
         for ($i = 0; $i <= 16 ; $i++) { 
         	// Piscine
