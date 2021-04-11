@@ -235,8 +235,8 @@ try {
 // PAGE PROFILE        
         // Afficher la page profile 
         if ($_GET['action'] == 'openProfile') {
-        	if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
-        		//var_dump($_SESSION['pseudo']);
+        	if (isset($_SESSION['id']) && isset($_SESSION['pseudo'] /*&& $_SESSION['picture']*/)) {
+        		//var_dump($_SESSION['picture']);
         		//die(var_dump($_SESSION['id']));
         		$openProfileMember = new controller_front();
 				$openProfileMember->openProfile();
@@ -267,6 +267,12 @@ try {
 				}
         	}
         }
+        /*if ($_GET['action'] == 'openImg') {
+        	if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
+	        	$openImg = new controller_front();
+	        	$openImg->openImg();
+	        }
+        }*/
 
 
 
@@ -471,7 +477,7 @@ try {
 					else {
 						$services = 0;
 					}
-					
+
 				        if (isset($_FILES['pictureHotel']) AND $_FILES['pictureHotel']['error'] == 0) {
 							if ($_FILES['pictureHotel']['size'] <= 1000000) {
 

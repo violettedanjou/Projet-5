@@ -164,7 +164,7 @@ class controller_front
 	function openProfile()
 	{
 		$imgProfileManager = new MemberManager();
-		$profileManager = $imgProfileManager->openImg($_SESSION['id']);
+		$profileManager = $imgProfileManager->openImg($_SESSION['id']/*, $_SESSION['picture']*/);
 
 		require('app/view/profileView.php');
 	}
