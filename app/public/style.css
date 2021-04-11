@@ -356,7 +356,7 @@ a.a-session:hover
 	background-color: #ffffff;
 	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2); 
 }
-.p-content-location
+.div-content-location
 {
 	display: flex;
 	justify-content: space-around;
@@ -379,7 +379,7 @@ a.a-session:hover
 	margin: 5px;
 	color: #bf0000;
 }
-.p-rooms, .p-prices
+.div-rooms, .div-prices, .div-services
 {
     margin-top: 20px;
     padding: 20px;

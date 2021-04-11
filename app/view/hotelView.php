@@ -30,11 +30,12 @@ ob_start(); ?>
 		                    <?= htmlspecialchars($hotel['name']); ?>
 		                </h3>
 		                        
-		                <div class="p-content-location">
+		                <div class="div-content-location">
 		                    <span class="span-hotel-content"><?= nl2br($hotel['content']); ?><br/></span>
 		                    <span class="span-location-icon"><i class="fas fa-map-marker-alt"></i><?= nl2br($hotel['location']); ?></span>
 		                </div>
-		                <div>
+		                <div class="div-services">
+		                	<h4>Services de l'hotel</h4>
 		                	<?php if ($hotel['swimming_pool'] == 1) { ?>
 		                		<i class="fas fa-swimmer"></i>
 		                	<?php 
@@ -101,10 +102,10 @@ ob_start(); ?>
 		                	}
 		                	?><br/>
 		                </div>
-		                <div class="p-rooms">
+		                <div class="div-rooms">
 		                    <?= nl2br($hotel['rooms']); ?><br/>
 		                </div>
-		                <div class="p-prices">
+		                <div class="div-prices">
 		                    <?= nl2br($hotel['prices']); ?>
 		                </div>
 		            </div> 
