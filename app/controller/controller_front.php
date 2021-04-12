@@ -175,7 +175,7 @@ class controller_front
 	    $nbr = (int) $nbrActivities['nbrActivities']; // On récupère le nombre d'activités (2)
 
 	   	$activitiesOfPage = 4; // On détermine le nombre d'activité par page 
-	    $pages = ceil($nbr / $activitiesOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
+	    $pagesAdmin = ceil($nbr / $activitiesOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
 	   	$start = ($currentPage-1)*$activitiesOfPage; // Calcul de la première activité de la page 
 
 		$activityManager = new ActivitiesManager(); 

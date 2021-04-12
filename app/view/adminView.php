@@ -42,7 +42,7 @@ ob_start(); ?>
                         <a href="./?page=<?= $currentPage - 1 ?>" class="page-link">Precedente</a>
                     </li>
 
-                    <?php for($page = 1; $page <= $pages; $page++): ?>
+                    <?php for($page = 1; $page <= $pagesAdmin; $page++): ?>
                         <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
                         <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
                             <a href="./?page=<?= $page ?>" class="page-link"><?= $page ?></a>
