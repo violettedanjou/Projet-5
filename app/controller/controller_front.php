@@ -181,7 +181,6 @@ class controller_front
 		$activityManager = new ActivitiesManager(); 
 	    $activities = $activityManager->getActivities($start, $activitiesOfPage);
 
-
 		// RECUPERER LES HOTELS 
 		$hotelsManager = new HotelsManager();
 	    $allHotels = $hotelsManager->allHotels();
@@ -191,8 +190,10 @@ class controller_front
 	   	$hotelsOfPage = 10; // On détermine le nombre d'activité par page 
 	    $pages = ceil($nbr / $hotelsOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
 	   	$start = ($currentPage-1)*$hotelsOfPage; // Calcul de la première activité de la page 
+	   
 	    $hotelManager = new HotelsManager(); 
 	    $hotels = $hotelManager->getHotels($start, $hotelsOfPage);
+
 
 	    $adminManager = new OpinionsManager();
 		$admin = $adminManager->reportAdmin();

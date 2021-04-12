@@ -36,23 +36,23 @@ ob_start(); ?>
 			} 
 			$activities->closeCursor(); ?>
 
-			<nav> <!-- Pagination -->
+            <nav> <!-- Pagination -->
                 <ul class="pagination">
                     <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                        <a href="./?page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
+                        <a href="./?page=<?= $currentPage - 1 ?>" class="page-link">Precedente</a>
                     </li>
 
-            <?php   for($page = 1; $page <= $pages; $page++): ?>
-                	<!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
+                    <?php for($page = 1; $page <= $pages; $page++): ?>
+                        <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
                         <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
                             <a href="./?page=<?= $page ?>" class="page-link"><?= $page ?></a>
                         </li>
-              <?php endfor ?>
+                    <?php endfor ?>
 
-                    <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
-                    <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
-                        <a href="./?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
-                    </li>
+                        <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
+                        <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
+                            <a href="./?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
+                        </li>
                 </ul>
             </nav>
 		</div>

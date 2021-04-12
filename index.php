@@ -236,6 +236,7 @@ try {
                 throw new Exception("Cette partie est réservée à l'administrateur", 1);
             } 
         }
+        
 
 
 																					/* ACTIVITES */        											
@@ -535,14 +536,14 @@ try {
         }    
 	}
 	else {
-		    if(isset($_GET['page']) && !empty($_GET['page']) AND $_GET['page'] > 0) {		
-	            $currentPage = $_GET['page'];
-	            $currentPageWeather = $_GET['page'];
-			}
-			else {
-		    	$currentPage = 1;
-		    	$currentPageWeather = 1;
-			}
+		if(isset($_GET['page']) && !empty($_GET['page']) AND $_GET['page'] > 0) {		
+	        $currentPage = $_GET['page'];
+	        $currentPageWeather = $_GET['page'];
+		}
+		else {
+		    $currentPage = 1;
+		    $currentPageWeather = 1;
+		}
 		$listActivitiesHotels = new controller_front();
 		$listActivitiesHotels->listActivitiesHotels($currentPage, $currentPageWeather);
 	}   	
