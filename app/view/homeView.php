@@ -78,7 +78,27 @@
                                 }                                
                                 ?>
                                 <script src="weather.js"></script>
-                                <script src="main.js"></script>                               
+                                <script src="main.js"></script> 
+
+                                <nav> <!-- Pagination -->
+                                    <ul class="pagination">
+                                        <li class="page-item <?= ($currentPageWeather == 1) ? "disabled" : "" ?>">
+                                                <a href="./?page=<?= $currentPageWeather - 1 ?>" class="page-link">Precedente</a>
+                                        </li>
+
+                                        <?php for($page = 1; $page <= $pagesWeather; $page++): ?>
+                                            <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
+                                            <li class="page-item <?= ($currentPageWeather == $page) ? "active" : "" ?>">
+                                                <a href="./?page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                                            </li>
+                                        <?php endfor ?>
+
+                                        <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
+                                        <li class="page-item <?= ($currentPageWeather == $pages) ? "disabled" : "" ?>">
+                                            <a href="./?page=<?= $currentPageWeather + 1 ?>" class="page-link">Suivante</a>
+                                        </li>
+                                    </ul>
+                                </nav>                               
                             </div>    
                     </div>
 

@@ -7,10 +7,10 @@ use app\model\Manager;
 class ActivitiesManager extends Manager 
 {
 	// METEO 
-	public function displayWeather(/*$startWeather, $paginationWeather*/) // Afficher sur la page d'accueil la météo et son activité 
+	public function displayWeather($startWeather, $paginationWeather) // Afficher sur la page d'accueil la météo et son activité 
 	{
     	$db = $this->dbConnect();
-    	$weather = $db->query('SELECT id, title, content, picture, weather FROM activities');
+    	$weather = $db->query('SELECT id, title, content, weather, picture FROM activities ORDER BY id ASC LIMIT '. $startWeather . ' , '. $paginationWeather);
 
     	return $weather;
 	}     
@@ -29,14 +29,14 @@ class ActivitiesManager extends Manager
 
         return $allActivities;
     } 
-/*    public function allActivitiesWeather() // Compter le nombre d'activités au total pour afficher dans le bloc de la météo
+    public function allActivitiesWeather() // Compter le nombre d'activités au total pour afficher dans le bloc de la météo
     {
         $db = $this->dbConnect();
-        $allActivities = $db->query('SELECT COUNT(*) AS nbrActivities FROM activities');
+        $allActivities = $db->query('SELECT COUNT(*) AS nbrActivitiesWeather FROM activities');
 
         return $allActivities;
     } 
-*/
+
 
 
     public function getActivity($activityId) // Récupération d'une activité grace à son id
