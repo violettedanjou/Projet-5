@@ -223,8 +223,8 @@ try {
 // Afficher la page administration
         if ($_GET['action'] == 'openAdmin') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-            	if(isset($_GET['page']) && !empty($_GET['page']) AND $_GET['page'] > 0) {		
-	           		$currentPage = $_GET['page'];
+            	if(isset($_GET['pageAdmin']) && !empty($_GET['pageAdmin']) AND $_GET['pageAdmin'] > 0) {		
+	           		$currentPage = $_GET['pageAdmin'];
 				}
 				else {
 			    	$currentPage = 1;
