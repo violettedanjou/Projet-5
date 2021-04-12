@@ -177,8 +177,6 @@ try {
         // Afficher la page profile 
         if ($_GET['action'] == 'openProfile') {
         	if (isset($_SESSION['id']) && isset($_SESSION['pseudo'] /*&& $_SESSION['picture']*/)) {
-        		//var_dump($_SESSION['picture']);
-        		//die(var_dump($_SESSION['id']));
         		$openProfileMember = new controller_front();
 				$openProfileMember->openProfile();
         	}
@@ -199,7 +197,9 @@ try {
 			                // On peut valider le fichier et le stocker définitivement
 			                $destinationFile = 'pictures/profile/' . $_SESSION['id'] . basename($_FILES['pictureProfile']['name']);
 						    move_uploaded_file($_FILES['pictureProfile']['tmp_name'], $destinationFile);
+
 					        echo "L'envoi a bien été effectué !";
+					        //echo $_FILES['pictureProfile']['name'];
 						                
 						    $validProfile = new controller_back();
 							$validProfile->validProfile($destinationFile);
@@ -236,7 +236,7 @@ try {
                 throw new Exception("Cette partie est réservée à l'administrateur", 1);
             } 
         }
-        
+
 
 
 																					/* ACTIVITES */        											

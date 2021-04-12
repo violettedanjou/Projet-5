@@ -34,13 +34,21 @@ class MemberManager extends Manager
 
         return $req;
     }
-    public function openImg($id/*, $picture*/)
+/*    public function openImg($id, $picture)
     {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT id, picture FROM members WHERE id = ?');
         $req->execute(array(
-        	/*'picture' => $picture,*/
-        	/*'id' => */$id));
+        	'picture' => $picture,
+        	'id' => $id));
+
+        return $req;    	
+    }
+*/
+    public function openImg()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT id, picture FROM members');
 
         return $req;    	
     }
