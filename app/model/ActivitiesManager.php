@@ -13,39 +13,46 @@ class ActivitiesManager extends Manager
     	$weather = $db->query('SELECT id, title, content, weather, picture FROM activities ORDER BY id ASC LIMIT '. $startWeather . ' , '. $paginationWeather);
 
     	return $weather;
-	}     
-    public function getActivities() // Récupération des activtiés + Pagination
+	}  
+	public function allActivitiesWeather() // Compter le nombre d'activités au total pour afficher dans le bloc de la météo
+	    {
+	        $db = $this->dbConnect();
+	        $allActivities = $db->query('SELECT COUNT(*) AS nbrActivitiesWeather FROM activities');
+
+	        return $allActivities;
+	    }
+
+
+    public function getActivities() // Récupération les 4 premières activtiés
     {
         $db = $this->dbConnect();
         $listactivities = $db->query('SELECT id, title, content, picture FROM activities ORDER BY id ASC LIMIT 0, 4');
 
         return $listactivities;
     }
-	// PAGINATION 
-	/*public function getActivities($start, $activitiesOfPage) // Récupération des activtiés + Pagination
-    {
-        $db = $this->dbConnect();
-        $listactivities = $db->query('SELECT id, title, content, picture FROM activities ORDER BY id ASC LIMIT '. $start . ' , '. $activitiesOfPage);
 
-        return $listactivities;
-    }*/
-    public function allActivities() // Compter le nombre d'activités au total
+
+     
+
+    // Page avec liste des activités 
+        public function allActivities() // Compter le nombre d'activités au total
     {
         $db = $this->dbConnect();
         $allActivities = $db->query('SELECT COUNT(*) AS nbrActivities FROM activities');
 
         return $allActivities;
-    } 
-    public function allActivitiesWeather() // Compter le nombre d'activités au total pour afficher dans le bloc de la météo
+    }
+    public function getList($start, $activitiesOfPage) // Récupération liste complète des activtiés + Pagination
     {
-        $db = $this->dbConnect();
-        $allActivities = $db->query('SELECT COUNT(*) AS nbrActivitiesWeather FROM activities');
+    	$db = $this->dbConnect();
+        $listactivities = $db->query('SELECT id, title, content, picture FROM activities ORDER BY id ASC LIMIT '. $start . ' , '. $activitiesOfPage);
 
-        return $allActivities;
-    } 
+        return $listactivities;
+    }
+ 
 
 
-
+    // Page d'une activité en particulier
     public function getActivity($activityId) // Récupération d'une activité grace à son id
     {
         $db = $this->dbConnect();

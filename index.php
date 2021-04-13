@@ -68,21 +68,35 @@ try {
 			$signoutMember->signout();    
 	    } 
 
-// LISTE DES ACTIVITES et DES HOTELS - PAGE D'ACCUEIL
-        // Affiche la listes des activités
+// PAGE D'ACCUEIL
+        // Afficher les 4 premières activités et les 4 premiers hotels
         if ($_GET['action'] == 'listActivitiesHotels') {
         	if(isset($_GET['page']) && !empty($_GET['page']) AND $_GET['page'] > 0) {		
-	            $currentPage = $_GET['page'];
 	            $currentPageWeather = $_GET['page'];
 			}
 			else {
-		    	$currentPage = 1;
 		    	$currentPageWeather = 1;
 			}
 			$listActivitiesHotels = new controller_front();
-			$listActivitiesHotels->listActivitiesHotels($currentPage, $currentPageWeather);
+			$listActivitiesHotels->listActivitiesHotels($currentPageWeather);
         }
-        
+        // Afficher liste complète des activités 
+        elseif ($_GET['action'] == 'listActivities') {
+        	if(isset($_GET['page']) && !empty($_GET['page']) AND $_GET['page'] > 0) {		
+	            $currentPageActivities = $_GET['page'];
+			}
+			else {
+		    	$currentPageActivities = 1;
+			}
+        	$listActivities = new controller_front();
+			$listActivities->listActivities($currentPageActivities);
+        }
+        //Afficher liste complète des hotels
+        elseif ($_GET['action'] == 'listHotels') {
+        	$listHotels = new controller_front();
+			$listHotels->listHotels();
+        }
+
         // Afficher une activité et ses avis
         elseif ($_GET['action'] == 'activity') { 
             if (isset($_GET['id']) && $_GET['id'] > 0) {

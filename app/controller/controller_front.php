@@ -93,6 +93,29 @@ class controller_front
 
 	    require('app/view/homeView.php');    
 	}
+	function listActivities($currentPageActivities) // Afficher liste complète des activités
+	{
+	    $activitiesManager = new ActivitiesManager();
+	    $allActivities = $activitiesManager->allActivities();
+	    $nbrActivities = $allActivities->fetch(); // On récupère le nombre d'activités (1)
+	    $nbr = (int) $nbrActivities['nbrActivities']; // On récupère le nombre d'activités (2)
+
+	   	$activitiesOfPage = 4; // On détermine le nombre d'activité par page 
+	    $pagesActivities = ceil($nbr / $activitiesOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
+	   	$start = ($currentPageActivities-1)*$activitiesOfPage; // Calcul de la première activité de la page 
+
+	    $listActivitiesManager = new ActivitiesManager();
+	    $listActivities = $listActivitiesManager->getList($start, $activitiesOfPage);
+
+	    require('app/view/listActivities.php');
+	}
+	function listHotels() // Afficher liste complète des hotels
+	{
+		$listHotelsManager = new HotelsManager();
+	    $listHotels = $listHotelsManager->getList();
+
+	    require('app/view/listHotels.php');
+	}
 
 
 	function activity() // Afficher une activité en particulier
