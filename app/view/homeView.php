@@ -124,6 +124,10 @@
                                 </div>
                     <?php   } 
                             $activities->closeCursor(); ?>
+
+                            <div id="listActivities">
+                                <a href="index.php?action=listActivities">Acceder a la liste complete des activites<i class="fas fa-mouse-pointer"></i></a>
+                            </div>
                     </div>
             </div>
         </div>
@@ -155,13 +159,17 @@
                     </div>
                 <?php
                 }
-                $hotels->closeCursor(); ?>               
+                $hotels->closeCursor(); ?> 
+
+                <div id="listHotels">
+                    <a href="index.php?action=listHotels">Acceder a la liste complete des hotels<i class="fas fa-mouse-pointer"></i></a>
+                </div>              
             </div>
         </div>
     </div>
 </section>
 
-
-
 <?php $content = ob_get_clean();
 require('app/view/template.php'); ?>
+
+

@@ -14,14 +14,21 @@ class ActivitiesManager extends Manager
 
     	return $weather;
 	}     
-    public function getActivities($start, $activitiesOfPage) // Récupération des activtiés + Pagination
+    public function getActivities() // Récupération des activtiés + Pagination
+    {
+        $db = $this->dbConnect();
+        $listactivities = $db->query('SELECT id, title, content, picture FROM activities ORDER BY id ASC LIMIT 0, 4');
+
+        return $listactivities;
+    }
+	// PAGINATION 
+	/*public function getActivities($start, $activitiesOfPage) // Récupération des activtiés + Pagination
     {
         $db = $this->dbConnect();
         $listactivities = $db->query('SELECT id, title, content, picture FROM activities ORDER BY id ASC LIMIT '. $start . ' , '. $activitiesOfPage);
 
         return $listactivities;
-    }
-	// PAGINATION 	
+    }*/
     public function allActivities() // Compter le nombre d'activités au total
     {
         $db = $this->dbConnect();

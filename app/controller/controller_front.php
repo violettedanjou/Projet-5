@@ -48,7 +48,11 @@ class controller_front
 
 
 
-		// RECUPERER LES ACTIVITES + LA PAGINATION
+		// RECUPERER LES ACTIVITES 
+		$activityManager = new ActivitiesManager();
+	    $activities = $activityManager->getActivities();
+
+		// LA PAGINATION
 	    $activitiesManager = new ActivitiesManager();
 	    $allActivities = $activitiesManager->allActivities();
 	    $nbrActivities = $allActivities->fetch(); // On récupère le nombre d'activités (1)
@@ -65,6 +69,10 @@ class controller_front
 
 	    
 		// RECUPERER LES HOTELS 
+		$hotelManager = new HotelsManager();
+	    $hotels = $hotelManager->getHotels();
+
+	    // PAGINATION
 		$hotelsManager = new HotelsManager();
 	    $allHotels = $hotelsManager->allHotels();
 	    $nbrHotels = $allHotels->fetch(); // On récupère le nombre d'activités (1)

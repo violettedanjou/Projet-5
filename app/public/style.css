@@ -255,6 +255,15 @@ a.a-session:hover
 	align-items: center;
 	padding: 10px;
 }
+#listActivities, #listHotels
+{
+	margin: 10px;
+}
+.fa-mouse-pointer
+{
+	margin: 5px;
+	font-size: 0.8em;
+}
 
 /* ACTIVITE EN PARTICULIER */
 #div-session-opinions
