@@ -22,7 +22,15 @@ class controller_front
 
 	function listActivitiesHotels($currentPage, $currentPageWeather) // Afficher la liste des activités et des hôtels
 	{
-	    
+	    $url = "http://api.openweathermap.org/data/2.5/weather?q=noumea&lang=fr&appid=eea2c52399d4972988c3afb0252aca33";
+		$contents = file_get_contents($url); // Récupérer le contenu de l'API
+		$json = json_decode($contents); // json_decode() Décode une chaine JSON
+
+		$id = $json->weather[0]->id;
+		$icon = $json->weather[0]->icon;
+
+		//$weather = ;
+
 		// RECUPERER LES ACTIVITES + LA PAGINATION
 	    $activitiesManager = new ActivitiesManager();
 	    $allActivities = $activitiesManager->allActivities();
@@ -48,16 +56,13 @@ class controller_front
 	   	$startWeather = ($currentPageWeather-1)*$paginationWeather; // Calcul de la première activité de la page
 
 		$displayManager = new ActivitiesManager(); // Afficher la météo et son activité
-		$display = $displayManager->displayWeather($startWeather, $paginationWeather);
+		$display = $displayManager->displayWeather($startWeather, $paginationWeather, $weather);
+
+
+		
 
 
 
-		$url = "http://api.openweathermap.org/data/2.5/weather?q=noumea&lang=fr&appid=eea2c52399d4972988c3afb0252aca33";
-		$contents = file_get_contents($url); // Récupérer le contenu de l'API
-		$json = json_decode($contents); // json_decode() Décode une chaine JSON
-
-		$id = $json->weather[0]->id;
-		$icon = $json->weather[0]->icon;
 
 		// RECUPERER LES HOTELS 
 		$hotelsManager = new HotelsManager();
@@ -71,6 +76,12 @@ class controller_front
 
 		$hotelManager = new HotelsManager();
 	    $hotels = $hotelManager->getHotels($start, $hotelsOfPage);
+
+	    /*var_dump($activities->fetchAll());
+	    var_dump("******************");
+	    var_dump($display->fetchAll());
+	    var_dump("******************");
+	    die(var_dump($hotels->fetchAll()));*/
 
 	    require('app/view/homeView.php');    
 	}

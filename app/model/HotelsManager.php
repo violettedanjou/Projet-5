@@ -226,133 +226,102 @@ class HotelsManager extends Manager
         $db = $this->dbConnect();
         $req = $db->prepare('UPDATE hotels SET swimming_pool = :swimming_pool, beach_access = :beach_access, car_park = :car_park, free_wifi = :free_wifi, restaurant = :restaurant, family_rooms = :family_rooms, television = :television, airport_shuttle = :airport_shuttle, air_conditioner = :air_conditioner, no_smokers = :no_smokers, animals = :animals, strongbox = :strongbox, mini_bar = :mini_bar, luggage = :luggage, elevator = :elevator, sauna = :sauna WHERE id = :id');
 
-        for ($i = 0; $i <= 16 ; $i++) { 
+        $swimming_pool = 0;
+        $beach_access = 0;
+        $car_park = 0;
+        $free_wifi = 0;
+        $restaurant = 0;
+        $family_rooms = 0;
+        $television = 0;
+        $airport_shuttle = 0;
+        $air_conditioner = 0;
+        $no_smokers = 0;
+        $animals = 0;
+        $strongbox = 0;
+        $mini_bar = 0;
+        $luggage = 0;
+        $elevator = 0;
+        $sauna = 0;
+
+        for ($i = 0; $i < count($services) ; $i++) { 
         	// Piscine
-	       	if ($services[0] == 1) {
+	       	if ($services[$i] == 1) {
 	       		$swimming_pool = 1;
-	       	}
-	       	else {
-	       		$swimming_pool = 0;
 	       	}
 
 	       	// Accès plage
-	       	if ($services[0] == 2) {
+	       	if ($services[$i] == 2) {
 	       		$beach_access = 1;
-	       	}
-	       	else {
-	       		$beach_access = 0;
 	       	}
 
 	       	//Parking
-	       	if ($services[0] == 3) {
+	       	if ($services[$i] == 3) {
 	       		$car_park = 1;
-	       	}
-	       	else {
-	       		$car_park = 0;
 	       	}
 
 	       	// Wifi 
-	       	if ($services[0] == 4) {
+	       	if ($services[$i] == 4) {
 	       		$free_wifi = 1;
-	       	}
-	       	else {
-	       		$free_wifi = 0;
 	       	}
 
 	       	// Restaurant
-	       	if ($services[0] == 5) {
+	       	if ($services[$i] == 5) {
 	       		$restaurant = 1;
-	       	}
-	       	else {
-	       		$restaurant = 0;
 	       	}
 
 	       	// Chambres familiales
-	       	if ($services[0] == 6) {
+	       	if ($services[$i] == 6) {
 	       		$family_rooms = 1;
-	       	}
-	       	else {
-	       		$family_rooms = 0;
 	       	}
 
 	       	// Télévision
-	       	if ($services[0] == 7) {
+	       	if ($services[$i] == 7) {
 	       		$television = 1;
-	       	}
-	       	else {
-	       		$television = 0;
 	       	}
 
 	       	// Navette
-	       	if ($services[0] == 8) {
+	       	if ($services[$i] == 8) {
 	       		$airport_shuttle = 1;
-	       	}
-	       	else {
-	       		$airport_shuttle = 0;
 	       	}
 
 	       	// Air conditionné
-	       	if ($services[0] == 9) {
+	       	if ($services[$i] == 9) {
 	       		$air_conditioner = 1;
-	       	}
-	       	else {
-	       		$air_conditioner = 0;
 	       	}
 
 	       	// Non fumeurs
-	       	if ($services[0] == 10) {
+	       	if ($services[$i] == 10) {
 	       		$no_smokers = 1;
-	       	}
-	       	else {
-	       		$no_smokers = 0;
 	       	}
 
 	       	// Animaux 
-	       	if ($services[0] == 11) {
+	       	if ($services[$i] == 11) {
 	       		$animals = 1;
-	       	}
-	       	else {
-	       		$animals = 0;
 	       	}
 
 	       	// Coffre fort
-	       	if ($services[0] == 12) {
+	       	if ($services[$i] == 12) {
 	       		$strongbox = 1;
-	       	}
-	       	else {
-	       		$strongbox = 0;
 	       	}
 
 	       	// Mini bar
-	       	if ($services[0] == 13) {
+	       	if ($services[$i] == 13) {
 	       		$mini_bar = 1;
-	       	}
-	       	else {
-	       		$mini_bar = 0;
 	       	}
 
 	       	// Baggage
-	       	if ($services[0] == 14) {
+	       	if ($services[$i] == 14) {
 	       		$luggage = 1;
-	       	}
-	       	else {
-	       		$luggage = 0;
 	       	}
 
 	       	// Ascenseur
-	       	if ($services[0] == 15) {
+	       	if ($services[$i] == 15) {
 	       		$elevator = 1;
-	       	}
-	       	else {
-	       		$elevator = 0;
 	       	}
 
 	       	// Sauna
-	       	if ($services[0] == 16) {
+	       	if ($services[$i] == 16) {
 	       		$sauna = 1;
-	       	}
-	       	else {
-	       		$sauna = 0;
 	       	}
         }
 
