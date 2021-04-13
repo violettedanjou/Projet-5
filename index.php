@@ -93,8 +93,14 @@ try {
         }
         //Afficher liste complète des hotels
         elseif ($_GET['action'] == 'listHotels') {
+        	if(isset($_GET['page']) && !empty($_GET['page']) AND $_GET['page'] > 0) {		
+	            $currentPageHotels = $_GET['page'];
+			}
+			else {
+		    	$currentPageHotels = 1;
+			}
         	$listHotels = new controller_front();
-			$listHotels->listHotels();
+			$listHotels->listHotels($currentPageHotels);
         }
 
         // Afficher une activité et ses avis

@@ -52,39 +52,13 @@ class controller_front
 		$activityManager = new ActivitiesManager();
 	    $activities = $activityManager->getActivities();
 
-		// LA PAGINATION
-	    $activitiesManager = new ActivitiesManager();
-	    $allActivities = $activitiesManager->allActivities();
-	    $nbrActivities = $allActivities->fetch(); // On récupère le nombre d'activités (1)
-	    $nbr = (int) $nbrActivities['nbrActivities']; // On récupère le nombre d'activités (2)
-
-	   	$activitiesOfPage = 4; // On détermine le nombre d'activité par page 
-	    $pages = ceil($nbr / $activitiesOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
-	   	$start = ($currentPage-1)*$activitiesOfPage; // Calcul de la première activité de la page 
-
-	    $activityManager = new ActivitiesManager();
-	    $activities = $activityManager->getActivities($start, $activitiesOfPage);
-	   
-
 
 	    
 		// RECUPERER LES HOTELS 
 		$hotelManager = new HotelsManager();
 	    $hotels = $hotelManager->getHotels();
 
-	    // PAGINATION
-		$hotelsManager = new HotelsManager();
-	    $allHotels = $hotelsManager->allHotels();
-	    $nbrHotels = $allHotels->fetch(); // On récupère le nombre d'activités (1)
-	    $nbr = (int) $nbrHotels['nbrHotels']; // On récupère le nombre d'activités (2)
-
-	   	$hotelsOfPage = 4; // On détermine le nombre d'activité par page 
-	    $pages = ceil($nbr / $hotelsOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
-	   	$start = ($currentPage-1)*$hotelsOfPage; // Calcul de la première activité de la page 
-
-		$hotelManager = new HotelsManager();
-	    $hotels = $hotelManager->getHotels($start, $hotelsOfPage);
-
+	   
 	    /*var_dump($activities->fetchAll());
 	    var_dump("******************");
 	    var_dump($display->fetchAll());
@@ -109,10 +83,19 @@ class controller_front
 
 	    require('app/view/listActivities.php');
 	}
-	function listHotels() // Afficher liste complète des hotels
+	function listHotels($currentPageHotels) // Afficher liste complète des hotels
 	{
+		$hotelsManager = new HotelsManager();
+	    $allHotels = $hotelsManager->allHotels();
+	    $nbrHotels = $allHotels->fetch(); // On récupère le nombre d'activités (1)
+	    $nbr = (int) $nbrHotels['nbrHotels']; // On récupère le nombre d'activités (2)
+
+	   	$hotelsOfPage = 4; // On détermine le nombre d'activité par page 
+	    $pagesHotels = ceil($nbr / $hotelsOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
+	   	$start = ($currentPageHotels-1)*$hotelsOfPage; // Calcul de la première activité de la page 
+
 		$listHotelsManager = new HotelsManager();
-	    $listHotels = $listHotelsManager->getList();
+	    $listHotels = $listHotelsManager->getList($start, $hotelsOfPage);
 
 	    require('app/view/listHotels.php');
 	}

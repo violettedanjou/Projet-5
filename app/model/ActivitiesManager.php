@@ -23,7 +23,7 @@ class ActivitiesManager extends Manager
 	    }
 
 
-    public function getActivities() // Récupération les 4 premières activtiés
+    public function getActivities() // Récupération les 4 premières activtiés page d'accueil
     {
         $db = $this->dbConnect();
         $listactivities = $db->query('SELECT id, title, content, picture FROM activities ORDER BY id ASC LIMIT 0, 4');
