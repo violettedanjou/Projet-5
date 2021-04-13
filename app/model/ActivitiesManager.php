@@ -10,7 +10,7 @@ class ActivitiesManager extends Manager
 	public function displayWeather($startWeather, $paginationWeather, $weather) // Afficher sur la page d'accueil la météo et son activité 
 	{
     	$db = $this->dbConnect();
-    	$weather = $db->query('SELECT id, title, content, weather, picture FROM activities WHERE weather = ' .$weather. ' ORDER BY id ASC LIMIT '. $startWeather . ' , '. $paginationWeather);
+    	$weather = $db->query('SELECT id, title, content, weather, picture FROM activities ORDER BY id ASC LIMIT '. $startWeather . ' , '. $paginationWeather);
 
     	return $weather;
 	}     

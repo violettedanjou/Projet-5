@@ -29,7 +29,24 @@ class controller_front
 		$id = $json->weather[0]->id;
 		$icon = $json->weather[0]->icon;
 
-		//$weather = ;
+		//Determiner la météo avant de demander les activités en fonction de celle-ci 
+		// exemple : $weather = 0 ;
+
+		// METEO + PAGINATION
+	    $weatherManager = new ActivitiesManager();
+	    $allActivitiesWeather = $weatherManager->allActivitiesWeather();
+	    $nbrActivitiesWeather = $allActivitiesWeather->fetch(); // On récupère le nombre d'activités (1)
+	    $nbrWeather = (int) $nbrActivitiesWeather['nbrActivitiesWeather']; // On récupère le nombre d'activités (2)
+
+	    $paginationWeather = 2; // On détermine le nombre d'activité par page 
+	    $pagesWeather = ceil($nbrWeather / $paginationWeather); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
+	   	$startWeather = ($currentPageWeather-1)*$paginationWeather; // Calcul de la première activité de la page
+
+		$displayManager = new ActivitiesManager(); // Afficher la météo et son activité
+		$display = $displayManager->displayWeather($startWeather, $paginationWeather, $weather);
+
+
+
 
 		// RECUPERER LES ACTIVITES + LA PAGINATION
 	    $activitiesManager = new ActivitiesManager();
@@ -45,25 +62,8 @@ class controller_front
 	    $activities = $activityManager->getActivities($start, $activitiesOfPage);
 	   
 
-	    // METEO + PAGINATION
-	    $weatherManager = new ActivitiesManager();
-	    $allActivitiesWeather = $weatherManager->allActivitiesWeather();
-	    $nbrActivitiesWeather = $allActivitiesWeather->fetch(); // On récupère le nombre d'activités (1)
-	    $nbrWeather = (int) $nbrActivitiesWeather['nbrActivitiesWeather']; // On récupère le nombre d'activités (2)
 
-	    $paginationWeather = 2; // On détermine le nombre d'activité par page 
-	    $pagesWeather = ceil($nbrWeather / $paginationWeather); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
-	   	$startWeather = ($currentPageWeather-1)*$paginationWeather; // Calcul de la première activité de la page
-
-		$displayManager = new ActivitiesManager(); // Afficher la météo et son activité
-		$display = $displayManager->displayWeather($startWeather, $paginationWeather, $weather);
-
-
-		
-
-
-
-
+	    
 		// RECUPERER LES HOTELS 
 		$hotelsManager = new HotelsManager();
 	    $allHotels = $hotelsManager->allHotels();
@@ -85,36 +85,6 @@ class controller_front
 
 	    require('app/view/homeView.php');    
 	}
-
-
-
-
-
-/* TEST POUR LA METEO 	
-	function openWeather()
-	{
-		$displayManager = new ActivitiesManager();
-		$display = $displayManager->displayWeather();
-
-		$url = "http://api.openweathermap.org/data/2.5/weather?q=noumea&lang=fr&appid=eea2c52399d4972988c3afb0252aca33";
-		$contents = file_get_contents($url); // Récupérer le contenu de l'API
-		$json = json_decode($contents); // json_decode() Décode une chaine JSON
-		//print_r($json); // Afficher des infos lisibles pour une variable
-
-
-		$icon = $json->weather[0]->icon;
-		$main = $json->weather[0]->main;
-		$desc = $json->weather[0]->description;
-		$temp_max = $json->main->temp_max;
-		$temps_min = $json->main->temp_min;
-	}
-
-*/
-
-
-
-
-
 
 
 	function activity() // Afficher une activité en particulier

@@ -82,11 +82,6 @@ try {
 			$listActivitiesHotels = new controller_front();
 			$listActivitiesHotels->listActivitiesHotels($currentPage, $currentPageWeather);
         }
-        // Afficher una activité en fonction de la météo
-        elseif ($_GET['action'] == 'openWeather') {
-        	$weather = new controller_front;
-        	$weather->openWeather();
-        }
         
         // Afficher une activité et ses avis
         elseif ($_GET['action'] == 'activity') { 
