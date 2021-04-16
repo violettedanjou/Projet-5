@@ -71,14 +71,19 @@ try {
 // PAGE D'ACCUEIL
         // Afficher les 4 premières activités et les 4 premiers hotels
         if ($_GET['action'] == 'listActivitiesHotels') {
-        	if(isset($_GET['page']) && !empty($_GET['page']) AND $_GET['page'] > 0) {		
-	            $currentPageWeather = $_GET['page'];
-			}
-			else {
-		    	$currentPageWeather = 1;
-			}
-			$listActivitiesHotels = new controller_front();
-			$listActivitiesHotels->listActivitiesHotels($currentPageWeather);
+        	if (isset($_SESSION['weather'])) {
+        		if(isset($_GET['page']) && !empty($_GET['page']) AND $_GET['page'] > 0) {
+	            	$currentPageWeather = $_GET['page'];
+				}
+				else {
+			    	$currentPageWeather = 1;
+				}
+				$listActivitiesHotels = new controller_front();
+				$listActivitiesHotels->listActivitiesHotels($currentPageWeather);	
+        	}
+        	else {
+        		throw new Exception("Pas de météo recommandée.", 1);
+        	}
         }
         // Afficher liste complète des activités 
         elseif ($_GET['action'] == 'listActivities') {
@@ -552,15 +557,13 @@ try {
 	}
 	else {
 		if(isset($_GET['page']) && !empty($_GET['page']) AND $_GET['page'] > 0) {		
-	        $currentPage = $_GET['page'];
 	        $currentPageWeather = $_GET['page'];
 		}
 		else {
-		    $currentPage = 1;
 		    $currentPageWeather = 1;
 		}
 		$listActivitiesHotels = new controller_front();
-		$listActivitiesHotels->listActivitiesHotels($currentPage, $currentPageWeather);
+		$listActivitiesHotels->listActivitiesHotels($currentPageWeather);
 	}   	
 }
 catch(Exception $e) {

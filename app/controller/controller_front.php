@@ -20,7 +20,7 @@ class controller_front
 		require('app/view/signinView.php');
 	}
 
-	function listActivitiesHotels($currentPage, $currentPageWeather) // Afficher la liste des activités et des hôtels
+	function listActivitiesHotels($currentPageWeather) // Afficher la liste des activités et des hôtels
 	{
 	    $url = "http://api.openweathermap.org/data/2.5/weather?q=noumea&lang=fr&appid=eea2c52399d4972988c3afb0252aca33";
 		$contents = file_get_contents($url); // Récupérer le contenu de l'API
@@ -31,6 +31,13 @@ class controller_front
 
 		//Determiner la météo avant de demander les activités en fonction de celle-ci 
 		// exemple : $weather = 0 ;
+		//$weather = $_SESSION['weather'];
+		if (isset($_SESSION['weather']) && ($_SESSION['weather'] == "1")) {
+			$weather = 1;
+		}
+		else {
+			$weather = 0;
+		}
 
 		// METEO + PAGINATION
 	    $weatherManager = new ActivitiesManager();
@@ -43,7 +50,7 @@ class controller_front
 	   	$startWeather = ($currentPageWeather-1)*$paginationWeather; // Calcul de la première activité de la page
 
 		$displayManager = new ActivitiesManager(); // Afficher la météo et son activité
-		$display = $displayManager->displayWeather($startWeather, $paginationWeather, $weather);
+		$display = $displayManager->displayWeather($weather, $startWeather, $paginationWeather);
 
 
 
