@@ -455,11 +455,14 @@ input[type='image'] /* PROVISOIRE */
 /* PAGE ADMINISTRATION */
 .row.admin /* Bloc qui contient l'ensemble des éléments */
 {
+	margin-bottom: 20px;
 	padding: 20px;
 	border: 1px solid transparent;
 	border-radius: 5px;
-	box-shadow: 0 1px 40px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 200px rgba(0, 0, 0, 0.1);
 }
+
+/* PAGE GESTION ACTIVITES + PAGE GESTION HOTELS */
 .news-admin /* Bloc qui contient lien modifier, l'image, le titre, le contenu et le lien supprimer */
 {
 	display: flex;
@@ -535,6 +538,10 @@ input[type='image'] /* PROVISOIRE */
 
 
 /* LISTE DES AVIS UTILES  */
+#h1-usefuls
+{
+	margin-top: 100px;
+}
 .row.useful /* Bloc contenant l'ensemble des éléments */
 {
 	padding: 20px;

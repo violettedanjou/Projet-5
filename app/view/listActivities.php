@@ -7,7 +7,7 @@ ob_start(); ?>
 		<div class="col">
 			<h1>VIVRE LA NOUVELLE CALEDONIE</h1>
 
-			<p> <!-- Lien de retour vers liste des activités -->
+			<p> <!-- Lien de retour vers accueil -->
 			<?php 	if(isset($_SESSION['admin']) && ($_SESSION['admin'] != 0)) { ?>
 						<a href="index.php?action=openAdmin">
 							<i class="fas fa-arrow-left"></i>Accueil
@@ -19,7 +19,7 @@ ob_start(); ?>
 						</a>
 			<?php	} ?>			
 			</p>
-			
+
 			<div>
 				<?php
        		    while ($data = $listActivities->fetch()) 

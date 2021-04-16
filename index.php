@@ -243,14 +243,8 @@ try {
 // Afficher la page administration
         if ($_GET['action'] == 'openAdmin') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
-            	if(isset($_GET['pageAdmin']) && !empty($_GET['pageAdmin']) AND $_GET['pageAdmin'] > 0) {		
-	           		$currentPage = $_GET['pageAdmin'];
-				}
-				else {
-			    	$currentPage = 1;
-				}
             	$adminMember = new controller_front();
-				$adminMember->openAdmin($currentPage);
+				$adminMember->openAdmin();
             }
             else {
                 throw new Exception("Cette partie est réservée à l'administrateur", 1);
@@ -259,7 +253,19 @@ try {
 
 
 
-																					/* ACTIVITES */        											
+
+
+																					/* ACTIVITES */   
+// Afficher page de la liste des activités
+		if ($_GET['action'] == 'openActivitiesAdmin') {
+			if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+				$activitiesAdmin = new controller_front();
+				$activitiesAdmin->openActivitiesAdmin();
+			}
+		    else {
+		    	throw new Exception("Cette partie est réservée à l'administrateur", 1);
+		    }
+		}     											
 // Afficher le formulaire d'ajout d'une nouvelle activité
         if ($_GET['action'] == 'openNewActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
@@ -416,7 +422,17 @@ try {
         } 
 
 
-																					/* HOTELS */        											
+																					/* HOTELS */
+// Afficher page de la liste des activités
+		if ($_GET['action'] == 'openHotelsAdmin') {
+			if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+				$HotelsAdmin = new controller_front();
+				$HotelsAdmin->openHotelsAdmin();
+			}
+		    else {
+		    	throw new Exception("Cette partie est réservée à l'administrateur", 1);
+		    }
+		} 																					       											
 // Afficher le formulaire d'ajout d'un nouvel hotel
         if ($_GET['action'] == 'openNewHotel') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
@@ -529,7 +545,16 @@ try {
             }   
         }        
 
-
+// Afficher page de la liste des avis signalés
+		if ($_GET['action'] == 'openReportsAdmin') {
+			if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
+				$ReportsAdmin = new controller_front();
+				$ReportsAdmin->openReportsAdmin();
+			}
+		    else {
+		    	throw new Exception("Cette partie est réservée à l'administrateur", 1);
+		    }
+		}
 // Retirer le signalement d'un avis
         elseif ($_GET['action'] == 'deleteReport') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {

@@ -169,41 +169,33 @@ class controller_front
 
 
 // PAGE ADMINISTRATION
-	function openAdmin($currentPage) // Afficher la page d'administrateur
+	function openAdmin() // Afficher la page d'administrateur
 	{
-		$activitiesManager = new ActivitiesManager();
-	    $allActivities = $activitiesManager->allActivities();
-	    $nbrActivities = $allActivities->fetch(); // On récupère le nombre d'activités (1)
-	    $nbr = (int) $nbrActivities['nbrActivities']; // On récupère le nombre d'activités (2)
-
-	   	$activitiesOfPage = 4; // On détermine le nombre d'activité par page 
-	    $pagesAdmin = ceil($nbr / $activitiesOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
-	   	$start = ($currentPage-1)*$activitiesOfPage; // Calcul de la première activité de la page 
-
-		$activityManager = new ActivitiesManager(); 
-	    $activities = $activityManager->getActivities($start, $activitiesOfPage);
-
-		// RECUPERER LES HOTELS 
-		$hotelsManager = new HotelsManager();
-	    $allHotels = $hotelsManager->allHotels();
-	    $nbrHotels = $allHotels->fetch(); // On récupère le nombre d'activités (1)
-	    $nbr = (int) $nbrHotels['nbrHotels']; // On récupère le nombre d'activités (2)
-
-	   	$hotelsOfPage = 10; // On détermine le nombre d'activité par page 
-	    $pages = ceil($nbr / $hotelsOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
-	   	$start = ($currentPage-1)*$hotelsOfPage; // Calcul de la première activité de la page 
-	   
-	    $hotelManager = new HotelsManager(); 
-	    $hotels = $hotelManager->getHotels($start, $hotelsOfPage);
-
-
-	    $adminManager = new OpinionsManager();
-		$admin = $adminManager->reportAdmin();
-
 		$adminUsefulManager = new OpinionsManager();
 		$useful = $adminUsefulManager->usefulAdmin();
 
 	    require('app/view/adminView.php');
+	}
+	function openActivitiesAdmin() // Récupérer liste des activites
+	{
+		$activitiesManager = new ActivitiesManager(); 
+	    $activitiesAdmin = $activitiesManager->getActivitiesAdmin();
+
+	    require('app/view/adminActivitiesView.php');
+	}
+	function openHotelsAdmin() // Récupérer liste des hotels
+	{
+		$hotelsManager = new HotelsManager(); 
+	    $hotelsAdmin = $hotelsManager->getHotelsAdmin();
+
+	    require('app/view/adminHotelsView.php');
+	}
+	function openReportsAdmin() // Récupérer liste des hotels
+	{
+		$adminManager = new OpinionsManager();
+		$admin = $adminManager->reportAdmin();
+
+	    require('app/view/adminReportsView.php');
 	}
 
 

@@ -11,12 +11,12 @@ ob_start(); ?>
 				<p> <!-- Lien de retour vers accueil -->
 				<?php 	if(isset($_SESSION['admin']) && ($_SESSION['admin'] != 0)) { ?>
 							<a class="fa-arrow-left-hotel" href="index.php?action=openAdmin">
-								<i class="fas fa-arrow-left"></i>Retour
+								<i class="fas fa-arrow-left"></i>Accueil
 							</a>
 				<?php 	}
 						else { ?>
 							<a class="fa-arrow-left-hotel" href="index.php">
-								<i class="fas fa-arrow-left"></i>Retour
+								<i class="fas fa-arrow-left"></i>Accueil
 							</a>
 				<?php	} ?>			
 				</p>
