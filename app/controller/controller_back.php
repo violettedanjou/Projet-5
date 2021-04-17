@@ -6,7 +6,6 @@ use app\model\MemberManager;
 use app\model\ActivitiesManager;
 use app\model\HotelsManager;
 use app\model\OpinionsManager;
-use app\model\WeatherManager;
 
 class controller_back
 {

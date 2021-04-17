@@ -6,7 +6,6 @@ use app\model\MemberManager;
 use app\model\ActivitiesManager;
 use app\model\HotelsManager;
 use app\model\OpinionsManager;
-use app\model\WeatherManager;
 
 class controller_front
 {
@@ -39,9 +38,8 @@ class controller_front
 
 		// METEO + PAGINATION
 	    $weatherManager = new ActivitiesManager();
-	    $allActivitiesWeather = $weatherManager->allActivitiesWeather();
-	    $nbrActivitiesWeather = $allActivitiesWeather->fetch(); // On récupère le nombre d'activités (1)
-	    $nbrWeather = (int) $nbrActivitiesWeather['nbrActivitiesWeather']; // On récupère le nombre d'activités (2)
+	    $allActivitiesWeather = $weatherManager->getActivitiesFromWeather($weather);
+	    $nbrWeather = count($allActivitiesWeather); // On récupère le nombre d'activités totales en fonction de la météo (donc soit toutes les 1, soit toutes les 0)
 
 	    $paginationWeather = 2; // On détermine le nombre d'activité par page 
 	    $pagesWeather = ceil($nbrWeather / $paginationWeather); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
@@ -49,11 +47,7 @@ class controller_front
 
 	   	// Afficher la météo et son activité
 		$displayManager = new ActivitiesManager(); 
-		$display = $displayManager->displayWeather($weather, $startWeather, $paginationWeather);
-		//var_dump($display);
-
-
-
+		$display = $displayManager->displayWeather($weather , $startWeather, $paginationWeather);
 
 		// RECUPERER LES ACTIVITES 
 		$activityManager = new ActivitiesManager();

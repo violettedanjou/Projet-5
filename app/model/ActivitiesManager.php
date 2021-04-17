@@ -6,7 +6,30 @@ use app\model\Manager;
 
 class ActivitiesManager extends Manager 
 {
-// METEO 
+// METEO + PAGINATION 
+	public function getActivitiesFromWeather($weather)
+	{
+		$db = $this->dbConnect();
+        $req = $db->prepare('SELECT * FROM activities WHERE weather = ?'); 
+        $req->execute(array($weather));
+        $results = $req->fetchAll();
+
+        return $results;
+	}
+	public function displayWeather($weather , $startWeather, $paginationWeather)
+    {
+        $db = $this->dbConnect();
+	    $req = $db->prepare('SELECT id, title, content, weather, picture FROM activities WHERE weather = :weather ORDER BY id ASC LIMIT :startWeather, :paginationWeather');
+	    $req->bindValue(':weather', $weather, \PDO::PARAM_INT);
+	    $req->bindValue(':startWeather', $startWeather, \PDO::PARAM_INT);
+	    $req->bindValue(':paginationWeather', $paginationWeather, \PDO::PARAM_INT);
+	    $req->execute();
+	    $result = $req->fetchAll();
+
+	    return $result;
+    }
+
+
 	public function getActivitiesWeather() // Récupération les 4 premières activtiés page d'accueil
     {
         $db = $this->dbConnect();
@@ -14,32 +37,6 @@ class ActivitiesManager extends Manager
 
         return $listactivities;
     }
-
-
-
-	public function displayWeather($weather, $startWeather, $paginationWeather) // Afficher sur la page d'accueil la météo et son activité 
-	{
-    	$db = $this->dbConnect();
-    	$req = $db->prepare('SELECT id, title, content, weather, picture FROM activities WHERE weather = :weather ORDER BY id ASC LIMIT '. $startWeather . ' , '. $paginationWeather);
-    	$req->bindValue(':weather', $weather, \PDO::PARAM_INT);
-		$req->execute();
-		//var_dump($req);
-		return $req;
-
-
-    	/*$reqWeather = $req->execute(array(
-    		'weather' => $weather));*/
-
-    	//return $reqWeather;
-	}  
-	public function allActivitiesWeather() // Compter le nombre d'activités au total pour afficher dans le bloc de la météo
-	    {
-	        $db = $this->dbConnect();
-	        $allActivities = $db->query('SELECT COUNT(*) AS nbrActivitiesWeather FROM activities');
-
-	        return $allActivities;
-	    }
-
 
     public function getActivities() // Récupération les 4 premières activtiés page d'accueil
     {

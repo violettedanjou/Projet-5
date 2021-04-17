@@ -26,57 +26,28 @@
                             <div id="div-activity-weather">
                                 <img src="" alt="Météo du jour" id="icon-weather"> <!-- Pout afficher icon de la météo -->
                                 <?php 
-                                if ($id >= 800) { 
-                                    //var_dump($display);
-                                    while ($dataWeather = $display->fetch()) { 
-                                        if ($dataWeather['weather'] == 1) { ?>
-                                            <div class="news">
+                                foreach($display as $dataWeather) {
+                                ?>
+                                    <div class="news">
+                                        <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
+                                            <img class="img-home" src="<?= $dataWeather['picture'] ?>" alt="Photo de l'activite <?= $dataWeather['title'] ?>">
+                                        </a>
+
+                                        <div class="news-text">
+                                            <h3>
                                                 <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
-                                                    <img class="img-home" src="<?= $dataWeather['picture'] ?>" alt="Photo de l'activite <?= $dataWeather['title'] ?>">
+                                                    <?= htmlspecialchars($dataWeather['title']) ; ?>
+                                                    <br/>
                                                 </a>
+                                            </h3>
+                                            <p><?= nl2br($dataWeather['content']) ?></p>
+                                                           
+                                            <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">Avis</a></em>
+                                        </div>
 
-                                                <div class="news-text">
-                                                    <h3>
-                                                        <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
-                                                            <?= htmlspecialchars($dataWeather['title']) ; ?>
-                                                            <br/>
-                                                        </a>
-                                                    </h3>
-                                                    <p><?= nl2br($dataWeather['content']) ?></p>
-                                                       
-                                                    <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">Avis</a></em>
-                                                </div>
-
-                                            </div> 
-                                        <?php 
-                                        }                                             
-                                    }
-                                } 
-                                else {
-                                    while ($dataWeather = $display->fetch()) { 
-                                        if ($dataWeather['weather'] == 0) { ?>
-                                            <div class="news">
-                                                <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
-                                                    <img class="img-home" src="<?= $dataWeather['picture'] ?>" alt="Photo de l'activite <?= $dataWeather['title'] ?>">
-                                                </a>
-
-                                                <div class="news-text">
-                                                    <h3>
-                                                        <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
-                                                            <?= htmlspecialchars($dataWeather['title']) ; ?>
-                                                            <br/>
-                                                        </a>
-                                                    </h3>
-                                                    <p><?= nl2br($dataWeather['content']) ?></p>
-                                                       
-                                                    <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">Avis</a></em>
-                                                </div>
-
-                                            </div>
-                                        <?php 
-                                        }         
-                                    }
-                                }                                
+                                    </div> 
+                                <?php 
+                                }
                                 ?>
                                 <script src="weather.js"></script>
                                 <script src="main.js"></script> 
