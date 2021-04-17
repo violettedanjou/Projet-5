@@ -71,7 +71,7 @@ try {
 // PAGE D'ACCUEIL
         // Afficher les 4 premières activités et les 4 premiers hotels
         if ($_GET['action'] == 'listActivitiesHotels') {
-        	if (isset($_SESSION['weather'])) {
+        	//if (isset($_SESSION['weather'])) {
         		if(isset($_GET['page']) && !empty($_GET['page']) AND $_GET['page'] > 0) {
 	            	$currentPageWeather = $_GET['page'];
 				}
@@ -80,10 +80,10 @@ try {
 				}
 				$listActivitiesHotels = new controller_front();
 				$listActivitiesHotels->listActivitiesHotels($currentPageWeather);	
-        	}
+        	/*}
         	else {
-        		throw new Exception("Pas de météo recommandée.", 1);
-        	}
+        		throw new Exception("Pas de météo recommandée pour ces activités.", 1);
+        	}*/
         }
         // Afficher liste complète des activités 
         elseif ($_GET['action'] == 'listActivities') {
@@ -447,7 +447,6 @@ try {
         elseif ($_GET['action'] == 'validNewHotel') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                 if (isset($_POST['name']) AND isset($_POST['content']) AND isset($_POST['location']) AND isset($_POST['rooms']) AND isset($_POST['prices'])) {
-                	
                 	$services = isset($_POST['services']);
 					if (isset($_POST['services']) && ($_POST['services'] == true )) {
 						$services = $_POST['services'];
@@ -456,23 +455,22 @@ try {
 						$services = 0;
 					}
 
-				        if (isset($_FILES['pictureHotel']) AND $_FILES['pictureHotel']['error'] == 0) {
-							if ($_FILES['pictureHotel']['size'] <= 1000000) {
+				    if (isset($_FILES['pictureHotel']) AND $_FILES['pictureHotel']['error'] == 0) {
+						if ($_FILES['pictureHotel']['size'] <= 1000000) {
 
-								$infosfichier = pathinfo($_FILES['pictureHotel']['name']);
-								$extension_upload = $infosfichier['extension'];
-								$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
+							$infosfichier = pathinfo($_FILES['pictureHotel']['name']);
+							$extension_upload = $infosfichier['extension'];
+							$extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
 
-						    	if (in_array($extension_upload, $extensions_autorisees)) {
-						    		$destinationFile = 'pictures/hotels/' . $_SESSION['id'] . basename($_FILES['pictureHotel']['name']);
-							        move_uploaded_file($_FILES['pictureHotel']['tmp_name'], $destinationFile);
+						    if (in_array($extension_upload, $extensions_autorisees)) {
+						    	$destinationFile = 'pictures/hotels/' . $_SESSION['id'] . basename($_FILES['pictureHotel']['name']);
+							    move_uploaded_file($_FILES['pictureHotel']['tmp_name'], $destinationFile);
 							                
-							        $validNewHotel = new controller_back();
-									$validNewHotel->addHotel($services, $destinationFile);
-							    }
+							    $validNewHotel = new controller_back();
+								$validNewHotel->addHotel($services, $destinationFile);
 							}
 						}
-					//}	            	
+					}
                 }
                 else {
                     throw new Exception("Veuillez ajouter un nouvel hôtel.", 1);

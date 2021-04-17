@@ -27,6 +27,7 @@
                                 <img src="" alt="Météo du jour" id="icon-weather"> <!-- Pout afficher icon de la météo -->
                                 <?php 
                                 if ($id >= 800) { 
+                                    //var_dump($display);
                                     while ($dataWeather = $display->fetch()) { 
                                         if ($dataWeather['weather'] == 1) { ?>
                                             <div class="news">

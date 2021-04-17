@@ -30,14 +30,12 @@ class controller_front
 		$icon = $json->weather[0]->icon;
 
 		//Determiner la météo avant de demander les activités en fonction de celle-ci 
-		// exemple : $weather = 0 ;
-		//$weather = $_SESSION['weather'];
-		if (isset($_SESSION['weather']) && ($_SESSION['weather'] == "1")) {
+		if ($id >= 800) {
 			$weather = 1;
 		}
 		else {
-			$weather = 0;
-		}
+		 	$weather = 0;
+		} 
 
 		// METEO + PAGINATION
 	    $weatherManager = new ActivitiesManager();
@@ -49,8 +47,10 @@ class controller_front
 	    $pagesWeather = ceil($nbrWeather / $paginationWeather); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
 	   	$startWeather = ($currentPageWeather-1)*$paginationWeather; // Calcul de la première activité de la page
 
-		$displayManager = new ActivitiesManager(); // Afficher la météo et son activité
+	   	// Afficher la météo et son activité
+		$displayManager = new ActivitiesManager(); 
 		$display = $displayManager->displayWeather($weather, $startWeather, $paginationWeather);
+		//var_dump($display);
 
 
 
@@ -59,18 +59,9 @@ class controller_front
 		$activityManager = new ActivitiesManager();
 	    $activities = $activityManager->getActivities();
 
-
-	    
 		// RECUPERER LES HOTELS 
 		$hotelManager = new HotelsManager();
 	    $hotels = $hotelManager->getHotels();
-
-	   
-	    /*var_dump($activities->fetchAll());
-	    var_dump("******************");
-	    var_dump($display->fetchAll());
-	    var_dump("******************");
-	    die(var_dump($hotels->fetchAll()));*/
 
 	    require('app/view/homeView.php');    
 	}
@@ -81,7 +72,7 @@ class controller_front
 	    $nbrActivities = $allActivities->fetch(); // On récupère le nombre d'activités (1)
 	    $nbr = (int) $nbrActivities['nbrActivities']; // On récupère le nombre d'activités (2)
 
-	   	$activitiesOfPage = 4; // On détermine le nombre d'activité par page 
+	   	$activitiesOfPage = 5; // On détermine le nombre d'activité par page 
 	    $pagesActivities = ceil($nbr / $activitiesOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
 	   	$start = ($currentPageActivities-1)*$activitiesOfPage; // Calcul de la première activité de la page 
 
@@ -97,7 +88,7 @@ class controller_front
 	    $nbrHotels = $allHotels->fetch(); // On récupère le nombre d'activités (1)
 	    $nbr = (int) $nbrHotels['nbrHotels']; // On récupère le nombre d'activités (2)
 
-	   	$hotelsOfPage = 4; // On détermine le nombre d'activité par page 
+	   	$hotelsOfPage = 5; // On détermine le nombre d'activité par page 
 	    $pagesHotels = ceil($nbr / $hotelsOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
 	   	$start = ($currentPageHotels-1)*$hotelsOfPage; // Calcul de la première activité de la page 
 

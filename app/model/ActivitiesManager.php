@@ -7,14 +7,30 @@ use app\model\Manager;
 class ActivitiesManager extends Manager 
 {
 // METEO 
+	public function getActivitiesWeather() // Récupération les 4 premières activtiés page d'accueil
+    {
+        $db = $this->dbConnect();
+        $listactivities = $db->query('SELECT id, title, content, picture FROM activities ORDER BY id ASC');
+
+        return $listactivities;
+    }
+
+
+
 	public function displayWeather($weather, $startWeather, $paginationWeather) // Afficher sur la page d'accueil la météo et son activité 
 	{
     	$db = $this->dbConnect();
     	$req = $db->prepare('SELECT id, title, content, weather, picture FROM activities WHERE weather = :weather ORDER BY id ASC LIMIT '. $startWeather . ' , '. $paginationWeather);
-    	$reqWeather = $req->execute(array(
-    		'weather' => $weather));
+    	$req->bindValue(':weather', $weather, \PDO::PARAM_INT);
+		$req->execute();
+		//var_dump($req);
+		return $req;
 
-    	return $reqWeather;
+
+    	/*$reqWeather = $req->execute(array(
+    		'weather' => $weather));*/
+
+    	//return $reqWeather;
 	}  
 	public function allActivitiesWeather() // Compter le nombre d'activités au total pour afficher dans le bloc de la météo
 	    {
