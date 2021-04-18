@@ -60,6 +60,10 @@ img
 	margin: 0px;
 	border-radius: 5px 0px 0px 5px;
 }
+nav
+{
+	display: flex;
+}
 ul
 {
 	display: flex;
@@ -109,8 +113,7 @@ img#logo
 {
 	color: #5E5E5E;
 }
-
-nav 
+#nav-header
 {
 	display: flex;
 	align-items: center;
