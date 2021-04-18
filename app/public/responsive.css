@@ -144,7 +144,15 @@ ul.pagination
 	width: 300px;
 }
 
-
+/* Page avis signalés */
+.row.reports
+{
+	margin: 10px;
+}
+#p-reports
+{
+	flex-direction: column;
+}
 
 
 
