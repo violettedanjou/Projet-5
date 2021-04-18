@@ -4,7 +4,7 @@ ob_start(); ?>
 
 <div class="container">
 	<div class="row">
-		<div class="col">
+		<div>
 			<h1>VIVRE LA NOUVELLE CALEDONIE</h1>
 
 			<p> <!-- Lien de retour vers accueil -->
@@ -25,10 +25,13 @@ ob_start(); ?>
        		    while ($data = $listActivities->fetch()) 
                 { ?>
                     <div class="news">
-                        <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
-                            <img class="img-home" src="<?= $data['picture'] ?>" alt="Photo de l'activite <?= $data['title'] ?>">
-                        </a>
-                            <div class="news-text">
+                    	<div class="col-lg-6">
+                    		<a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
+	                            <img class="img-home" src="<?= $data['picture'] ?>" alt="Photo de l'activite <?= $data['title'] ?>">
+	                        </a>
+                    	</div>
+                        <div class="col-lg-6">
+                        	<div class="news-text">
                                 <h3>
                                     <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
                                         <?= htmlspecialchars($data['title']) ; ?>
@@ -39,6 +42,8 @@ ob_start(); ?>
                                            
                                     <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">Avis</a></em>
                             </div>
+                        </div>
+                            
                     </div>
                 <?php
                 } 

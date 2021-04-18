@@ -22,9 +22,8 @@
             <div class="col">
                 <h1>VIVRE LA NOUVELLE CALEDONIE</h1>
                     <div id="div-weather">
-                        <h2>METEO DU JOUR : ACTIVITES RECOMMANDEES</h2>
+                        <h2>ACTIVITES DU JOUR : <img src="" alt="Météo du jour" id="icon-weather"> <!-- Pout afficher icon de la météo --></h2>
                             <div id="div-activity-weather">
-                                <img src="" alt="Météo du jour" id="icon-weather"> <!-- Pout afficher icon de la météo -->
                                 <?php 
                                 foreach($display as $dataWeather) {
                                 ?>
