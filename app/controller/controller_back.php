@@ -111,7 +111,7 @@ class controller_back
 		$newActivityManager = new ActivitiesManager();
 		$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $weather, $destinationFile);
 
-		header('Location: index.php?action=openAdmin');
+		header('Location: index.php?action=openActivitiesAdmin');
 	}
 
 	function addHotel($services, $destinationFile) // Ajouter un nouvel hotel
@@ -119,7 +119,7 @@ class controller_back
 		$newHotelManager = new HotelsManager();
 		$newHotel = $newHotelManager->addNewHotel($_POST['name'], $_POST['content'], $_POST['location'], $_POST['rooms'], $_POST['prices'], $services, $destinationFile);
 
-		header('Location: index.php?action=openAdmin');
+		header('Location: index.php?action=openHotelsAdmin');
 	}	
 
 
@@ -129,14 +129,14 @@ class controller_back
 		$saveManager = new ActivitiesManager();
 		$save = $saveManager->saveActivity($_POST['id'], $_POST['title'], $_POST['content']);
 
-		header('Location: index.php?action=openAdmin');
+		header('Location: index.php?action=openActivitiesAdmin');
 	}
 	function changeImgActivity($id, $destinationFile)
 	{
 		$imgActivityManager = new ActivitiesManager();
 		$imgManager = $imgActivityManager->changeImgActivity($id, $destinationFile);
 
-		header('Location: index.php?action=openAdmin');
+		header('Location: index.php?action=openActivitiesAdmin');
 	}
 	function updateWeather() // Modifir la météo
 	{
@@ -153,7 +153,7 @@ class controller_back
 			$update = $updateManager->badWeather($_GET['id'], $updateWeather);
 		}
 
-		header('Location: index.php?action=openAdmin');
+		header('Location: index.php?action=openActivitiesAdmin');
 	}
 
 	function changeHotel() // Modification d'un hotel
@@ -161,14 +161,14 @@ class controller_back
 		$saveManager = new HotelsManager();
 		$save = $saveManager->saveHotel($_POST['id'], $_POST['name'], $_POST['content'], $_POST['location'], $_POST['rooms'], $_POST['prices']);
 
-		header('Location: index.php?action=openAdmin');
+		header('Location: index.php?action=openHotelsAdmin');
 	}
 	function changeServices($id, $services)
 	{
 		$servicesManager = new HotelsManager();
 		$servicesHotel = $servicesManager->changeServices($id, $services);
 
-		header('Location: index.php?action=openAdmin');
+		header('Location: index.php?action=openHotelsAdmin');
 	}
 
 // GESTION SIGNALEMENTS ET AVIS UTILES
@@ -177,7 +177,7 @@ class controller_back
 		$removeManager = new OpinionsManager();
 	    $remove = $removeManager->removeReport($_GET['id']);
 
-		header('Location: index.php?action=openAdmin');
+		header('Location: index.php?action=openReportsAdmin');
 	}
 
 	function deleteOpinion() // Supprimer un avis signalé
@@ -185,7 +185,7 @@ class controller_back
 		$deleteManager = new OpinionsManager();
 	    $delete = $deleteManager->eliminateOpinion($_GET['id']);
 
-		header('Location: index.php?action=openAdmin');
+		header('Location: index.php?action=openReportsAdmin');
 	}
 }
 ?>

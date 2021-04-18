@@ -490,6 +490,14 @@ input[type='image'] /* PROVISOIRE */
 	border-radius: 5px;
 	box-shadow: 0 1px 200px rgba(0, 0, 0, 0.1);
 }
+.row.admin-home
+{
+	margin-bottom: 20px;
+	padding: 20px;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	box-shadow: 0 1px 200px rgba(0, 0, 0, 0.1);s
+}
 
 /* PAGE GESTION ACTIVITES + PAGE GESTION HOTELS */
 .news-admin /* Bloc qui contient lien modifier, l'image, le titre, le contenu et le lien supprimer */

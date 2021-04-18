@@ -8,7 +8,7 @@ ob_start(); ?>
 			<h1>Nouvelle activite</h1>
 
 			<p class="btn_return_admin_page">
-				<a href="index.php?action=openAdmin">
+				<a href="index.php?action=openActivitiesAdmin">
 					<i class="fas fa-arrow-left"></i>Retour
 				</a>
 			</p>

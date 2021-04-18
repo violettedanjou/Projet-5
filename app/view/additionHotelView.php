@@ -8,7 +8,7 @@ ob_start(); ?>
             <h1>Nouvel hotel</h1>
 
             <p class="btn_return_admin_page">
-                <a href="index.php?action=openAdmin">
+                <a href="index.php?action=openHotelsAdmin">
                     <i class="fas fa-arrow-left"></i>Retour
                 </a>
             </p>

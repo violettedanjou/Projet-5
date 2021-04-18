@@ -5,7 +5,7 @@ ob_start(); ?>
 <h1>ADMINISTRATION</h1>
 
 <div class="container">
-	<div class="row admin">
+	<div class="row admin-home">
 		<div class="col">
 			<a href="index.php?action=openActivitiesAdmin">
 				<h2>GESTION DES ACTIVITES</h2>
@@ -16,7 +16,7 @@ ob_start(); ?>
 
 
 <div class="container">
-	<div class="row admin">
+	<div class="row admin-home">
 		<div class="col">
 			<a href="index.php?action=openHotelsAdmin">
 				<h2>GESTION DES HOTELS</h2>
@@ -27,7 +27,7 @@ ob_start(); ?>
 
 
 <div class="container">
-	<div class="row admin">
+	<div class="row admin-home">
 		<div class="col">
 			<a href="index.php?action=openReportsAdmin">
 				<h2>GESTION DES AVIS SIGNALES</h2>
