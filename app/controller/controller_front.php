@@ -219,14 +219,14 @@ class controller_front
 		$deleteActivityManager = new ActivitiesManager();
 	    $deleteActivity = $deleteActivityManager->deleteActivity($_GET['id']);
 
-		header('Location: index.php?action=openAdmin');
+		header('Location: index.php?action=openActivitiesAdmin');
 	}
 	function deleteHotel() // Supprimer un hotel 
 	{
 	    $deleteHotelManager = new HotelsManager();
 	    $deleteHotel = $deleteHotelManager->deleteHotel($_GET['id']);
 
-		header('Location: index.php?action=openAdmin');
+		header('Location: index.php?action=openHotelsAdmin');
 	}
 
 

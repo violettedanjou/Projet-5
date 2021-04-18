@@ -33,17 +33,22 @@ ob_start(); ?>
 			    	<a class="link-edit" href="index.php?action=openChangeHotel&amp;id=<?= $data['id'] ?>">Modifier</a>
 
 			    	<div class="news-img-text">
-			    		<img class="img-admin" src="<?= $data['picture'] ?>" alt="Hotel <?= $data['name'] ?>">
+			    		<div class="col-lg-6">
+			    			<img class="img-admin" src="<?= $data['picture'] ?>" alt="Hotel <?= $data['name'] ?>">
+			    		</div>
+			    		
+			    		<div class="col-lg-6">
+			    			<div class="news-text-admin">
+					    		<h3>
+						        	<a href="index.php?action=hotel&amp;id=<?= $data['id'] ?>">
+						            	<?= htmlspecialchars($data['name']) ?>
+						            </a>
+					        	</h3>
 
-				    	<div class="news-text-admin">
-				    		<h3>
-					        	<a href="index.php?action=hotel&amp;id=<?= $data['id'] ?>">
-					            	<?= htmlspecialchars($data['name']) ?>
-					            </a>
-				        	</h3>
-
-				       		<p><?= nl2br($data['content']) ?> <br/></p>
-				    	</div>
+					       		<p><?= nl2br($data['content']) ?> <br/></p>
+					    	</div>
+			    		</div>
+				    	
 			    	</div>
 			    	
 
