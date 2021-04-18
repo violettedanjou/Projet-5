@@ -74,7 +74,7 @@
                     </div>
 
                     <div>
-                        <h2>Liste complete des activites</h2>
+                        <h2 id="h2-home">LISTE COMPLETE DES ACTIVITES</h2>
                <?php    while ($data = $activities->fetch()) 
                             { ?>
                                 <div class="news">

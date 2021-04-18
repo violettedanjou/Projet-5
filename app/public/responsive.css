@@ -14,7 +14,14 @@ a
 {
 	font-size: 1em;
 }
+img
+{
+	width: auto;
+	height: 210px;
+	border-radius: 5px 5px 0px 0px;
+}
 
+/* Header */
 img#logo
 {
 	width: auto;
@@ -34,6 +41,7 @@ li
 	margin: 10px;
 }
 
+/* Accueil */
 #section-activities-hotels
 {
 	padding: 20px 20px ;
@@ -42,23 +50,44 @@ li
 {
 	margin: 0px;
 }
+#icon-weather
+{
+	width: auto;
+}
 .news
 {
 	margin: 0px;
 	margin-bottom: 10px;
+}
+.img-home
+{
+	width: 300px;
+	height: 200px;
 }
 ul.pagination
 {
 	flex-wrap: wrap;
 }
 
+/* Page activité selon son id */
+.news-img-text, #div-session-opinions
+{
+	flex-direction: column;
+}
 
-
-
-
-
-
-
+/* Page hotel selon son id */
+.img-hotel-view
+{
+	width: 320px;
+}
+.div-content-location
+{
+	flex-direction: column;
+}
+.span-hotel-content 
+{
+    width: 100%;
+}
 
 
 
