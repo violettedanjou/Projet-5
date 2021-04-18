@@ -28,21 +28,26 @@
                                 foreach($display as $dataWeather) {
                                 ?>
                                     <div class="news">
-                                        <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
-                                            <img class="img-home" src="<?= $dataWeather['picture'] ?>" alt="Photo de l'activite <?= $dataWeather['title'] ?>">
-                                        </a>
-
-                                        <div class="news-text">
-                                            <h3>
-                                                <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
-                                                    <?= htmlspecialchars($dataWeather['title']) ; ?>
-                                                    <br/>
-                                                </a>
-                                            </h3>
-                                            <p><?= nl2br($dataWeather['content']) ?></p>
-                                                           
-                                            <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">Avis</a></em>
+                                        <div class="col-lg-6">
+                                            <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
+                                                <img class="img-home" src="<?= $dataWeather['picture'] ?>" alt="Photo de l'activite <?= $dataWeather['title'] ?>">
+                                            </a>
                                         </div>
+                                        
+                                        <div class="col-lg-6">
+                                           <div class="news-text">
+                                                <h3>
+                                                    <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
+                                                        <?= htmlspecialchars($dataWeather['title']) ; ?>
+                                                        <br/>
+                                                    </a>
+                                                </h3>
+                                                <p><?= nl2br($dataWeather['content']) ?></p>
+                                                               
+                                                <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">Avis</a></em>
+                                            </div> 
+                                        </div>
+                                        
 
                                     </div> 
                                 <?php 
@@ -74,7 +79,7 @@
                     </div>
 
                     <div>
-                        <h2 id="h2-home">LISTE COMPLETE DES ACTIVITES</h2>
+                        <a href="index.php?action=listActivities"><h2 id="h2-home">LISTE COMPLETE DES ACTIVITES</h2></a>
                <?php    while ($data = $activities->fetch()) 
                             { ?>
                                 <div class="news">
@@ -97,7 +102,7 @@
                             $activities->closeCursor(); ?>
 
                             <div id="listActivities">
-                                <a href="index.php?action=listActivities">Acceder a la liste complete des activites<i class="fas fa-mouse-pointer"></i></a>
+                                <a class="link-list" href="index.php?action=listActivities">Acceder a la liste complete des activites<i class="fas fa-mouse-pointer"></i></a>
                             </div>
                     </div>
             </div>
@@ -133,7 +138,7 @@
                 $hotels->closeCursor(); ?> 
 
                 <div id="listHotels">
-                    <a href="index.php?action=listHotels">Acceder a la liste complete des hotels<i class="fas fa-mouse-pointer"></i></a>
+                    <a class="link-list" href="index.php?action=listHotels">Acceder a la liste complete des hotels<i class="fas fa-mouse-pointer"></i></a>
                 </div>              
             </div>
         </div>

@@ -30,24 +30,36 @@ ob_start(); ?>
 			{
 			?>
 			    <div class="news-admin">
-			    	<a class="link-edit" href="index.php?action=openChangeActivity&amp;id=<?= $data['id'] ?>">Modifier</a>
+			    	<div>
+			    		<a class="link-edit" href="index.php?action=openChangeActivity&amp;id=<?= $data['id'] ?>">Modifier</a>
+			    	</div>
+			    	
+			    	<div>
+			    		<div class="news-img-text">
+			    			<div class="col-lg-6">
+			    				<img class="img-admin" src="<?= $data['picture'] ?>" alt="Photo de l'activite <?= $data['title'] ?>">
+			    			</div>
+				    		
+			    			<div class="col-lg-6">
+			    				<div class="news-text-admin">
+						    		<h3>
+							        	<a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
+							            	<?= htmlspecialchars($data['title']) ?>
+							            </a>
+						        	</h3>
 
-			    	<div class="news-img-text">
-			    		<img src="<?= $data['picture'] ?>" alt="Photo de l'activite <?= $data['title'] ?>">
-
-				    	<div class="news-text-admin">
-				    		<h3>
-					        	<a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
-					            	<?= htmlspecialchars($data['title']) ?>
-					            </a>
-				        	</h3>
-
-				       		<p><?= nl2br($data['content']) ?> <br/></p>
+						       		<p><?= nl2br($data['content']) ?> <br/></p>
+						    	</div>
+			    			</div>
+					    	
 				    	</div>
 			    	</div>
 			    	
+			    	<div>
+			    		<a class="link-delete" href="index.php?action=validDeleteActivity&amp;id=<?= $data['id'] ?>">Supprimer</a>
+			    	</div>
 
-			    	<a class="link-delete" href="index.php?action=validDeleteActivity&amp;id=<?= $data['id'] ?>">Supprimer</a>
+			    	
 		    	</div>
 			<?php 
 			} 

@@ -33,7 +33,7 @@ ob_start(); ?>
 			    	<a class="link-edit" href="index.php?action=openChangeHotel&amp;id=<?= $data['id'] ?>">Modifier</a>
 
 			    	<div class="news-img-text">
-			    		<img src="<?= $data['picture'] ?>" alt="Hotel <?= $data['name'] ?>">
+			    		<img class="img-admin" src="<?= $data['picture'] ?>" alt="Hotel <?= $data['name'] ?>">
 
 				    	<div class="news-text-admin">
 				    		<h3>

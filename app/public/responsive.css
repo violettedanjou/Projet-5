@@ -4,6 +4,7 @@ body
 }
 h1
 {
+	font-size: 1.7em;
 	margin: 10px 0px 10px 0px;
 }
 h2
@@ -16,9 +17,13 @@ a
 }
 img
 {
-	width: auto;
+	width: 342px;
 	height: 210px;
 	border-radius: 5px 5px 0px 0px;
+}
+footer
+{
+	margin-top: 7px;
 }
 
 /* Header */
@@ -39,6 +44,20 @@ img#logo
 li
 {
 	margin: 10px;
+}
+#banner1
+{
+	height: 100px;
+}
+
+/* Se connecter et s'inscrire */
+.row.signup-form
+{
+	margin: 80px 20px 50px 20px;
+}
+.row.form-connexion
+{
+	margin: 140px 20px 0px 20px;
 }
 
 /* Accueil */
@@ -70,6 +89,10 @@ ul.pagination
 }
 
 /* Page activité selon son id */
+.news-list
+{
+	margin: 20px;
+}
 .news-img-text, #div-session-opinions
 {
 	flex-direction: column;
@@ -89,9 +112,27 @@ ul.pagination
     width: 100%;
 }
 
+/* Administration */
+.row.admin
+{
+	margin: 20px;
+	padding: 20px 0px 0px 0px;
+}
+#h1-usefuls
+{
+	margin-top: 50px;
+}
 
-
-
+/* Liste des activités et hotels */
+.news-admin
+{
+	flex-direction: column;
+}
+.img-admin
+{
+	width: 230px;
+	height: 150px;
+}
 
 
 

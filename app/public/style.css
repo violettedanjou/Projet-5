@@ -253,7 +253,6 @@ a.a-session:hover
 {
 	width: 330px;
 	height: 250px;
-	/*margin: 0px 30px 0px 0px;*/
 	border-radius: 0px;
 	text-align: center;
 }
@@ -273,7 +272,11 @@ a.a-session:hover
 }
 #listActivities, #listHotels
 {
-	margin: 10px;
+	margin: 20px;
+}
+.link-list
+{
+	color: #77411f;
 }
 .fa-mouse-pointer
 {
@@ -288,6 +291,16 @@ a.a-session:hover
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+}
+.news-list
+{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: 20px;
+	padding: 10px;
+	border: 1px solid transparent;
+	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
 }
 .form-session-opinions
 {
@@ -482,15 +495,26 @@ input[type='image'] /* PROVISOIRE */
 .news-admin /* Bloc qui contient lien modifier, l'image, le titre, le contenu et le lien supprimer */
 {
 	display: flex;
+	flex-wrap: wrap;
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
 	margin-bottom: 15px;
+	padding: 5px;
+	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
+}
+.img-admin
+{
+	width: 330px;
+	height: 250px;
+	margin: 0px;
+	border-radius: 0px;
 }
 .news-img-text /* Bloc qui contient l'image, le titre et le contenu */
 {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	margin: 20px;
 	border: 1px solid transparent;
 	border-radius: 5px;

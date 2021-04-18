@@ -24,7 +24,7 @@ ob_start(); ?>
 				<?php
        		    while ($data = $listActivities->fetch()) 
                 { ?>
-                    <div class="news">
+                    <div class="news-list">
                     	<div class="col-lg-6">
                     		<a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
 	                            <img class="img-home" src="<?= $data['picture'] ?>" alt="Photo de l'activite <?= $data['title'] ?>">
