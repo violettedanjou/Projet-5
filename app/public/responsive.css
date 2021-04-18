@@ -139,7 +139,7 @@ ul.pagination
 }
 
 /* Page d'ajout */
-.title-add
+.title-add, .title-change
 {
 	width: 300px;
 }
