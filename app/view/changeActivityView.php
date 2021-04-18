@@ -31,7 +31,7 @@ ob_start(); ?>
                     <h2>Modifier l'activite</h2>
                     <input type="hidden" name="id" value="<?= $changeActivity['id']?>">
                     <h6>Titre</h6>
-                    <input id="title-change" type="text" name="title" value="<?= $changeActivity['title']?>"/><br/>
+                    <input class="title-change" type="text" name="title" value="<?= $changeActivity['title']?>"/><br/>
                     <h6>Description de l'activité</h6>
                     <textarea id="content-change" name="content"><?= $changeActivity['content']?></textarea><br/>
                     <input type="submit" value="Enregistrer" id="button-change-activity" />

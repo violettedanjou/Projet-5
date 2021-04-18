@@ -637,12 +637,13 @@ input[type='image'] /* PROVISOIRE */
 	border-radius: 30px;
 	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
 }
-#title-add-new-activity /* Titre du formulaire */
+.title-add /* Titre du formulaire pour activité / Titre du formulaire pour hotel */
 {
 	display: flex;
 	justify-content: flex-start;
 	width: 400px;
     height: auto;
+    margin-top: 10px;
 }
 #button-add-activity, #button-add-picture /* Lien de validation pour ajouter l'activité / Lien de validation pour ajouter l'image */
 {
@@ -677,7 +678,7 @@ input[type='image'] /* PROVISOIRE */
 	border-radius: 30px;
 	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
 }
-#title-change /* Titre du formulaire */
+.title-change /* Titre du formulaire */
 {
 	display: flex;
 	justify-content: flex-start;

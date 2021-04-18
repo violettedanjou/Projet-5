@@ -17,15 +17,15 @@ ob_start(); ?>
                 <form action="index.php?action=validNewHotel" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id">
                     <h6>Nom de l'hotel</h6>
-                    <input id="title-change" type="text" name="name"/><br/>
+                    <input class="title-add" type="text" name="name"/><br/>
                     <h6>Description des l'hotel</h6>
-                    <textarea id="content-change" name="content"></textarea><br/>
+                    <textarea name="content"></textarea><br/>
                     <h6>Localisation</h6>
-                    <textarea id="location-change" name="location"></textarea><br/>
+                    <textarea name="location"></textarea><br/>
                     <h6>Description des chambres</h6>
-                    <textarea id="rooms-change" name="rooms"></textarea><br/>
+                    <textarea name="rooms"></textarea><br/>
                     <h6>Prix des chambres</h6>
-                    <textarea id="prices-change" name="prices"></textarea><br/>
+                    <textarea name="prices"></textarea><br/>
 
                     <h6>Services de l'hotel</h6>
                     <label>Piscine</label><input type="checkbox" name="services[]" value="1"><br/>

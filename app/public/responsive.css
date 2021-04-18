@@ -139,7 +139,7 @@ ul.pagination
 }
 
 /* Page d'ajout */
-#title-add-new-activity
+.title-add
 {
 	width: 300px;
 }

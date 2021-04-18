@@ -15,7 +15,7 @@ ob_start(); ?>
 
 			<div id="form-add-activity">
 				<form action="index.php?action=validNewActivity" method="POST" enctype="multipart/form-data"> <!-- Grace à enctype, le navigateur sait qu'il va envoyer un fichier -->
-			      	<input type="text" name="title" placeholder="Titre de l'activité" id="title-add-new-activity" /><br/>
+			      	<input type="text" name="title" placeholder="Titre de l'activité" class="title-add" /><br/>
 			      	<textarea name="content" placeholder="Contenu..." id="content-add-new-activity"></textarea><br/>
 			     	<input type="file" name="pictureActivity" /><br/>
 			     	<input type="radio" name="weather" value="1" id="1"><label for="1">Bonne météo (soleil ou nuages)</label><br/>
