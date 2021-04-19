@@ -14,7 +14,7 @@ ob_start(); ?>
 					?> 
 					<br/>
 					<a href="index.php" class="btn_return_index">
-						<i class="fas fa-arrow-left"></i>Retour
+						<i class="fas fa-arrow-left"></i>Retour accueil
 					</a>
 				</div>
 			</div>

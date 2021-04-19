@@ -196,7 +196,7 @@ try {
 // PAGE PROFILE        
         // Afficher la page profile 
         if ($_GET['action'] == 'openProfile') {
-        	if (isset($_SESSION['id']) && isset($_SESSION['pseudo'] /*&& $_SESSION['picture']*/)) {
+        	if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
         		$openProfileMember = new controller_front();
 				$openProfileMember->openProfile();
         	}
@@ -230,14 +230,13 @@ try {
 						}
 				    }
 				}
+				else {
+					throw new Exception("Pas de nouvelle photo sélectionnée.", 1);
+					
+				}
         	}
         }
-        /*if ($_GET['action'] == 'openImg') {
-        	if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
-	        	$openImg = new controller_front();
-	        	$openImg->openImg();
-	        }
-        }*/
+
 
 
 
