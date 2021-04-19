@@ -112,6 +112,21 @@ ul.pagination
     width: 100%;
 }
 
+/* Page profile */
+form#form-profile
+{
+	align-items: center;
+}
+#img-profile
+{
+	width: 200px;
+}
+#button_profile_picture
+{
+	width: 200px;
+}
+
+
 /* ADMINISTRATION */
 .row.admin
 {

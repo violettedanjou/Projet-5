@@ -200,6 +200,10 @@ try {
         		$openProfileMember = new controller_front();
 				$openProfileMember->openProfile();
         	}
+        	else {
+        		throw new Exception("Veuillez vous connecter.", 1);
+        		
+        	}
         }
         elseif ($_GET['action'] == 'validProfile') {
         	if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {

@@ -442,8 +442,7 @@ a.a-session:hover
 }
 .row.profile-form
 {
-    margin-top: 30px;
-    margin-bottom: 75px;
+    margin: 50px 10px 75px 10px;
     padding: 20px;
     border-radius: 60px;
 	border: 1px solid transparent;
@@ -454,6 +453,7 @@ a.a-session:hover
 {
 	display: flex;
 	justify-content: space-around;
+	flex-wrap: wrap;
 	align-items: center;
 }
 form#form-profile
@@ -465,7 +465,7 @@ form#form-profile
 {
 	width: 300px;
 	height: auto;
-	margin: 0px;
+	margin: 10px 10px 20px 10px;
 	border-radius: 0px;
 }
 #div-profile

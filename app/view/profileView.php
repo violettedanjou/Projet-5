@@ -8,6 +8,8 @@
 			<div class="col">
 				<h2>PROFILE</h2>
 					<div id="block-profile">
+						<p><span id="span-profile">NOM : </span><?= $_SESSION['pseudo']?></p>
+
 						<?php $profile = $profileManager->fetch() ?>
 							<img id="img-profile" src="<?= $profile['picture']?>" alt="Image de profile">
 						
@@ -15,8 +17,6 @@
 							<input type="file" name="pictureProfile">
 							<input type="submit" name="profile" value="Modifier" id="button_profile_picture">
 						</form>
-
-						<p><span id="span-profile">NOM : </span><?= $_SESSION['pseudo']?></p>
 					</div>
 				</div>
 			</div>
