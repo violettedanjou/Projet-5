@@ -461,12 +461,12 @@ form#form-profile
 	display: flex;
 	flex-direction: column;
 }
-input[type='image'] /* PROVISOIRE */
+#img-profile
 {
-    width: 300px;
-    height: 350px;
-    border: 1px solid #000000;
-	border-radius: 50%;
+	width: 300px;
+	height: auto;
+	margin: 0px;
+	border-radius: 0px;
 }
 #div-profile
 {
