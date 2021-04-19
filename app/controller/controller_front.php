@@ -143,11 +143,8 @@ class controller_front
 	}	
 	function openProfile()
 	{
-		//if (isset($_SESSION['id']) && isset($_SESSION['pseudo']) && isset($_SESSION['picture'])) {
-			$imgProfileManager = new MemberManager();
-			$profileManager = $imgProfileManager->openImg($_SESSION['id']);
-		//}
-		
+		$imgProfileManager = new MemberManager();
+		$profileManager = $imgProfileManager->openImg($_SESSION['id']);
 
 		require('app/view/profileView.php');
 	}
@@ -207,9 +204,6 @@ class controller_front
 
 	function openChangeHotel() // Récupération d'un hotel pour le modifier
 	{
-		/*$hotelManager = new HotelsManager();
-	    $hotel = $hotelManager->getHotel($_GET['id']);*/
-
 		$changeManager = new HotelsManager();
 	    $change = $changeManager->changeHotel($_GET['id']);
 

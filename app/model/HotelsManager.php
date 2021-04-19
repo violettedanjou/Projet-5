@@ -205,6 +205,16 @@ class HotelsManager extends Manager
 
         return $req;
     }
+    public function changeImgHotel($id, $picture)
+    {
+    	$db = $this->dbConnect();
+        $req = $db->prepare('UPDATE hotels SET picture = :picture WHERE id = :id');
+        $changePicture = $req->execute(array(
+        	'picture' => $picture, 
+        	'id' => $id));
+
+        return $changePicture;    	
+    }
     public function changeServices($id, $services) // Modifier les services d'un nouvel hotel
     {
         $db = $this->dbConnect();

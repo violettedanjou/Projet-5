@@ -14,11 +14,8 @@ try {
 	        $formSignupMember = new controller_front();
 			$formSignupMember->openSignup();
 	    }
-	    else {
-	    	throw new Exception("Problème avec l'affichage du formulaire.", 1);
-	    }
 		// on traite le formulaire
-	    if ($_GET['action'] == 'validSignup') {  
+	    elseif ($_GET['action'] == 'validSignup') {  
 	        if ((isset($_POST['pseudo']) AND (strlen($_POST['pseudo']) != 0))) {
 
 	            if ((isset($_POST['pass']) == isset($_POST['pass_confirm']))) {
@@ -46,18 +43,13 @@ try {
 	            throw new Exception("Veuillez saisir un pseudo. "); 
 	        }
 	    }
-	    else {
-	    	throw new Exception("Problème avec le formulaire d'inscription.", 1);
-	    }
+
 
 // PAGE CONNEXION
 	    // Page qui affiche le formulaire de connexion
 	    if ($_GET['action'] == 'openSignin') {
 	        $formSigninMember = new controller_front();
 			$formSigninMember->openSignin();
-	    }
-	    else {
-	    	throw new Exception("Problème avec l'affichage du formulaire de connexion.", 1);
 	    }
 	    // Valider le formulaire de connexion
 	    if ($_GET['action'] == 'validSignin') {
@@ -69,19 +61,12 @@ try {
 	        else {
 	            throw new Exception("Veuillez entrer votre pseudo.", 1);
 	        }   
-	    }
-	    else {
-	    	throw new Exception("Problème avec la validation du formualire de connexion.", 1);
-	    }	    
+	    }    
 
 // PAGE DECONNEXION 
 	    if ($_GET['action'] == 'validSignout') {
 	        $signoutMember = new controller_back();
 			$signoutMember->signout();    
-	    }
-	    else {
-	    	throw new Exception("Problème de déconnexion.", 1);
-	    	
 	    }
 
 // PAGE D'ACCUEIL
@@ -96,9 +81,6 @@ try {
 			$listActivitiesHotels = new controller_front();
 			$listActivitiesHotels->listActivitiesHotels($currentPageWeather);	
         }
-        else {
-        	throw new Exception("Problèmes avec l'affichage des activités et des hôtels.", 1);
-        }
         // Afficher liste complète des activités 
         if ($_GET['action'] == 'listActivities') {
         	if(isset($_GET['page']) && !empty($_GET['page']) AND $_GET['page'] > 0) {		
@@ -109,9 +91,6 @@ try {
 			}
         	$listActivities = new controller_front();
 			$listActivities->listActivities($currentPageActivities);
-        }
-        else {
-        	throw new Exception("Problème avec l'affichage de la liste des activités.", 1);
         }
         //Afficher liste complète des hotels
         if ($_GET['action'] == 'listHotels') {
@@ -124,9 +103,6 @@ try {
         	$listHotels = new controller_front();
 			$listHotels->listHotels($currentPageHotels);
         }
-        else {
-        	throw new Exception("Problème avec l'affichage de la liste des hôtels.", 1);
-        }
 
         // Afficher une activité et ses avis
         if ($_GET['action'] == 'activity') { 
@@ -138,9 +114,7 @@ try {
                 throw new Exception("Aucun identifiant de l'activité envoyé", 1);   
             }
         }
-        else {
-        	throw new Exception("Problème avec l'affichage de l'activité demandée.", 1);
-        }
+
         // Afficher un hotel et ses avis
         if ($_GET['action'] == 'hotel') { 
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -150,9 +124,6 @@ try {
             else {
                 throw new Exception("Aucun identifiant de l'activité envoyé", 1);   
             }
-        }
-        else {
-        	throw new Exception("Problème avec l'affichage de l'hôtel demandé.", 1);
         }
 
 // Ajouter un avis à une activité addHotelOpinion
@@ -175,9 +146,6 @@ try {
                 throw new Exception("Aucun identifiant d'activité envoyé");
             }
         }
-        else {
-        	throw new Exception("Problème avec l'ajout de l'avis.", 1);
-        }
 // Ajouter un avis à un hotel 
         if ($_GET['action'] == 'addHotelOpinion') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -197,26 +165,17 @@ try {
             else {
                 throw new Exception("Aucun identifiant d'hotel envoyé");
             }
-        }
-        else {
-        	throw new Exception("Problème avec l'ajout de l'avis.", 1);
-        }    
+        } 
 
 // Signaler un avis d'une activité
         if ($_GET['action'] == 'validReportActivity') { 
             $reportOpinion = new controller_back();
 			$reportOpinion->reportActivity();
         } 
-        else {
-        	throw new Exception("Problème avec le signalement.", 1);
-        }
 // Lien avis utile d'une activité
-        elseif ($_GET['action'] == 'validUsefulActivity') {
+        if ($_GET['action'] == 'validUsefulActivity') {
         	$usefulOpinion = new controller_back();
 			$usefulOpinion->usefulActivity();
-        }
-        else {
-        	throw new Exception("Problème avec l'avis utile.", 1);
         }
 
 // Signaler un avis d'un hotel 
@@ -224,16 +183,10 @@ try {
             $reportOpinion = new controller_back();
 			$reportOpinion->reportHotel();
         }
-        else {
-        	throw new Exception("Problème avec le signalement.", 1);
-        }
 // Lien avis utile d'un hotel
         if ($_GET['action'] == 'validUsefulHotel') {
         	$usefulOpinion = new controller_back();
 			$usefulOpinion->usefulHotel();
-        }
-        else {
-        	throw new Exception("Problème avec l'avis utile.", 1);
         }
 
 // PAGE PROFILE        
@@ -246,9 +199,6 @@ try {
         	else {
         		throw new Exception("Veuillez vous connecter.", 1);
         	}
-        }
-        else {
-        	throw new Exception("Problème d'affichage de la page profil.", 1);
         }
         if ($_GET['action'] == 'validProfile') {
         	if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
@@ -286,9 +236,6 @@ try {
         		throw new Exception("Veuillez vous connecter pour accéder à cette page.", 1);
         	}
         } 
-        else {
-        	throw new Exception("Problème avec le formulaire d'envoie de fichier.", 1);
-        }
 
 
 
@@ -306,9 +253,6 @@ try {
                 throw new Exception("Cette partie est réservée à l'administrateur", 1);
             } 
         }
-        else {
-        	throw new Exception("Problème d'affichage pour l'accueil de l'administration.", 1);
-        }
 
 
 
@@ -324,10 +268,7 @@ try {
 		    else {
 		    	throw new Exception("Cette partie est réservée à l'administrateur", 1);
 		    }
-		} 
-		else {
-			throw new Exception("Problème d'affichage de la liste des activités.", 1);
-		}   											
+		} 											
 // Afficher le formulaire d'ajout d'une nouvelle activité
         if ($_GET['action'] == 'openNewActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
@@ -337,10 +278,7 @@ try {
             else {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
-        }
-        else {
-        	throw new Exception("Problème d'affichage du formulaire d'ajout d'une activité.", 1);
-        }    
+        }  
 // Valider le formulaire d'ajout d'une nouvelle activité
         if ($_GET['action'] == 'validNewActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
@@ -384,9 +322,6 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);    
             }      
         } 
-        else {
-        	throw new Exception("Problème avec la validation du formulaire d'ajout d'une activité.", 1);
-        }
 
 // Afficher formulaire de modification d'une activité 
         if ($_GET['action'] == 'openChangeActivity') {
@@ -403,9 +338,6 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         } 
-        else {
-        	throw new Exception("Problème d'affichage du formulaire de modification d'une activité.", 1);
-        }
 // Valider le formulaire de modification d'une activité
         if ($_GET['action'] == 'validChangeActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
@@ -421,9 +353,6 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         } 
-        else {
-        	throw new Exception("Problème de validation avec le formulaire de modification d'une activité.", 1);
-        }
 // Modifier une image d'activité        
         if ($_GET['action'] == 'changeImgActivity') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
@@ -457,9 +386,6 @@ try {
 				throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
 			}
 		} 
-		else {
-			throw new Exception("Problème avec le formulaire de modification d'activité.", 1);
-		}
 // Modifier la météo recommandée
 		if ($_GET['action'] == 'updateWeather') {
 			if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
@@ -475,9 +401,6 @@ try {
 				throw new Exception("Page réservée à l'administrateur.", 1);
 			}
 		} 
-		else {
-			throw new Exception("Problème avec la modification de la météo.", 1);
-		}
 		
 // Supprimer une activité 
         if ($_GET['action'] == 'validDeleteActivity') {
@@ -494,9 +417,6 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }   
         } 
-        else {
-        	throw new Exception("Problème avec la suppression d'activité.", 1);
-        }
 
 
 																					/* HOTELS */
@@ -509,10 +429,7 @@ try {
 		    else {
 		    	throw new Exception("Cette partie est réservée à l'administrateur", 1);
 		    }
-		} 
-		else {
-			throw new Exception("Problème d'affichage de la liste des hôtels.", 1);
-		}																				       											
+		} 																		       											
 // Afficher le formulaire d'ajout d'un nouvel hotel
         if ($_GET['action'] == 'openNewHotel') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
@@ -523,9 +440,6 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         } 
-        else {
-        	throw new Exception("Problème d'affichage du formulaire d'ajout d'un hôtel.", 1);
-        }
 // Valider le formulaire d'ajout d'un nouvel hotel 
         if ($_GET['action'] == 'validNewHotel') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
@@ -572,9 +486,6 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);    
             }      
         } 
-        else {
-        	throw new Exception("Problème avec la validation du formulaire d'un nouvel d'hôtel.", 1);
-        }
 // Afficher formulaire de modification d'un hotel 
         if ($_GET['action'] == 'openChangeHotel') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
@@ -590,9 +501,6 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         } 
-        else {
-        	throw new Exception("Problème d'affichage du formulaire de modification d'un hôtel.", 1);
-        }
 // Valider le formulaire de modification d'un hotel
         if ($_GET['action'] == 'validChangeHotel') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
@@ -607,9 +515,6 @@ try {
             else {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
-        }
-        else {
-        	throw new Exception("Problème de validation du formulaire de modification d'un hôtel.", 1);
         }
 // Modifier l'image d'un hotel        
         if ($_GET['action'] == 'changeImgHotel') {
@@ -644,9 +549,6 @@ try {
 				throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
 			}
 		} 
-		else {
-			throw new Exception("Problème avec le formulaire de modification d'activité.", 1);
-		}
 // Modifier les services d'un hotel 
         if ($_GET['action'] == 'changeServicesHotel') {
         	$services = isset($_POST['services']);
@@ -659,13 +561,10 @@ try {
 			$changeServices = new controller_back();
 			$changeServices->changeServices($_GET['id'], $services);
         }
-        else {
-        	throw new Exception("Problème avec la modification des services.", 1);
-        }
 
 
 // Supprimer un hotel
-        elseif ($_GET['action'] == 'validDeleteHotel') {
+        if ($_GET['action'] == 'validDeleteHotel') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
                if (isset($_GET['id']) && $_GET['id'] > 0) { 
 	                $delete = new controller_front();
@@ -678,10 +577,7 @@ try {
             else {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }   
-        }
-        else {
-        	throw new Exception("Problème avec la suppression de l'hôtel.", 1);
-        }     
+        }  
 
 // Afficher page de la liste des avis signalés
 		if ($_GET['action'] == 'openReportsAdmin') {
@@ -693,9 +589,6 @@ try {
 		    	throw new Exception("Cette partie est réservée à l'administrateur", 1);
 		    }
 		} 
-		else {
-			throw new Exception("Problème avec l'affichage de la liste des avis signalés.", 1);
-		}
 // Retirer le signalement d'un avis
         if ($_GET['action'] == 'deleteReport') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
@@ -711,9 +604,7 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         } 
-        else {
-        	throw new Exception("Problème pour retirer le signalement.", 1);
-        }
+
 // Supprimer un avis signalé
         if ($_GET['action'] == 'deleteOpinion') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
@@ -729,9 +620,6 @@ try {
                 throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
             } 
         } 
-        else {
-        	throw new Exception("Problème avec la suppression de l'avis.", 1);
-        }   
 	}
 	else {
 		if(isset($_GET['page']) && !empty($_GET['page']) AND $_GET['page'] > 0) {		
