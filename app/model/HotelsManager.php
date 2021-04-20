@@ -185,7 +185,7 @@ class HotelsManager extends Manager
     public function changeHotel($id) // Récupération d'un hotel pour le modifier
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT id, name, content, location, rooms, prices, swimming_pool, beach_access, car_park, free_wifi, restaurant, family_rooms, television, airport_shuttle, air_conditioner, no_smokers, animals, strongbox, mini_bar, luggage, elevator, sauna, picture FROM hotels WHERE id = ?');
+        $req = $db->prepare('SELECT id, name, content, location, rooms, prices, picture, swimming_pool, beach_access, car_park, free_wifi, restaurant, family_rooms, television, airport_shuttle, air_conditioner, no_smokers, animals, strongbox, mini_bar, luggage, elevator, sauna FROM hotels WHERE id = ?');
         $req->execute(array($id));
         $changeHotel = $req->fetch();
 
