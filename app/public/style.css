@@ -438,7 +438,8 @@ a.a-session:hover
 	background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
 		url('http://localhost:8888/projet-5/app/public/pictures/baie-dupi.jpg');
 	background-size: cover;
-	background-repeat: no-repeat;	
+	background-repeat: no-repeat;
+	height: 100%;	
 }
 .row.profile-form
 {
@@ -725,7 +726,8 @@ footer p
 .row.error
 {
 	margin-top: 50px;
-	padding: 10%;
+	padding-top: 100px;
+	padding-bottom: 100px;
 	border: 1px solid transparent;
 	border-radius: 30px;
 	background-color: #ffffff;

@@ -169,10 +169,11 @@ form#form-profile
 	flex-direction: column;
 }
 
-
-
-
-
+/* Page erreur */
+.row.error
+{
+	margin: 60px 10px 50px 10px;
+}
 
 
 
