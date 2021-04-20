@@ -15,6 +15,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> <!-- Bootstrap -->
 
+	<meta name="viewport" content="width=device-width"> <!-- Meta tags -->
+	<meta name="author" content="Violette Danjou">
+	<meta name="subject" content="Office de Tourisme (fictif) - Nouvelle Calédonie">
+	<meta name="description" content="Retrouvez toutes les activités et les hôtels de la Nouvelle-Calédonie. Vivez une aventure exceptionnelle au coeur du Pacifique.">
+
 	<link href="app/public/style.css" rel="stylesheet"/> <!-- CSS -->
 
 	<link rel="stylesheet" type="text/css" media="all and (max-width: 576px)" href="app/public/responsive.css"> <!-- Responsive pour smartphone-->
@@ -58,7 +63,7 @@
 	<footer>
     	<p> Copyright © Violette Danjou - 2021. Tous droits réservés</p>
     </footer>
-    
+
     <script>tinymce.init({selector:'textarea'});</script>
 </body>
 </html>
