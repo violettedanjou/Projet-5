@@ -57,7 +57,7 @@ ob_start(); ?>
             <div class="form-change-img">
                 <h2>Modifier l'image de l'hôtel</h2>
                 <?php $imgHotel = $change; ?>
-                            <img id="img-profile" src="<?= $imgHotel['picture']?>" alt="Image de profile">
+                    <img id="img-profile" src="<?= $imgHotel['picture']?>" alt="Image de profile">
                 <form action="index.php?action=changeImgHotel&amp;id=<?= $_GET['id'] ?>" method="POST" enctype="multipart/form-data">
                     <input type="file" name="changeImgHotel" /><br/>
                     <input type="submit" value="Enregistrer l'image" id="button-change-activity" />

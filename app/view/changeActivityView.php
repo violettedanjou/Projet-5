@@ -39,7 +39,9 @@ ob_start(); ?>
             </div>
 
             <div class="form-change-img">
-                <h2>Modifier l'image</h2>
+                <h2>Modifier l'image de l'activite</h2>
+                    <?php $imgActivity = $changeActivity; ?>
+                        <img id="img-profile" src="<?= $imgActivity['picture']?>" alt="Image de profile">
                     <form action="index.php?action=changeImgActivity&amp;id=<?= $_GET['id'] ?>" method="POST" enctype="multipart/form-data">
                       <input type="file" name="changeImgActivity" /><br/>
                       <input type="submit" value="Enregistrer l'image" id="button-change-activity" />
