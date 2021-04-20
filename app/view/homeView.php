@@ -83,17 +83,22 @@
                <?php    while ($data = $activities->fetch()) 
                             { ?>
                                 <div class="news">
-                                    <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
-                                        <img class="img-home" src="<?= $data['picture'] ?>" alt="Photo de l'activite <?= $data['title'] ?>">
-                                    </a>
-                                    <div class="news-text">
-                                        <h3>
-                                            <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
-                                                <?= htmlspecialchars($data['title']) ; ?>
-                                                <br/>
-                                            </a>
-                                        </h3>
-                                        <p><?= nl2br($data['content']) ?></p>
+                                    <div class="col-lg-6">
+                                       <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
+                                            <img class="img-home" src="<?= $data['picture'] ?>" alt="Photo de l'activite <?= $data['title'] ?>">
+                                        </a> 
+                                    </div>
+                                    
+                                    <div class="col-lg-6">
+                                        <div class="news-text">
+                                            <h3>
+                                                <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
+                                                    <?= htmlspecialchars($data['title']) ; ?>
+                                                    <br/>
+                                                </a>
+                                            </h3>
+                                            <p><?= nl2br($data['content']) ?></p>
+                                    </div>
                                            
                                         <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">Avis</a></em>
                                     </div>
@@ -118,17 +123,22 @@
                 {
                 ?>
                     <div class="news">
-                        <a href="index.php?action=hotel&amp;id=<?= $dataHotel['id'] ?>">
-                            <img class="img-home" src="<?= $dataHotel['picture'] ?>" alt="Photo de l'hotel <?= $dataHotel['name'] ?>">
-                        </a>
-                        <div class="news-text">
-                            <h3>
-                                <a href="index.php?action=hotel&amp;id=<?= $dataHotel['id'] ?>">
-                                    <?= htmlspecialchars($dataHotel['name']) ?>
-                                    <br/>
-                                </a>
-                            </h3>
-                            <p><?= nl2br(($dataHotel['content'])) ?></p>
+                        <div class="col-lg-6">
+                            <a href="index.php?action=hotel&amp;id=<?= $dataHotel['id'] ?>">
+                                <img class="img-home" src="<?= $dataHotel['picture'] ?>" alt="Photo de l'hotel <?= $dataHotel['name'] ?>">
+                            </a>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="news-text">
+                                <h3>
+                                    <a href="index.php?action=hotel&amp;id=<?= $dataHotel['id'] ?>">
+                                        <?= htmlspecialchars($dataHotel['name']) ?>
+                                        <br/>
+                                    </a>
+                                </h3>
+                                <p><?= nl2br(($dataHotel['content'])) ?></p>
+                        </div>
                                
                             <em class="link-opinions"><a href="index.php?action=hotel&amp;id=<?= $dataHotel['id'] ?>">Avis</a></em>
                         </div>

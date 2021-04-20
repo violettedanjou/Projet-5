@@ -25,19 +25,24 @@ ob_start(); ?>
        		    while ($data = $listHotels->fetch()) 
                 { ?>
                     <div class="news">
-                        <a href="index.php?action=hotel&amp;id=<?= $data['id'] ?>">
-                            <img class="img-home" src="<?= $data['picture'] ?>" alt="Photo de l'hotel <?= $data['name'] ?>">
-                        </a>
-                        <div class="news-text">
-                            <h3>
-                                <a href="index.php?action=hotel&amp;id=<?= $data['id'] ?>">
-                                    <?= htmlspecialchars($data['name']) ?>
-                                    <br/>
-                                </a>
-                            </h3>
-                            <p><?= nl2br(($data['content'])) ?></p>
-                               
-                            <em class="link-opinions"><a href="index.php?action=hotel&amp;id=<?= $data['id'] ?>">Avis</a></em>
+                        <div class="col-lg-6">
+                            <a href="index.php?action=hotel&amp;id=<?= $data['id'] ?>">
+                                <img class="img-home" src="<?= $data['picture'] ?>" alt="Photo de l'hotel <?= $data['name'] ?>">
+                            </a>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="news-text">
+                                <h3>
+                                    <a href="index.php?action=hotel&amp;id=<?= $data['id'] ?>">
+                                        <?= htmlspecialchars($data['name']) ?>
+                                        <br/>
+                                    </a>
+                                </h3>
+                                <p><?= nl2br(($data['content'])) ?></p>
+                                   
+                                <em class="link-opinions"><a href="index.php?action=hotel&amp;id=<?= $data['id'] ?>">Avis</a></em>
+                            </div>
                         </div>
                     </div>
                 <?php

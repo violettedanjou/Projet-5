@@ -58,7 +58,7 @@ img
 	width: 300px;
 	height: auto;
 	margin: 0px;
-	border-radius: 5px 0px 0px 5px;
+	border-radius: 0px;
 }
 nav
 {
@@ -253,7 +253,6 @@ a.a-session:hover
 {
 	width: 330px;
 	height: 250px;
-	border-radius: 0px;
 	text-align: center;
 }
 .news-text
@@ -383,7 +382,6 @@ a.a-session:hover
 .img-hotel-view
 {
 	margin-bottom: 10px;
-	border-radius: 0px;
 }
 .news-hotels
 {
@@ -464,10 +462,7 @@ form#form-profile
 }
 #img-profile
 {
-	width: 300px;
-	height: auto;
 	margin: 10px 10px 20px 10px;
-	border-radius: 0px;
 }
 #div-profile
 {
@@ -517,11 +512,11 @@ form#form-profile
 	width: 330px;
 	height: 250px;
 	margin: 0px;
-	border-radius: 0px;
 }
 .news-img-text /* Bloc qui contient l'image, le titre et le contenu */
 {
 	display: flex;
+	justify-content: center;
 	flex-direction: row;
 	flex-wrap: wrap;
 	margin: 20px;
