@@ -168,7 +168,7 @@ class controller_back
 		$imgHotelManager = new HotelsManager();
 		$imgManager = $imgHotelManager->changeImgHotel($id, $destinationFile);
 
-		header('Location: index.php?action=openActivitiesAdmin');
+		header('Location: index.php?action=openHotelsAdmin');
 	}
 	function changeServices($id, $services) // Modifier les services d'un hôtel
 	{
