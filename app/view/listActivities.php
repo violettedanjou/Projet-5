@@ -14,7 +14,7 @@ ob_start(); ?>
 						</a>
 			<?php 	}
 					else { ?>
-						<a href="index.php">
+						<a href="index.php?action=listActivitiesHotels">
 							<i class="fas fa-arrow-left"></i>Accueil
 						</a>
 			<?php	} ?>			

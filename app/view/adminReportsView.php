@@ -1,23 +1,13 @@
-<?php $title = "Admin - Hotels";
+<?php $title = "Admin - Signalements";
 
 ob_start(); ?>
 
 <h1>GESTION DES AVIS SIGNALES</h1>
 
 <p> <!-- Lien de retour vers page administration -->
-	<?php	
-	if(isset($_SESSION['admin']) && ($_SESSION['admin'] != 0)) { ?>
-		<a href="index.php?action=openAdmin">
-			<i class="fas fa-arrow-left"></i>Retour
-		</a>
-	<?php 	
-	}
-	else { ?>
-		<a href="index.php">
-			<i class="fas fa-arrow-left"></i>Retour
-		</a>
-	<?php	
-	} ?>			
+	<a href="index.php?action=openAdmin">
+		<i class="fas fa-arrow-left"></i>Retour
+	</a>			
 </p>
 
 <div class="container">

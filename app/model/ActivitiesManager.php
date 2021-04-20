@@ -7,7 +7,7 @@ use app\model\Manager;
 class ActivitiesManager extends Manager 
 {
 // METEO + PAGINATION 
-	public function getActivitiesFromWeather($weather)
+	public function getActivitiesFromWeather($weather) // Récupération des activités en fonction de la météo
 	{
 		$db = $this->dbConnect();
         $req = $db->prepare('SELECT * FROM activities WHERE weather = ?'); 
@@ -16,7 +16,7 @@ class ActivitiesManager extends Manager
 
         return $results;
 	}
-	public function displayWeather($weather , $startWeather, $paginationWeather)
+	public function displayWeather($weather , $startWeather, $paginationWeather) // Pagination pour le bloc météo
     {
         $db = $this->dbConnect();
 	    $req = $db->prepare('SELECT id, title, content, weather, picture FROM activities WHERE weather = :weather ORDER BY id ASC LIMIT :startWeather, :paginationWeather');
@@ -29,15 +29,6 @@ class ActivitiesManager extends Manager
 	    return $result;
     }
 
-
-	public function getActivitiesWeather() // Récupération les 4 premières activtiés page d'accueil
-    {
-        $db = $this->dbConnect();
-        $listactivities = $db->query('SELECT id, title, content, picture FROM activities ORDER BY id ASC');
-
-        return $listactivities;
-    }
-
     public function getActivities() // Récupération les 4 premières activtiés page d'accueil
     {
         $db = $this->dbConnect();
@@ -47,7 +38,7 @@ class ActivitiesManager extends Manager
     }
 
 
-// Page avec liste des activités + PAGINATION 
+// PAGE LISTE ACTIVITES
        public function allActivities() // Compter le nombre d'activités au total
     {
         $db = $this->dbConnect();
@@ -62,6 +53,7 @@ class ActivitiesManager extends Manager
 
         return $listactivities;
     }
+
     // Page d'une activité en particulier
     public function getActivity($activityId) // Récupération d'une activité grace à son id
     {
@@ -104,7 +96,7 @@ class ActivitiesManager extends Manager
 
         return $changeActivity;
     }
-    public function saveActivity($id, $title, $content) // Modification du contenu d'une activité
+    public function saveActivity($id, $title, $content) // Validation de la modification du contenu d'une activité
     {
         $db = $this->dbConnect();
         $req = $db->prepare('UPDATE activities SET title = :title, content = :content WHERE id = :id');

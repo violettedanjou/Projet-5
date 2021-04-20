@@ -36,7 +36,7 @@ ob_start(); ?>
 	</div>
 </div>
 
-<h1 id="h1-usefuls">LISTE DES AVIS UTILES</h1>
+<h1 id="h1-usefuls">LISTE DES AVIS UTILES <i class="far fa-thumbs-up"></i></h1>
 <div class="container">
 	<div class="row useful">
 		<div class="col">

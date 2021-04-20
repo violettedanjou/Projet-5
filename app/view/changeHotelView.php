@@ -13,7 +13,7 @@ ob_start(); ?>
                 </a>
             </p>
 
-            <div class="news-hotels"> <!-- Récupérer l'image, le titre, le contenu, localisation, description et prix des chambres de l'hotel selon son id -->
+            <div class="news-hotels">
                 <img class="img-hotel-view" src="<?= $change['picture'] ?>" alt="Image de l'hotel <?= $hotel['name'] ?>">
                     
                 <div>
@@ -196,7 +196,6 @@ ob_start(); ?>
                             <label>Sauna</label><input type="checkbox" name="services[]" value="16"><br/>
                         <?php 
                         }
-                    
                     ?>
                     
                     <label>Accès plage</label><input type="checkbox" name="services[]" value="2"><br/>
@@ -217,9 +216,6 @@ ob_start(); ?>
 
                     <input type="submit" value="Enregistrer" id="button-change-activity" />
                 </form>
-
-
-
             </div>
         </div>
     </div>

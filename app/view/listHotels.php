@@ -1,4 +1,4 @@
-<?php $title = 'Liste des hotels'; 
+<?php $title = 'Liste des hôtels'; 
 
 ob_start(); ?>
 
@@ -14,7 +14,7 @@ ob_start(); ?>
 						</a>
 			<?php 	}
 					else { ?>
-						<a href="index.php">
+						<a href="index.php?action=listActivitiesHotels">
 							<i class="fas fa-arrow-left"></i>Accueil
 						</a>
 			<?php	} ?>			

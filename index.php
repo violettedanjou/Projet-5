@@ -53,7 +53,6 @@ try {
 	    }
 	    // Valider le formulaire de connexion
 	    if ($_GET['action'] == 'validSignin') {
-	        // mdp ok avec mdp de la bdd donc on appelle fonction connect()
 	        if (isset($_POST['pseudo']) AND isset($_POST['pass'])) {
 	            $signinMember = new controller_back();
 				$signinMember->connect(); 
@@ -126,7 +125,7 @@ try {
             }
         }
 
-// Ajouter un avis à une activité addHotelOpinion
+// Ajouter un avis à une activité
         if ($_GET['action'] == 'addActivityOpinion') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (isset($_SESSION['id']) && isset($_SESSION['pseudo'])) {
@@ -562,7 +561,6 @@ try {
 			$changeServices->changeServices($_GET['id'], $services);
         }
 
-
 // Supprimer un hotel
         if ($_GET['action'] == 'validDeleteHotel') {
             if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
@@ -579,6 +577,8 @@ try {
             }   
         }  
 
+
+																					/* GESTION DES AVIS SIGNALES */
 // Afficher page de la liste des avis signalés
 		if ($_GET['action'] == 'openReportsAdmin') {
 			if ((isset($_SESSION['admin'])) AND ($_SESSION['admin'] == 1)) {
@@ -635,6 +635,4 @@ try {
 catch(Exception $e) {
     require('app/view/errorView.php');
 }
-
-
 ?>

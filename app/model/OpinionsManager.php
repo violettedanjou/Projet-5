@@ -39,7 +39,6 @@ class OpinionsManager extends Manager
         return $affectedLines;
     }
 
-
     public function reportActivity($idActivity) // Signaler un avis d'activité
     {
         $db = $this->dbConnect();
@@ -74,7 +73,7 @@ class OpinionsManager extends Manager
     }     
 
 
-
+// ADMINISTRATION
     public function reportAdmin() // Afficher la liste des avis signalés
     {
     	$db = $this->dbConnect();
@@ -97,7 +96,7 @@ class OpinionsManager extends Manager
 
     	return $req;
     }
-    public function eliminateOpinion($activityId) // Supprimer un commentaire signalé
+    public function eliminateOpinion($activityId) // Supprimer un avis signalé
     {
     	$db = $this->dbConnect();
         $deleteOpinion = $db->prepare('DELETE FROM opinions WHERE id = ?');
@@ -106,6 +105,4 @@ class OpinionsManager extends Manager
         return $deleteOpinion;
     }
 }
-
-
 ?>

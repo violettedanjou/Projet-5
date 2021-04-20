@@ -79,12 +79,12 @@ class controller_front
 	{
 		$hotelsManager = new HotelsManager();
 	    $allHotels = $hotelsManager->allHotels();
-	    $nbrHotels = $allHotels->fetch(); // On récupère le nombre d'activités (1)
-	    $nbr = (int) $nbrHotels['nbrHotels']; // On récupère le nombre d'activités (2)
+	    $nbrHotels = $allHotels->fetch(); 
+	    $nbr = (int) $nbrHotels['nbrHotels'];
 
-	   	$hotelsOfPage = 5; // On détermine le nombre d'activité par page 
-	    $pagesHotels = ceil($nbr / $hotelsOfPage); // Calcul du nombre de pages totales / Fonction ceil() arrondi au nombre supérieur
-	   	$start = ($currentPageHotels-1)*$hotelsOfPage; // Calcul de la première activité de la page 
+	   	$hotelsOfPage = 5; 
+	    $pagesHotels = ceil($nbr / $hotelsOfPage); 
+	   	$start = ($currentPageHotels-1)*$hotelsOfPage; 
 
 		$listHotelsManager = new HotelsManager();
 	    $listHotels = $listHotelsManager->getList($start, $hotelsOfPage);
@@ -108,16 +108,13 @@ class controller_front
 	    $hotelManager = new HotelsManager();
 	    $hotel = $hotelManager->getHotel($_GET['id']);
 
-	    /*$servicesManager = new HotelsManager();
-	    $services = $servicesManager->getServices($_GET['id']);*/
-
 	    $opinionManager = new OpinionsManager();
 	    $opinionsHotel = $opinionManager->pseudoAuthorHotel($_GET['id']);
 
 	    require('app/view/hotelView.php');
 	}
 
-	function addActivityOpinion($id, $content) // Ajouter un avis
+	function addActivityOpinion($id, $content) // Ajouter un avis à une activité
 	{
 	    $opinionManager = new OpinionsManager();
 	    $affectedLines = $opinionManager->activityOpinion($id, $content);
@@ -129,7 +126,7 @@ class controller_front
 	        header('Location: index.php?action=activity&id=' . $id);
 	    }	    
 	}
-	function addHotelOpinion($id, $content) // Ajouter un avis
+	function addHotelOpinion($id, $content) // Ajouter un avis à un hotel 
 	{
 	    $opinionManager = new OpinionsManager();
 	    $affectedLines = $opinionManager->hotelOpinion($id, $content);
@@ -141,7 +138,7 @@ class controller_front
 	        header('Location: index.php?action=hotel&id=' . $id);
 	    }	    
 	}	
-	function openProfile()
+	function openProfile() // Afficher page profile 
 	{
 		$imgProfileManager = new MemberManager();
 		$profileManager = $imgProfileManager->openImg($_SESSION['id']);
@@ -183,7 +180,7 @@ class controller_front
 	    require('app/view/adminReportsView.php');
 	}
 
-
+// ACTIVITES 
 	function openNewActivity() // Afficher formulaire pour ajout de nouvelle activité
 	{
 		require('app/view/additionActivityView.php');
@@ -195,8 +192,15 @@ class controller_front
 
 	    require('app/view/changeActivityView.php');
 	}
+	function deleteActivity() // Supprimer une activité 
+	{
+		$deleteActivityManager = new ActivitiesManager();
+	    $deleteActivity = $deleteActivityManager->deleteActivity($_GET['id']);
 
+		header('Location: index.php?action=openActivitiesAdmin');
+	}
 
+// HOTELS
 	function openNewHotel() // Afficher formulaire pour ajout de nouvel hotel
 	{
 		require('app/view/additionHotelView.php');
@@ -209,15 +213,6 @@ class controller_front
 
 	    require('app/view/changeHotelView.php');
 	}
-
-
-	function deleteActivity() // Supprimer une activité 
-	{
-		$deleteActivityManager = new ActivitiesManager();
-	    $deleteActivity = $deleteActivityManager->deleteActivity($_GET['id']);
-
-		header('Location: index.php?action=openActivitiesAdmin');
-	}
 	function deleteHotel() // Supprimer un hotel 
 	{
 	    $deleteHotelManager = new HotelsManager();
@@ -225,9 +220,5 @@ class controller_front
 
 		header('Location: index.php?action=openHotelsAdmin');
 	}
-
-
-
-
 }
 ?>

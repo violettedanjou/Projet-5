@@ -7,7 +7,7 @@ use app\model\Manager;
 class MemberManager extends Manager 
 {
     // PAGE INSCRIPTION
-    public function insertMember($pseudo, $pass, $email) // inscription
+    public function insertMember($pseudo, $pass, $email) // Inscription
     {
         $db = $this->dbConnect();
         $req = $db->prepare('INSERT INTO members(pseudo, pass, email) VALUES(:pseudo, :pass, :email)');
@@ -16,6 +16,8 @@ class MemberManager extends Manager
             'pass' => password_hash($pass, PASSWORD_DEFAULT),
             'email' => $email));
     }
+
+    // PAGE CONNEXION
     public function verifyPseudo($pseudo) // Vérification du pseudo existant
     {
         $db = $this->dbConnect();
@@ -24,8 +26,7 @@ class MemberManager extends Manager
 
         return $req;
     }
-    //PAGE CONNEXION
-    public function connectMember($pseudo) //  Récupération de l'utilisateur déjà inscrit 
+    public function connectMember($pseudo) // Récupération de l'utilisateur déjà inscrit 
     {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT pseudo, pass, id, admin FROM members WHERE pseudo = :pseudo');
@@ -35,7 +36,8 @@ class MemberManager extends Manager
         return $req;
     }
 
-    public function openImg($id)
+    // PAGE PROFILE
+    public function openImg($id) // Récupération de l'image de profile
     {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT id, picture FROM members WHERE id = ?');

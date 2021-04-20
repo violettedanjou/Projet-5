@@ -14,7 +14,7 @@ class HotelsManager extends Manager
         return $listhotels;
     }
 
-// Page avec liste des hotels + PAGINATION 
+// PAGE LISTE HOTELS 
     public function allHotels() // Compter le nombre d'hotels au total
     {
         $db = $this->dbConnect();
@@ -22,13 +22,14 @@ class HotelsManager extends Manager
 
         return $allHotels;
     } 	
-	public function getList($start, $hotelsOfPage) // Récupération des hotels
+	public function getList($start, $hotelsOfPage) // Récupération liste complète hotels + Pagination
     {
         $db = $this->dbConnect();
         $listhotels = $db->query('SELECT id, name, content, location, rooms, prices, picture FROM hotels ORDER BY id ASC LIMIT '. $start . ' , '. $hotelsOfPage);
 
         return $listhotels;
     }
+
     // Page d'un hotel en particulier
     public function getHotel($id) // Récupération d'un hotel grace à son id
     {
@@ -41,7 +42,7 @@ class HotelsManager extends Manager
 
 
 // AMINISTRATION
-    public function getHotelsAdmin() // Récupération les 4 premiers hotels page d'accueil
+    public function getHotelsAdmin() // Récupération de la liste des hotels 
     {
         $db = $this->dbConnect();
         $listhotels = $db->query('SELECT id, name, content, location, rooms, prices, picture FROM hotels ORDER BY id ASC');
@@ -181,7 +182,6 @@ class HotelsManager extends Manager
 
 
 // MODIFICATION   
-
     public function changeHotel($id) // Récupération d'un hotel pour le modifier
     {
         $db = $this->dbConnect();
@@ -191,7 +191,7 @@ class HotelsManager extends Manager
 
         return $changeHotel;
     } 
-    public function saveHotel($id, $name, $content, $location, $rooms, $prices) // Modification du contenu d'un hotel
+    public function saveHotel($id, $name, $content, $location, $rooms, $prices) // Validation de modification du contenu d'un hotel
     {
         $db = $this->dbConnect();
         $req = $db->prepare('UPDATE hotels SET name = :name, content = :content, location = :location, rooms = :rooms, prices = :prices WHERE id = :id');
@@ -205,7 +205,7 @@ class HotelsManager extends Manager
 
         return $req;
     }
-    public function changeImgHotel($id, $picture)
+    public function changeImgHotel($id, $picture) // Modification image d'hotel
     {
     	$db = $this->dbConnect();
         $req = $db->prepare('UPDATE hotels SET picture = :picture WHERE id = :id');
@@ -215,7 +215,7 @@ class HotelsManager extends Manager
 
         return $changePicture;    	
     }
-    public function changeServices($id, $services) // Modifier les services d'un nouvel hotel
+    public function changeServices($id, $services) // Modifier les services d'un hotel
     {
         $db = $this->dbConnect();
         $req = $db->prepare('UPDATE hotels SET swimming_pool = :swimming_pool, beach_access = :beach_access, car_park = :car_park, free_wifi = :free_wifi, restaurant = :restaurant, family_rooms = :family_rooms, television = :television, airport_shuttle = :airport_shuttle, air_conditioner = :air_conditioner, no_smokers = :no_smokers, animals = :animals, strongbox = :strongbox, mini_bar = :mini_bar, luggage = :luggage, elevator = :elevator, sauna = :sauna WHERE id = :id');

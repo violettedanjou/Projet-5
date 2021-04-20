@@ -54,7 +54,7 @@ ob_start(); ?>
 				  <?php }
 						/* Sinon on n'est pas connecté, alors on affiche les formulaires d'inscription et de connexion */
 						else { ?>
-								<div id="div-session-opinions"> <!-- Les mettre l'un à côté de l'autre grace au CSS qd j'aurais la page sous les yeux -->
+								<div id="div-session-opinions"> 
 									<form class="form-session-opinions" action="index.php?action=validSignup" method="post">
 										<h2>S'INSCRIRE</h2>
 										<label for="pseudo">Nom / Pseudo </label><input type="text" name="pseudo" class="input-signup" /><br/>
@@ -108,5 +108,4 @@ ob_start(); ?>
 
 
 <?php $content = ob_get_clean();
-
 require('app/view/template.php'); ?>

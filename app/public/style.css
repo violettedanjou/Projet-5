@@ -426,10 +426,6 @@ a.a-session:hover
 }
 
 
-
-
-
-
 /* PAGE PROFILE */
 #body-profile
 {
@@ -699,8 +695,6 @@ form#form-profile
 }
 
 
-
-
 /* FOOTER */
 footer
 {
@@ -717,7 +711,7 @@ footer p
 }
 
 
-/* PAGE D'ERREUR */ 									/* PROBLEME FOOTER */
+/* PAGE D'ERREUR */
 .row.error
 {
 	margin-top: 50px;

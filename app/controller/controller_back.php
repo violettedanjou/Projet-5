@@ -77,14 +77,14 @@ class controller_back
 
 		header('Location: index.php?action=activity&id='. $_GET['id']);
 	}
-	function reportHotel() // Signaler un avis d'activité
+	function reportHotel() // Signaler un avis d'hôtel
 	{
 		$reportManager = new OpinionsManager();
 		$report = $reportManager->reportHotel($_GET['id_hotel']);
 
 		header('Location: index.php?action=hotel&id='. $_GET['id']);
 	}
-	function usefulHotel() // Avis utile d'activité
+	function usefulHotel() // Avis utile d'hôtel
 	{
 		$usefulManager = new OpinionsManager();
 		$useful = $usefulManager->usefulHotel($_GET['id_hotel']);
@@ -124,6 +124,7 @@ class controller_back
 
 
 // MODIFICATION
+	// ACTIVITES 
 	function changeActivity() // Modification d'une activité
 	{
 		$saveManager = new ActivitiesManager();
@@ -156,6 +157,7 @@ class controller_back
 		header('Location: index.php?action=openActivitiesAdmin');
 	}
 
+	// HOTELS
 	function changeHotel() // Modification d'un hotel
 	{
 		$saveManager = new HotelsManager();

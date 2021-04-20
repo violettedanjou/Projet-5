@@ -2,12 +2,14 @@
 <html lang="fr-fr">
 <head>
 	<meta charset="utf-8" />
-	<link rel= "preconnect" href="https://fonts.gstatic.com">
+
+	<link rel= "preconnect" href="https://fonts.gstatic.com"> <!-- Police -->
 	<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet"> <!-- Police -->
+	<link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet"> 
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"> <!-- Icones -->
+
 	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> <!-- Tinymce -->
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,7 +17,7 @@
 
 	<link href="app/public/style.css" rel="stylesheet"/> <!-- CSS -->
 
-	<link rel="stylesheet" type="text/css" media="all and (max-width: 576px)" href="app/public/responsive.css"> <!-- Responsive -->
+	<link rel="stylesheet" type="text/css" media="all and (max-width: 576px)" href="app/public/responsive.css"> <!-- Responsive pour smartphone-->
 	<title><?= $title ?></title>
 </head>
 
@@ -50,14 +52,13 @@
 				</nav>
 		</header>
 		
-		
-			
 	   	<?= $content ?>
     </div>
 
 	<footer>
     	<p> Copyright © Violette Danjou - 2021. Tous droits réservés</p>
     </footer>
+    
     <script>tinymce.init({selector:'textarea'});</script>
 </body>
 </html>
