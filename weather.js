@@ -1,11 +1,8 @@
 class Weather {
-	constructor(id, description, icon, temp_max, temp_min) 
+	constructor(id, icon) 
 	{
 		this.id = id;
-		this.description = description;
-		this.icon = icon;
-		this.temperature_max = temp_max;
-		this.temperature_min = temp_min;		
+		this.icon = icon;		
 	}
 
 	display()
@@ -15,10 +12,7 @@ class Weather {
 		.then(data => { 
 
 				let id = data.weather[0].id;
-				let description = data.weather[0].description;
 				let icon = data.weather[0].icon;
-				let temperature_max = data.main.temp_max;
-				let temperature_min = data.main.temp_min;
 
 				let urlIcon = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
 				document.getElementById("icon-weather").src = urlIcon;
