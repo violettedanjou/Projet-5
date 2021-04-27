@@ -9,16 +9,16 @@ ob_start(); ?>
 				<h1 id="h1-hotel-view"><?= htmlspecialchars($hotel['name']) ?></h1>
 
 				<p> <!-- Lien de retour vers accueil -->
-				<?php 	if(isset($_SESSION['admin']) && ($_SESSION['admin'] != 0)) { ?>
+				<?php 	if(isset($_SESSION['admin']) && ($_SESSION['admin'] != 0)) : ?>
 							<a class="fa-arrow-left-hotel" href="index.php?action=openHotelsAdmin">
 								<i class="fas fa-arrow-left"></i>Retour
 							</a>
-				<?php 	}
-						else { ?>
+				<?php 	;
+						else : ?>
 							<a class="fa-arrow-left-hotel" href="index.php?action=listHotels">
 								<i class="fas fa-arrow-left"></i>Retour
 							</a>
-				<?php	} ?>			
+				<?php	endif; ?>			
 				</p>
 
 				
@@ -36,70 +36,70 @@ ob_start(); ?>
 		                </div>
 		                <div class="div-services">
 		                	<h4>Services de l'hotel</h4>
-		                	<?php if ($hotel['swimming_pool'] == 1) { ?>
+		                	<?php if ($hotel['swimming_pool'] == 1) : ?>
 		                		<i class="fas fa-swimmer"></i>
 		                	<?php 
-		                	}
-		                	if ($hotel['beach_access'] == 1) { ?>
+		                	endif;
+		                	if ($hotel['beach_access'] == 1) : ?>
 		                		<i class="fas fa-umbrella-beach"></i>
 		                	<?php 
-		                	}
-		                	if ($hotel['car_park'] == 1) { ?>
+		                	endif;
+		                	if ($hotel['car_park'] == 1) : ?>
 		                		<i class="fas fa-parking"></i>
 		                	<?php 
-		                	}
-		                	if ($hotel['free_wifi'] == 1) { ?>
+		                	endif;
+		                	if ($hotel['free_wifi'] == 1) : ?>
 		                		<i class="fas fa-wifi"></i>
 		                	<?php 
-		                	}
-		                	if ($hotel['restaurant'] == 1) { ?>
+		                	endif;
+		                	if ($hotel['restaurant'] == 1) : ?>
 		                		<i class="fas fa-utensils"></i>
 		                	<?php 
-		                	}
-		                	if ($hotel['family_rooms'] == 1) { ?>
+		                	endif;
+		                	if ($hotel['family_rooms'] == 1) : ?>
 		                		<i class="fas fa-bed"></i>
 		                	<?php 
-		                	}
-		                	if ($hotel['television'] == 1) { ?>
+		                	endif;
+		                	if ($hotel['television'] == 1) : ?>
 		                		<i class="fas fa-tv"></i>
 		                	<?php 
-		                	}
-		                	if ($hotel['airport_shuttle'] == 1) { ?>
+		                	endif;
+		                	if ($hotel['airport_shuttle'] == 1) : ?>
 		                		<i class="fas fa-shuttle-van"></i>
 		                	<?php 
-		                	}
-		                	if ($hotel['air_conditioner'] == 1) { ?>
+		                	endif;
+		                	if ($hotel['air_conditioner'] == 1) : ?>
 		                		<i class="fas fa-wind"></i>
 		                	<?php 
-		                	}
-		                	if ($hotel['no_smokers'] == 1) { ?>
+		                	endif;
+		                	if ($hotel['no_smokers'] == 1) : ?>
 		                		<i class="fas fa-smoking-ban"></i>
 		                	<?php 
-		                	}
-		                	if ($hotel['animals'] == 1) { ?>
+		                	endif;
+		                	if ($hotel['animals'] == 1) : ?>
 		                		<i class="fas fa-paw"></i>
 		                	<?php 
-		                	}
-		                	if ($hotel['strongbox'] == 1) { ?>
+		                	endif;
+		                	if ($hotel['strongbox'] == 1) : ?>
 		                		<i class="fas fa-archive"></i>
 		                	<?php 
-		                	}
-		                	if ($hotel['mini_bar'] == 1) { ?>
+		                	endif;
+		                	if ($hotel['mini_bar'] == 1) : ?>
 		                		<i class="fas fa-glass-cheers"></i>
 		                	<?php 
-		                	}
-		                	if ($hotel['luggage'] == 1) { ?>
+		                	endif;
+		                	if ($hotel['luggage'] == 1) : ?>
 		                		<i class="fas fa-luggage-cart"></i>
 		                	<?php 
-		                	}
-		                	if ($hotel['elevator'] == 1) { ?>
+		                	endif;
+		                	if ($hotel['elevator'] == 1) : ?>
 		                		<i class="fas fa-sort-numeric-up-alt"></i>
 		                	<?php 
-		                	}
-		                	if ($hotel['sauna'] == 1) { ?>
+		                	endif;
+		                	if ($hotel['sauna'] == 1) : ?>
 		                		<i class="fas fa-hot-tub"></i>
 		                	<?php 
-		                	}
+		                	endif;
 		                	?><br/>
 		                </div>
 		                <div class="div-rooms">
@@ -115,7 +115,7 @@ ob_start(); ?>
 
 				<div id="div-opinions">
 							<!-- Si on est connecté, on affiche le formulaire d'ajout d'avis -->
-					  <?php if (isset($_SESSION['id'])) { ?> 
+					  <?php if (isset($_SESSION['id'])) : ?> 
 								<form id="form-add-opinion" action="index.php?action=addHotelOpinion&amp;id=<?= $hotel['id'] ?>" method="post">
 									<h3>Ajouter un avis</h3>
 								    <div>
@@ -125,9 +125,9 @@ ob_start(); ?>
 										<input type="submit" id="button_add_opinion" />
 									</div>
 								</form>	
-					  <?php }
+					  <?php ;
 							/* Sinon on n'est pas connecté, alors on affiche les formulaires d'inscription et de connexion */
-							else { ?>
+							else : ?>
 									<div id="div-session-opinions">
 										<form class="form-session-opinions" action="index.php?action=validSignup" method="post">
 											<h2>S'INSCRIRE</h2>
@@ -146,12 +146,12 @@ ob_start(); ?>
 										    <input type="submit" name="signin" value="SE CONNECTER" id="button_confirm_signin">
 										</form>
 									</div>		
-						<?php	} ?>
+						<?php	endif; ?>
 
 						<div class="list-opinions">
 							<h2>AVIS</h2>
 								<!-- Commentaires affichés même non connecté -->
-						<?php	while ($opinion = $opinionsHotel->fetch()) { ?>
+						<?php	while ($opinion = $opinionsHotel->fetch()) : ?>
 								<div id="one-opinion">
 								    <h4>
 								    	<p><strong><?= htmlspecialchars($opinion['pseudo']) ?></strong> le <?= $opinion['opinion_date_fr'] ?></p> <!-- On récupère le pseudo et la date de l'avis -->
@@ -162,25 +162,25 @@ ob_start(); ?>
 								    </p>
 								
 
-							 <?php 	if (isset($_SESSION['id'])) { ?> <!-- Si on est connecté, on affiche le lien signaler -->
+							 		<?php 	
+							 		if (isset($_SESSION['id'])) : ?> <!-- Si on est connecté, on affiche le lien signaler -->
 										<div>
 									    	<a id="button-report" href="index.php?action=validReportHotel&amp;id=<?= $_GET['id'] ?>&amp;id_hotel=<?= $opinion['id']?>">Signaler</a>
 									    	<a id="button-useful" href="index.php?action=validUsefulHotel&amp;id=<?= $_GET['id'] ?>&amp;id_hotel=<?= $opinion['id']?>">Utile<i class="far fa-thumbs-up"></i></a>
 									    </div>
-							 <?php 	} ?>	
-
+							 		<?php 	
+									endif; 
+									?>	
 								</div>
-					<?php   } 
+							<?php   
+							endwhile; 
 							$opinionsHotel->closeCursor(); ?>					
 					</div>
-
 				</div>
 			</div>
 		</div>
 	</div>
 </body>
-
-
 
 
 <?php $content = ob_get_clean();

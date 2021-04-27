@@ -52,27 +52,26 @@ ob_start(); ?>
                 <h2>Modifier la meteo recommandee</h2>
                 <form action="index.php?action=updateWeather&amp;id=<?= $_GET['id'] ?>" method="POST">
                     <?php 
-                    if ($changeActivity['weather'] == 1) { ?>
+                    if ($changeActivity['weather'] == 1) : ?>
                         <input type="radio" name="weather" value="1" id="1" checked="checked"><label for="1">Bonne météo (soleil ou nuages)</label><br/>
                     <?php 
-                    }
-                    else { ?>
+                    ;
+                    else : ?>
                         <input type="radio" name="weather" value="1" id="1"><label for="1">Bonne météo (soleil ou nuages)</label><br/>
                     <?php
-                    }
-                    if ($changeActivity['weather'] == 0) { ?>
+                    endif;
+                    if ($changeActivity['weather'] == 0) : ?>
                         <input type="radio" name="weather" value="0" id="0" checked="checked"><label for="0">Mauvaise météo (pluie ou orages)</label><br/>
                     <?php
-                    }
-                    else { ?>
+                    ;
+                    else : ?>
                        <input type="radio" name="weather" value="0" id="0"><label for="0">Mauvaise météo (pluie ou orages)</label><br/> 
                     <?php
-                    }
+                    endif;
                     ?>
                     
                   <input type="submit" value="Enregistrer l'activite" id="button-add-activity" />
                 </form>                       
-
             </div>
         </div>
     </div>

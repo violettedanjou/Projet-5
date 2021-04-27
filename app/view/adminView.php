@@ -41,8 +41,8 @@ ob_start(); ?>
 	<div class="row useful">
 		<div class="col">
 			<?php
-			while ($data = $useful->fetch())
-			{ ?>
+			while ($data = $useful->fetch()) : ?>
+			
 				<div class="news-useful">
 					<h4>
 			            <em>Le <?= $data['opinion_date_fr'] ?></em>
@@ -55,7 +55,7 @@ ob_start(); ?>
 
 				</div>
 			<?php
-			}
+			endwhile;
 			$useful->closeCursor(); ?>
 		</div>
 	</div>

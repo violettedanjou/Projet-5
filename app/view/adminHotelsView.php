@@ -16,9 +16,7 @@ ob_start(); ?>
 			<a class="link-add" href="index.php?action=openNewHotel">Ajouter</a><br/>
 				<br/>
 			<?php
-			while ($data = $hotelsAdmin->fetch()) 
-			{
-			?>
+			while ($data = $hotelsAdmin->fetch()) : ?>		
 			    <div class="news-admin">
 			    	<a class="link-edit" href="index.php?action=openChangeHotel&amp;id=<?= $data['id'] ?>">Modifier</a>
 
@@ -41,11 +39,10 @@ ob_start(); ?>
 				    	
 			    	</div>
 			    	
-
 			    	<a class="link-delete" href="index.php?action=validDeleteHotel&amp;id=<?= $data['id'] ?>">Supprimer</a>
 		    	</div>
 			<?php 
-			} 
+			endwhile; 
 			$hotelsAdmin->closeCursor(); ?>
 		</div>
 	</div>

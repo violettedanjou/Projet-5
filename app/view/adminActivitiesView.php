@@ -16,9 +16,7 @@ ob_start(); ?>
 			<a class="link-add" href="index.php?action=openNewActivity">Ajouter</a><br/>
 				<br/>
 			<?php
-			while ($data = $activitiesAdmin->fetch()) 
-			{
-			?>
+			while ($data = $activitiesAdmin->fetch()) : ?>
 			    <div class="news-admin">
 			    	<div>
 			    		<a class="link-edit" href="index.php?action=openChangeActivity&amp;id=<?= $data['id'] ?>">Modifier</a>
@@ -52,7 +50,7 @@ ob_start(); ?>
 			    	
 		    	</div>
 			<?php 
-			} 
+			endwhile; 
 			$activitiesAdmin->closeCursor(); ?>
 		</div>
 	</div>

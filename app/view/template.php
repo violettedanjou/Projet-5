@@ -39,20 +39,24 @@
 					
 				<nav id="nav-header">
 					<ul>
-						<?php if(isset($_SESSION['pseudo'])) { ?>
-								<li id="button_profile"><a class="a-session" href="index.php?action=openProfile">COMPTE</a></li>	
-								<li id="button_signout"><a class="a-session" href="index.php?action=validSignout">DECONNEXION</a></li>	
+						<?php 
+						if(isset($_SESSION['pseudo'])) : ?>
+							<li id="button_profile"><a class="a-session" href="index.php?action=openProfile">COMPTE</a></li>	
+							<li id="button_signout"><a class="a-session" href="index.php?action=validSignout">DECONNEXION</a></li>	
 
-						<?php if($_SESSION['admin'] != 0) { ?>
+							<?php 	
+							if($_SESSION['admin'] != 0) : ?>
 								<li id="button_admin"><a class="a-session" href="index.php?action=openAdmin">ADMINISTRATION</a></li>
-						<?php }
-							}
+							<?php 	
+							endif;
+						;
 						
-						else { 
-						?> 
+						else : ?> 
 							<li id="button_signup"><a class="a-session" href="index.php?action=openSignup">S'INSCRIRE</a></li>
 							<li id="button_signin"><a class="a-session" href="index.php?action=openSignin">SE CONNECTER</a></li>
-						<?php }?>
+						<?php 
+						endif;
+						?>
 					</ul>
 				</nav>
 		</header>

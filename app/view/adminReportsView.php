@@ -14,8 +14,7 @@ ob_start(); ?>
 	<div class="row reports">
 		<div class="col">
 			<?php
-			while ($data = $admin->fetch())
-			{ ?>
+			while ($data = $admin->fetch()) : ?>
 				<div class="news-report">
 					<h4>
 			            <em>Le <?= $data['opinion_date_fr'] ?></em>
@@ -30,7 +29,7 @@ ob_start(); ?>
 
 				</div>
 			<?php
-			}
+			endwhile;
 			$admin->closeCursor(); ?>
 		</div>
 	</div>

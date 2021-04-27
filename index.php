@@ -1,4 +1,9 @@
 <?php
+// Afficher les message d'erreur php
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
 require "vendor/autoload.php";
 session_start();
 
@@ -632,7 +637,7 @@ try {
 		$listActivitiesHotels->listActivitiesHotels($currentPageWeather);
 	}   	
 }
-catch(Exception $e) {
+catch(\Exception $e) {
     require('app/view/errorView.php');
 }
 ?>

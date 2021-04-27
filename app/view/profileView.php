@@ -18,8 +18,8 @@
 							<input type="submit" name="profile" value="Modifier" id="button_profile_picture">
 						</form>
 					</div>
-				</div>
 			</div>
+		</div>
 	</div>
 </body>
 

@@ -8,22 +8,21 @@ ob_start(); ?>
 			<h1>SE LOGER EN NOUVELLE CALEDONIE</h1>
 
 			<p> <!-- Lien de retour vers liste des activités -->
-			<?php 	if(isset($_SESSION['admin']) && ($_SESSION['admin'] != 0)) { ?>
+			<?php 	if(isset($_SESSION['admin']) && ($_SESSION['admin'] != 0)) : ?>
 						<a href="index.php?action=listActivitiesHotels">
 							<i class="fas fa-arrow-left"></i>Accueil
 						</a>
-			<?php 	}
-					else { ?>
+			<?php 	;
+					else : ?>
 						<a href="index.php?action=listActivitiesHotels">
 							<i class="fas fa-arrow-left"></i>Accueil
 						</a>
-			<?php	} ?>			
+			<?php	endif; ?>			
 			</p>
 			
 			<div>
 				<?php
-       		    while ($data = $listHotels->fetch()) 
-                { ?>
+       		    while ($data = $listHotels->fetch()) : ?>
                     <div class="news">
                         <div class="col-lg-6">
                             <a href="index.php?action=hotel&amp;id=<?= $data['id'] ?>">
@@ -46,7 +45,7 @@ ob_start(); ?>
                         </div>
                     </div>
                 <?php
-                } 
+                endwhile; 
                 $listHotels->closeCursor(); ?>
 
                 <nav> <!-- Pagination -->

@@ -29,7 +29,7 @@
                         <h2>ACTIVITES DU JOUR : <img src="" alt="Météo du jour" id="icon-weather"> <!-- Pout afficher icon de la météo --></h2>
                             <div id="div-activity-weather">
                                 <?php 
-                                foreach($display as $dataWeather) {
+                                foreach($display as $dataWeather) :
                                 ?>
                                     <div class="news">
                                         <div class="col-lg-6">
@@ -55,7 +55,7 @@
 
                                     </div> 
                                 <?php 
-                                }
+                                endforeach;
                                 ?>
                                 <script src="weather.js"></script>
                                 <script src="main.js"></script> 
@@ -84,8 +84,8 @@
 
                     <div>
                         <a href="index.php?action=listActivities"><h2 id="h2-home">LISTE COMPLETE DES ACTIVITES</h2></a>
-               <?php    while ($data = $activities->fetch()) 
-                            { ?>
+                         <?php    
+                        while ($data = $activities->fetch()) : ?>
                                 <div class="news">
                                     <div class="col-lg-6">
                                        <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
@@ -107,12 +107,13 @@
                                         <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">Avis</a></em>
                                     </div>
                                 </div>
-                    <?php   } 
-                            $activities->closeCursor(); ?>
+                        <?php
+                        endwhile; 
+                        $activities->closeCursor(); ?>
 
-                            <div id="listActivities">
-                                <a class="link-list" href="index.php?action=listActivities">Acceder a la liste complete des activites<i class="fas fa-mouse-pointer"></i></a>
-                            </div>
+                        <div id="listActivities">
+                            <a class="link-list" href="index.php?action=listActivities">Acceder a la liste complete des activites<i class="fas fa-mouse-pointer"></i></a>
+                        </div>
                     </div>
             </div>
         </div>
@@ -125,9 +126,7 @@
                   <h1 class="titles-home">SE LOGER SUR L'ILE</h1>  
                 </a>
                 <?php
-                while ($dataHotel = $hotels->fetch())
-                {
-                ?>
+                while ($dataHotel = $hotels->fetch()) : ?>
                     <div class="news">
                         <div class="col-lg-6">
                             <a href="index.php?action=hotel&amp;id=<?= $dataHotel['id'] ?>">
@@ -150,7 +149,7 @@
                         </div>
                     </div>
                 <?php
-                }
+                endwhile;
                 $hotels->closeCursor(); ?> 
 
                 <div id="listHotels">
