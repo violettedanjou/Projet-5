@@ -17,9 +17,8 @@ a
 }
 img
 {
-	width: 342px;
-	height: 210px;
-	border-radius: 5px 5px 0px 0px;
+	width: 260px;
+	height: 150px;
 }
 footer
 {
@@ -86,7 +85,7 @@ li
 .img-home
 {
 	width: 100%;
-	height: 100px;
+	height: 150px;
 	border-radius: 0px;
 }
 ul.pagination
@@ -107,7 +106,7 @@ ul.pagination
 /* Page hotel selon son id */
 .img-hotel-view
 {
-	width: 320px;
+	width: 290px;
 }
 .div-content-location
 {
@@ -116,6 +115,14 @@ ul.pagination
 .span-hotel-content 
 {
     width: 100%;
+}
+.div-prices
+{
+	padding: 0px;
+}
+ul.ul1
+{
+	flex-direction: column;
 }
 
 /* Page profile */

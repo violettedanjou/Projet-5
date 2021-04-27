@@ -65,7 +65,7 @@ ob_start(); ?>
 		                	<?php 
 		                	}
 		                	if ($hotel['airport_shuttle'] == 1) { ?>
-		                		<i class="fas fa-tv"></i>
+		                		<i class="fas fa-shuttle-van"></i>
 		                	<?php 
 		                	}
 		                	if ($hotel['air_conditioner'] == 1) { ?>
