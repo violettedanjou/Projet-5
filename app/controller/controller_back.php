@@ -18,7 +18,7 @@ class controller_back
 		if ($nbrResult == 0) {
 		    $memberManager = new MemberManager();
 		    $newMember = $memberManager->insertMember($_POST['pseudo'], $_POST['pass'], $_POST['email']);
-		    header('Location: index.php');	
+		    header('Location: index.php?action=openSignin');	
 		}
 		else {
 			throw new \Exception("Le pseudo est déjà utilisé. Essayez autre chose.", 1);
@@ -46,7 +46,6 @@ class controller_back
 	    else {
 	    	throw new \Exception("L'utilisateur n'existe pas.", 1);	
 	    }
-	    header('Location: index.php');
 	}
 	function signout() // Déconnecter un membre avec suppression des variables de session et de la session
 	{
@@ -197,19 +196,3 @@ class controller_back
 		header('Location: index.php?action=openReportsAdmin');
 	}
 }
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

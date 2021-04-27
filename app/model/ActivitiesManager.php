@@ -143,16 +143,3 @@ class ActivitiesManager extends Manager
         return $delete;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

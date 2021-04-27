@@ -105,4 +105,3 @@ class OpinionsManager extends Manager
         return $deleteOpinion;
     }
 }
-?>

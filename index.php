@@ -640,4 +640,3 @@ try {
 catch(\Exception $e) {
     require('app/view/errorView.php');
 }
-?>

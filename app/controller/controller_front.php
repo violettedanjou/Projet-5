@@ -221,4 +221,3 @@ class controller_front
 		header('Location: index.php?action=openHotelsAdmin');
 	}
 }
-?>
