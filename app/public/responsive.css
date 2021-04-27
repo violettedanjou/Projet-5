@@ -133,6 +133,7 @@ form#form-profile
 #img-profile
 {
 	width: 200px;
+	height: auto;
 }
 #button_profile_picture
 {
