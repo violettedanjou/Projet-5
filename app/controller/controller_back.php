@@ -21,7 +21,7 @@ class controller_back
 		    header('Location: index.php');	
 		}
 		else {
-			throw new Exception("Le pseudo est déjà utilisé. Essayez autre chose.", 1);
+			throw new \Exception("Le pseudo est déjà utilisé. Essayez autre chose.", 1);
 		}
 	}
 	function connect() // Connecter un membre déjà inscrit 
@@ -40,11 +40,11 @@ class controller_back
 	       		header('Location: index.php');
 	    	}
 	    	else {
-	    		throw new Exception("Mauvais mot de passe. Veuillez réessayer.", 1);
+	    		throw new \Exception("Mauvais mot de passe. Veuillez réessayer.", 1);
 	    	}
 	    }
 	    else {
-	    	throw new Exception("L'utilisateur n'existe pas.", 1);	
+	    	throw new \Exception("L'utilisateur n'existe pas.", 1);	
 	    }
 	    header('Location: index.php');
 	}

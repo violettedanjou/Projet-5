@@ -28,19 +28,19 @@ try {
 							$insertMember->insert();
 	                    }
 	                    else {
-	                        throw new Exception("L'adresse email n'est pas valide, recommencez. ", 1);
+	                        throw new \Exception("L'adresse email n'est pas valide, recommencez. ", 1);
 	                    }   
 	                }
 	                else {
-	                    throw new Exception("Veuillez entrer une adresse email. ", 1);
+	                    throw new \Exception("Veuillez entrer une adresse email. ", 1);
 	                }
 	            }
 	            else {
-	                throw new Exception("Mots de passe différents. ", 1);
+	                throw new \Exception("Mots de passe différents. ", 1);
 	            }
 	        }
 	        else {
-	            throw new Exception("Veuillez saisir un pseudo. "); 
+	            throw new \Exception("Veuillez saisir un pseudo. "); 
 	        }
 	    }
 
@@ -58,7 +58,7 @@ try {
 				$signinMember->connect(); 
 	        }
 	        else {
-	            throw new Exception("Veuillez entrer votre pseudo.", 1);
+	            throw new \Exception("Veuillez entrer votre pseudo.", 1);
 	        }   
 	    }    
 
@@ -110,7 +110,7 @@ try {
 				$oneActivity->activity();             
             }
             else {
-                throw new Exception("Aucun identifiant de l'activité envoyé", 1);   
+                throw new \Exception("Aucun identifiant de l'activité envoyé", 1);   
             }
         }
 
@@ -121,7 +121,7 @@ try {
 				$oneHotel->hotel();             
             }
             else {
-                throw new Exception("Aucun identifiant de l'activité envoyé", 1);   
+                throw new \Exception("Aucun identifiant de l'activité envoyé", 1);   
             }
         }
 
@@ -134,15 +134,15 @@ try {
 						$addNewOpinion->addActivityOpinion($_GET['id'], $_POST['content']);
                     }
                     else {
-                        throw new Exception("Tous les champs ne sont pas remplis");
+                        throw new \Exception("Tous les champs ne sont pas remplis");
                     }
                 }
                 else {
-                    throw new Exception("Veuillez vous connecter pour ajouter un avis.", 1);
+                    throw new \Exception("Veuillez vous connecter pour ajouter un avis.", 1);
                 }
             }
             else {
-                throw new Exception("Aucun identifiant d'activité envoyé");
+                throw new \Exception("Aucun identifiant d'activité envoyé");
             }
         }
 // Ajouter un avis à un hotel 
@@ -154,15 +154,15 @@ try {
 						$addNewOpinion->addHotelOpinion($_GET['id'], $_POST['content']);
                     }
                     else {
-                        throw new Exception("Tous les champs ne sont pas remplis");
+                        throw new \Exception("Tous les champs ne sont pas remplis");
                     }
                 }
                 else {
-                    throw new Exception("Veuillez vous connecter pour ajouter un avis.", 1);
+                    throw new \Exception("Veuillez vous connecter pour ajouter un avis.", 1);
                 }
             }
             else {
-                throw new Exception("Aucun identifiant d'hotel envoyé");
+                throw new \Exception("Aucun identifiant d'hotel envoyé");
             }
         } 
 
@@ -196,7 +196,7 @@ try {
 				$openProfileMember->openProfile();
         	}
         	else {
-        		throw new Exception("Veuillez vous connecter.", 1);
+        		throw new \Exception("Veuillez vous connecter.", 1);
         	}
         }
         if ($_GET['action'] == 'validProfile') {
@@ -220,19 +220,19 @@ try {
 							$validProfile->validProfile($destinationFile);
 						}
 						else {
-							throw new Exception("Cette extension n'est pas autorisée.", 1);
+							throw new \Exception("Cette extension n'est pas autorisée.", 1);
 						}
 				    }
 				    else {
-				    	throw new Exception("La taille ne l'image est trop volumineuse.", 1);
+				    	throw new \Exception("La taille ne l'image est trop volumineuse.", 1);
 				    }
 				}
 				else {
-					throw new Exception("Pas de nouvelle photo sélectionnée.", 1);
+					throw new \Exception("Pas de nouvelle photo sélectionnée.", 1);
 				}
         	}
         	else {
-        		throw new Exception("Veuillez vous connecter pour accéder à cette page.", 1);
+        		throw new \Exception("Veuillez vous connecter pour accéder à cette page.", 1);
         	}
         } 
 
@@ -249,7 +249,7 @@ try {
 				$adminMember->openAdmin();
             }
             else {
-                throw new Exception("Cette partie est réservée à l'administrateur", 1);
+                throw new \Exception("Cette partie est réservée à l'administrateur", 1);
             } 
         }
 
@@ -265,7 +265,7 @@ try {
 				$activitiesAdmin->openActivitiesAdmin();
 			}
 		    else {
-		    	throw new Exception("Cette partie est réservée à l'administrateur", 1);
+		    	throw new \Exception("Cette partie est réservée à l'administrateur", 1);
 		    }
 		} 											
 // Afficher le formulaire d'ajout d'une nouvelle activité
@@ -275,7 +275,7 @@ try {
 				$formNewActivity->openNewActivity(); 
             }
             else {
-                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+                throw new \Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         }  
 // Valider le formulaire d'ajout d'une nouvelle activité
@@ -298,27 +298,27 @@ try {
 									$validNewActivity->addActivity($destinationFile);
 							    }
 							    else {
-							    	throw new Exception("L'extension de l'image est incorrect", 1);
+							    	throw new \Exception("L'extension de l'image est incorrect", 1);
 							    }
 							}
 							else {
-								throw new Exception("La taille de l'image n'est pas bonne.", 1);
+								throw new \Exception("La taille de l'image n'est pas bonne.", 1);
 							}
 						} 
 						else {
-							throw new Exception("Veuillez entrer une image correctement.", 1);
+							throw new \Exception("Veuillez entrer une image correctement.", 1);
 						}
                 	}
                 	else {
-                		throw new Exception("Veuillez choisir une météo.", 1);
+                		throw new \Exception("Veuillez choisir une météo.", 1);
                 	}
                 }
                 else {
-                    throw new Exception("Veuillez ajouter une nouvelle activité.", 1);
+                    throw new \Exception("Veuillez ajouter une nouvelle activité.", 1);
                 }
             } 
             else {
-                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);    
+                throw new \Exception("Vous ne pouvez pas accéder à cette page.", 1);    
             }      
         } 
 
@@ -330,11 +330,11 @@ try {
 					$formChangeActivity->openChangeActivity();
                 }
                 else {
-                    throw new Exception("Aucun identifiant d'activité envoyé.", 1);
+                    throw new \Exception("Aucun identifiant d'activité envoyé.", 1);
                 } 
             }
             else {
-                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+                throw new \Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         } 
 // Valider le formulaire de modification d'une activité
@@ -345,11 +345,11 @@ try {
 					$validChangeActivity->changeActivity();		
                 } 
                 else {
-                	throw new Exception("Veuillez remplir les champs.", 1);
+                	throw new \Exception("Veuillez remplir les champs.", 1);
                 }
             }
             else {
-                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+                throw new \Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         } 
 // Modifier une image d'activité        
@@ -370,19 +370,19 @@ try {
 							$validChangeImg->changeImgActivity($_GET['id'], $destinationFile);
 						}
 						else {
-							throw new Exception("L'extension de l'image n'est pas correcte.", 1);
+							throw new \Exception("L'extension de l'image n'est pas correcte.", 1);
 						}
 					}
 					else {
-						throw new Exception("La taille de l'image est trop volumineuse.", 1);
+						throw new \Exception("La taille de l'image est trop volumineuse.", 1);
 					}
 				}
 				else {
-					throw new Exception("Insérez une image correctement.", 1);
+					throw new \Exception("Insérez une image correctement.", 1);
 				}
 			}
 			else {
-				throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+				throw new \Exception("Vous ne pouvez pas accéder à cette page.", 1);
 			}
 		} 
 // Modifier la météo recommandée
@@ -393,11 +393,11 @@ try {
 					$updateWeather->updateWeather();
 				}
 				else {
-					throw new Exception("Veuillez cliquer sur une météo.", 1);
+					throw new \Exception("Veuillez cliquer sur une météo.", 1);
 				}
 			}
 			else {
-				throw new Exception("Page réservée à l'administrateur.", 1);
+				throw new \Exception("Page réservée à l'administrateur.", 1);
 			}
 		} 
 		
@@ -409,11 +409,11 @@ try {
 					$delete->deleteActivity(); 
                 } 
                 else {
-                	throw new Exception("Erreur de suppression.", 1);
+                	throw new \Exception("Erreur de suppression.", 1);
                 }
             }
             else {
-                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+                throw new \Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }   
         } 
 
@@ -426,7 +426,7 @@ try {
 				$HotelsAdmin->openHotelsAdmin();
 			}
 		    else {
-		    	throw new Exception("Cette partie est réservée à l'administrateur", 1);
+		    	throw new \Exception("Cette partie est réservée à l'administrateur", 1);
 		    }
 		} 																		       											
 // Afficher le formulaire d'ajout d'un nouvel hotel
@@ -436,7 +436,7 @@ try {
 				$formNewHotel->openNewHotel(); 
             }
             else {
-                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+                throw new \Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         } 
 // Valider le formulaire d'ajout d'un nouvel hotel 
@@ -466,23 +466,23 @@ try {
 								$validNewHotel->addHotel($services, $destinationFile);
 							} 
 							else {
-								throw new Exception("L'extension de l'image n'est pas correcte.", 1);
+								throw new \Exception("L'extension de l'image n'est pas correcte.", 1);
 							}
 						} 
 						else {
-							throw new Exception("La taille de l'image est trop volumineuse.", 1);
+							throw new \Exception("La taille de l'image est trop volumineuse.", 1);
 						}
 					}
 					else {
-						throw new Exception("Insérer votre image correctement.", 1);
+						throw new \Exception("Insérer votre image correctement.", 1);
 					}
                 }
                 else {
-                    throw new Exception("Veuillez ajouter un nouvel hôtel.", 1);
+                    throw new \Exception("Veuillez ajouter un nouvel hôtel.", 1);
                 }
             } 
             else {
-                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);    
+                throw new \Exception("Vous ne pouvez pas accéder à cette page.", 1);    
             }      
         } 
 // Afficher formulaire de modification d'un hotel 
@@ -493,11 +493,11 @@ try {
 					$formChangeHotel->openChangeHotel();
                 }
                 else {
-                    throw new Exception("Aucun identifiant d'activité envoyé.", 1);
+                    throw new \Exception("Aucun identifiant d'activité envoyé.", 1);
                 } 
             }
             else {
-                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+                throw new \Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         } 
 // Valider le formulaire de modification d'un hotel
@@ -508,11 +508,11 @@ try {
 					$validChangeHotel->changeHotel();		
                 } 
                 else {
-                	throw new Exception("Veuillez remplir les champs.", 1);
+                	throw new \Exception("Veuillez remplir les champs.", 1);
                 }
             }
             else {
-                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+                throw new \Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         }
 // Modifier l'image d'un hotel        
@@ -533,19 +533,19 @@ try {
 							$validChangeImg->changeImgHotel($_GET['id'], $destinationFile);
 						}
 						else {
-							throw new Exception("L'extension de l'image n'est pas correcte.", 1);
+							throw new \Exception("L'extension de l'image n'est pas correcte.", 1);
 						}
 					}
 					else {
-						throw new Exception("La taille de l'image est trop volumineuse.", 1);
+						throw new \Exception("La taille de l'image est trop volumineuse.", 1);
 					}
 				}
 				else {
-					throw new Exception("Insérez une image correctement.", 1);
+					throw new \Exception("Insérez une image correctement.", 1);
 				}
 			}
 			else {
-				throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+				throw new \Exception("Vous ne pouvez pas accéder à cette page.", 1);
 			}
 		} 
 // Modifier les services d'un hotel 
@@ -569,11 +569,11 @@ try {
 					$delete->deleteHotel(); 
                 } 
                 else {
-                	throw new Exception("Erreur de suppression.", 1);
+                	throw new \Exception("Erreur de suppression.", 1);
                 }
             }
             else {
-                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+                throw new \Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }   
         }  
 
@@ -586,7 +586,7 @@ try {
 				$ReportsAdmin->openReportsAdmin();
 			}
 		    else {
-		    	throw new Exception("Cette partie est réservée à l'administrateur", 1);
+		    	throw new \Exception("Cette partie est réservée à l'administrateur", 1);
 		    }
 		} 
 // Retirer le signalement d'un avis
@@ -597,11 +597,11 @@ try {
 					$deleteReportOpinion->deleteReport();
                 } 
                 else {
-                	throw new Exception("Problème avec l'identifiant de l'avis.", 1);
+                	throw new \Exception("Problème avec l'identifiant de l'avis.", 1);
                 }
             }
             else {
-                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+                throw new \Exception("Vous ne pouvez pas accéder à cette page.", 1);
             }
         } 
 
@@ -613,11 +613,11 @@ try {
 					$deleteOpinion->deleteOpinion();
 	            } 
 	            else {
-	            	throw new Exception("Problème avec l'identifiant de l'avis.", 1);
+	            	throw new \Exception("Problème avec l'identifiant de l'avis.", 1);
 	            }
             }
             else {
-                throw new Exception("Vous ne pouvez pas accéder à cette page.", 1);
+                throw new \Exception("Vous ne pouvez pas accéder à cette page.", 1);
             } 
         } 
 	}
