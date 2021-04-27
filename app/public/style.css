@@ -197,7 +197,7 @@ a.a-session:hover
 
 
 /* PARTIE BIOGRAPHIE / HISTOIRE */
-#h1-accueil
+#h1-home
 {
 	font-family: 'Single Day', cursive;
 	top: 200px;
@@ -222,6 +222,7 @@ a.a-session:hover
 	margin-top: 50px;
 	padding: 50px 100px 50px 100px;	
 }
+/* METEO */
 #div-weather /* Bloc avec la météo */
 {
 	margin: 20px;
@@ -232,6 +233,10 @@ a.a-session:hover
 #icon-weather
 {
 	width: 100px;
+}
+ul.pagination 
+{
+    flex-wrap: wrap;
 }
 
 #block-activities, #block-hotels
@@ -249,7 +254,6 @@ a.a-session:hover
 	border: 1px solid transparent;
 	box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
 }
-
 .img-home
 {
 	width: 330px;
@@ -263,6 +267,15 @@ a.a-session:hover
 	justify-content: center;
 	align-items: center;
 	padding: 10px;
+}
+.titles-home
+{
+	text-decoration: none;
+	color: #000000;
+}
+.titles-home:hover
+{
+	color: #000000;
 }
 #h2-home /* Titre : liste complète des activités */
 {

@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 <div id="banner1"></div>
-<h1 id="h1-accueil">DECOUVERTE DE LA NOUVELLE CALEDONIE</h1>
+<h1 id="h1-home">DECOUVERTE DE LA NOUVELLE CALEDONIE</h1>
 
 <section>
     <div class="container">
@@ -20,7 +20,11 @@
     <div class="container" id="block-activities">
         <div class="row">
             <div class="col">
-                <h1>VIVRE LA NOUVELLE CALEDONIE</h1>
+                <a href="index.php?action=listActivities">
+                   <h1 class="titles-home">VIVRE LA NOUVELLE CALEDONIE</h1> 
+                </a>
+
+                
                     <div id="div-weather">
                         <h2>ACTIVITES DU JOUR : <img src="" alt="Météo du jour" id="icon-weather"> <!-- Pout afficher icon de la météo --></h2>
                             <div id="div-activity-weather">
@@ -117,7 +121,9 @@
     <div class="container" id="block-hotels">
         <div class="row">
             <div class="col">
-                <h1>SE LOGER SUR L'ILE</h1>
+                <a href="index.php?action=listHotels">
+                  <h1 class="titles-home">SE LOGER SUR L'ILE</h1>  
+                </a>
                 <?php
                 while ($dataHotel = $hotels->fetch())
                 {
