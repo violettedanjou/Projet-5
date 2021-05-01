@@ -22,18 +22,18 @@ ob_start(); ?>
 
 			    	<div class="news-img-text">
 			    		<div class="col-lg-6">
-			    			<img class="img-admin" src="<?= $data['picture'] ?>" alt="Hotel <?= htmlspecialchars($data['name']) ?>">
+			    			<img class="img-admin" src="<?= $data['picture'] ?>" alt="Hotel <?= htmlspecialchars_decode($data['name']) ?>">
 			    		</div>
 			    		
 			    		<div class="col-lg-6">
 			    			<div class="news-text-admin">
 					    		<h3>
 						        	<a href="index.php?action=hotel&amp;id=<?= $data['id'] ?>">
-						            	<?= htmlspecialchars($data['name']) ?>
+						            	<?= htmlspecialchars_decode($data['name']) ?>
 						            </a>
 					        	</h3>
 
-					       		<p><?= nl2br(htmlspecialchars($data['content'])) ?> <br/></p>
+					       		<p><?= nl2br(htmlspecialchars_decode($data['content'])) ?> <br/></p>
 					    	</div>
 			    		</div>
 				    	

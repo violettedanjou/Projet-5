@@ -45,12 +45,12 @@ ob_start(); ?>
 			
 				<div class="news-useful">
 					<h4>
-			            <em>Le <?= htmlspecialchars($data['opinion_date_fr']) ?></em>
-						<?= htmlspecialchars($data['id']) ?> <br/>
+			            <em>Le <?= htmlspecialchars_decode($data['opinion_date_fr']) ?></em>
+						<?= htmlspecialchars_decode($data['id']) ?> <br/>
 			        </h4>
 
 					<div id="p-useful">
-						<?= nl2br(htmlspecialchars($data['content'])) ?>
+						<?= nl2br(htmlspecialchars_decode($data['content'])) ?>
 					</div>
 
 				</div>

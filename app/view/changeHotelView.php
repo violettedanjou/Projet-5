@@ -22,16 +22,16 @@ ob_start(); ?>
                     </h3>
                                 
                     <div class="p-content-location">
-                        <span class="span-hotel-content"><?= nl2br(htmlspecialchars($change['content'])); ?><br/></span>
-                        <span class="span-location-icon"><i class="fas fa-map-marker-alt"></i><?= nl2br(htmlspecialchars($change['location'])); ?></span>
+                        <span class="span-hotel-content"><?= nl2br(htmlspecialchars_decode($change['content'])); ?><br/></span>
+                        <span class="span-location-icon"><i class="fas fa-map-marker-alt"></i><?= nl2br(htmlspecialchars_decode($change['location'])); ?></span>
                     </div>
 
                     <div class="p-rooms">
-                        <?= nl2br(htmlspecialchars($change['rooms'])); ?><br/>
+                        <?= nl2br(htmlspecialchars_decode($change['rooms'])); ?><br/>
                     </div>
 
                     <div class="p-prices">
-                        <?= nl2br(htmlspecialchars($change['prices'])); ?>
+                        <?= nl2br(htmlspecialchars_decode($change['prices'])); ?>
                     </div>
                 </div> 
             </div>
@@ -43,13 +43,13 @@ ob_start(); ?>
                     <h6>Nom de l'hotel</h6>
                     <input class="title-change" type="text" name="name" value="<?= htmlspecialchars($change['name'])?>"/><br/>
                     <h6>Description des l'hotel</h6>
-                    <textarea id="content-change" name="content"><?= htmlspecialchars($change['content'])?></textarea><br/>
+                    <textarea id="content-change" name="content"><?= htmlspecialchars_decode($change['content'])?></textarea><br/>
                     <h6>Localisation</h6>
-                    <textarea id="location-change" name="location"><?= htmlspecialchars($change['location'])?></textarea><br/>
+                    <textarea id="location-change" name="location"><?= htmlspecialchars_decode($change['location'])?></textarea><br/>
                     <h6>Description des chambres</h6>
-                    <textarea id="rooms-change" name="rooms"><?= htmlspecialchars($change['rooms'])?></textarea><br/>
+                    <textarea id="rooms-change" name="rooms"><?= htmlspecialchars_decode($change['rooms'])?></textarea><br/>
                     <h6>Prix des chambres</h6>
-                    <textarea id="prices-change" name="prices"><?= htmlspecialchars($change['prices'])?></textarea><br/>
+                    <textarea id="prices-change" name="prices"><?= htmlspecialchars_decode($change['prices'])?></textarea><br/>
                     <input type="submit" value="Enregistrer" id="button-change-activity" />
               </form>
             </div>

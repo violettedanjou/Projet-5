@@ -41,11 +41,11 @@
                                            <div class="news-text">
                                                 <h3>
                                                     <a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">
-                                                        <?= htmlspecialchars($dataWeather['title']) ; ?>
+                                                        <?= htmlspecialchars_decode($dataWeather['title']) ; ?>
                                                         <br/>
                                                     </a>
                                                 </h3>
-                                                <p><?= nl2br(htmlspecialchars($dataWeather['content'])) ?></p>
+                                                <p><?= nl2br(htmlspecialchars_decode($dataWeather['content'])) ?></p>
                                                                
                                                 <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">Avis</a></em>
                                             </div> 
@@ -96,11 +96,11 @@
                                         <div class="news-text">
                                             <h3>
                                                 <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
-                                                    <?= htmlspecialchars($data['title']) ; ?>
+                                                    <?= htmlspecialchars_decode($data['title']) ; ?>
                                                     <br/>
                                                 </a>
                                             </h3>
-                                            <div><?= nl2br(htmlspecialchars($data['content'])) ?></div>
+                                            <div><?= nl2br(htmlspecialchars_decode($data['content'])) ?></div>
                                     </div>
                                            
                                         <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">Avis</a></em>
@@ -137,11 +137,11 @@
                             <div class="news-text">
                                 <h3>
                                     <a href="index.php?action=hotel&amp;id=<?= $dataHotel['id'] ?>">
-                                        <?= htmlspecialchars($dataHotel['name']) ?>
+                                        <?= htmlspecialchars_decode($dataHotel['name']) ?>
                                         <br/>
                                     </a>
                                 </h3>
-                                <p><?= nl2br(htmlspecialchars($dataHotel['content'])) ?></p>
+                                <p><?= nl2br(htmlspecialchars_decode($dataHotel['content'])) ?></p>
                         </div>
                                
                             <em class="link-opinions"><a href="index.php?action=hotel&amp;id=<?= $dataHotel['id'] ?>">Avis</a></em>

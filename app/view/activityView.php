@@ -33,7 +33,7 @@ ob_start(); ?>
 	                    </h3>
 	                        
 	                    <p>
-	                        <?= nl2br(htmlspecialchars($activity['content'])) ?>
+	                        <?= nl2br(htmlspecialchars_decode($activity['content'])) ?>
 	                    </p>
 	                </div> 
 	            </div>
@@ -82,11 +82,11 @@ ob_start(); ?>
 							while ($opinion = $opinionsActivity->fetch()) : ?>
 								<div id="one-opinion">
 								    <h4>
-								    	<p><strong><?= htmlspecialchars($opinion['pseudo']) ?></strong> le <?= htmlspecialchars($opinion['opinion_date_fr']) ?></p> <!-- On récupère le pseudo et la date de l'avis -->
+								    	<p><strong><?= htmlspecialchars_decode($opinion['pseudo']) ?></strong> le <?= htmlspecialchars_decode($opinion['opinion_date_fr']) ?></p> <!-- On récupère le pseudo et la date de l'avis -->
 								    </h4>
 
 								    <p>
-								    	<?= nl2br(htmlspecialchars($opinion['content'])) ?> <!-- On récupère le contenu de l'avis -->
+								    	<?= nl2br(htmlspecialchars_decode($opinion['content'])) ?> <!-- On récupère le contenu de l'avis -->
 								    </p>
 								
 

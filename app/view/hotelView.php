@@ -31,8 +31,8 @@ ob_start(); ?>
 		                </h3>
 		                        
 		                <div class="div-content-location">
-		                    <span class="span-hotel-content"><?= nl2br(htmlspecialchars($hotel['content'])); ?><br/></span>
-		                    <span class="span-location-icon"><i class="fas fa-map-marker-alt"></i><?= nl2br(htmlspecialchars($hotel['location'])); ?></span>
+		                    <span class="span-hotel-content"><?= nl2br(htmlspecialchars_decode($hotel['content'])); ?><br/></span>
+		                    <span class="span-location-icon"><i class="fas fa-map-marker-alt"></i><?= nl2br(htmlspecialchars_decode($hotel['location'])); ?></span>
 		                </div>
 		                <div class="div-services">
 		                	<h4>Services de l'hotel</h4>
@@ -103,10 +103,10 @@ ob_start(); ?>
 		                	?><br/>
 		                </div>
 		                <div class="div-rooms">
-		                    <?= nl2br(htmlspecialchars($hotel['rooms'])); ?><br/>
+		                    <?= nl2br(htmlspecialchars_decode($hotel['rooms'])); ?><br/>
 		                </div>
 		                <div class="div-prices">
-		                    <?= nl2br(htmlspecialchars($hotel['prices'])); ?>
+		                    <?= nl2br(htmlspecialchars_decode($hotel['prices'])); ?>
 		                </div>
 		            </div> 
 	            </div><br/>
@@ -154,11 +154,11 @@ ob_start(); ?>
 						<?php	while ($opinion = $opinionsHotel->fetch()) : ?>
 								<div id="one-opinion">
 								    <h4>
-								    	<p><strong><?= htmlspecialchars($opinion['pseudo']) ?></strong> le <?= htmlspecialchars($opinion['opinion_date_fr']) ?></p> <!-- On récupère le pseudo et la date de l'avis -->
+								    	<p><strong><?= htmlspecialchars_decode($opinion['pseudo']) ?></strong> le <?= htmlspecialchars_decode($opinion['opinion_date_fr']) ?></p> <!-- On récupère le pseudo et la date de l'avis -->
 								    </h4>
 
 								    <p>
-								    	<?= nl2br(htmlspecialchars($opinion['content'])) ?> <!-- On récupère le contenu de l'avis -->
+								    	<?= nl2br(htmlspecialchars_decode($opinion['content'])) ?> <!-- On récupère le contenu de l'avis -->
 								    </p>
 								
 

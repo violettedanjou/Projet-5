@@ -8,7 +8,7 @@
 			<div class="col">
 				<h2>PROFILE</h2>
 					<div id="block-profile">
-						<p><span id="span-profile">NOM : </span><?= htmlspecialchars($_SESSION['pseudo'])?></p>
+						<p><span id="span-profile">NOM : </span><?= htmlspecialchars_decode($_SESSION['pseudo'])?></p>
 
 						<?php $profile = $profileManager->fetch(); ?>
 							<img id="img-profile" src="<?= $profile['picture']?>" alt="Image de profile">

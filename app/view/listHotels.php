@@ -34,11 +34,11 @@ ob_start(); ?>
                             <div class="news-text">
                                 <h3>
                                     <a href="index.php?action=hotel&amp;id=<?= $data['id'] ?>">
-                                        <?= htmlspecialchars($data['name']) ?>
+                                        <?= htmlspecialchars_decode($data['name']) ?>
                                         <br/>
                                     </a>
                                 </h3>
-                                <p><?= nl2br(htmlspecialchars($data['content'])) ?></p>
+                                <p><?= nl2br(htmlspecialchars_decode($data['content'])) ?></p>
                                    
                                 <em class="link-opinions"><a href="index.php?action=hotel&amp;id=<?= $data['id'] ?>">Avis</a></em>
                             </div>
