@@ -6,19 +6,31 @@ use app\model\MemberManager;
 use app\model\ActivitiesManager;
 use app\model\HotelsManager;
 use app\model\OpinionsManager;
+use app\tools\TinyMCETools;
 
 class controller_back
 {
+	function __construct()
+	{
+		$this->tinyMCETools = new TinyMCETools();
+	}
 	function insert() // Insérer un nouveau membre
 	{
 		$memberManager = new MemberManager();
 		$pseudoExist = $memberManager->verifyPseudo($_POST['pseudo']);
+		$emailExist = $memberManager->verifyEmail($_POST['email']);
     
-		$nbrResult = $pseudoExist->rowCount();
-		if ($nbrResult == 0) {
-		    $memberManager = new MemberManager();
-		    $newMember = $memberManager->insertMember($_POST['pseudo'], $_POST['pass'], $_POST['email']);
-		    header('Location: index.php?action=openSignin');	
+		$nbrResultPseudo = $pseudoExist->rowCount();
+		$nbrResultEmail = $emailExist->rowCount();
+		if ($nbrResultPseudo == 0) {
+			if ($nbrResultEmail == 0) {
+				$memberManager = new MemberManager();
+		    	$newMember = $memberManager->insertMember($_POST['pseudo'], $_POST['pass'], $_POST['email']);
+		    	header('Location: index.php?action=openSignin');
+			}
+			else {
+				throw new \Exception("Email déjà utilisez. Essayez autre chose.", 1);
+			}
 		}
 		else {
 			throw new \Exception("Le pseudo est déjà utilisé. Essayez autre chose.", 1);
@@ -108,7 +120,7 @@ class controller_back
 			$weather = 0;
 		}
 		$newActivityManager = new ActivitiesManager();
-		$newActivity = $newActivityManager->addNewActivity($_POST['title'], $_POST['content'], $weather, $destinationFile);
+		$newActivity = $newActivityManager->addNewActivity($_POST['title'], $this->tinyMCETools->clean($_POST['content']), $weather, $destinationFile);
 
 		header('Location: index.php?action=openActivitiesAdmin');
 	}
@@ -116,7 +128,7 @@ class controller_back
 	function addHotel($services, $destinationFile) // Ajouter un nouvel hotel
 	{
 		$newHotelManager = new HotelsManager();
-		$newHotel = $newHotelManager->addNewHotel($_POST['name'], $_POST['content'], $_POST['location'], $_POST['rooms'], $_POST['prices'], $services, $destinationFile);
+		$newHotel = $newHotelManager->addNewHotel($_POST['name'], $this->tinyMCETools->clean($_POST['content']), $this->tinyMCETools->clean($_POST['location']), $this->tinyMCETools->clean($_POST['rooms']), $this->tinyMCETools->clean($_POST['prices']), $services, $destinationFile);
 
 		header('Location: index.php?action=openHotelsAdmin');
 	}	
@@ -127,7 +139,7 @@ class controller_back
 	function changeActivity() // Modification d'une activité
 	{
 		$saveManager = new ActivitiesManager();
-		$save = $saveManager->saveActivity($_POST['id'], $_POST['title'], $_POST['content']);
+		$save = $saveManager->saveActivity($_POST['id'], $_POST['title'], $this->tinyMCETools->clean($_POST['content']));
 
 		header('Location: index.php?action=openActivitiesAdmin');
 	}
@@ -160,7 +172,7 @@ class controller_back
 	function changeHotel() // Modification d'un hotel
 	{
 		$saveManager = new HotelsManager();
-		$save = $saveManager->saveHotel($_POST['id'], $_POST['name'], $_POST['content'], $_POST['location'], $_POST['rooms'], $_POST['prices']);
+		$save = $saveManager->saveHotel($_POST['id'], $_POST['name'], $this->tinyMCETools->clean($_POST['content']), $this->tinyMCETools->clean($_POST['location']), $this->tinyMCETools->clean($_POST['rooms']), $this->tinyMCETools->clean($_POST['prices']));
 
 		header('Location: index.php?action=openHotelsAdmin');
 	}

@@ -22,7 +22,7 @@ ob_start(); ?>
 
 			    	<div class="news-img-text">
 			    		<div class="col-lg-6">
-			    			<img class="img-admin" src="<?= $data['picture'] ?>" alt="Hotel <?= $data['name'] ?>">
+			    			<img class="img-admin" src="<?= $data['picture'] ?>" alt="Hotel <?= htmlspecialchars($data['name']) ?>">
 			    		</div>
 			    		
 			    		<div class="col-lg-6">
@@ -33,7 +33,7 @@ ob_start(); ?>
 						            </a>
 					        	</h3>
 
-					       		<p><?= nl2br($data['content']) ?> <br/></p>
+					       		<p><?= nl2br(htmlspecialchars($data['content'])) ?> <br/></p>
 					    	</div>
 			    		</div>
 				    	

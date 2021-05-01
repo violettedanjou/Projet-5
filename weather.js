@@ -19,8 +19,3 @@ class Weather {
 		})
 	}
 }
-
-
-
-
-

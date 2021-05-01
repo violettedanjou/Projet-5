@@ -21,10 +21,9 @@
         <div class="row">
             <div class="col">
                 <a href="index.php?action=listActivities">
-                   <h1 class="titles-home">VIVRE LA NOUVELLE CALEDONIE</h1> 
+                   <h2 class="titles-home">VIVRE LA NOUVELLE CALEDONIE</h2> 
                 </a>
 
-                
                     <div id="div-weather">
                         <h2>ACTIVITES DU JOUR : <img src="" alt="Météo du jour" id="icon-weather"> <!-- Pout afficher icon de la météo --></h2>
                             <div id="div-activity-weather">
@@ -46,7 +45,7 @@
                                                         <br/>
                                                     </a>
                                                 </h3>
-                                                <p><?= nl2br($dataWeather['content']) ?></p>
+                                                <p><?= nl2br(htmlspecialchars($dataWeather['content'])) ?></p>
                                                                
                                                 <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">Avis</a></em>
                                             </div> 
@@ -63,7 +62,7 @@
                                 <nav> <!-- Pagination -->
                                     <ul class="pagination">
                                         <li class="page-item <?= ($currentPageWeather == 1) ? "disabled" : "" ?>">
-                                                <a href="./?action=listActivitiesHotels&amp;page=<?= $currentPageWeather - 1 ?>" class="page-link">Precedente</a>
+                                            <a href="./?action=listActivitiesHotels&amp;page=<?= $currentPageWeather - 1 ?>" class="page-link">Precedente</a>
                                         </li>
 
                                         <?php for($page = 1; $page <= $pagesWeather; $page++): ?>
@@ -101,7 +100,7 @@
                                                     <br/>
                                                 </a>
                                             </h3>
-                                            <p><?= nl2br($data['content']) ?></p>
+                                            <div><?= nl2br(htmlspecialchars($data['content'])) ?></div>
                                     </div>
                                            
                                         <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">Avis</a></em>
@@ -123,7 +122,7 @@
         <div class="row">
             <div class="col">
                 <a href="index.php?action=listHotels">
-                  <h1 class="titles-home">SE LOGER SUR L'ILE</h1>  
+                    <h2 class="titles-home">SE LOGER SUR L'ILE</h2>  
                 </a>
                 <?php
                 while ($dataHotel = $hotels->fetch()) : ?>
@@ -142,7 +141,7 @@
                                         <br/>
                                     </a>
                                 </h3>
-                                <p><?= nl2br(($dataHotel['content'])) ?></p>
+                                <p><?= nl2br(htmlspecialchars($dataHotel['content'])) ?></p>
                         </div>
                                
                             <em class="link-opinions"><a href="index.php?action=hotel&amp;id=<?= $dataHotel['id'] ?>">Avis</a></em>

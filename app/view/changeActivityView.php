@@ -14,14 +14,14 @@ ob_start(); ?>
             </p>
 
             <div class="news-img-text">
-                <img src="<?= $changeActivity['picture'] ?>" alt="Activité sportive ou culturelle proposée par le site">
+                <img src="<?= $changeActivity['picture'] ?>" alt="Activite : <?= htmlspecialchars($changeActivity['title']); ?>">
                 <div class="news-text-admin">
                     <h3>
                         <?= htmlspecialchars($changeActivity['title']); ?>
                     </h3>
                         
                     <p>
-                        <?= nl2br($changeActivity['content']) ?>
+                        <?= nl2br(htmlspecialchars($changeActivity['content'])) ?>
                     </p>
                 </div> 
             </div>
@@ -29,11 +29,11 @@ ob_start(); ?>
             <div class="form-change">
                 <form action="index.php?action=validChangeActivity" method="POST">
                     <h2>Modifier l'activite</h2>
-                    <input type="hidden" name="id" value="<?= $changeActivity['id']?>">
+                    <input type="hidden" name="id" value="<?= htmlspecialchars($changeActivity['id'])?>">
                     <h6>Titre</h6>
-                    <input class="title-change" type="text" name="title" value="<?= $changeActivity['title']?>"/><br/>
+                    <input class="title-change" type="text" name="title" value="<?= htmlspecialchars($changeActivity['title'])?>"/><br/>
                     <h6>Description de l'activité</h6>
-                    <textarea id="content-change" name="content"><?= $changeActivity['content']?></textarea><br/>
+                    <textarea id="content-change" name="content"><?= htmlspecialchars($changeActivity['content'])?></textarea><br/>
                     <input type="submit" value="Enregistrer" id="button-change-activity" />
                 </form>
             </div>
@@ -76,8 +76,6 @@ ob_start(); ?>
         </div>
     </div>
 </div>
-
-
 
 <?php $content = ob_get_clean(); 
 require('app/view/template.php');

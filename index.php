@@ -21,9 +21,9 @@ try {
 	    }
 		// on traite le formulaire
 	    elseif ($_GET['action'] == 'validSignup') {  
-	        if ((isset($_POST['pseudo']) AND (strlen($_POST['pseudo']) != 0))) {
+	        if (isset($_POST['pseudo']) AND strlen($_POST['pseudo']) != 0) {
 
-	            if ((isset($_POST['pass']) == isset($_POST['pass_confirm']))) {
+	            if (isset($_POST['pass']) == isset($_POST['pass_confirm'])) {
 
 	                if ((isset($_POST['email']))) {
 	                    $_POST['email'] = htmlspecialchars($_POST['email']);

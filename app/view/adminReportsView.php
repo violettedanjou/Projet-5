@@ -17,13 +17,13 @@ ob_start(); ?>
 			while ($data = $admin->fetch()) : ?>
 				<div class="news-report">
 					<h4>
-			            <em>Le <?= $data['opinion_date_fr'] ?></em>
-						<?= $data['id'] ?> <br/>
+			            <em>Le <?= htmlspecialchars($data['opinion_date_fr']) ?></em>
+						<?= htmlspecialchars($data['id']) ?> <br/>
 			        </h4>
 
 					<div id="p-reports">
 						<em><a class="link-report-remove" href="index.php?action=deleteReport&amp;id=<?= $data['id'] ?>">Retirer le signalement</a></em>
-						<?= nl2br(($data['content'])) ?>
+						<?= nl2br(htmlspecialchars($data['content'])) ?>
 						<em><a class="link-delete-opinion" href="index.php?action=deleteOpinion&amp;id=<?= $data['id'] ?>">Supprimer l'avis</a></em>
 					</div>
 

@@ -7,6 +7,22 @@ use app\model\Manager;
 class MemberManager extends Manager 
 {
     // PAGE INSCRIPTION
+    public function verifyPseudo($pseudo) // Vérification du pseudo existant avant de valider l'inscription
+    {
+        $db = $this->dbConnect();
+        $req = $db->query("SELECT pseudo FROM members WHERE pseudo = '" . $pseudo . "'"); 
+        $req->execute();
+
+        return $req;
+    }
+    public function verifyEmail($email) // Vérification du pseudo existant
+    {
+        $db = $this->dbConnect();
+        $req = $db->query("SELECT email FROM members WHERE email = '" . $email . "'"); 
+        $req->execute();
+
+        return $req;
+    }
     public function insertMember($pseudo, $pass, $email) // Inscription
     {
         $db = $this->dbConnect();
@@ -18,14 +34,7 @@ class MemberManager extends Manager
     }
 
     // PAGE CONNEXION
-    public function verifyPseudo($pseudo) // Vérification du pseudo existant
-    {
-        $db = $this->dbConnect();
-        $req = $db->query("SELECT pseudo FROM members WHERE pseudo = '" . $pseudo . "'"); 
-        $req->execute();
 
-        return $req;
-    }
     public function connectMember($pseudo) // Récupération de l'utilisateur déjà inscrit 
     {
         $db = $this->dbConnect();

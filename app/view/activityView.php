@@ -33,7 +33,7 @@ ob_start(); ?>
 	                    </h3>
 	                        
 	                    <p>
-	                        <?= nl2br($activity['content']) ?>
+	                        <?= nl2br(htmlspecialchars($activity['content'])) ?>
 	                    </p>
 	                </div> 
 	            </div>
@@ -45,7 +45,7 @@ ob_start(); ?>
 							<form id="form-add-opinion" action="index.php?action=addActivityOpinion&amp;id=<?= $activity['id'] ?>" method="post">
 								<h3>Ajouter un avis</h3>
 							    <div>
-							        <label for="content"></label><br /><textarea name="content"></textarea>
+							        <label for="content"></label><br /><textarea name="content" minlength="10"></textarea>
 							    </div>
 								<div>
 									<input type="submit" id="button_add_opinion" />
@@ -82,11 +82,11 @@ ob_start(); ?>
 							while ($opinion = $opinionsActivity->fetch()) : ?>
 								<div id="one-opinion">
 								    <h4>
-								    	<p><strong><?= htmlspecialchars($opinion['pseudo']) ?></strong> le <?= $opinion['opinion_date_fr'] ?></p> <!-- On récupère le pseudo et la date de l'avis -->
+								    	<p><strong><?= htmlspecialchars($opinion['pseudo']) ?></strong> le <?= htmlspecialchars($opinion['opinion_date_fr']) ?></p> <!-- On récupère le pseudo et la date de l'avis -->
 								    </h4>
 
 								    <p>
-								    	<?= nl2br(($opinion['content'])) ?> <!-- On récupère le contenu de l'avis -->
+								    	<?= nl2br(htmlspecialchars($opinion['content'])) ?> <!-- On récupère le contenu de l'avis -->
 								    </p>
 								
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr-fr">
 <head>
-	<meta charset="utf-8" />
+	<meta charset="utf-8"/>
 
 	<link rel= "preconnect" href="https://fonts.gstatic.com"> <!-- Police -->
 	<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
@@ -64,10 +64,10 @@
 	   	<?= $content ?>
     </div>
 
-	<footer>
-    	<p> Copyright © Violette Danjou - 2021. Tous droits réservés</p>
-    </footer>
+<footer>
+    <p> Copyright © Violette Danjou - 2021. Tous droits réservés</p>
+</footer>
 
-    <script>tinymce.init({selector:'textarea'});</script>
+   <script>tinymce.init({selector:'textarea'});</script>
 </body>
 </html>
