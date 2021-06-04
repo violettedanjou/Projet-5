@@ -20,9 +20,9 @@ ob_start(); ?>
                         <?= htmlspecialchars_decode($changeActivity['title']); ?>
                     </h3>
                         
-                    <p>
+                    <div>
                         <?= nl2br(htmlspecialchars_decode($changeActivity['content'])) ?>
-                    </p>
+                    </div>
                 </div> 
             </div>
 

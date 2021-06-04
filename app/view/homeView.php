@@ -45,7 +45,7 @@
                                                         <br/>
                                                     </a>
                                                 </h3>
-                                                <p><?= nl2br(htmlspecialchars_decode($dataWeather['content'])) ?></p>
+                                                <div><?= nl2br(htmlspecialchars_decode($dataWeather['content'])) ?></div>
                                                                
                                                 <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $dataWeather['id'] ?>">Avis</a></em>
                                             </div> 
@@ -87,7 +87,7 @@
                         while ($data = $activities->fetch()) : ?>
                                 <div class="news">
                                     <div class="col-lg-6">
-                                       <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
+                                        <a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">
                                             <img class="img-home" src="<?= $data['picture'] ?>" alt="Photo de l'activite <?= $data['title'] ?>">
                                         </a> 
                                     </div>
@@ -141,7 +141,7 @@
                                         <br/>
                                     </a>
                                 </h3>
-                                <p><?= nl2br(htmlspecialchars_decode($dataHotel['content'])) ?></p>
+                                <div><?= nl2br(htmlspecialchars_decode($dataHotel['content'])) ?></div>
                         </div>
                                
                             <em class="link-opinions"><a href="index.php?action=hotel&amp;id=<?= $dataHotel['id'] ?>">Avis</a></em>

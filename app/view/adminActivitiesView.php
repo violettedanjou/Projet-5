@@ -36,7 +36,7 @@ ob_start(); ?>
 							            </a>
 						        	</h3>
 
-						       		<p><?= nl2br(htmlspecialchars_decode($data['content'])) ?> <br/></p>
+						       		<div><?= nl2br(htmlspecialchars_decode($data['content'])) ?> <br/></div>
 						    	</div>
 			    			</div>
 					    	

@@ -16,6 +16,8 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> <!-- Bootstrap -->
 
 	<meta name="viewport" content="width=device-width"> <!-- Meta tags -->
+	<meta property="og:site_name" content="Site de l'office de tourisme de Nouvelle Calédonie">
+	<meta property="og:image" content="https://cdn.pixabay.com/photo/2017/06/08/11/01/south-sea-2383322_1280.jpg">
 	<meta name="author" content="Violette Danjou">
 	<meta name="subject" content="Office de Tourisme (fictif) - Nouvelle Calédonie">
 	<meta name="description" content="Retrouvez toutes les activités et les hôtels de la Nouvelle-Calédonie. Vivez une aventure exceptionnelle au coeur du Pacifique.">

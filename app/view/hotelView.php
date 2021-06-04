@@ -157,9 +157,9 @@ ob_start(); ?>
 								    	<p><strong><?= htmlspecialchars_decode($opinion['pseudo']) ?></strong> le <?= htmlspecialchars_decode($opinion['opinion_date_fr']) ?></p> <!-- On récupère le pseudo et la date de l'avis -->
 								    </h4>
 
-								    <p>
+								    <div>
 								    	<?= nl2br(htmlspecialchars_decode($opinion['content'])) ?> <!-- On récupère le contenu de l'avis -->
-								    </p>
+								    </div>
 								
 
 							 		<?php 	

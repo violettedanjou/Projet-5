@@ -37,7 +37,7 @@ ob_start(); ?>
                                         <br/>
                                     </a>
                                 </h3>
-                                    <p><?= nl2br(htmlspecialchars_decode($data['content'])) ?></p>
+                                    <div><?= nl2br(htmlspecialchars_decode($data['content'])) ?></div>
                                            
                                     <em class="link-opinions"><a href="index.php?action=activity&amp;id=<?= $data['id'] ?>">Avis</a></em>
                             </div>

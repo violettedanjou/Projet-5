@@ -32,9 +32,9 @@ ob_start(); ?>
 	                        <?= $title ?>
 	                    </h3>
 	                        
-	                    <p>
+	                    <div>
 	                        <?= nl2br(htmlspecialchars_decode($activity['content'])) ?>
-	                    </p>
+	                    </div>
 	                </div> 
 	            </div>
             </div><br/>
